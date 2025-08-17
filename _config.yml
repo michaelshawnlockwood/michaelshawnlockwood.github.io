@@ -1,0 +1,11 @@
+title: My GitHub Pages Site
+description: A simple Jekyll site built on GitHub Pages
+baseurl: "" 
+url: "https://michaelshawnlockwood.github.io"
+
+remote_theme: pages-themes/cayman@v0.2.0
+plugins:
+  - jekyll-remote-theme
+
+markdown: kramdown
+permalink: pretty
