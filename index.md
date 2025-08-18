@@ -51,7 +51,6 @@ title: Home
         </div>
       </div>
     </section>
-
     <!-- About -->
     <section id="about" class="bg-white border-t border-b border-zinc-200">
       <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-10">
@@ -66,7 +65,6 @@ title: Home
         </div>
       </div>
     </section>
-
     <!-- Skills -->
     <section id="skills" class="max-w-6xl mx-auto px-4 py-12">
       <h3 class="text-2xl font-bold">Skills Snapshot</h3>
@@ -100,7 +98,6 @@ title: Home
         </div>
       </div>
     </section>
-
     <!-- Experience Highlights -->
     <section id="experience" class="bg-white border-y border-zinc-200">
       <div class="max-w-6xl mx-auto px-4 py-12">
@@ -125,7 +122,6 @@ title: Home
         </div>
       </div>
     </section>
-
     <!-- Projects -->
     <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
       <h3 class="text-2xl font-bold">Selected Projects</h3>
@@ -149,7 +145,6 @@ title: Home
         </div>
       </div>
     </section>
-
     <!-- Writing -->
     <section id="writing" class="bg-white border-y border-zinc-200">
       <div class="max-w-6xl mx-auto px-4 py-12">
@@ -161,7 +156,6 @@ title: Home
         </ul>
       </div>
     </section>
-
     <!-- Contact -->
     <section id="contact" class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid md:grid-cols-3 gap-8">
@@ -181,7 +175,6 @@ title: Home
         </aside>
       </div>
     </section>
-
     <footer class="border-t border-zinc-200 py-10 text-center text-xs text-zinc-500">
       <p>© <span id="y"></span> Michael Shawn Lockwood • Built with GitHub Pages • Theme: minimalist Tailwind</p>
     </footer>
