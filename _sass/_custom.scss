@@ -1,10 +1,14 @@
-// Example: tweak masthead
+/* Slimmer masthead */
 .masthead {
-  padding: 0.35rem 1rem;
-  background: linear-gradient(90deg, #2c3e50, #34495e);
+  padding: 0.2rem 1rem;   /* was 0.35rem; reduce vertical padding */
+}
+
+.masthead__inner-wrap {
+  min-height: 40px;       /* lower the default height */
 }
 
 .masthead__menu-item a {
   font-weight: bold;
   font-size: 0.95rem;
+  padding: 0.2rem 0.4rem; /* tighter link hit area */
 }
