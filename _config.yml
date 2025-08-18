@@ -1,19 +1,12 @@
-title: My GitHub Pages Site
-description: Built with Jekyll on GitHub Pages
-baseurl: ""
+# _config.yml
+title: MSL.NCDBA
+description: Portfolio powered by Jekyll
 url: "https://michaelshawnlockwood.github.io"
+baseurl: ""
 
 plugins:
   - jekyll-remote-theme
-remote_theme: daattali/beautiful-jekyll
+remote_theme: jeromelachaud/freelancer-theme
 
 markdown: kramdown
 permalink: pretty
-
-navbar-links:
-  About: "/#about"
-  Skills: "/#skills"
-  Experience: "/#experience"
-  Projects: "/#projects"
-  Writing: "/#writing"
-  Contact: "/#contact"
