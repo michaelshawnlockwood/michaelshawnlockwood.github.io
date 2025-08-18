@@ -1,0 +1,13 @@
+main:
+  - title: "About"
+    url: "/#about"
+  - title: "Skills"
+    url: "/#skills"
+  - title: "Experience"
+    url: "/#experience"
+  - title: "Projects"
+    url: "/#projects"
+  - title: "Writing"
+    url: "/#writing"
+  - title: "Contact"
+    url: "/#contact"
