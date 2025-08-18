@@ -1,0 +1,9 @@
+---
+# Only the three dashes are needed for Jekyll to process Sass
+---
+
+@import "minimal-mistakes/skins/dark"; // or whatever skin you're using
+@import "minimal-mistakes";            // core theme styles
+
+// Your custom partials
+@import "custom";

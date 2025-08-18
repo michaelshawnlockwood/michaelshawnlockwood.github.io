@@ -14,3 +14,13 @@ permalink: pretty
 
 # Pick a built-in skin: default, air, aqua, contrast, dark, dirt, neon, plum
 minimal_mistakes_skin: "dark"
+
+sass:
+  style: compressed
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      css: "assets/css/main.css"
