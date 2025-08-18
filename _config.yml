@@ -3,9 +3,12 @@ description: Built with Jekyll on GitHub Pages
 baseurl: ""
 url: "https://michaelshawnlockwood.github.io"
 
-remote_theme: daattali/beautiful-jekyll
+layout: default
+
 plugins:
   - jekyll-remote-theme
+remote_theme: daattali/beautiful-jekyll
+
 
 markdown: kramdown
 permalink: pretty
