@@ -3,7 +3,7 @@ description: Built with Jekyll on GitHub Pages
 baseurl: ""
 url: "https://michaelshawnlockwood.github.io"
 
-remote_theme: pmarsceill/just-the-docs
+layout: default
 plugins:
   - jekyll-remote-theme
 
