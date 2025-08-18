@@ -1,6 +1,5 @@
-# _config.yml
-title: MSL.NCDBA
-description: Portfolio powered by Jekyll
+title: MSL.db
+description: "Portfolio powered by Jekyll"
 url: "https://michaelshawnlockwood.github.io"
 baseurl: ""
 
