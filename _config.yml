@@ -1,11 +1,16 @@
 title: MSL.db
-description: "Portfolio powered by Jekyll"
+description: "Built with Jekyll on GitHub Pages"
 url: "https://michaelshawnlockwood.github.io"
 baseurl: ""
 
 plugins:
   - jekyll-remote-theme
-remote_theme: jeromelachaud/freelancer-theme
+  - jekyll-include-cache
+
+remote_theme: mmistakes/minimal-mistakes
 
 markdown: kramdown
 permalink: pretty
+
+# Pick a built-in skin: default, air, aqua, contrast, dark, dirt, neon, plum
+minimal_mistakes_skin: "dark"
