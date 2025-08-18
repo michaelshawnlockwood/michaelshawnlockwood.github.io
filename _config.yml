@@ -1,14 +1,13 @@
-title: My GitHub Pages Site
-description: Built with Jekyll on GitHub Pages
-baseurl: ""
-url: "https://michaelshawnlockwood.github.io"
-
-layout: default
-
+title: MSL.db
+description: "Michael Shawn Lockwood"
 plugins:
   - jekyll-remote-theme
 remote_theme: daattali/beautiful-jekyll
-
-
-markdown: kramdown
-permalink: pretty
+# Optional basic settings
+navbar-links:
+  About: "/#about"
+  Skills: "/#skills"
+  Experience: "/#experience"
+  Projects: "/#projects"
+  Writing: "/#writing"
+  Contact: "/#contact"
