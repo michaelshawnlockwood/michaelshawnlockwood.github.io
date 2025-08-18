@@ -3,6 +3,4 @@ layout: default
 title: Home
 ---
 
-# Hello
-
-If you see Cayman styling on this text, the theme is working.
+{% include home.html %}
