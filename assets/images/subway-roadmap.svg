@@ -4,14 +4,21 @@
      style="max-width:100%; height:auto; background:transparent"
      role="img" aria-label="Subway-style roadmap">
   <style>
-    .line { fill:none; stroke-width:10; }
-    .stop { stroke:#222; stroke-width:2; }
-    .label { font:600 16px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#111; }
-    .muted { font:500 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#555; }
+    .line { fill:none; stroke-width:12; }
+    .stop { stroke:#111; stroke-width:2; }
+    .label { font:600 16px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#fff; }
+    .muted { font:500 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#ddd; }
   </style>
-  <path class="line" stroke="#2A7FFF" d="M80,300 L1120,300" />
-  <path class="line" stroke="#00BFA5" d="M380,300 C420,300 420,200 460,200 L800,200" />
-  <path class="line" stroke="#FF7043" d="M880,300 C920,300 920,120 960,120 L1120,120" />
+
+  <!-- Main line -->
+  <path class="line" stroke="#1E88E5" d="M80,300 L1120,300" />
+
+  <!-- Branch to Performance Case Studies -->
+  <path class="line" stroke="#00C853" d="M380,300 C420,300 420,200 460,200 L800,200" />
+
+  <!-- Branch to Visualization -->
+  <path class="line" stroke="#FF6D00" d="M880,300 C920,300 920,120 960,120 L1120,120" />
+
   <circle cx="140" cy="300" r="10" fill="#fff" class="stop"/>
   <text x="140" y="330" text-anchor="middle" class="label">SQL Server</text>
   <text x="140" y="350" text-anchor="middle" class="muted">Foundation</text>
