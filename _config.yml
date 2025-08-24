@@ -10,9 +10,6 @@ plugins:
 
 remote_theme: mmistakes/minimal-mistakes
 
-markdown: kramdown
-permalink: pretty
-
 # Pick a built-in skin: default, air, aqua, contrast, dark, dirt, neon, plum
 minimal_mistakes_skin: "dark"
 

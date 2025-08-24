@@ -35,11 +35,13 @@
   <text x="380" y="330" text-anchor="middle" class="label">PostgreSQL</text>
   <text x="380" y="350" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
 
-  <a xlink:href="/projects/nyc-taxi/">
-    <circle cx="500" cy="300" r="10" fill="#fff" class="stop"/>
+  <a xlink:href="/projects/nyc-taxi/" target="_top">
+    <g class="station">
+      <circle cx="500" cy="300" r="10" fill="#fff" class="stop"/>
+      <text x="500" y="330" text-anchor="middle" class="label">NYC Taxi</text>
+      <text x="500" y="350" text-anchor="middle" class="muted">Large Data</text>
+    </g>
   </a>
-  <text x="500" y="330" text-anchor="middle" class="label">NYC Taxi</text>
-  <text x="500" y="350" text-anchor="middle" class="muted">Large Data</text>
 
   <a xlink:href="/projects/airflow-etl/">
     <circle cx="620" cy="300" r="10" fill="#fff" class="stop"/>

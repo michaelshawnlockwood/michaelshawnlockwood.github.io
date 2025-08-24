@@ -129,10 +129,13 @@
     <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
       <h3>Project Roadmap</h3>
       <div class="roadmap">
-        <img
-          src="{{ '/assets/images/subway-roadmap.svg' | absolute_url }}"
-          alt="Subway-style roadmap"
-          class="roadmap-svg">
+        <object
+          type="image/svg+xml"
+          data="{{ '/assets/images/subway-roadmap.svg' | absolute_url }}"
+          class="roadmap-svg"
+          aria-label="Subway-style roadmap">
+          <img src="{{ '/assets/images/subway-roadmap-inverted.jpg' | absolute_url }}" alt="Subway roadmap fallback">
+        </object>
       </div>
       <h3 class="text-2xl font-bold">Projects: Past, Present and Future</h3>
       <div class="mt-6 grid md:grid-cols-2 gap-6">
