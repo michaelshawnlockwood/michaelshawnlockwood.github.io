@@ -5,5 +5,31 @@
 @import "minimal-mistakes";             /* then the core theme */
 
 /* overrides */
-.roadmap { position:relative; display:block; width:100%; margin:1rem 0; text-align:center; }
-.roadmap-svg { position:relative; z-index:1; display:block; max-width:100%; height:auto; margin:0 auto; }
+/* Roadmap layout + stacking */
+.roadmap {
+  position: relative;
+  z-index: 10;        /* sit above neighboring content */
+  isolation: isolate; /* create a new stacking context */
+  clear: both;        /* avoid float overlap from previous content */
+  margin: 1.25rem 0;
+}
+
+/* Intrinsic ratio wrapper (1200x420 => 35% height) */
+.roadmap-embed {
+  position: relative;
+  width: 100%;
+}
+.roadmap-embed::before {
+  content: "";
+  display: block;
+  padding-top: calc(420 / 1200 * 100%); /* 35% aspect ratio */
+}
+
+/* Make the <object> fill the box */
+.roadmap-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
