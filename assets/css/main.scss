@@ -1,12 +1,11 @@
 ---
-
 ---
 
-@import "minimal-mistakes/skins/dark"; // or whatever skin you're using
-@import "minimal-mistakes";            // core theme styles
+@import "minimal-mistakes/skins/dark";
+@import "minimal-mistakes";
 
 // Your custom partials
-@import "custom";
+// @import "custom"; // comment out unless the file exists
 
 // Roadmap SVG styling
 .roadmap {
@@ -25,4 +24,3 @@
   height: auto;
   margin: 0 auto;
 }
-
