@@ -1,8 +1,8 @@
 ---
 ---
 
-@import "minimal-mistakes";
+@import "minimal-mistakes";  /* single import is enough */
 
-/* your overrides */
+/* overrides */
 .roadmap { position:relative; display:block; width:100%; margin:1rem 0; text-align:center; }
 .roadmap-svg { position:relative; z-index:1; display:block; max-width:100%; height:auto; margin:0 auto; }
