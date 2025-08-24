@@ -1,7 +1,8 @@
 ---
 ---
 
-@import "minimal-mistakes";  /* single import is enough */
+@import "minimal-mistakes/skins/dark";  /* must come first */
+@import "minimal-mistakes";             /* then the core theme */
 
 /* overrides */
 .roadmap { position:relative; display:block; width:100%; margin:1rem 0; text-align:center; }
