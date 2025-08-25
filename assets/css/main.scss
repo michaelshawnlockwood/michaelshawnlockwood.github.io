@@ -23,5 +23,70 @@
   object-position: center;
 }
 
+/* ===== Typography scale tweaks ===== */
+html { font-size: 14px; }  /* ~-1px across the board; change to 14px if you want smaller */
+
+.post, .page {
+  line-height: 1.6;
+}
+
+/* Headings tighten a touch so they don't look oversized after base change */
+h1 { letter-spacing: -0.01em; }
+h2, h3 { letter-spacing: -0.005em; }
+
+/* ===== Minimal Mistakes ToC polish ===== */
+.toc {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 1rem 1rem 0.75rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.25);
+}
+
+.toc .nav__title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+
+.toc .toc__menu {
+  font-size: 0.95rem;         /* slightly smaller than body */
+  line-height: 1.4;
+}
+
+.toc .toc__menu li { margin: .2rem 0; }
+
+/* subtle link styling */
+.toc .toc__menu a {
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.toc .toc__menu a:hover {
+  color: #a7e3ff;             /* light teal accent on dark skin */
+  border-bottom-color: #3ab7ff;
+}
+
+/* sticky offset so it doesn't hide under the header when sticky */
+.toc--sticky {
+  top: 80px;  /* adjust if your header height differs */
+}
+
+/* ===== Back-to-Top chip ===== */
+.back-to-top {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  text-decoration: none;
+}
+
+.back-to-top:hover {
+  border-color: rgba(255,255,255,0.25);
+}
 
 

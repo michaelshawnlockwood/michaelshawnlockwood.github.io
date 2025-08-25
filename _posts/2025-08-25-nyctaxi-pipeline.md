@@ -7,6 +7,10 @@ header:
   image: /assets/images/headers/blog-hero.jpg
 description: "Walking through the initial validation step of the NYC Taxi data pipeline, before conversion and bulk insert."
 tags: [nyc taxi, parquet, psv, data pipelines, validation, duckdb]
+toc: true
+toc_label: "Table of Contents"
+toc_icon: "list"
+toc_sticky: true
 ---
 
 ## Table of Contents
@@ -33,7 +37,7 @@ Validating up front gives us:
 - Confidence in schema consistency  
 - Quick detection of anomalies  
 - Preview snapshots for exploration  
-[⬆ Back to Top](#table-of-contents)
+[⬆ Back to Top](#table-of-contents){:.back-to-top}
 
 ---
 
@@ -48,7 +52,7 @@ Our script produces:
 2. **Profile summary** (row counts, averages, null counts)  
 3. **Sample preview rows**  
 
-All of this happens before we move on to conversion. [⬆ Back to Top](#table-of-contents)
+All of this happens before we move on to conversion. [⬆ Back to Top](#table-of-contents){:.back-to-top}
 
 ---
 
@@ -59,14 +63,14 @@ Why are we converting to PSV (pipe-separated values) instead of CSV?
 - **Bulk insert friendly**: SQL Server and PostgreSQL handle PSV easily with bulk import tools.  
 - **Human readable**: We can still open PSV files in editors like LibreOffice Calc by specifying the delimiter.  
 
-This gives us a balance: keep Parquet for analytics, but use PSV as the durable format for database bulk load. [⬆ Back to Top](#table-of-contents)
+This gives us a balance: keep Parquet for analytics, but use PSV as the durable format for database bulk load. [⬆ Back to Top](#table-of-contents){:.back-to-top}
 
 ---
 
 ## What’s Next 
 Validation is the **gatekeeper step**. Once each Parquet passes checks, we convert it to PSV and bulk insert into SQL Server. From there, we can normalize, clean, and eventually push into PostgreSQL and Airflow for downstream orchestration.
 
-This blog series will follow each step. The next entry will cover the conversion process and the first successful bulk load. [⬆ Back to Top](#table-of-contents)
+This blog series will follow each step. The next entry will cover the conversion process and the first successful bulk load. [⬆ Back to Top](#table-of-contents){:.back-to-top}
 
 ---
 
