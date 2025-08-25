@@ -9,6 +9,14 @@ description: "Walking through the initial validation step of the NYC Taxi data p
 tags: [nyc taxi, parquet, psv, data pipelines, validation, duckdb]
 ---
 
+## Table of Contents
+- [Why Validate First?](#why-validate-first)
+- [Tools We’re Using](#tools-were-using)
+- [From Parquet to PSV](#from-parquet-to-psv)
+- [What’s Next](#whats-next)
+
+---
+
 One of the most useful public datasets for testing large-scale data pipelines is the **NYC Taxi & Limousine Commission (TLC) Trip Record Data**. It’s massive, well-structured, and full of quirks that make it ideal for exercising ETL workflows.
 
 This post covers the very first step we’re taking: **validation.** Before pushing terabytes of trip records downstream into SQL Server or PostgreSQL, we want to *know what’s in the files*.
@@ -17,6 +25,7 @@ This post covers the very first step we’re taking: **validation.** Before push
 
 ## Why Validate First?
 Government-sourced data can be messy:
+[⬆ Back to Top](#table-of-contents)
 - **Unexpected nulls** in required fields like `passenger_count`
 - **Type mismatches** (e.g., fees as strings instead of decimals)
 - **Schema drift** between months or years
@@ -30,11 +39,12 @@ Validating up front gives us:
 
 ## Tools We’re Using
 We’re leaning on **DuckDB** and **Pandas** inside a Python script. DuckDB’s SQL engine can query Parquet directly without full ingestion. That means we can:
+[⬆ Back to Top](#table-of-contents)
 - Load and check schema on the fly  
 - Profile row counts and basic stats  
 - Output previews to CSV/Markdown for inspection  
 
-Our script produces:
+Our script produces: 
 1. **Schema report**  
 2. **Profile summary** (row counts, averages, null counts)  
 3. **Sample preview rows**  
@@ -43,7 +53,7 @@ All of this happens before we move on to conversion.
 
 ---
 
-## From Parquet to PSV
+## From Parquet to PSV [⬆ Back to Top](#table-of-contents)
 Why are we converting to PSV (pipe-separated values) instead of CSV?
 
 - **Cleaner parsing**: Taxi data includes free-text fields; commas inside those fields can break CSV parsing. Pipes are far less common.  
@@ -54,7 +64,7 @@ This gives us a balance: keep Parquet for analytics, but use PSV as the durable 
 
 ---
 
-## What’s Next
+## What’s Next [⬆ Back to Top](#table-of-contents)
 Validation is the **gatekeeper step**. Once each Parquet passes checks, we convert it to PSV and bulk insert into SQL Server. From there, we can normalize, clean, and eventually push into PostgreSQL and Airflow for downstream orchestration.
 
 This blog series will follow each step. The next entry will cover the conversion process and the first successful bulk load.
