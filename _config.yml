@@ -28,7 +28,6 @@ defaults:
       path: ""
       type: "posts"
     values:
-      layout: single          # ← was 'post'
       css: "assets/css/main.css"
       author_profile: true    # optional but nice (shows your profile sidebar)
       read_time: true         # optional (shows read time)
