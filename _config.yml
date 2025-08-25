@@ -38,5 +38,11 @@ paginate: 5
 paginate_path: "/blog/page:num/"
 show_excerpts: true
 
+header:
+  image: /assets/images/headers/blog-hero.jpg
+  image_description: "Abstract tech grid"
+  teaser: /assets/images/headers/blog-hero.jpg
+
+
 
 
