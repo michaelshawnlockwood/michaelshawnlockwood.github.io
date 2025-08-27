@@ -11,6 +11,16 @@
     .muted { font:500 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#ddd; }
   </style>
 
+  <style>
+    .label, .muted {
+      paint-order: stroke;            /* draw stroke under fill */
+      stroke: rgba(17,17,17,.85);     /* dark halo */
+      stroke-width: 4;                /* thickness of halo */
+      stroke-linejoin: round;
+    }
+  </style>
+
+
   <!-- Main line (vibrant blue) -->
   <path class="line" stroke="#1E88E5" d="M80,300 L1120,300" />
 
