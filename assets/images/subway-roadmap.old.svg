@@ -71,48 +71,4 @@
   </a>
   <text x="1000" y="65" text-anchor="middle" class="label">Power BI</text>
   <text x="1000" y="85" text-anchor="middle" class="muted">Visualization</text>
-
-  <!-- Branch to Azure (violet) -->
-  <path class="line" stroke="#7E57C2" d="M620,300 C660,300 660,230 700,230 L980,230" />
-
-  <!-- Azure branch stops -->
-  <a xlink:href="/projects/azure-sql-mi/">
-    <circle cx="700" cy="230" r="10" fill="#fff" class="stop"/>
-  </a>
-  <text x="700" y="200" text-anchor="middle" class="label">Azure SQL MI</text>
-  <text x="700" y="220" text-anchor="middle" class="muted">Managed Instance</text>
-
-  <a xlink:href="/projects/azure-synapse/">
-    <circle cx="820" cy="230" r="10" fill="#fff" class="stop"/>
-  </a>
-  <text x="820" y="200" text-anchor="middle" class="label">Synapse</text>
-  <text x="820" y="220" text-anchor="middle" class="muted">DW / Pipelines</text>
-
-  <a xlink:href="/projects/azure-devops/">
-    <circle cx="940" cy="230" r="10" fill="#fff" class="stop"/>
-  </a>
-  <text x="940" y="200" text-anchor="middle" class="label">DevOps</text>
-  <text x="940" y="220" text-anchor="middle" class="muted">Pipelines &amp; CI/CD</text>
-
-  <!-- Branch to AWS (gold) -->
-  <path class="line" stroke="#FDD835" d="M740,300 C780,300 780,360 820,360 L1100,360" />
-
-  <!-- AWS branch stops -->
-  <a xlink:href="/projects/aws-rds-sqlserver/">
-    <circle cx="820" cy="360" r="10" fill="#fff" class="stop"/>
-  </a>
-  <text x="820" y="390" text-anchor="middle" class="label">RDS (SQL Server)</text>
-  <text x="820" y="410" text-anchor="middle" class="muted">Managed DB</text>
-
-  <a xlink:href="/projects/aws-glue/">
-    <circle cx="940" cy="360" r="10" fill="#fff" class="stop"/>
-  </a>
-  <text x="940" y="390" text-anchor="middle" class="label">Glue</text>
-  <text x="940" y="410" text-anchor="middle" class="muted">ETL / Catalog</text>
-
-  <a xlink:href="/projects/aws-redshift/">
-    <circle cx="1060" cy="360" r="10" fill="#fff" class="stop"/>
-  </a>
-  <text x="1060" y="390" text-anchor="middle" class="label">Redshift</text>
-  <text x="1060" y="410" text-anchor="middle" class="muted">Analytics</text>
 </svg>
