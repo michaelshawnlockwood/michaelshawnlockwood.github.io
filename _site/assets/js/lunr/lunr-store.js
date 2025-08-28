@@ -17,9 +17,21 @@ var store = [{
         "url": "/2025/08/27/nyc-taxi.html",
         "teaser": null
       },{
+        "title": "Empty Two",
+        "excerpt":" ","categories": [],
+        "tags": ["sql server","postgresql","automation","career","blog"],
+        "url": "/2025/08/28/empty-two.html",
+        "teaser": null
+      },{
         "title": "AWS, Microsoft, and Google Back Linux Foundation DocumentDB to Reduce Lock-In",
         "excerpt":"Introduction A major milestone in the open-source database ecosystem has arrived: Microsoft’s DocumentDB project has officially moved under the governance of the Linux Foundation, with strong backing from AWS, Google, and other key players. This signals a significant shift in the NoSQL landscape, aiming to cut enterprise costs and reduce...","categories": ["databases","open-source","cloud"],
         "tags": ["DocumentDB","PostgreSQL","MongoDB","Linux Foundation","AWS","Microsoft","Google"],
         "url": "/databases/open-source/cloud/2025/08/28/documentdb-joins-linux-foundation.html",
+        "teaser": null
+      },{
+        "title": "Empty",
+        "excerpt":" ","categories": [],
+        "tags": ["sql server","postgresql","automation","career","blog"],
+        "url": "/2025/08/28/empty.html",
         "teaser": null
       }]
