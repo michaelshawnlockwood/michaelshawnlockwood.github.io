@@ -1,0 +1,96 @@
+/* 1) Kill Minimal Mistakes' default animated underline */
+.greedy-nav .visible-links > li > a::before,
+.masthead__menu-item > a::before {
+  content: none !important;           /* remove teal underline */
+}
+
+/* 2) Draw a full border box using ::after instead */
+.greedy-nav .visible-links > li > a,
+.masthead__menu-item > a {
+  position: relative;
+  padding: .25rem .6rem;              /* space inside the box */
+  text-decoration: none;              /* no native underline */
+  border-bottom: none;                /* belt + suspenders */
+}
+
+.greedy-nav .visible-links > li > a::after,
+.masthead__menu-item > a::after {
+  content: "";
+  position: absolute;
+  inset: 0;                           /* top/right/bottom/left = 0 */
+  border: 2px solid $color-accent-alt;/* your palette var */
+  border-radius: 6px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity .2s ease, transform .2s ease;
+  pointer-events: none;               /* avoid hover flicker */
+}
+
+.greedy-nav .visible-links > li > a:hover::after,
+.greedy-nav .visible-links > li > a:focus::after,
+.greedy-nav .visible-links > li > a:active::after,
+.masthead__menu-item > a:hover::after,
+.masthead__menu-item > a:focus::after,
+.masthead__menu-item > a:active::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ===== Minimal Mistakes ToC polish ===== */
+.toc {
+  border-radius: 12px;
+  padding: 1rem 1rem 0.75rem;
+  box-shadow: 0 1px 6px $color-black;
+}
+
+/* Strong override for ToC background (sidebar + sticky + inline) */
+.sidebar .toc,
+nav.toc,
+.toc.toc--sticky {
+  background-color: $color-surface !important;   /* your dark bg */
+  border: 1px solid $color-border !important;
+  border-radius: 12px !important;
+  box-shadow: none !important;
+}
+
+/* ToC title + links (optional polish) */
+.toc .nav__title { background: transparent !important; }
+.toc .toc__menu a       { color: $color-text !important; }
+.toc .toc__menu a:hover { color: $color-accent-alt !important; }
+
+.toc .nav__title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.25rem;
+  display: flex; align-items: center; gap: .5rem;
+}
+
+.toc .toc__menu {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.toc .toc__menu li { margin: .2rem 0; }
+
+/* subtle link styling */
+.toc .toc__menu a {
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+  transition: border-color .15s ease, color .15s ease;
+}
+
+.toc .toc__menu a:hover {
+  color: $color-accent;
+  border-bottom-color: $color-accent-alt;
+  text-decoration: none;
+}
+
+.page__content .toc {
+  max-width: 260px;
+  margin: 0 0 1rem;
+  background: $color-bg;
+  border: 1px solid $color-border;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 1px 6px $color-shadow;
+}

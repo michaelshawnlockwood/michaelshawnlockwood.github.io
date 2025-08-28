@@ -8,8 +8,7 @@ author_profile: true
 description: ""
 tags: [nyc taxi, parquet, psv, data pipelines, validation, duckdb]
 toc: true
-toc_sticky: true
-toc_label: "Sections"
+toc_label: "SECTIONS"
 toc_icon: "list"
 header:
   overlay_color: "#000"
@@ -17,6 +16,8 @@ header:
   overlay_image: /assets/images/nyctaxi-hero.jpg
   caption: "NYC Taxi Trip Data Pipeline"
 ---
+
+<a id="toc" class="visually-hidden"></a>
 
 One of the most useful public datasets for testing large-scale data pipelines is the **NYC Taxi & Limousine Commission (TLC) Trip Record Data**. It’s massive, well-structured, and full of quirks that make it ideal for exercising ETL workflows.
 
@@ -34,7 +35,7 @@ Validating up front gives us:
 - Confidence in schema consistency  
 - Quick detection of anomalies  
 - Preview snapshots for exploration  
-[⬆ Back to Top](#table-of-contents){:.back-to-top}
+[⬆ Back to Top](#toc){:.back-to-top}
 
 ---
 
@@ -49,7 +50,7 @@ Our script produces:
 2. **Profile summary** (row counts, averages, null counts)  
 3. **Sample preview rows**  
 
-All of this happens before we move on to conversion. [⬆ Back to Top](#table-of-contents){:.back-to-top}
+All of this happens before we move on to conversion. [⬆ Back to Top](#toc){:.back-to-top}
 
 ---
 
@@ -60,14 +61,15 @@ Why are we converting to PSV (pipe-separated values) instead of CSV?
 - **Bulk insert friendly**: SQL Server and PostgreSQL handle PSV easily with bulk import tools.  
 - **Human readable**: We can still open PSV files in editors like LibreOffice Calc by specifying the delimiter.  
 
-This gives us a balance: keep Parquet for analytics, but use PSV as the durable format for database bulk load. [⬆ Back to Top](#table-of-contents){:.back-to-top}
+This gives us a balance: keep Parquet for analytics, but use PSV as the durable format for database bulk load. [⬆ Back to Top](#toc){:.back-to-top}
 
 ---
 
 ## What’s Next 
 Validation is the **gatekeeper step**. Once each Parquet passes checks, we convert it to PSV and bulk insert into SQL Server. From there, we can normalize, clean, and eventually push into PostgreSQL and Airflow for downstream orchestration.
 
-This blog series will follow each step. The next entry will cover the conversion process and the first successful bulk load. [⬆ Back to Top](#table-of-contents){:.back-to-top}
+This blog series will follow each step. The next entry will cover the conversion process and the first successful bulk load. [⬆ Back to Top](#toc){:.back-to-top}
+
 
 ---
 
