@@ -44,7 +44,7 @@
     <path class="line" stroke="#7E57C2" d="M620,300 C660,300 660,230 700,230 L980,230" />
 
       <!-- Branch to AWS (gold) -->
-    <path class="line" stroke="#FDD835" d="M740,300 C780,300 780,360 820,360 L1100,360" />
+    <path class="line" stroke="#FDD835" d="M740,300 C780,300 780,360 820,360 L1120,360" />
   </g>
 
   <!-- Stops on main line -->
@@ -80,8 +80,9 @@
             fill="rgba(0,0,0,.78)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
 
       <!-- text (keeps your white + glow) -->
+      <!-- keep the label line the same -->
       <text x="0" y="-52" text-anchor="middle" class="label">NYC Taxi</text>
-      <text x="0" y="-34" text-anchor="middle" class="muted">High-volume ingest</text>
+      <text x="0" y="-34" text-anchor="middle" class="muted">Very Large Database (VLDB)</text>
     </g>
   </a>
 
