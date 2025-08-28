@@ -18,6 +18,10 @@
 
     /* Optional helper for tight-above groups */
     .tight-above .label, .tight-above .muted { dominant-baseline: central; }
+
+    /* Placard */
+    a:focus .placard rect, a:hover .placard rect { stroke:#fff; stroke-width:2; }
+    .stop-group text { pointer-events:none; } /* keeps the whole group clickable */
   </style>
 
   <defs>
@@ -69,26 +73,33 @@
   <text x="430" y="275" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
 
   <!-- NYC Taxi as a placard pinned to the baseline -->
-  <a xlink:href="/projects/nyc-taxi/" target="_top" aria-label="NYC Taxi — high-volume ingest">
+  <a xlink:href="/projects/nyc-taxi/" target="_top" aria-label="NYC Taxi Database (VLDB)">
     <g class="stop-group placard" transform="translate(530,300)">
       <!-- leader pin into the blue baseline -->
-      <line x1="0" y1="0" x2="0" y2="-22"
-            stroke="#1E88E5" stroke-width="8" stroke-linecap="round"/>
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#1E88E5" stroke-width="8" stroke-linecap="round"/>
 
       <!-- rounded label box (above the line) -->
-      <rect x="-84" y="-72" width="168" height="44" rx="10" ry="10"
+      <rect x="-110" y="14" width="220" height="48" rx="10" ry="10"
             fill="rgba(0,0,0,.78)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
-
-      <!-- text (keeps your white + glow) -->
-      <!-- keep the label line the same -->
-      <text x="0" y="-52" text-anchor="middle" class="label">NYC Taxi</text>
-      <text x="0" y="-34" text-anchor="middle" class="muted">Very Large Database (VLDB)</text>
+        <rect x="-110" y="14" width="220" height="48" rx="10" ry="10"/>
+        <text x="0" y="34" text-anchor="middle" class="label">NYC Taxi</text>
+        <text x="0" y="52" text-anchor="middle" class="muted">Multi-billion-row ingest.</text>
     </g>
   </a>
 
-  <circle cx="530" cy="300" r="10" fill="#fff" class="stop"/>
+    <!-- <a xlink:href="/projects/sqlserver/">
+        <g class="stop-group" transform="translate(320,300)">
+          <circle cx="0" cy="0" r="10" fill="#fff" class="stop"/>
+          <text  x="0" y="30" text-anchor="middle" class="label">SQL Server</text>
+          <text  x="0" y="50" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
+        </g>
+    </a> -->
+    <!-- <text x="0" y="-52" text-anchor="middle" class="label">NYC Taxi</text>
+    <text x="0" y="-34" text-anchor="middle" class="muted">Very Large Database (VLDB)</text> -->
+
+  <!-- <circle cx="530" cy="300" r="10" fill="#fff" class="stop"/>
   <text x="530" y="330" text-anchor="middle" class="label">NYC Taxi</text>
-  <text x="530" y="350" text-anchor="middle" class="muted">Large Data</text>
+  <text x="530" y="350" text-anchor="middle" class="muted">Large Data</text> -->
 
   <text x="620" y="255" text-anchor="middle" class="label">Airflow</text>
   <text x="620" y="275" text-anchor="middle" class="muted">Orchestration</text>
