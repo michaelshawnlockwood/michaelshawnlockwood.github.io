@@ -78,7 +78,7 @@
   <text x="430" y="275" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
 
   <!-- NYC Taxi as a placard pinned to the baseline -->
-  <a xlink:href="{{ '/blog/nyc-taxi/' | relative_url }}" target="_top" aria-label="Multi-billion-row ingest">
+  <a xlink:href="{{ '/blog/2025-08-27-nyc-taxi/' | relative_url }}" target="_top" aria-label="Multi-billion-row ingest">
     <g class="stop-group placard" transform="translate(530,300)">
       <!-- leader pin into the blue baseline -->
       <line x1="0" y1="0" x2="0" y2="14" stroke="#1E88E5" stroke-width="8" stroke-linecap="round"/>
