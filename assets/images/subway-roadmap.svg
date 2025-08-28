@@ -33,6 +33,11 @@
     </filter>
   </defs>
 
+  <!-- To-do: put all paths in #lines, all circles in #stops, all text/placards in #labels -->
+  <!-- <g id="lines">…paths…</g>
+  <g id="stops">…circles…</g>
+  <g id="labels">…texts + placard…</g> -->
+
   <g id="lines">   <!-- all paths go here --> 
     <!-- Main line (vibrant blue) -->
     <path class="line" stroke="#1E88E5" d="M80,300 L1120,300" />
@@ -86,20 +91,6 @@
         <text x="0" y="52" text-anchor="middle" class="muted">Multi-billion-row ingest.</text>
     </g>
   </a>
-
-    <!-- <a xlink:href="/projects/sqlserver/">
-        <g class="stop-group" transform="translate(320,300)">
-          <circle cx="0" cy="0" r="10" fill="#fff" class="stop"/>
-          <text  x="0" y="30" text-anchor="middle" class="label">SQL Server</text>
-          <text  x="0" y="50" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
-        </g>
-    </a> -->
-    <!-- <text x="0" y="-52" text-anchor="middle" class="label">NYC Taxi</text>
-    <text x="0" y="-34" text-anchor="middle" class="muted">Very Large Database (VLDB)</text> -->
-
-  <!-- <circle cx="530" cy="300" r="10" fill="#fff" class="stop"/>
-  <text x="530" y="330" text-anchor="middle" class="label">NYC Taxi</text>
-  <text x="530" y="350" text-anchor="middle" class="muted">Large Data</text> -->
 
   <text x="620" y="255" text-anchor="middle" class="label">Airflow</text>
   <text x="620" y="275" text-anchor="middle" class="muted">Orchestration</text>
