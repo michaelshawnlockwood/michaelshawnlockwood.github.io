@@ -89,4 +89,24 @@ h2, h3 { letter-spacing: -0.005em; }
   border-color: rgba(255,255,255,0.25);
 }
 
+.copy-button {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  background: #444;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.copy-button:hover {
+  opacity: 1;
+}
+
+
 
