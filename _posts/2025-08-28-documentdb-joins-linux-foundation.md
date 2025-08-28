@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "AWS, Microsoft, and Google Back Linux Foundation DocumentDB to Reduce Lock-In"
 date: 2025-08-28
 author: "ChatGPT – Analyst"
