@@ -5,7 +5,7 @@ excerpt: "Every data pipeline starts with trust in the data. In this first step 
 date: 2025-08-25
 classes: wide
 author_profile: true
-description: "Walking through the initial validation steps of the NYC Taxi data pipeline, folowed by conversion from Parquet to PSV, including data dictionaries."
+description: ""
 tags: [nyc taxi, parquet, psv, data pipelines, validation, duckdb]
 toc: true
 toc_sticky: true
