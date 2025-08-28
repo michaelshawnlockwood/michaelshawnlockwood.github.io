@@ -1,21 +1,73 @@
-# Jekyll build output
+# ==========================================
+# Jekyll / GitHub Pages
+# ==========================================
 _site/
 .sass-cache/
 .jekyll-cache/
-.jekyll-metadata/
+.jekyll-metadata
 
-# Ruby/Bundler
-/vendor/
-.bundle/
+# ==========================================
+# Python
+# ==========================================
+# Virtual environments
+venv/
+.venv/
+ENV/
+env/
+*env.bak
 
-# Node
+# Byte-compiled / cached
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Installer logs
+pip-log.txt
+pip-wheel-metadata/
+
+# Virtual environment metadata
+*.env
+.env/
+
+# ==========================================
+# Project Data
+# ==========================================
+# Ignore large raw or generated data
+data/
+data_in/
+data_out/
+data/**/*.csv
+data/**/*.psv
+data/**/*.tsv
+data/**/*.parquet
+data_in/**/*.csv
+data_in/**/*.psv
+data_in/**/*.tsv
+data_in/**/*.parquet
+data_out/**/*.csv
+data_out/**/*.psv
+data_out/**/*.tsv
+data_out/**/*.parquet
+
+# Common flat files
+*.csv
+*.tsv
+*.psv
+*.parquet
+*.log
+*.bak
+*.tmp
+
+# ==========================================
+# Node (if you experiment with npm tooling)
+# ==========================================
 node_modules/
 
-# OS/editor noise
+# ==========================================
+# OS / Editor junk
+# ==========================================
 .DS_Store
 Thumbs.db
-*.log
-
-# Images/large data (if you generate)
-*.tmp
-*.bak
+*.swp
+*.swo
+*~
