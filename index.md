@@ -1,7 +1,8 @@
 ---
-layout: home
-title: ""
-author_profile: false
+layout: single
+title: "Home"
+permalink: /
+classes: wide
 ---
 
 {% include home.html %}
