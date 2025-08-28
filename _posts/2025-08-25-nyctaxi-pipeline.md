@@ -1,24 +1,21 @@
 ---
 layout: single
 title: "NYC Taxi Data: First Steps in Validation"
+excerpt: “Every data pipeline starts with trust in the data. In this first step with the NYC Taxi dataset, I walk through schema checks, column profiling, and early validation techniques that catch errors before they ripple downstream. A foundation in clean data means smoother inserts, accurate analytics, and fewer surprises later.”
 date: 2025-08-25
+classes: wide
 author_profile: true
-header:
-  image: /assets/images/headers/blog-hero.jpg
-description: "Walking through the initial validation step of the NYC Taxi data pipeline, before conversion and bulk insert."
+description: "Walking through the initial validation steps of the NYC Taxi data pipeline, folowed by conversion from Parquet to PSV, including data dictionaries."
 tags: [nyc taxi, parquet, psv, data pipelines, validation, duckdb]
 toc: true
-toc_label: "Table of Contents"
-toc_icon: "list"
 toc_sticky: true
----
-
-## Table of Contents
-- [Why Validate First?](#why-validate-first)
-- [Tools We’re Using](#tools-were-using)
-- [From Parquet to PSV](#from-parquet-to-psv)
-- [What’s Next](#whats-next)
-
+toc_label: "Sections"
+toc_icon: "list"
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.85"
+  overlay_image: /assets/images/nyctaxi-hero.jpg
+  caption: "NYC Taxi Trip Data Pipeline"
 ---
 
 One of the most useful public datasets for testing large-scale data pipelines is the **NYC Taxi & Limousine Commission (TLC) Trip Record Data**. It’s massive, well-structured, and full of quirks that make it ideal for exercising ETL workflows.

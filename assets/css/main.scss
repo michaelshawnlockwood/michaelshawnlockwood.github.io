@@ -108,5 +108,18 @@ h2, h3 { letter-spacing: -0.005em; }
   opacity: 1;
 }
 
+/* Make the ToC sticky even in wide layout */
+@media (min-width: 1024px) {
+  .toc, .toc .toc__menu {
+    position: sticky;
+    top: 6rem; /* room under the masthead */
+  }
+}
+/* Ensure no parent kills sticky via overflow */
+.page, .page__inner-wrap, .page__content {
+  overflow: visible !important;
+}
+
+
 
 

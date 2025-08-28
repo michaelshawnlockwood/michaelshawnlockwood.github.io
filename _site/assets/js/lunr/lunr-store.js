@@ -6,7 +6,7 @@ var store = [{
         "teaser": null
       },{
         "title": "NYC Taxi Data: First Steps in Validation",
-        "excerpt":"Table of Contents Why Validate First? Tools We’re Using From Parquet to PSV What’s Next One of the most useful public datasets for testing large-scale data pipelines is the NYC Taxi &amp; Limousine Commission (TLC) Trip Record Data. It’s massive, well-structured, and full of quirks that make it ideal for...","categories": [],
+        "excerpt":"One of the most useful public datasets for testing large-scale data pipelines is the NYC Taxi &amp; Limousine Commission (TLC) Trip Record Data. It’s massive, well-structured, and full of quirks that make it ideal for exercising ETL workflows. This post covers the very first step we’re taking: validation. Before pushing...","categories": [],
         "tags": ["nyc taxi","parquet","psv","data pipelines","validation","duckdb"],
         "url": "/2025/08/25/nyctaxi-pipeline.html",
         "teaser": null

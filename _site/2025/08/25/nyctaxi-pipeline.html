@@ -11,7 +11,7 @@
     <meta charset="utf-8">
 
 <!-- begin _includes/seo.html --><title>NYC Taxi Data: First Steps in Validation - Michael Shawn Lockwood</title>
-<meta name="description" content="Walking through the initial validation step of the NYC Taxi data pipeline, before conversion and bulk insert.">
+<meta name="description" content="Walking through the initial validation steps of the NYC Taxi data pipeline, folowed by conversion from Parquet to PSV, including data dictionaries.">
 
 
 
@@ -22,11 +22,11 @@
 <meta property="og:url" content="http://localhost:4000/2025/08/25/nyctaxi-pipeline.html">
 
 
-  <meta property="og:description" content="Walking through the initial validation step of the NYC Taxi data pipeline, before conversion and bulk insert.">
+  <meta property="og:description" content="Walking through the initial validation steps of the NYC Taxi data pipeline, folowed by conversion from Parquet to PSV, including data dictionaries.">
 
 
 
-  <meta property="og:image" content="http://localhost:4000/assets/images/headers/blog-hero.jpg">
+  <meta property="og:image" content="http://localhost:4000/assets/images/nyctaxi-hero.jpg">
 
 
 
@@ -97,7 +97,7 @@
 
   </head>
 
-  <body class="layout--single" dir="ltr">
+  <body class="layout--single wide" dir="ltr">
     <nav class="skip-links">
   <ul>
     <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
@@ -184,12 +184,48 @@
 
 
 
-<div class="page__hero"
-  style=" background-image: url('');"
+<div class="page__hero--overlay"
+  style="background-color: #000; background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('/assets/images/nyctaxi-hero.jpg');"
 >
   
-    <img src="/assets/images/headers/blog-hero.jpg" alt="NYC Taxi Data: First Steps in Validation" class="page__hero-image">
+    <div class="wrapper">
+      <h1 id="page-title" class="page__title" itemprop="headline">
+        
+          NYC Taxi Data: First Steps in Validation
+
+        
+      </h1>
+      
+        <p class="page__lead">“Every data pipeline starts with trust in the data. In this first step with the NYC Taxi dataset, I walk through schema checks, column profiling, and early validation techniques that catch errors before they ripple downstream. A foundation in clean data means smoother inserts, accurate analytics, and fewer surprises later.”
+</p>
+      
+      
+
+  <p class="page__meta">
+    
+
+    
+
+    
+      
+      
+
+      <span class="page__meta-readtime">
+        <i class="far fa-clock" aria-hidden="true"></i>
+        
+          1 minute read
+        
+      </span>
+    
+  </p>
+
+
+      
+    </div>
   
+  
+    <span class="page__hero-caption">NYC Taxi Trip Data Pipeline
+</span>
   
 </div>
 
@@ -289,61 +325,23 @@
 
   <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
     <meta itemprop="headline" content="NYC Taxi Data: First Steps in Validation">
-    <meta itemprop="description" content="Table of Contents  Why Validate First?  Tools We’re Using  From Parquet to PSV  What’s Next">
+    <meta itemprop="description" content="“Every data pipeline starts with trust in the data. In this first step with the NYC Taxi dataset, I walk through schema checks, column profiling, and early validation techniques that catch errors before they ripple downstream. A foundation in clean data means smoother inserts, accurate analytics, and fewer surprises later.”">
     <meta itemprop="datePublished" content="2025-08-25T00:00:00-04:00">
     
 
     <div class="page__inner-wrap">
-      
-        <header>
-          <h1 id="page-title" class="page__title" itemprop="headline">
-            <a href="http://localhost:4000/2025/08/25/nyctaxi-pipeline.html" itemprop="url">NYC Taxi Data: First Steps in Validation
-</a>
-          </h1>
-          
-
-  <p class="page__meta">
-    
-
-    
-
-    
-      
-      
-
-      <span class="page__meta-readtime">
-        <i class="far fa-clock" aria-hidden="true"></i>
-        
-          1 minute read
-        
-      </span>
-    
-  </p>
-
-
-        </header>
       
 
       <section class="page__content" itemprop="text">
         
           <aside class="sidebar__right sticky">
             <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-list"></i> Table of Contents</h4></header>
-              <ul class="toc__menu"><li><a href="#table-of-contents">Table of Contents</a></li><li><a href="#why-validate-first">Why Validate First?</a></li><li><a href="#tools-were-using">Tools We’re Using</a></li><li><a href="#from-parquet-to-psv">From Parquet to PSV</a></li><li><a href="#whats-next">What’s Next</a></li></ul>
+              <header><h4 class="nav__title"><i class="fas fa-list"></i> Sections</h4></header>
+              <ul class="toc__menu"><li><a href="#why-validate-first">Why Validate First?</a></li><li><a href="#tools-were-using">Tools We’re Using</a></li><li><a href="#from-parquet-to-psv">From Parquet to PSV</a></li><li><a href="#whats-next">What’s Next</a></li></ul>
             </nav>
           </aside>
         
-        <h2 id="table-of-contents">Table of Contents</h2>
-<ul>
-  <li><a href="#why-validate-first">Why Validate First?</a></li>
-  <li><a href="#tools-were-using">Tools We’re Using</a></li>
-  <li><a href="#from-parquet-to-psv">From Parquet to PSV</a></li>
-  <li><a href="#whats-next">What’s Next</a></li>
-</ul>
-
-<hr />
-
-<p>One of the most useful public datasets for testing large-scale data pipelines is the <strong>NYC Taxi &amp; Limousine Commission (TLC) Trip Record Data</strong>. It’s massive, well-structured, and full of quirks that make it ideal for exercising ETL workflows.</p>
+        <p>One of the most useful public datasets for testing large-scale data pipelines is the <strong>NYC Taxi &amp; Limousine Commission (TLC) Trip Record Data</strong>. It’s massive, well-structured, and full of quirks that make it ideal for exercising ETL workflows.</p>
 
 <p>This post covers the very first step we’re taking: <strong>validation.</strong> Before pushing terabytes of trip records downstream into SQL Server or PostgreSQL, we want to <em>know what’s in the files</em>.</p>
 
@@ -544,8 +542,7 @@ A major milestone in the open-source database ecosystem has arrived: Microsoft�
   </p>
 
 
-    <p class="archive__item-excerpt" itemprop="description">A real-world data engineering pipeline with Parquet → PSV conversion, schema validation, and SQL Server/PostgreSQL bulk insert.
-</p>
+    <p class="archive__item-excerpt" itemprop="description">A real-world data engineering pipeline with Parquet → PSV conversion, data dictionaries, schema validation, and SQL Server/PostgreSQL bulk insert. Downstream...</p>
   </article>
 </div>
 
