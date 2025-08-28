@@ -5,27 +5,19 @@
      role="img" aria-label="Subway-style roadmap (vibrant)">
 
   <style>
+    :root {
+      --blue:#1E88E5; --green:#00C853; --orange:#FF6D00; --violet:#7E57C2; --gold:#FDD835;
+    }
     .line { fill:none; stroke-width:12; stroke-linecap:round; }
     .stop { stroke:#111; stroke-width:2; }
-    .label { font:600 16px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#fff; }
-    .muted { font:500 13px/1.2 system-ui, -apple-system, Segoe UI, Roboto, Arial; fill:#ddd; }
-  </style>
+    .label { font:600 16px/1.2 system-ui,-apple-system,Segoe UI,Roboto,Arial; fill:#fff; }
+    .muted { font:500 13px/1.2 system-ui,-apple-system,Segoe UI,Roboto,Arial; fill:#ddd; }
 
-  <style>
-    .label, .muted {
-      paint-order: stroke;            /* draw stroke under fill */
-      stroke: rgba(17,17,17,.85);     /* dark halo */
-      stroke-width: 4;                /* thickness of halo */
-      stroke-linejoin: round;
-    }
+    /* Glow only (keeps text pure white) */
+    .label, .muted { stroke-width:0; filter:url(#text-pop); }
 
-    .tight-above .label { 
-      dominant-baseline: central; 
-    }
-
-    .tight-above .muted { 
-      dominant-baseline: central; 
-    }
+    /* Optional helper for tight-above groups */
+    .tight-above .label, .tight-above .muted { dominant-baseline: central; }
   </style>
 
   <defs>
@@ -37,31 +29,23 @@
     </filter>
   </defs>
 
+  <g id="lines">   <!-- all paths go here --> 
+    <!-- Main line (vibrant blue) -->
+    <path class="line" stroke="#1E88E5" d="M80,300 L1120,300" />
 
-  <style>
-    .label, .muted {
-      fill:#fff;              /* keep white */
-      stroke-width:0;         /* disable outline halo */
-      filter:url(#text-pop);  /* apply the new glow */
-    }
-  </style>
+    <!-- Branch to Performance Case Studies (vibrant green) -->
+    <path class="line" stroke="#00C853" d="M336,300 C376,300 440,165 580,165 L900,165" />
+    <path class="line" stroke="#00C853" d="M446,300 C486,300 520,165 580,165" />
 
-  <!-- Main line (vibrant blue) -->
-  <path class="line" stroke="#1E88E5" d="M80,300 L1120,300" />
+    <!-- Branch to Visualization (bright orange) -->
+    <path class="line" stroke="#FF6D00" d="M880,300 C920,300 920,120 960,120 L1120,120" />
 
-  <!-- Branch to Performance Case Studies (vibrant green) -->
-<path class="line" stroke="#00C853" d="M336,300 C376,300 440,165 580,165 L900,165" />
-<path class="line" stroke="#00C853" d="M446,300 C486,300 520,165 580,165" />
+      <!-- Branch to Azure (violet) -->
+    <path class="line" stroke="#7E57C2" d="M620,300 C660,300 660,230 700,230 L980,230" />
 
-
-  <!-- Branch to Visualization (bright orange) -->
-  <path class="line" stroke="#FF6D00" d="M880,300 C920,300 920,120 960,120 L1120,120" />
-
-    <!-- Branch to Azure (violet) -->
-  <path class="line" stroke="#7E57C2" d="M620,300 C660,300 660,230 700,230 L980,230" />
-
-    <!-- Branch to AWS (gold) -->
-  <path class="line" stroke="#FDD835" d="M740,300 C780,300 780,360 820,360 L1100,360" />
+      <!-- Branch to AWS (gold) -->
+    <path class="line" stroke="#FDD835" d="M740,300 C780,300 780,360 820,360 L1100,360" />
+  </g>
 
   <!-- Stops on main line -->
   <circle cx="100" cy="300" r="10" fill="#fff" class="stop"/>
@@ -72,93 +56,90 @@
   <text x="210" y="255" text-anchor="middle" class="label">Validation &amp; Conversion</text>
   <text x="210" y="275" text-anchor="middle" class="muted">PSV</text>
 
-  <circle cx="320" cy="300" r="10" fill="#fff" class="stop"/>
-  <text x="320" y="330" text-anchor="middle" class="label">SQL Server</text>
-  <text x="320" y="350" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
+  <a xlink:href="/projects/sqlserver/">
+    <g class="stop-group">
+      <circle cx="320" cy="300" r="10" fill="#fff" class="stop"/>
+      <text x="320" y="330" text-anchor="middle" class="label">SQL Server</text>
+      <text x="320" y="350" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
+    </g>
+  </a>
 
   <circle cx="430" cy="300" r="10" fill="#fff" class="stop"/>
   <text x="430" y="255" text-anchor="middle" class="label">PostgreSQL</text>
   <text x="430" y="275" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
 
-  <a xlink:href="/projects/nyc-taxi/" target="_top">
-    <circle cx="530" cy="300" r="10" fill="#fff" class="stop"/>
+  <!-- NYC Taxi as a placard pinned to the baseline -->
+  <a xlink:href="/projects/nyc-taxi/" target="_top" aria-label="NYC Taxi — high-volume ingest">
+    <g class="stop-group placard" transform="translate(530,300)">
+      <!-- leader pin into the blue baseline -->
+      <line x1="0" y1="0" x2="0" y2="-22"
+            stroke="#1E88E5" stroke-width="8" stroke-linecap="round"/>
+
+      <!-- rounded label box (above the line) -->
+      <rect x="-84" y="-72" width="168" height="44" rx="10" ry="10"
+            fill="rgba(0,0,0,.78)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+
+      <!-- text (keeps your white + glow) -->
+      <text x="0" y="-52" text-anchor="middle" class="label">NYC Taxi</text>
+      <text x="0" y="-34" text-anchor="middle" class="muted">High-volume ingest</text>
+    </g>
   </a>
+
+  <circle cx="530" cy="300" r="10" fill="#fff" class="stop"/>
   <text x="530" y="330" text-anchor="middle" class="label">NYC Taxi</text>
   <text x="530" y="350" text-anchor="middle" class="muted">Large Data</text>
 
   <text x="620" y="255" text-anchor="middle" class="label">Airflow</text>
   <text x="620" y="275" text-anchor="middle" class="muted">Orchestration</text>
 
-  <a xlink:href="/projects/databricks-notebooks/">
-    <circle cx="740" cy="300" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="740" cy="300" r="10" fill="#fff" class="stop"/>
   <text x="740" y="330" text-anchor="middle" class="label">Databricks</text>
   <text x="740" y="350" text-anchor="middle" class="muted">Analytics</text>
 
-  <a xlink:href="/projects/end-to-end/">
-    <circle cx="860" cy="300" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="860" cy="300" r="10" fill="#fff" class="stop"/>
   <text x="860" y="260" text-anchor="middle" class="label">End-to-End</text>
   <text x="860" y="276" text-anchor="middle" class="muted">Pipeline</text>
 
   <!-- Branch stops with padded labels -->
-  <a xlink:href="/projects/sqlserver-performance/">
-    <circle cx="580" cy="165" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="580" cy="165" r="10" fill="#fff" class="stop"/>
   <text x="580" y="122" text-anchor="middle" class="label">Performance</text>
   <text x="580" y="142" text-anchor="middle" class="muted">Case Studies</text>
 
-  <a xlink:href="/projects/powerbi-dashboards/">
-    <circle cx="1000" cy="120" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="1000" cy="120" r="10" fill="#fff" class="stop"/>
   <text x="1000" y="80"  text-anchor="middle" class="label">Power BI</text>
   <text x="1000" y="96" text-anchor="middle" class="muted">Visualization</text>
 
-  <a xlink:href="/projects/airflow-etl/">
-    <circle cx="620" cy="300" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="620" cy="300" r="10" fill="#fff" class="stop"/>
 
   <!-- Azure branch stops -->
-  <a xlink:href="/projects/azure-sql-mi/">
-    <circle cx="700" cy="230" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="700" cy="230" r="10" fill="#fff" class="stop"/>
   <g class="tight-above" transform="translate(700,230)">
     <text x="0" y="-46" text-anchor="middle" class="label">Azure SQL MI</text>
     <text x="0" y="-24" text-anchor="middle" class="muted">Managed Instance</text>
   </g>
 
-  <a xlink:href="/projects/azure-synapse/">
-    <circle cx="820" cy="230" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="820" cy="230" r="10" fill="#fff" class="stop"/>
   <g class="tight-above" transform="translate(820,230)">
     <text x="0" y="-46" text-anchor="middle" class="label">Synapse</text>
     <text x="0" y="-24" text-anchor="middle" class="muted">DW / Pipelines</text>
   </g>
 
-  <a xlink:href="/projects/azure-devops/">
-    <circle cx="940" cy="230" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="940" cy="230" r="10" fill="#fff" class="stop"/>
   <g class="tight-above" transform="translate(940,230)">
     <text x="0" y="-46" text-anchor="middle" class="label">DevOps</text>
     <text x="0" y="-24" text-anchor="middle" class="muted">Pipelines &amp; CI/CD</text>
   </g>
 
   <!-- AWS branch stops -->
-  <a xlink:href="/projects/aws-rds-sqlserver/">
-    <circle cx="820" cy="360" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="820" cy="360" r="10" fill="#fff" class="stop"/>
   <text x="820" y="390" text-anchor="middle" class="label">RDS (SQL Server)</text>
   <text x="820" y="410" text-anchor="middle" class="muted">Managed DB</text>
 
-  <a xlink:href="/projects/aws-glue/">
-    <circle cx="940" cy="360" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="940" cy="360" r="10" fill="#fff" class="stop"/>
   <text x="940" y="390" text-anchor="middle" class="label">Glue</text>
   <text x="940" y="410" text-anchor="middle" class="muted">ETL / Catalog</text>
 
-  <a xlink:href="/projects/aws-redshift/">
-    <circle cx="1060" cy="360" r="10" fill="#fff" class="stop"/>
-  </a>
+  <circle cx="1060" cy="360" r="10" fill="#fff" class="stop"/>
   <text x="1060" y="390" text-anchor="middle" class="label">Redshift</text>
   <text x="1060" y="410" text-anchor="middle" class="muted">Analytics</text>
 </svg>
