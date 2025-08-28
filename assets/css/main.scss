@@ -6,7 +6,7 @@
 @import "palette";
 @import "menus";
 @import "images";
-
+@import "typography";
 
 .page__hero {
   height: 300px;        /* set the max banner height */
@@ -23,16 +23,9 @@
   object-position: center;
 }
 
-/* ===== Typography scale tweaks ===== */
-html { font-size: 15px; }  /* ~-1px across the board; change to 14px if you want smaller */
-
 .post, .page {
   line-height: 1.6;
 }
-
-/* Headings tighten a touch so they don't look oversized after base change */
-h1 { letter-spacing: -0.01em; }
-h2, h3 { letter-spacing: -0.005em; }
 
 /* ===== Back-to-Top button ===== */
 .back-to-top {

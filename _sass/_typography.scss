@@ -1,0 +1,6 @@
+/* ===== Typography scale tweaks ===== */
+html { font-size: 15px; }  /* ~-1px across the board; change to 14px if you want smaller */
+
+/* Headings tighten a touch so they don't look oversized after base change */
+h1 { letter-spacing: -0.01em; }
+h2, h3 { letter-spacing: -0.005em; }
