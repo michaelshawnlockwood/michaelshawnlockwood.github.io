@@ -68,36 +68,59 @@
     <!-- Skills -->
     <section id="skills" class="max-w-6xl mx-auto px-4 py-12">
       <h3 class="text-2xl font-bold">Skills Snapshot</h3>
+
       <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <!-- Performance & HA/DR -->
         <div class="rounded-2xl border border-zinc-200 bg-white p-5">
-          <h4 class="font-semibold">Performance & HA/DR</h4>
+          <h4 class="font-semibold">Performance &amp; HA/DR</h4>
           <ul class="mt-3 text-sm text-zinc-700 space-y-1">
-            <li>Query tuning & index strategy</li>
-            <li>Always On AGs / Failover Cluster Instances</li>
-            <li>Mirroring, Replication</li>
-            <li>Backup/Restore, DB growth forecasting</li>
+            <li>High-availability architectures: <span class="font-medium">Always On AGs</span>, <span class="font-medium">Failover Cluster Instances</span>, mirroring, replication</li>
+            <li><span class="font-medium">Stabilized mission-critical outages</span> and restored performance under pressure</li>
+            <li><span class="font-medium">Backup/restore</span> and capacity planning aligned to RPO/RTO &amp; compliance</li>
+            <li>Data growth forecasting to prevent surprises and keep SLAs predictable</li>
           </ul>
         </div>
+
+        <!-- Automation & Development -->
         <div class="rounded-2xl border border-zinc-200 bg-white p-5">
-          <h4 class="font-semibold">Dev & Automation</h4>
+          <h4 class="font-semibold">Automation &amp; Development</h4>
           <ul class="mt-3 text-sm text-zinc-700 space-y-1">
-            <li>T‑SQL, SSIS, SSRS</li>
-            <li>SQL Data Projects & DACPAC exposure</li>
-            <li>Scripting: T‑SQL primary; Python (one‑off)</li>
-            <li>Source control & release hygiene</li>
+            <li><span class="font-medium">T-SQL automation frameworks</span> for maintenance, monitoring, and reliability</li>
+            <li><span class="font-medium">SSIS</span> ETL solutions and <span class="font-medium">SSRS</span> reporting layers</li>
+            <li><span class="font-medium">SQL Data Projects</span> &amp; <span class="font-medium">DACPAC</span> deployments for consistent releases</li>
+            <li>Scripting: <span class="font-medium">T-SQL primary</span>; Python for targeted one-off automation</li>
+            <li>Source control discipline &amp; release hygiene (CI/CD-friendly)</li>
           </ul>
         </div>
+
+        <!-- Platform Expertise -->
         <div class="rounded-2xl border border-zinc-200 bg-white p-5">
-          <h4 class="font-semibold">Platforms</h4>
+          <h4 class="font-semibold">Platform Expertise</h4>
           <ul class="mt-3 text-sm text-zinc-700 space-y-1">
-            <li>SQL Server (on‑prem & IaaS)</li>
-            <li>Azure SQL exposure; prefer VM/on‑prem control</li>
-            <li>PostgreSQL (learning & lab automation)</li>
-            <li>HL7 pipelines (OnePoint Patient Care)</li>
+            <li><span class="font-medium">SQL Server</span> (on-prem &amp; IaaS) preferred for visibility, control, and reliability</li>
+            <li>Practical <span class="font-medium">Azure SQL</span> exposure; clear-eyed about trade-offs vs. VM/on-prem</li>
+            <li><span class="font-medium">PostgreSQL</span> labs and automation to build cross-platform fluency</li>
+          </ul>
+        </div>
+
+        <!-- Domain-Specific Pipelines -->
+        <div class="rounded-2xl border border-zinc-200 bg-white p-5 md:col-span-3">
+          <h4 class="font-semibold">Domain-Specific Pipelines</h4>
+          <ul class="mt-3 text-sm text-zinc-700 grid md:grid-cols-3 gap-3">
+            <li>
+              <span class="font-medium">Healthcare (OnePoint Patient Care)</span> — HL7 clinical data pipelines integrated to SQL Server with reliability &amp; compliance.
+            </li>
+            <li>
+              <span class="font-medium">Automotive (Rebuilder’s Automotive Supply)</span> — Automated parts inventory &amp; sales reporting pipelines for accurate financial/operational visibility.
+            </li>
+            <li>
+              <span class="font-medium">Financial Services (Mellon Financial Corporation)</span> — Enterprise ETL development transforming and loading financial datasets for downstream analytics.
+            </li>
           </ul>
         </div>
       </div>
     </section>
+
 
     <!-- Experience Highlights -->
     <section id="experience" class="bg-white border-y border-zinc-200">
@@ -137,7 +160,7 @@
             class="roadmap-svg"
             style="display:block; width:100%; aspect-ratio:1200/420; height:auto; position:relative; z-index:1;"
             aria-label="Subway-style roadmap">
-            <img src="{{ '/assets/images/subway-roadmap-inverted.jpg' | absolute_url }}" alt="Subway roadmap fallback">
+            <img src="{{ '/assets/images/subway-roadmap.svg' | absolute_url }}" alt="Subway roadmap fallback" class="invert">
           </object>
         </div>
       </section>

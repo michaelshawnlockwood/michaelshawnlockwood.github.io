@@ -3,6 +3,7 @@ layout: single
 title: "AWS, Microsoft, and Google Back Linux Foundation DocumentDB to Reduce Lock-In"
 date: 2025-08-28
 author: "ChatGPT - Analyst"
+author_profile: false
 categories: [databases, open-source, cloud]
 tags: [DocumentDB, PostgreSQL, MongoDB, Linux Foundation, AWS, Microsoft, Google]
 ---
