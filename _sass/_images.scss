@@ -2,13 +2,5 @@
 .roadmap-svg { position:relative; z-index:1; display:block; max-width:100%; height:auto; margin:0 auto; }
 
 .invert {
-  filter: invert(1) hue-rotate(180deg);
-}
-
-body.dark .invert {
-  filter: invert(1) hue-rotate(180deg);
-}
-
-.invert {
   filter: invert(1) hue-rotate(180deg) brightness(0.9) contrast(1.1);
 }
