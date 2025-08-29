@@ -3,8 +3,8 @@ layout: single
 title: "NYC Taxi Data: First Steps in Validation"
 excerpt: "Every data pipeline starts with trust in the data. In this first step with the NYC Taxi dataset, We step through schema checks, column profiling, and early validation techniques that catch errors before they ripple downstream. A foundation in clean data means smoother imports, accurate analytics, and fewer surprises later."
 date: 2025-08-25
-classes: wide
-author_profile: true
+classes: center-page
+author_profile: false
 description: ""
 sidebar: false
 tags: [nyc taxi, parquet, psv, data pipelines, validation, duckdb]

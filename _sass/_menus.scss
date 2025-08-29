@@ -93,3 +93,37 @@
 // .sidebar__right nav.toc .toc__menu > li { outline: 1px dashed cyan !important; }
 
 
+/* Center the article; collapse the sidebar into a full-width row */
+@media (min-width: 64em) { /* match MM’s large breakpoint */
+  .center-page .page__content {
+    float: none;               /* cancel theme float */
+    width: 100%;               /* cancel calc() width */
+    max-width: 1100px;         /* pick your content width */
+    margin-inline: auto;       /* center */
+  }
+
+  .center-page .sidebar__right,
+  .center-page .sidebar__right.sticky {
+    float: none;               /* stop reserving a right column */
+    position: static;          /* cancel sticky positioning */
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto 1rem;       /* place ToC row above content */
+  }
+}
+
+/* Hide the “Follow” button on small viewports */
+@media (max-width: 700px) {
+  /* common cases */
+  .btn--follow,
+  a[aria-label="Follow"],
+  button[aria-label="Follow"] {
+    display: none;
+  }
+
+  /* if it sits in the masthead nav */
+  .masthead .masthead__menu-item--follow,
+  .masthead .nav__list .masthead__menu-item > a[aria-label="Follow"] {
+    display: none;
+  }
+}
