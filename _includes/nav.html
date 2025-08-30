@@ -1,14 +1,13 @@
 <nav class="site-nav">
   <div class="container">
-    
-    <a class="brand" href="{{ '/' | relative_url }}"><strong>MSL</strong>.db</a>
+    <a class="brand" href="{% link about/index.md %}"><strong>MSL</strong>.db</a>
     <ul class="menu">
-      <li><a href="{{ '/about/' | relative_url }}">About</a></li>
-      <li><a href="{{ '/' | relative_url }}#skills">Skills</a></li>
-      <li><a href="{{ '/' | relative_url }}#experience">Experience</a></li>
-      <li><a href="{{ '/' | relative_url }}#projects">Projects</a></li>
-      <li><a href="{{ '/' | relative_url }}#writing">Writing</a></li>
-      <li><a href="{{ '/' | relative_url }}#contact">Contact</a></li>
+      <li><a href="{% link about/index.md %}">About</a></li>
+      <li><a href="{% link about/index.md %}#skills">Skills</a></li>
+      <li><a href="{% link about/index.md %}#experience">Experience</a></li>
+      <li><a href="{% link about/index.md %}#projects">Projects</a></li>
+      <li><a href="{% link about/index.md %}#writing">Writing</a></li>
+      <li><a href="{% link about/index.md %}#contact">Contact</a></li>
     </ul>
     <a class="btn btn-primary" href="{{ '/resume.pdf' | relative_url }}" download>Download Resume</a>
   </div>

@@ -1,15 +1,17 @@
 main:
+  - title: "Home"
+    url: /
   - title: "About"
-    url: "/#about"
+    url: /about/
   - title: "Skills"
-    url: "/#skills"
+    url: /about/#skills
   - title: "Experience"
-    url: "/#experience"
+    url: /about/#experience
   - title: "Projects"
-    url: "/#projects"
+    url: /about/#projects
   - title: "Writing"
-    url: "/#writing"
+    url: /about/#writing
   - title: "Contact"
-    url: "/#contact"
-  - title: Blog
+    url: /about/#contact
+  - title: "Blog"
     url: /blog/

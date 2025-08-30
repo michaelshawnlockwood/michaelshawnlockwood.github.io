@@ -10,6 +10,22 @@
   @include hover-outline(2px, $color-accent-alt, 6px); // match your current look
 }
 
+.layout--home .greedy-nav .visible-links a[href="/"] {
+  pointer-events: none;
+  opacity: .6;
+}
+
+/* Dim/disable the nav item when you’re already on that page */
+.layout--home .greedy-nav .visible-links a[href="/"] { pointer-events: none; opacity: .6; }
+.page--about .greedy-nav .visible-links a[href="/about/"] { pointer-events: none; opacity: .6; }
+.page--blog  .greedy-nav .visible-links a[href="/blog/"]  { pointer-events: none; opacity: .6; }
+
+html:has(#skills:target)     .greedy-nav a[href="/about/#skills"] { pointer-events: none; opacity: .6; }
+html:has(#experience:target) .greedy-nav a[href="/about/#experience"] { pointer-events: none; opacity: .6; }
+html:has(#projects:target)   .greedy-nav a[href="/about/#projects"] { pointer-events: none; opacity: .6; }
+html:has(#writing:target)    .greedy-nav a[href="/about/#writing"] { pointer-events: none; opacity: .6; }
+html:has(#contact:target)    .greedy-nav a[href="/about/#contact"] { pointer-events: none; opacity: .6; }
+
 /* ===== Minimal Mistakes ToC polish ===== */
 .toc {
   border-radius: 10px;
@@ -86,6 +102,23 @@
 @media (prefers-reduced-motion: reduce) {
   .toc .toc__menu > li > a::after { transition: none; transform: none; }
 }
+
+.link-chips{ display:flex; gap:.6rem; flex-wrap:wrap; align-items:center; }
+
+.link-chips a{
+  @include link-no-underline;
+  display:inline-flex; align-items:center; gap:.45rem;
+  padding:.35rem .6rem; border-radius:10px;
+  border:1px solid $color-border; color:$color-text;
+  @include hover-outline(1.5px, rgba($color-accent-alt,.55), 10px);
+}
+
+.link-chips a:hover{ color:$color-text; }     // keep text steady; outline does the work
+.link-chips i{ font-size:1rem; line-height:0; } // tidy icon size
+
+
+
+
 
 
 /* DEBUG: visualize the real ToC without changing layout */

@@ -19,6 +19,8 @@ header:
   caption: "Eight Essential Queries for NYC Yellow Taxi Data"
 ---
 
+<a id="toc" class="visually-hidden"></a>
+
 Working with the NYC Taxi dataset isn’t just about storing rows — it’s about asking the right questions.
 
 Once the raw PSV files are bulk-inserted into SQL Server, you can unlock a lot of insight with just a handful of well-chosen queries.
@@ -55,6 +57,7 @@ GROUP BY [PULocationID]
 ORDER BY [total_revenue] DESC;
 GO
 ```
+[⬆ Back to Top](#toc){:.back-to-top}
 ## 3) Top 10 Drop-off Locations (by trip count)
 ```sql
 SELECT TOP 10
@@ -77,6 +80,7 @@ GROUP BY [payment_type]
 ORDER BY [total_revenue] DESC;
 GO
 ```
+[⬆ Back to Top](#toc){:.back-to-top}
 ## 5) Peak Hour Analysis
 ```sql
 SELECT DATEPART(HOUR, [tpep_pickup_datetime]) AS [pickup_hour],
@@ -110,6 +114,7 @@ GROUP BY CASE
 ORDER BY MIN([trip_distance]);
 GO
 ```
+[⬆ Back to Top](#toc){:.back-to-top}
 ## 7) Average Fare per Mile (daily)
 ```sql
 SELECT CAST([tpep_pickup_datetime] AS DATE) AS [trip_date],
@@ -126,3 +131,4 @@ SELECT ROUND(100.0 * SUM([tip_amount]) / NULLIF(SUM([fare_amount]), 0), 2) AS [t
 FROM [dbo].[yellow_tripdata];
 GO
 ```
+[⬆ Back to Top](#toc){:.back-to-top}

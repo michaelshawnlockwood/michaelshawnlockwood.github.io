@@ -1,16 +1,4 @@
-  <!-- Nav -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-zinc-200">
-    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-      <nav class="hidden md:flex gap-6 text-sm">
-        <a href="#about" class="hover:text-zinc-600">About</a>
-        <a href="#skills" class="hover:text-zinc-600">Skills</a>
-        <a href="#experience" class="hover:text-zinc-600">Experience</a>
-        <a href="#projects" class="hover:text-zinc-600">Projects</a>
-        <a href="#writing" class="hover:text-zinc-600">Writing</a>
-        <a href="#contact" class="hover:text-zinc-600">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <a id="toc" class="visually-hidden"></a>
 
   <!-- Hero -->
   <main id="top" class="relative">
@@ -24,9 +12,14 @@
             Senior SQL Server Database Administrator • MCDBA • Performance Optimization • Automation (T-SQL & SSIS) • On-prem Specialist • Data Reliability Advocate • Exploring PostgreSQL, Airflow & Databricks
           </p>
           <div class="mt-5 flex flex-wrap items-center gap-3 text-sm">
-            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-zinc-300 hover:bg-zinc-100" href="#contact">Contact me:</a>
-            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-zinc-300 hover:bg-zinc-100" href="https://github.com/michaelshawnlockwood" target="_blank" rel="noopener">GitHub</a>
-            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-zinc-300 hover:bg-zinc-100" href="https://www.linkedin.com/in/mslockwood" target="_blank" rel="noopener">LinkedIn</a>
+            <nav class="link-chips">
+              <a href="https://github.com/michaelshawnlockwood" target="_blank" rel="me noopener">
+                <i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/mslockwood" target="_blank" rel="me noopener">
+                <i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+              </a>
+            </nav>
           </div>
         </div>
         <div class="md:justify-self-end">
@@ -55,16 +48,25 @@
         <div style="text-align:left;">
           <h3>📊 20+ Years of Applied Data Analysis Experience</h3>
           <p>Spanning healthcare, financial, and education industries, my work in database architecture, reporting, and performance optimization has consistently required advanced SQL-driven analysis of large and complex datasets.</p>
-          <img src="/assets/images/lockwood_data_analysis_timeline.svg" alt="Michael Shawn Lockwood – 20+ Years of Applied Data Analysis Experience" style="max-width: 95%; height: auto;">
-        </div>
-        <div>
-          <div class="rounded-2xl border border-zinc-200 p-4 bg-zinc-50">
-            <p class="text-sm text-zinc-600">Fun facts: I enjoy country swing dancing, snowboarding and weight-lifting.</p>
+          <div class="viz-wrap" style="max-width:95%; margin-inline:auto;">
+            <img
+              id="timelineSVG"
+              class="viz-svg"
+              src="{{ '/assets/images/lockwood_data_analysis_timeline.svg' | relative_url }}"
+              alt="Michael Shawn Lockwood – 20+ Years of Applied Data Analysis Experience" />
+            <div class="viz-controls" role="group" aria-label="Color controls">
+              <button type="button" class="viz-btn is-active" data-mode="normal">Normal</button>
+              <button type="button" class="viz-btn" data-mode="invert">Invert</button>
+              <label class="viz-slider">
+                <span>Brightness</span>
+                <input id="darkRange" type="range" min="40" max="110" step="1" value="100">
+              </label>
+            </div>
           </div>
         </div>
       </div>
     </section>
-
+    <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
     <!-- Skills -->
     <section id="skills" class="max-w-6xl mx-auto px-4 py-12">
       <h3 class="text-2xl font-bold">Skills Snapshot</h3>
@@ -80,7 +82,6 @@
             <li>Data growth forecasting to prevent surprises and keep SLAs predictable</li>
           </ul>
         </div>
-
         <!-- Automation & Development -->
         <div class="rounded-2xl border border-zinc-200 bg-white p-5">
           <h4 class="font-semibold">Automation &amp; Development</h4>
@@ -102,7 +103,6 @@
             <li><span class="font-medium">PostgreSQL</span> labs and automation to build cross-platform fluency</li>
           </ul>
         </div>
-
         <!-- Domain-Specific Pipelines -->
         <div class="rounded-2xl border border-zinc-200 bg-white p-5 md:col-span-3">
           <h4 class="font-semibold">Domain-Specific Pipelines</h4>
@@ -121,7 +121,7 @@
       </div>
     </section>
 
-
+    <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
     <!-- Experience Highlights -->
     <section id="experience" class="bg-white border-y border-zinc-200">
       <div class="max-w-6xl mx-auto px-4 py-12">
@@ -147,7 +147,7 @@
         </div>
       </div>
     </section>
-
+    <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
     <!-- Projects -->
     <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
       <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
@@ -164,14 +164,12 @@
           </object>
         </div>
       </section>
-
-
+      <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
       <h3 class="text-2xl font-bold">Projects: Past, Present and Future</h3>
       <div class="mt-6 grid md:grid-cols-2 gap-6">
         <div class="rounded-2xl border border-zinc-200 bg-white p-5">
           <h4 class="font-semibold">SQLAgent007</h4>
           <p class="mt-2 text-sm text-zinc-700">Open project for automated index tuning, performance surveillance, and cross‑platform support (SQL Server, Azure SQL, PostgreSQL). Repo & docs coming online.</p>
-          <a class="inline-block mt-3 text-sm font-semibold underline" href="https://github.com/michaelshawnlockwood" target="_blank" rel="noopener">Follow on GitHub</a>
         </div>
         <div class="rounded-2xl border border-zinc-200 bg-white p-5">
           <h4 class="font-semibold">AIMS (Modernized)</h4>
@@ -187,7 +185,7 @@
         </div>
       </div>
     </section>
-
+    <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
     <!-- Writing -->
     <section id="writing" class="bg-white border-y border-zinc-200">
       <div class="max-w-6xl mx-auto px-4 py-12">
@@ -207,9 +205,13 @@
           <h3 class="text-2xl font-bold">Contact</h3>
           <p class="mt-2 text-zinc-700">Best way to reach me: email or LinkedIn DM.</p>
           <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
-            <button id="copyEmail" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-zinc-300 hover:bg-zinc-100">Copy Email</button>
+            <button id="copyEmail" class="btn btn--subtle">COPY EMAIL</button>&nbsp;
             <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-zinc-300 hover:bg-zinc-100" href="mailto:michaelshawnlockwood@gmail.com">michaelshawnlockwood@gmail.com</a>
-            <a class="inline-flex items-center gap-2 rounded-xl px-4 py-2 border border-zinc-300 hover:bg-zinc-100" href="https://www.linkedin.com/in/mslockwood" target="_blank" rel="noopener">LinkedIn</a>
+            <nav class="link-chips">
+              <a href="https://www.linkedin.com/in/yourname" target="_blank" rel="me noopener">
+              <i class="fab fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span>
+              </a>
+            </nav>
           </div>
         </div>
         <aside class="rounded-2xl border border-zinc-200 bg-white p-5">
@@ -219,10 +221,10 @@
         </aside>
       </div>
     </section>
-
     <footer class="border-t border-zinc-200 py-10 text-center text-xs text-zinc-500">
       <p>© <span id="y"></span> Michael Shawn Lockwood • Built with GitHub Pages • Theme: minimal-mistakes</p>
     </footer>
+    <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
   </main>
 
   <script>
@@ -236,4 +238,5 @@
       setTimeout(() => (btn.textContent = 'Copy Email'), 1600);
     });
   </script>
+  <script defer src="{{ '/assets/js/viz-controls.js' | relative_url }}"></script>
 

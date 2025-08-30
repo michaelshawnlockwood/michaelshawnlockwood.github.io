@@ -5,7 +5,6 @@ excerpt: "Every data pipeline starts with trust in the data. In this first step 
 date: 2025-08-25
 classes: center-page
 author_profile: false
-description: ""
 sidebar: false
 tags: [nyc taxi, parquet, psv, data pipelines, validation, duckdb]
 toc: true

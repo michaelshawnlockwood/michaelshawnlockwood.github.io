@@ -4,10 +4,35 @@
 @import "minimal-mistakes/skins/dark";  /* must come first */
 @import "minimal-mistakes";             /* then the core theme */
 @import "palette";
+@import "media";
 @import "mixins";
 @import "menus";
 @import "images";
 @import "typography";
+
+/* Let the header show the SVG behind it */
+.masthead,
+.masthead__inner-wrap,
+.masthead .greedy-nav,
+.masthead .greedy-nav .visible-links,
+.site-nav {           /* covers your custom nav variant too */
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+}
+
+/* keep dropdown clean on mobile too */
+.greedy-nav .hidden-links {
+  background: transparent;
+  box-shadow: none;
+  border: 0;
+}
+
+.masthead {
+  background: url('{{ "/assets/images/header-bg.svg" | relative_url }}') center / cover no-repeat;
+}
+/* Optional: tweak colors site-wide */
+.masthead svg { --accent:#f5b759; --accent-2:#1e88e5; --bg-1:#0b0e14; --bg-2:#111827; }
 
 .page__hero {
   height: 300px;        /* set the max banner height */

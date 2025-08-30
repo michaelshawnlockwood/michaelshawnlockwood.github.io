@@ -34,6 +34,38 @@
   }
 }
 
+@mixin button(
+  $py: .5rem,
+  $px: 1rem,
+  $radius: 10px,
+  $border-w: 2px,
+  $border-color: $color-border,
+  $text: $color-text,
+  $outline-w: 2px,
+  $outline-color: rgba($color-accent-alt, .85)
+) {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: $py $px;
+  border: $border-w solid $border-color;
+  border-radius: $radius;
+  background: rgba($color-bg, 0.55);
+  color: $text;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: none;
+
+  // your existing mixin from earlier
+  @include hover-outline($outline-w, $outline-color, $radius);
+}
+
+.btn { @include button(); }                // default button
+.btn--subtle {                             // softer outline variant
+  @include button($outline-w: 1.25px, $outline-color: rgba($color-accent-alt,.45));
+}
+.btn--copy { @include button($py: 0.5rem, $px: 1rem, $radius: 12px); } 
+
 /* (optional) utility: strip link underlines the MM way */
 @mixin link-no-underline {
   text-decoration: none !important;

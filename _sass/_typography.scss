@@ -4,3 +4,10 @@ html { font-size: 15px; }  /* ~-1px across the board; change to 14px if you want
 /* Headings tighten a touch so they don't look oversized after base change */
 h1 { letter-spacing: -0.01em; }
 h2, h3 { letter-spacing: -0.005em; }
+
+.roadmap-figure { margin: 0; }
+.caption-xs { 
+  display:block; margin-top:.4rem; text-align:center;
+  font-size:.72rem; line-height:1.25; opacity:.75;
+}
+@media (max-width:700px){ .caption-xs { font-size:.68rem; } }

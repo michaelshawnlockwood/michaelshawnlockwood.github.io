@@ -1,5 +1,10 @@
 ---
-layout: home   # minima has 'home' and 'page'
-title: About
+layout: single
+title: "About"
+permalink: /about/
+classes: page--about
 ---
+
 {% include home.html %}
+
+

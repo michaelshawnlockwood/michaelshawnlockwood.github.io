@@ -1,0 +1,42 @@
+/* wrapper establishes custom props used by the filter */
+.viz-wrap {
+  --inv: 0;
+  --b: 1;
+  --c: 1;
+  position: relative;
+}
+
+.viz-svg { filter: var(--viz-filter, none); }
+
+.viz-controls { --accent-gold: #ffb347; }
+
+/* controls overlay */
+.viz-controls{
+  position:absolute; bottom:-3rem; left:9rem;
+  display:flex; align-items:center; gap:.5rem;
+  padding:.4rem .6rem; border-radius:10px;
+  background: rgba(0,0,0,.35); backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,.12);
+}
+.viz-btn{
+  font:600 13px/1 system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  padding:.35rem .6rem; border-radius:8px; border:1px solid var(--mm-border, rgba(255,255,255,.12));
+  color: var(--mm-text, #eee); background: transparent; cursor:pointer;
+}
+.viz-btn:hover { border-color: color-mix(in srgb, var(--accent-gold) 70%, transparent) !important; }
+
+}
+/* .viz-btn.is-active { border-color: color-mix(in srgb, var(--accent-gold) 70%, transparent) !important; } */
+.viz-btn.is-active::after,
+.viz-btn.is-active:hover::after,
+.viz-btn.is-active:focus-visible::after {
+  opacity: 1 !important;              /* ensure the outline is visible */
+  transform: scale(1) !important;     /* fully expanded outline */
+}
+
+.viz-slider{ 
+    display:flex; align-items:center; gap:.5rem; 
+    position: relative; bottom:-0.25rem; left:-0.25rem;
+    color:#eee; font:200 11px/1 system-ui,-apple-system,Segoe UI,Roboto,Arial; }
+.viz-slider input{ accent-color:#ccc; }
+
