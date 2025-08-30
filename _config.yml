@@ -8,14 +8,13 @@ plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
   # - jekyll-paginate
+sass:
+  style: compressed
 
 remote_theme: mmistakes/minimal-mistakes
 
 # Pick a built-in skin: default, air, aqua, contrast, dark, dirt, neon, plum
 minimal_mistakes_skin: "dark"
-
-sass:
-  style: compressed
 
 defaults:
   - scope:
