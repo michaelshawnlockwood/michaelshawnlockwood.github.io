@@ -1,5 +1,5 @@
 ---
-layout: null
+layout: none
 ---
 
 <svg xmlns="http://www.w3.org/2000/svg"
@@ -29,18 +29,11 @@ layout: null
   </style>
 
   <defs>
-    <!-- Crisp, centered backlight for white text -->
     <filter id="text-pop" x="-40%" y="-40%" width="180%" height="180%">
-      <!-- use feDropShadow with no offset for an even glow -->
       <feDropShadow dx="0" dy="0" stdDeviation="2.4"
                     flood-color="#000" flood-opacity="0.9"/>
     </filter>
   </defs>
-
-  <!-- To-do: put all paths in #lines, all circles in #stops, all text/placards in #labels -->
-  <!-- <g id="lines">…paths…</g>
-  <g id="stops">…circles…</g>
-  <g id="labels">…texts + placard…</g> -->
 
   <g id="lines">   <!-- all paths go here --> 
     <!-- Main line (vibrant blue) -->

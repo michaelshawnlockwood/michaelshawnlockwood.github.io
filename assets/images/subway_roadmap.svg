@@ -1,0 +1,206 @@
+---
+layout: none
+---
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1200 420"
+     style="max-width:100%; height:auto; background:transparent"
+     role="img" aria-label="Subway-style roadmap (vibrant)">
+
+  <style>
+    :root {
+      --blue:#1E88E5; --green:#00C853; --orange:#FF6D00; --violet:#7E57C2; --gold:#FDD835;
+    }
+    .line { fill:none; stroke-width:12; stroke-linecap:round; }
+    .stop { stroke:#111; stroke-width:2; }
+    .label { font:600 16px/1.2 system-ui,-apple-system,Segoe UI,Roboto,Arial; fill:#fff; }
+    .muted { font:500 13px/1.2 system-ui,-apple-system,Segoe UI,Roboto,Arial; fill:#ddd; }
+
+    /* Glow only (keeps text pure white) */
+    .label, .muted { stroke-width:0; filter:url(#text-pop); }
+
+    /* Optional helper for tight-above groups */
+    .tight-above .label, .tight-above .muted { dominant-baseline: central; }
+
+    .label, .muted { stroke-width:0; filter:url(#text-pop); }
+    .tight-above .label, .tight-above .muted { dominant-baseline: central; }
+    a:focus .placard rect, a:hover .placard rect { stroke:#fff; stroke-width:2; }
+    .stop-group text { pointer-events:none; }
+    .aws-logo text { font:700 40px/1 system-ui,Segoe UI,Roboto,Arial; fill:var(--gold); stroke:#000; stroke-width:1; paint-order:stroke fill; }
+    .aws-logo path { stroke:var(--gold); stroke-width:4; fill:none; }
+
+    /* Placard */
+    a:focus .placard rect, a:hover .placard rect { stroke:#fff; stroke-width:2; }
+    .stop-group text { pointer-events:none; } /* keeps the whole group clickable */
+  </style>
+
+  <defs>
+    <filter id="text-pop" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="0" stdDeviation="2.4"
+                    flood-color="#000" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+
+  <g id="lines">  
+    <path class="line" stroke="#1E88E5" d="M80,300 L1120,300" />
+    <path class="line" stroke="#00C853" d="M336,300 C376,300 440,165 580,165 L900,165" />
+    <path class="line" stroke="#00C853" d="M446,300 C486,300 520,165 580,165" />
+    <path class="line" stroke="#FF6D00" d="M800,300 C840,300 840,120 880,120 L1120,120" />
+    <!-- Updated violet branch path v2 -->
+    <path class="line" stroke="#7E57C2" d="M556,300 C596,300 596,230 636,230 L1120,230" />
+    <path class="line" stroke="#FDD835" d="M700,300 C740,300 740,360 780,360 L1120,360" />
+  </g>
+
+    <!-- Stops on main line -->
+  <circle cx="100" cy="300" r="10" fill="#fff" class="stop"/>
+  <text x="140" y="330" text-anchor="middle" class="label">Raw Data</text>
+  <text x="140" y="350" text-anchor="middle" class="muted">Parquet</text>
+
+  <circle cx="210" cy="300" r="10" fill="#fff" class="stop"/>
+  <text x="210" y="260" text-anchor="middle" class="label">Validation &amp; Conversion</text>
+  <text x="210" y="280" text-anchor="middle" class="muted">PSV</text>
+
+  <a xlink:href="/projects/sqlserver/">
+    <g class="stop-group">
+      <circle cx="320" cy="300" r="10" fill="#fff" class="stop"/>
+      <text x="320" y="330" text-anchor="middle" class="label">SQL Server</text>
+      <text x="320" y="350" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
+    </g>
+  </a>
+
+  <circle cx="430" cy="300" r="10" fill="#fff" class="stop"/>
+  <text x="430" y="260" text-anchor="middle" class="label">PostgreSQL</text>
+  <text x="430" y="280" text-anchor="middle" class="muted">Setup &amp; Indexing</text>
+
+  <!-- Finish flag icon -->
+  <g class="finish-flag" transform="translate(1130,280) scale(1.0)">
+    <!-- flag pole -->
+    <line x1="0" y1="0" x2="0" y2="40" stroke="#1E88E5" stroke-width="3"/>
+    <!-- flag body with black/white checks -->
+    <rect x="0" y="0" width="40" height="20" fill="#fff" stroke="#000" stroke-width="1"/>
+    <rect x="0"  y="0" width="10" height="10" fill="#000"/>
+    <rect x="20" y="0" width="10" height="10" fill="#000"/>
+    <rect x="10" y="10" width="10" height="10" fill="#000"/>
+    <rect x="30" y="10" width="10" height="10" fill="#000"/>
+  </g>
+
+  <!-- NYC Taxi as a placard pinned to the baseline -->
+  <a xlink:href="{% post_url 2025-08-27-nyc-taxi %}" target="_top" aria-label="Multi-billion-row ingest">
+    <g class="stop-group placard" transform="translate(530,300)">
+      <!-- leader pin into the blue baseline -->
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#1E88E5" stroke-width="8" stroke-linecap="round"/>
+
+      <!-- rounded label box (above the line) -->
+      <rect x="-110" y="14" width="220" height="48" rx="10" ry="10"
+            fill="rgba(0,0,0,.78)" stroke="rgba(255,255,255,.15)" stroke-width="1"/>
+        <rect x="-110" y="14" width="220" height="48" rx="10" ry="10"/>
+        <text x="0" y="34" text-anchor="middle" class="label">NYC Taxi</text>
+        <text x="0" y="52" text-anchor="middle" class="muted">Multi-billion-row ingest</text>
+    </g>
+  </a>
+
+  <circle cx="560" cy="300" r="10" fill="#fff" class="stop"/>
+  <text x="560" y="260" text-anchor="middle" class="label">Airflow</text>
+  <text x="560" y="280" text-anchor="middle" class="muted">Orchestration</text>
+
+  <circle cx="700" cy="300" r="10" fill="#fff" class="stop"/>
+  <text x="700" y="260" text-anchor="middle" class="label">Databricks</text>
+  <text x="700" y="280" text-anchor="middle" class="muted">Analytics</text>
+
+  <circle cx="800" cy="300" r="10" fill="#fff" class="stop"/>
+  <text x="800" y="260" text-anchor="middle" class="label">End-to-End</text>
+  <text x="800" y="280" text-anchor="middle" class="muted">Pipeline</text>
+
+  <!-- Branch stops with padded labels -->
+  <circle cx="580" cy="165" r="10" fill="#fff" class="stop"/>
+  <text x="580" y="122" text-anchor="middle" class="label">Performance</text>
+  <text x="580" y="142" text-anchor="middle" class="muted">Case Studies</text>
+
+  <circle cx="1060" cy="120" r="10" fill="#fff" class="stop"/>
+  <text x="1060" y="80"  text-anchor="middle" class="label">Power BI</text>
+  <text x="1060" y="96" text-anchor="middle" class="muted">Visualization</text>
+
+  <!-- Mini bar chart icon for Power BI -->
+  <g class="pbi-chart" transform="translate(1130,100) scale(0.85)">
+    <rect x="0"   y="20" width="8" height="20" fill="#FDD835"/>
+    <rect x="12"  y="10" width="8" height="30" fill="#FDD835"/>
+    <rect x="24"  y="0"  width="8" height="40" fill="#FDD835"/>
+  </g>
+
+  <!-- Mini line chart icon for Power BI -->
+  <g class="pbi-line" transform="translate(1130,100) scale(0.85)">
+    <!-- axes -->
+    <line x1="0" y1="40" x2="40" y2="40" stroke="#FDD835" stroke-width="2"/>
+    <line x1="0" y1="40" x2="0" y2="0"  stroke="#FDD835" stroke-width="2"/>
+    <!-- data line -->
+    <polyline points="0,35 10,20 20,25 30,10 40,18"
+              fill="none" stroke="#00C853" stroke-width="3"/>
+    <!-- data points -->
+    <circle cx="0"  cy="35" r="2.5" fill="#00C853"/>
+    <circle cx="10" cy="20" r="2.5" fill="#00C853"/>
+    <circle cx="20" cy="25" r="2.5" fill="#00C853"/>
+    <circle cx="30" cy="10" r="2.5" fill="#00C853"/>
+    <circle cx="40" cy="18" r="2.5" fill="#00C853"/>
+  </g>
+
+  <!-- Azure branch stops -->
+  <circle cx="700" cy="230" r="10" fill="#fff" class="stop"/>
+  <g class="tight-above" transform="translate(700,230)">
+    <text x="0" y="-46" text-anchor="middle" class="label">Azure SQL MI</text>
+    <text x="0" y="-24" text-anchor="middle" class="muted">Managed Instance</text>
+  </g>
+
+  <!-- Azure Data Factory stop (violet branch) -->
+  <circle cx="820" cy="230" r="10" fill="#fff" class="stop"/>
+  <g class="tight-above" transform="translate(820,230)">
+    <text x="0" y="-46" text-anchor="middle" class="label">Data Factory</text>
+    <text x="0" y="-24" text-anchor="middle" class="muted">Pipelines / ETL</text>
+  </g>
+
+  <circle cx="940" cy="230" r="10" fill="#fff" class="stop"/>
+  <g class="tight-above" transform="translate(940,230)">
+    <text x="0" y="-46" text-anchor="middle" class="label">DevOps</text>
+    <text x="0" y="-24" text-anchor="middle" class="muted">Pipelines &amp; CI/CD</text>
+  </g>
+
+  <circle cx="1060" cy="230" r="10" fill="#fff" class="stop"/>
+  <g class="tight-above" transform="translate(1060,230)">
+    <text x="0" y="-48" text-anchor="middle" class="label">Synapse</text>
+    <text x="0" y="-24" text-anchor="middle" class="muted">DW / Pipelines</text>
+  </g>
+
+  <!-- AWS branch stops -->
+  <circle cx="820" cy="360" r="10" fill="#fff" class="stop"/>
+  <text x="820" y="390" text-anchor="middle" class="label">RDS (SQL Server)</text>
+  <text x="820" y="410" text-anchor="middle" class="muted">Managed DB</text>
+
+  <circle cx="940" cy="360" r="10" fill="#fff" class="stop"/>
+  <text x="940" y="390" text-anchor="middle" class="label">Glue</text>
+  <text x="940" y="410" text-anchor="middle" class="muted">ETL / Catalog</text>
+
+  <circle cx="1060" cy="360" r="10" fill="#fff" class="stop"/>
+  <text x="1060" y="390" text-anchor="middle" class="label">Redshift</text>
+  <text x="1060" y="410" text-anchor="middle" class="muted">Analytics</text>
+
+  <!-- Stylized AWS logo element -->
+  <g class="aws-logo" transform="translate(1130,360) scale(0.75)">
+    <text x="0" y="0" text-anchor="start" dy="0.35em">AWS</text>
+    <!-- underline swoosh -->
+    <path d="M0,10 C20,30 80,30 100,10" />
+  </g>
+
+  <!-- Stylized Azure logo element (scaled for size) -->
+  <g class="azure-logo" transform="translate(1130,210) scale(0.75)">
+    <!-- Angular “A” shape -->
+    <path d="M0,40 L20,0 L40,40 L30,40 L20,15 L10,40 Z"
+          fill="none" stroke="#007FFF" stroke-width="4"/>
+    <!-- Text label -->
+    <text x="50" y="35" font="700 40px system-ui,Segoe UI,Roboto,Arial"
+          fill="#007FFF" stroke="#000" stroke-width="1" paint-order="stroke fill">
+      Azure
+    </text>
+  </g>
+</svg>
+
+
