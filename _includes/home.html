@@ -29,21 +29,18 @@
             <section id="core-strengths" class="max-w-6xl mx-auto px-4 py-10">
               <h3 class="text-2xl font-bold">Core Strengths</h3>
               <p class="mt-3 text-base text-zinc-300">
-                I keep mission-critical databases <strong>fast, reliable, and predictable</strong>.
-                I’ve been running SQL Server environments since <strong>7.0a</strong> and thrive on
-                <strong>surgical fixes</strong> and <strong>durable automation</strong>.
+                I engineer fast, reliable, predictable database solutions. Since 7.0a, I’ve architected the data tier
+                for mission-critical applications—pairing surgical incident response with automation that endures.
               </p>
-
-              <ul class="mt-6 grid md:grid-cols-2 gap-2 text-sm text-zinc-300">
-                <li><strong>20+ years SQL Server</strong> (7.0a → 2019)</li>
-                <li><strong>Certification:</strong> MCDBA (2006)</li>
-                <li><strong>HA/DR:</strong> Always On, FCI, Backup/Restore, Replication, Mirroring</li>
-                <li><strong>Fluent T-SQL development:</strong> application-performance and automation-first stored procedures, TVPs/TVFs, safe dynamic SQL, window functions, tempdb-aware design</li>
-                <p class="mt-2 text-sm text-zinc-300">
-                  I prefer a database-first approach for mission-critical systems. I partner with app teams using EF/Code-First to avoid ORM anti-patterns—profiling queries, introducing hand-tuned procs where needed, and keeping delivery velocity high.
-                </p>
-                <li><strong>Performance engineering:</strong> SARGability, indexing strategies, and execution plan analysis</li>
-                <li><strong>Data integration pipelines:</strong> SSIS ETL development (parameterized packages, env configs, checkpoints/restartability); Healthcare (HL7 ingestion); Financial (Mellon, APS; legacy batch &amp; paper reporting); Automotive (nationwide parts data)</li>
+              <ul class="mt-6 space-y-2 text-sm text-zinc-300">
+                <li><strong>SQL Server (20+ years)</strong> — 7.0a/<strong>DTS</strong> → 2019/<strong>SSIS</strong></li>
+                <li><strong>Certification</strong> — <strong>MCDBA</strong> (2006)</li>
+                <li><strong>Data-integration pipelines (15 years)</strong> — SSIS ETL (parameterized packages, env configs, checkpoint/restart); domains: Healthcare (HL7), Financial (Mellon, APS; legacy batch &amp; paper reporting), Automotive (nationwide parts)</li>
+                <li><strong>HA/DR</strong> — Always On AGs, FCIs, Replication, Mirroring; backup/restore automation</li>
+                <li><strong>Operational automation & observability</strong> — automate, monitor, and audit routine DBA work (backups, CHECKDB, index maintenance, deployments) with idempotent scripts, schedules, telemetry, alerts, and audit trails</li>
+                <li><strong>Fluent T-SQL development</strong> — performance-oriented stored procedures; set-based patterns (TVPs/TVFs, window functions); safe dynamic SQL; tempdb-aware design; pragmatic instrumentation/logging</li>
+                <li><strong>Performance engineering</strong> — SARGable patterns, indexing strategy, execution-plan analysis</li>
+                <li><strong>Database-First pragmatism</strong> — partner with EF/Code-First teams to avoid ORM anti-patterns; profile queries; add hand-tuned procs without slowing delivery</li>
               </ul>
             </section>
           </div>
@@ -58,18 +55,47 @@
           <h3 class="text-2xl font-bold">About</h3>
           <g class="mt-3 text-zinc-700">
             <p>Microsoft Certified Database Administrator (MCDBA) with 20+ years of hands-on SQL Server experience as both a Senior DBA and Senior Database Developer, specializing in performance tuning, automation, database development, and high-availability solutions. For the past 15 years, I have served as the Senior DBA or sole DBA, while also designing and delivering complex data-tier solutions as a senior-level developer—consistently producing scalable, high-performing systems and resolving critical issues under pressure. I hold a Bachelor’s degree in Business Administration from DeVry University, along with an MCDBA certification, underscoring my academic and professional foundation.</p>
-            <p>To stay sharp during my recent career break, I designed my own NYC Taxi Database Project—a real-world data engineering pipeline demonstrating expertise in large-scale data ingestion, validation, and analytics across SQL Server and PostgreSQL. The project involves development work in Python, PowerShell, GitHub, and VS Code, with downstream orchestration in Airflow, analytics in Databricks, and visualization through Power BI. It showcases my ongoing commitment to modern practices, reproducibility, and automation—while proving I remain fully hands-on at a senior level in both database administration and development.</p>
+            <p>To stay sharp during my recent career break, I designed my own NYC Taxi Database Project—a real-world data engineering pipeline demonstrating expertise in large-scale data ingestion, validation, and analytics across SQL Server and PostgreSQL. The project involves development work in Python, PowerShell, GitHub, and VS Code, with orchestration options spanning Airflow and Azure Data Factory (ADF), analytics in Databricks, and visualization through Power BI. It showcases my ongoing commitment to modern practices, reproducibility, and automation—while proving I remain fully hands-on at a senior level in both database administration and development.</p>
             <p>I bring deep and extensive expertise in T-SQL, SSIS, and data architecture, along with proven leadership as a former Director of Information Infrastructure, where I built and guided a small, high-performing team that consistently delivered business-critical systems using Agile methods. While my primary focus is SQL Server, I am expanding into PostgreSQL and cloud-integrated workflows to meet evolving enterprise needs.</p>
             <p>I thrive in roles where adaptability, technical depth, and steady composure are critical—whether rescuing performance, building automation frameworks, or supporting compliance in healthcare, finance, and other transaction-heavy industries.</p>
           </g>
         </div>
         <div style="text-align:left;">
+          <h3 id="roles-over-time" class="section-title">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            Roles Over Time (1997–Present)
+            <a class="anchor" href="#roles-over-time" aria-label="Link to this section"></a>
+          </h3>
+          <p class="section-subtitle">Dev, DBA, ETL &amp; Analysis — relative intensity by year</p>
+          <p>Here’s what the graphic shows: it maps my career (1997–present) as time-varying focus across four hats—Dev, 
+            DBA, ETL, and Business-data Analysis. The heights are relative intensity per year, not percentages, so more 
+            than one role can be high at once. Because every DBA stint also included hands-on development, the DBA band 
+            lives within the broader Dev through-line, while ETL appears as intermittent spikes and then drops to zero 
+            after 2021. A thin Analysis band runs across the bottom to reflect continuous—but varying—business-data work 
+            (separate from DB administration, performance tuning, and development). The dashed segment after 2021 marks 
+            independent project work that keeps Dev and Analysis active while DBA/ETL duties pause.</p>
+            <div class="chart-wrap">
+              <object id="rolesChart" class="viz-svg" type="image/svg+xml"
+                data="{{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=7"
+                style="display:inline-block; width:100%; height:auto; position:relative; z-index:1;"
+                aria-label="Time Analysis Area Chart">
+              </object>
+              <div class="chart-controls">
+              <button id="zoomIn"  type="button" aria-label="Zoom in">+</button>
+              <button id="zoomOut" type="button" aria-label="Zoom out">−</button>
+              <button id="panLeft"  type="button" aria-label="Pan left">←</button>
+              <button id="panRight" type="button" aria-label="Pan right">→</button>
+              <button id="panUp"    type="button" aria-label="Pan up">↑</button>
+              <button id="panDown"  type="button" aria-label="Pan down">↓</button>
+              <button id="resetView" type="button" aria-label="Reset view">⟳</button>
+            </div>
+            </div>
+        </div>
+        <div style="text-align:left;">
           <h3>📊 20+ Years of Applied Data Analysis Experience</h3>
           <p>Spanning healthcare, financial, and education industries, my work in database architecture, reporting, and performance optimization has consistently required advanced SQL-driven analysis of large and complex datasets.</p>
           <div class="viz-wrap" style="max-width:95%; margin-inline:auto;">
-            <img
-              id="timelineSVG"
-              class="viz-svg"
+            <img id="timelineSVG" class="viz-svg"
               src="{{ '/assets/images/lockwood_data_analysis_timeline.svg' | relative_url }}"
               alt="Michael Shawn Lockwood – 20+ Years of Applied Data Analysis Experience" />
             <div class="viz-controls" role="group" aria-label="Color controls">
@@ -269,5 +295,95 @@
       setTimeout(() => (btn.textContent = 'Copy Email'), 1600);
     });
   </script>
+  <script>
+    (function(){
+      const obj = document.getElementById('rolesChart');
+      if(!obj) return;
+
+      obj.addEventListener('load', function(){
+        const svg = obj.contentDocument && obj.contentDocument.documentElement; // inner <svg>
+        if(!svg) return;
+
+        // Initial viewBox
+        let [x,y,w,h] = (svg.getAttribute('viewBox') || '0 0 1040 400').split(/\s+/).map(Number);
+        const init = {x,y,w,h};
+        const ZF   = 1.25;          // zoom factor per step
+        const minW = init.w/8;      // max ~8x zoom-in
+        const maxW = init.w;        // no zoom-out beyond original
+
+        function setVB(nx,ny,nw,nh){ svg.setAttribute('viewBox', `${nx} ${ny} ${nw} ${nh}`); }
+        function clamp(){
+          // keep view inside original content bounds
+          x = Math.max(init.x, Math.min(init.x + init.w - w, x));
+          y = Math.max(init.y, Math.min(init.y + init.h - h, y));
+        }
+
+        // Zoom centered around a relative point (0..1 in X/Y)
+        function zoomAt(rx, ry, dir){
+          const nw = Math.max(Math.min(dir>0 ? w/ZF : w*ZF, maxW), minW);
+          const nh = nw * (init.h / init.w);
+          // anchor the zoom at the relative cursor position
+          x += (w - nw) * rx;
+          y += (h - nh) * ry;
+          w = nw; h = nh;
+          clamp(); setVB(x,y,w,h);
+        }
+
+        // Button zoom (center)
+        function zoom(dir){ zoomAt(0.5, 0.5, dir); }
+
+        // Pan by a fraction of current view size
+        function pan(dxFrac, dyFrac){
+          x += dxFrac * w; y += dyFrac * h;
+          clamp(); setVB(x,y,w,h);
+        }
+
+        // Wheel zoom at cursor
+        function onWheel(e){
+          e.preventDefault();
+          const rect = obj.getBoundingClientRect();
+          const rx = (e.clientX - rect.left) / rect.width;   // 0..1
+          const ry = (e.clientY - rect.top)  / rect.height;  // 0..1
+          zoomAt(rx, ry, e.deltaY < 0 ? +1 : -1);
+        }
+
+        // Drag to pan
+        let dragging = false, lastX = 0, lastY = 0;
+        function onDown(e){ dragging = true; lastX = e.clientX; lastY = e.clientY; svg.style.cursor = 'grabbing'; }
+        function onMove(e){
+          if(!dragging) return;
+          const rect = obj.getBoundingClientRect();
+          const dx = (e.clientX - lastX) * (w / rect.width);
+          const dy = (e.clientY - lastY) * (h / rect.height);
+          x -= dx; y -= dy; lastX = e.clientX; lastY = e.clientY;
+          clamp(); setVB(x,y,w,h);
+        }
+        function onUp(){ dragging = false; svg.style.cursor = ''; }
+
+        // Hook events on the INNER SVG
+        svg.addEventListener('wheel', onWheel, { passive:false });
+        svg.addEventListener('pointerdown', onDown);
+        svg.addEventListener('pointermove', onMove);
+        svg.addEventListener('pointerup', onUp);
+        svg.addEventListener('pointerleave', onUp);
+        svg.addEventListener('dblclick', (e)=>{ // quick zoom-in at cursor
+          const rect = obj.getBoundingClientRect();
+          zoomAt((e.clientX-rect.left)/rect.width, (e.clientY-rect.top)/rect.height, +1);
+        });
+
+        // Buttons
+        const by = id => document.getElementById(id);
+        by('zoomIn')  .onclick = () => zoom(+1);
+        by('zoomOut') .onclick = () => zoom(-1);
+        by('panLeft') .onclick = () => pan(-0.10, 0);
+        by('panRight').onclick = () => pan(+0.10, 0);
+        by('panUp')   .onclick = () => pan(0, -0.10);
+        by('panDown') .onclick = () => pan(0, +0.10);
+        by('resetView').onclick = () => { x=init.x; y=init.y; w=init.w; h=init.h; setVB(x,y,w,h); };
+      });
+    })();
+    </script>
+
+
   <script defer src="{{ '/assets/js/viz-controls.js' | relative_url }}"></script>
 

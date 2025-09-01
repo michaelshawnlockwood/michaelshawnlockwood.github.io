@@ -25,7 +25,6 @@
 }
 .viz-btn:hover { border-color: color-mix(in srgb, var(--accent-gold) 70%, transparent) !important; }
 
-}
 /* .viz-btn.is-active { border-color: color-mix(in srgb, var(--accent-gold) 70%, transparent) !important; } */
 .viz-btn.is-active::after,
 .viz-btn.is-active:hover::after,

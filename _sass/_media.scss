@@ -1,1 +1,46 @@
 @media (prefers-reduced-motion: reduce){ .viz-svg{ transition:none; } }
+
+@media print{
+  .devLine,.dbaLine,.etlLine,.analysisLine{ stroke-width:3 !important; }
+  svg{ filter:none !important; } /* in case you use background effects */
+}
+
+.roadmap-figure { margin: 0; }
+.caption-xs { 
+  display:block; margin-top:.4rem; text-align:center;
+  font-size:.72rem; line-height:1.25; opacity:.75;
+}
+
+/* Stack the SVG and the controls vertically */
+.chart-wrap{
+  display: grid;
+  grid-template-rows: auto auto; /* row 1: chart, row 2: controls */
+  row-gap: .5rem;                /* distance between chart and buttons */
+  max-width: 1040px;
+}
+
+/* Your <object> — keep your working sizing (height:auto is fine for you) */
+.viz-svg{
+  display: inline-block; /* you said this is required in your setup */
+  width: 100%;
+  height: auto;
+  border: 0;
+}
+
+/* Controls now live BELOW the chart, aligned to the right */
+.chart-controls{
+  justify-self: center;     /* right-align in the second row */
+  display: flex;
+  gap: 6px;
+}
+
+/* Button styling (keep yours if you already have it) */
+.chart-controls button{
+  padding: .25rem .5rem; line-height: 1;
+  border: 1px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.35); color: inherit;
+  border-radius: .4rem; cursor: pointer;
+}
+.chart-controls button:hover{ background: rgba(0,0,0,.5); }
+
+

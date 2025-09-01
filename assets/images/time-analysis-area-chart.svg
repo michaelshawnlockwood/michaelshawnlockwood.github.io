@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1040pt" height="420pt" viewBox="0 0 1040 420" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2025-08-21T22:19:43.725281</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.6.3, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+
+  <title id="chartTitle">Career Roles by Year, 1997–2025</title>
+  <desc id="chartDesc">
+  Dev continues through 2025; DBA and ETL drop to zero after 2021; Business-data Analysis varies over time.
+  </desc>
+
+  <style>
+    .axis{stroke:rgba(255,255,255,.25);stroke-width:1}
+    .tick{font-size:12px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;fill:var(--color-text,#bbb)}
+    .legend{font-size:13px;font-weight:500;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;fill:var(--color-text,#ddd)}
+    .note{font-size:12px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;fill:var(--color-text,#bbb)}
+    .analysisFill{fill:var(--color-info,#ffb347);opacity:.32}
+    .devFill{fill:var(--color-accent-alt,#059c32);opacity:.35}
+    .dbaFill{fill:var(--color-accent,#1E88E5);opacity:.45}
+    .etlFill{fill:var(--color-warning,#fb8107);opacity:.40}
+    .analysisLine{stroke:var(--color-info,#ffb347);stroke-width:2.2;fill:none}
+    .devLine{stroke:var(--color-accent-alt,#059c32);stroke-width:2.5;fill:none}
+    .dbaLine{stroke:var(--color-accent,#1E88E5);stroke-width:2.5;fill:none}
+    .etlLine{stroke:var(--color-warning,#fb8107);stroke-width:2.5;fill:none}
+    .devDash{ stroke-dasharray:6 4; }
+    .axisTitle { font-weight:700; }
+  </style>
+
+  <!-- Frame + X axis -->
+  <rect x="60" y="30" width="920" height="310" fill="none" stroke="rgba(255,255,255,.12)"/>
+  <line x1="60" y1="340" x2="980" y2="340" class="axis"/>
+  <g>
+    <text x="60"  y="360" class="tick">1997</text>
+    <text x="200" y="360" class="tick">2003</text>
+    <text x="340" y="360" class="tick">2008</text>
+    <text x="480" y="360" class="tick">2013</text>
+    <text x="620" y="360" class="tick">2018</text>
+    <text x="900" y="360" class="tick">2021</text>
+    <text x="980" y="360" class="tick" text-anchor="end">2025</text>
+  </g>
+
+  <!-- 1) Business-data Analysis (thin band; varies; never 0) -->
+  <path class="analysisFill"
+        d="M70 340
+           L70 300 107 298 144 295 181 290 218 290 255 288 292 285
+           329 305 366 270 403 270 441 272 478 274 515 276 552 285
+           589 300 626 270 663 285 700 280 738 280 775 280 812 282
+           849 285 886 285 900 285 980 285
+           L980 340 Z"/>
+  <polyline class="analysisLine"
+            points="70,300 107,298 144,295 181,290 218,290 255,288 292,285 329,305 366,270 403,270 441,272 478,274 515,276 552,285 589,300 626,270 663,285 700,280 738,280 775,280 812,282 849,285 886,285 900,285 980,285"/>
+
+  <!-- 2) Dev (continues flat 2021→2025 at y=167; drawn behind others) -->
+  <path class="devFill"
+        d="M70 340
+           L70 167 107 167 144 167 181 141 218 141 255 141 292 141
+           329 115 366 115 403 115 441 115 478 115 515 115 552 115 589 115
+           626 115 663 115 700 141 738 141 775 167 812 167 849 141 886 141
+           900 141 980 167
+           L980 340 Z"/>
+  <polyline class="devLine"
+            points="70,167 107,167 144,167 181,141 218,141 255,141 292,141 329,115 366,115 403,115 441,115 478,115 515,115 552,115 589,115 626,115 663,115 700,141 738,141 775,167 812,167 849,141 886,141 900,141 980,167"/>
+
+  <!-- 3) DBA (ends at 2021) -->
+  <path class="dbaFill"
+        d="M70 340
+           L70 340 107 340 144 340 181 193 218 193 255 193 292 193
+           329 293 366 162 403 162 441 162 478 162 515 162 552 162 589 162
+           626 162 663 162 700 162 738 162 775 284 812 284 849 173 886 173
+           900 173
+           L900 340 Z"/>
+  <polyline class="dbaLine"
+            points="70,340 107,340 144,340 181,193 218,193 255,193 292,193 329,293 366,162 403,162 441,162 478,162 515,162 552,162 589,162 626,162 663,162 700,162 738,162 775,284 812,284 849,173 886,173 900,173 901,339 981,339"/>
+
+  <!-- 4) ETL (intermittent; ends at 2021) -->
+  <path class="etlFill"
+        d="M70 340
+           L70 284 107 284 144 284 181 245 218 245 255 245 292 128
+           329 112 366 112 403 233 441 233 478 224 515 224 552 224 589 224
+           626 224 663 224 700 193 738 193 775 250 812 250 849 154 886 154
+           900 154
+           L900 340 Z"/>
+  <polyline class="etlLine"
+            points="70,284 107,284 144,284 181,245 218,245 255,245 292,128 329,112 366,112 403,233 441,233 478,224 515,224 552,224 589,224 626,224 663,224 700,193 738,193 775,250 812,250 849,154 886,154 900,154 900,340 980,340"/>
+
+  /* Line polish */
+  .devLine,.dbaLine,.etlLine,.analysisLine{
+    vector-effect: non-scaling-stroke;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+  }
+
+  <!-- Dev: dashed overlay to indicate independent period -->
+  <polyline class="devLine devDash" points="900,167 980,167"/>
+
+  <!-- Legend (stacked, left) -->
+  <g class="legend" transform="translate(66,34)">
+    <rect x="-6" y="-6" width="270" height="92" rx="8" fill="rgba(0,0,0,.12)"/>
+    <g transform="translate(10,10)">
+      <rect x="0" y="0" width="14" height="14" class="devFill"/><text x="22" y="12">Dev (throughline; continues 2021–2025)</text>
+      <rect x="0" y="24" width="14" height="14" class="dbaFill"/><text x="22" y="36">DBA (within Dev; through 2021)</text>
+      <rect x="0" y="48" width="14" height="14" class="etlFill"/><text x="22" y="60">ETL (intermittent; through 2021)</text>
+      <rect x="0" y="72"  width="14" height="14" class="analysisFill"/><text x="22" y="84">Business-data Analysis (varies; always &gt; 0)</text>
+    </g>
+  </g>
+
+  <!-- Add near your other axis/tick labels -->
+  <text class="tick axisTitle" x="520" y="382" text-anchor="middle">Year</text>
+
+  <text class="tick axisTitle" x="26" y="205" text-anchor="middle"
+      transform="rotate(-90 26 185)">Relative Time Focus</text>
+
+  <!-- Annotation -->
+  <!-- Dev dashed key: 3 tiny rectangles inline with the annotation baseline -->
+  <g transform="translate(550,60)">
+    <rect width="6" height="2" rx="1" fill="var(--color-accent-alt, #43A047)"/>
+    <rect x="10" width="6" height="2" rx="1" fill="var(--color-accent-alt, #43A047)"/>
+    <rect x="20" width="6" height="2" rx="1" fill="var(--color-accent-alt, #43A047)"/>
+  </g>
+
+  <text class="note" x="948" y="64" text-anchor="end">
+    2021–Present: Independent Project Work (Dev &amp; Analysis maintained)
+  </text>
+</svg>

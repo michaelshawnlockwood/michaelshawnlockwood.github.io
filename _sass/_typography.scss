@@ -4,10 +4,29 @@ html { font-size: 15px; }  /* ~-1px across the board; change to 14px if you want
 /* Headings tighten a touch so they don't look oversized after base change */
 h1 { letter-spacing: -0.01em; }
 h2, h3 { letter-spacing: -0.005em; }
+h3 { position: relative; }
+.anchorjs-link { position: absolute; right: -1.25rem; top: .2rem; opacity: .6; }
+.anchorjs-link:hover { opacity: 1; }
 
-.roadmap-figure { margin: 0; }
-.caption-xs { 
-  display:block; margin-top:.4rem; text-align:center;
-  font-size:.72rem; line-height:1.25; opacity:.75;
+.section-intro { max-width:70ch; }
+.section-title{ position:relative; display:inline-block; }
+
+.section-title .fa-clock { vertical-align:-2px; }
+.section-subtitle { margin:.25rem 0 1rem; font-style:italic; opacity:.9; }
+.section-title:hover .anchor{ opacity:1; }
+
+/* Remove the theme's right-side heading permalink */
+.section-title .anchorjs-link,
+.section-title .heading-anchor,
+.section-title a.anchor-link,
+.section-title a[href^="#"]:not(.anchor) { display: none !important; }
+
+.section-title .anchor{
+  position:absolute; right:-1.25rem; top:.2rem;
+  width:1rem; height:1rem;
+  opacity:.6;               /* or 0 if you only want it on hover */
+  background: currentColor;
+  -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path fill="%23fff" d="M7.775 3.275a3.25 3.25 0 0 1 4.596 0l.354.354a3.25 3.25 0 0 1 0 4.596l-2.122 2.122a3.25 3.25 0 0 1-4.596 0 .75.75 0 1 1 1.06-1.06 1.75 1.75 0 0 0 2.476 0l2.122-2.122a1.75 1.75 0 0 0 0-2.476l-.354-.354a1.75 1.75 0 0 0-2.476 0 .75.75 0 1 1-1.06-1.06Z"/><path fill="%23fff" d="M3.275 7.775a3.25 3.25 0 0 1 0-4.596l2.122-2.122a3.25 3.25 0 0 1 4.596 0 .75.75 0 1 1-1.06 1.06 1.75 1.75 0 0 0-2.476 0L4.86 4.3a1.75 1.75 0 0 0 0 2.476l.354.354a1.75 1.75 0 0 0 2.476 0 .75.75 0 1 1 1.06 1.06 3.25 3.25 0 0 1-4.596 0l-.354-.354Z"/></svg>') center/contain no-repeat;
+          mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path fill="%23fff" d="M7.775 3.275a3.25 3.25 0 0 1 4.596 0l.354.354a3.25 3.25 0 0 1 0 4.596l-2.122 2.122a3.25 3.25 0 0 1-4.596 0 .75.75 0 1 1 1.06-1.06 1.75 1.75 0 0 0 2.476 0l2.122-2.122a1.75 1.75 0 0 0 0-2.476l-.354-.354a1.75 1.75 0 0 0-2.476 0 .75.75 0 1 1-1.06-1.06Z"/><path fill="%23fff" d="M3.275 7.775a3.25 3.25 0 0 1 0-4.596l2.122-2.122a3.25 3.25 0 0 1 4.596 0 .75.75 0 1 1-1.06 1.06 1.75 1.75 0 0 0-2.476 0L4.86 4.3a1.75 1.75 0 0 0 0 2.476l.354.354a1.75 1.75 0 0 0 2.476 0 .75.75 0 1 1 1.06 1.06 3.25 3.25 0 0 1-4.596 0l-.354-.354Z"/></svg>') center/contain no-repeat; /* Firefox */
+  transition: opacity .2s;
 }
-@media (max-width:700px){ .caption-xs { font-size:.68rem; } }
