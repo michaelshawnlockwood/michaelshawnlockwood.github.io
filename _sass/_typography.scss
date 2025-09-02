@@ -30,3 +30,19 @@ h3 { position: relative; }
           mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"><path fill="%23fff" d="M7.775 3.275a3.25 3.25 0 0 1 4.596 0l.354.354a3.25 3.25 0 0 1 0 4.596l-2.122 2.122a3.25 3.25 0 0 1-4.596 0 .75.75 0 1 1 1.06-1.06 1.75 1.75 0 0 0 2.476 0l2.122-2.122a1.75 1.75 0 0 0 0-2.476l-.354-.354a1.75 1.75 0 0 0-2.476 0 .75.75 0 1 1-1.06-1.06Z"/><path fill="%23fff" d="M3.275 7.775a3.25 3.25 0 0 1 0-4.596l2.122-2.122a3.25 3.25 0 0 1 4.596 0 .75.75 0 1 1-1.06 1.06 1.75 1.75 0 0 0-2.476 0L4.86 4.3a1.75 1.75 0 0 0 0 2.476l.354.354a1.75 1.75 0 0 0 2.476 0 .75.75 0 1 1 1.06 1.06 3.25 3.25 0 0 1-4.596 0l-.354-.354Z"/></svg>') center/contain no-repeat; /* Firefox */
   transition: opacity .2s;
 }
+
+// ─── Text Utilities ───────────────────────────────
+.chart-note {
+  margin-top: .25rem;
+  font-size: 0.75rem !important;
+  line-height: 1.5;
+  opacity: 0.85;
+  font-style: italic !important;
+}
+
+.caption {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  text-align: center;
+}
+
