@@ -11,12 +11,32 @@
   font-size:.72rem; line-height:1.25; opacity:.75;
 }
 
-/* Stack the SVG and the controls vertically */
-.chart-wrap{
-  display: grid;
-  grid-template-rows: auto auto; /* row 1: chart, row 2: controls */
-  row-gap: .5rem;                /* distance between chart and buttons */
+/* Shared chart styling */
+.chart-block {
   max-width: 1040px;
+  margin: 0 auto 2rem auto;  /* center + bottom margin */
+  text-align: center;
+}
+
+.chart-block img,
+.chart-block svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* For interactive charts with controls */
+.chart-wrap {
+  @extend .chart-block;
+  display: grid;
+  grid-template-rows: auto auto; /* chart + buttons */
+  row-gap: .5rem;
+}
+
+/* For static images only */
+.chart-container {
+  @extend .chart-block;
 }
 
 /* Your <object> — keep your working sizing (height:auto is fine for you) */
