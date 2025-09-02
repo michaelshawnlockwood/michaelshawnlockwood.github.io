@@ -69,7 +69,7 @@ That’s also why I’ve always admired the title *Data Architect*. It captures 
 
 # The Chart & Rules
 
-![Roles Over Time Area Chart]({{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=16)
+![Roles Over Time Area Chart]({{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=18)
 <!-- Roles-by-year matrix → regenerates Dev/DBA/ETL paths -->
 <script src="{{ '/assets/js/time-analysis.js' | relative_url }}"></script>
 <!-- Show generated path strings -->
