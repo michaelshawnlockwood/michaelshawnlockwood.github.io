@@ -1,5 +1,13 @@
 # michaelshawnlockwood.github.io
 
+![Jekyll](https://img.shields.io/badge/Built_with-Jekyll-blue?logo=jekyll&logoColor=white)
+![Minimal Mistakes](https://img.shields.io/badge/Theme-Minimal%20Mistakes-darkgreen)
+![VS Code](https://img.shields.io/badge/Editor-VS%20Code-007ACC?logo=visualstudiocode&logoColor=white)
+![Sass](https://img.shields.io/badge/Styles-Sass-CC6699?logo=sass&logoColor=white)
+![JavaScript](https://img.shields.io/badge/Logic-JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![Markdown](https://img.shields.io/badge/Content-Markdown-000000?logo=markdown)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
 This repository powers [Michael Shawn Lockwood’s GitHub Pages site](https://michaelshawnlockwood.github.io) — a living portfolio of SQL Server engineering, modern data engineering projects, code examples, and technical writing.
 
 ---
@@ -47,11 +55,17 @@ Content includes:
 ---
 
 ## 📂 Repository Structure
-- `_posts/` → Blog entries and technical deep dives  
-- `_pages/` → Static pages (About, Resume, Projects)  
-- `_includes/` → Shared HTML snippets (charts, steps)  
-- `assets/` → Images, SVGs, custom CSS overrides  
-- `_config.yml` → Site configuration (theme, plugins, metadata)  
+- `_data/` → Site data (navigation, metadata, JSON/YAML inputs)
+- `_includes/` → Shared HTML snippets (charts, components, steps)
+- `_layouts/` → Page and post layout templates
+- `_posts/` → Blog entries and technical deep dives
+- `_sass/` → Custom SCSS overrides for styling
+- `about/` → Content for About page
+- `assets/` → Images, SVGs, CSS, and other static resources
+- `blog/` → Blog index and related pages
+- `_config.yml` → Site configuration (theme, plugins, metadata)
+- `index.html` / `index.md` → Homepage entries
+- `README.md` → Project overview (this file)
 
 ---
 
