@@ -15,7 +15,7 @@ toc_icon: "list"
 header:
   overlay_color: "#000"
   overlay_filter: "0.85"
-  overlay_image: /assets/images/time-analysis-hero.jpg
+  overlay_image: /assets/images/time-analysis-area-chart.svg
   caption: "Job Titles Flatten Careers; Time Tells Truth"
 ---
 
@@ -69,11 +69,44 @@ That’s also why I’ve always admired the title *Data Architect*. It captures 
 
 # The Chart & Rules
 
-![Roles Over Time Area Chart](/assets/images/time-analysis-area-chart.svg)
+![Roles Over Time Area Chart]({{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=16)
+<!-- Roles-by-year matrix → regenerates Dev/DBA/ETL paths -->
+<script src="{{ '/assets/js/time-analysis.js' | relative_url }}"></script>
+<!-- Show generated path strings -->
+<details class="paths-dump">
+  <summary>Show generated path strings</summary>
+  <pre id="pathsOutput">Generating…</pre>
+</details>
 
-Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev); 
-ETL intermittent; analysis thin band; dashed Dev 2021–2025.
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var ta = window.__timeAnalysis;
+    if (!ta) return;
+    var txt =
+      'DEV FILL:\n' + ta.devFill + '\n\n' +
+      'DEV LINE:\n' + ta.devLine + '\n\n' +
+      'DBA FILL:\n' + ta.dbaFill + '\n\n' +
+      'DBA LINE:\n' + ta.dbaLine + '\n\n' +
+      'ETL FILL:\n' + ta.etlFill + '\n\n' +
+      'ETL LINE:\n' + ta.etlLine + '\n';
+    document.getElementById('pathsOutput').textContent = txt;
+  });
+</script>
 
+
+Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev); ETL intermittent; analysis thin band; dashed Dev 2021–2025.
+{: .chart-note}
+<div>
+  <button id="zoomIn"   type="button" aria-label="Zoom in">+</button>
+  <button id="zoomOut"  type="button" aria-label="Zoom out">−</button>
+  <button id="panLeft"  type="button" aria-label="Pan left">←</button>
+  <button id="panRight" type="button" aria-label="Pan right">→</button>
+  <button id="panUp"    type="button" aria-label="Pan up">↑</button>
+  <button id="panDown"  type="button" aria-label="Pan down">↓</button>
+  <button id="resetView" type="button" aria-label="Reset view">⟳</button>
+</div>
+{: .chart-controls}
+---
 📊 **Clarity note:** The chart uses *independent intensity bands*—each role’s height is its own “how much focus” scale. Bands can overlap and don’t need to add to 1.0. Forcing them to stack to 100% would imply trade-offs that don’t exist (Dev can stay high while DBA spikes).
 
 ---
