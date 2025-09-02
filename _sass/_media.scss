@@ -45,9 +45,9 @@
 
 .chart-note {
   margin-top: .25rem;
-  font-size: 0.85rem !important;   /* smaller than body text (usually ~1rem) */
+  font-size: 0.75rem !important;   /* smaller than body text (usually ~1rem) */
   line-height: 1.5;
   opacity: 0.85;
-  font-style: italic;   /* optional, makes it read like a footnote */
+  font-style: italic !important;   /* optional, makes it read like a footnote */
 }
 
