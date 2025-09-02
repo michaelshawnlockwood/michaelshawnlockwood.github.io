@@ -74,10 +74,6 @@
             after 2021. A thin Analysis band runs across the bottom to reflect continuous—but varying—business-data work 
             (separate from DB administration, performance tuning, and development). The dashed segment after 2021 marks 
             independent project work that keeps Dev and Analysis active while DBA/ETL duties pause.</p>
-            <p class="chart-note">
-              Heights show independent role intensity per year; overlaps are expected and totals aren’t forced to 100%.
-              A stacked-percentage view would imply trade-offs that don’t reflect this work.
-            </p>
             <div class="chart-wrap">
               <object id="rolesChart" class="viz-svg" type="image/svg+xml"
                 data="{{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=18"
@@ -85,10 +81,11 @@
                 aria-label="Time Analysis Area Chart">
               </object>
               <p class="chart-note">
+                Heights show independent role intensity per year; overlaps are expected and totals aren’t forced to 100%.
+                A stacked-percentage view would imply trade-offs that don’t reflect this work.
                 Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev);
                 ETL intermittent; analysis thin band; dashed Dev 2021–2025.
               </p>
-
               <div class="chart-controls">
                 <button id="zoomIn"  type="button" aria-label="Zoom in">+</button>
                 <button id="zoomOut" type="button" aria-label="Zoom out">−</button>
@@ -103,7 +100,7 @@
         <div style="text-align:left;">
           <h3>📊 20+ Years of Applied Data Analysis Experience</h3>
           <p>Spanning healthcare, financial, and education industries, my work in database architecture, reporting, and performance optimization has consistently required advanced SQL-driven analysis of large and complex datasets.</p>
-          <div class="chart-container" style="max-width:95%; margin-inline:auto;">
+          <div class="viz-wrap chart-wrap" style="max-width:95%; margin-inline:auto;">
             <img id="timelineSVG" class="viz-svg"
               src="{{ '/assets/images/lockwood_data_analysis_timeline.svg' | relative_url }}"
               alt="Michael Shawn Lockwood – 20+ Years of Applied Data Analysis Experience" />

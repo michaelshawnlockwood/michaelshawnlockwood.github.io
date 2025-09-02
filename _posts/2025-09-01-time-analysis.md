@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Job Titles Flatten Careers; Time Tells Truth"
+title: "Job Titles Flatten Careers"
 excerpt: ""
 date: 2025-09-01
 classes: center-page
@@ -16,7 +16,7 @@ header:
   overlay_color: "#000"
   overlay_filter: "0.85"
   overlay_image: /assets/images/time-analysis-area-chart.svg
-  caption: "Job Titles Flatten Careers; Time Tells Truth"
+  caption: "Time and Focus Tell Truth"
 ---
 
 <a id="toc" class="visually-hidden"></a>
@@ -77,6 +77,17 @@ That’s also why I’ve always admired the title *Data Architect*. It captures 
   <summary>Show generated path strings</summary>
   <pre id="pathsOutput">Generating…</pre>
 </details>
+
+<!-- >![bike-icon]({{ '/assets/images/dirt-bike-rider-tiny.png' | relative_url }}?v=1)
+{: .bike-icon}
+
+<image 
+  href="/assets/images/dirt-bike-rider-tiny.png" 
+  x="590" 
+  y="120" 
+  width="64" 
+  height="64" 
+  class="bike-icon"/> -->
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
