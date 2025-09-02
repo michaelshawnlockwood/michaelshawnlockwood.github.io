@@ -69,7 +69,7 @@ That’s also why I’ve always admired the title *Data Architect*. It captures 
 
 # The Chart & Rules
 
-![Roles Over Time Area Chart](/assets/images/roles-over-time.png)
+![Roles Over Time Area Chart](/assets/images/time-analysis-area-chart.svg)
 
 *Alt text: Dev continuous; DBA ends 2021; ETL intermittent; analysis thin band; dashed Dev 2021–2025.*
 
