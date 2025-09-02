@@ -1,12 +1,30 @@
 ---
-layout: home
-title: "NYC Taxi Trips — Project Hub"
-excerpt: "End-to-end pipeline: dictionary → DDL → BULK INSERT → analytics → blog."
-# For Minimal Mistakes: shows latest posts on the home page
-paginate: true
-author_profile: true
-classes: wide
+layout: single
+title: "🏠 Welcome to the NYC Taxi Project Hub"
+excerpt: "Central hub for my NYC Yellow Taxi Data Engineering Project — pipelines, analytics, and documentation."
+date: 2025-08-29
+classes: center-page
+categories: nyc-taxi sql-server analytics
+tags: [nyc taxi, sql server, t-sql, pipelines, analytics, projects]
+author_profile: false
+description: "Explore the NYC Yellow Taxi Data Engineering Project — ingestion, validation, pipelines, dashboards, and analytics."
+sidebar: false
+toc: true
+toc_label: "SECTIONS"
+toc_icon: "list"
+header:
+  overlay_color: "#000"
+  overlay_filter: "0.85"
+  overlay_image: /assets/images/nyctaxi-hero.jpg
+  caption: "NYC Taxi Data Engineering Project Hub"
 ---
+
+<a id="toc" class="visually-hidden"></a>
+
+
+This is the central hub for my **NYC Yellow Taxi Data Engineering Project** — part of my broader professional portfolio.
+ 
+From here you can explore pipelines, analytics, and visualizations that demonstrate how I approach real-world data problems.
 
 ## What’s inside
 

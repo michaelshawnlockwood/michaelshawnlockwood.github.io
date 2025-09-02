@@ -29,7 +29,7 @@ Here are **eight essentials** I use when exploring the `dbo.yellow_tripdata` tab
 
 ---
 
-## 1) Daily Revenue & Trips (+ integrity hash)
+## 1 Daily Revenue & Trips (+ integrity hash)
 ```sql
 SELECT CAST([tpep_pickup_datetime] AS DATE) AS [trip_date],
        COUNT(*) AS [total_trips],
@@ -46,7 +46,7 @@ GROUP BY CAST([tpep_pickup_datetime] AS DATE)
 ORDER BY [trip_date];
 GO
 ```
-## 2) Top 10 Pickup Locations (by revenue)
+## 2 Top 10 Pickup Locations (by revenue)
 ```sql
 SELECT TOP 10
        [PULocationID],
@@ -58,7 +58,7 @@ ORDER BY [total_revenue] DESC;
 GO
 ```
 [⬆ Back to Top](#toc){:.back-to-top}
-## 3) Top 10 Drop-off Locations (by trip count)
+## 3 Top 10 Drop-off Locations (by trip count)
 ```sql
 SELECT TOP 10
        [DOLocationID],
@@ -69,7 +69,7 @@ GROUP BY [DOLocationID]
 ORDER BY [trip_count] DESC;
 GO
 ```
-## 4) Revenue & Tips by Payment Type
+## 4 Revenue & Tips by Payment Type
 ```sql
 SELECT [payment_type],
        COUNT(*) AS [trips],
@@ -81,7 +81,7 @@ ORDER BY [total_revenue] DESC;
 GO
 ```
 [⬆ Back to Top](#toc){:.back-to-top}
-## 5) Peak Hour Analysis
+## 5 Peak Hour Analysis
 ```sql
 SELECT DATEPART(HOUR, [tpep_pickup_datetime]) AS [pickup_hour],
        COUNT(*) AS [trip_count],
@@ -91,7 +91,7 @@ GROUP BY DATEPART(HOUR, [tpep_pickup_datetime])
 ORDER BY [pickup_hour];
 GO
 ```
-## 6) Trip Distance Distribution
+## 6 Trip Distance Distribution
 ```sql
 SELECT
     CASE
@@ -115,7 +115,7 @@ ORDER BY MIN([trip_distance]);
 GO
 ```
 [⬆ Back to Top](#toc){:.back-to-top}
-## 7) Average Fare per Mile (daily)
+## 7 Average Fare per Mile (daily)
 ```sql
 SELECT CAST([tpep_pickup_datetime] AS DATE) AS [trip_date],
        ROUND(SUM([fare_amount]) / NULLIF(SUM([trip_distance]), 0), 2) AS [avg_fare_per_mile]
@@ -124,7 +124,7 @@ GROUP BY CAST([tpep_pickup_datetime] AS DATE)
 ORDER BY [trip_date];
 GO
 ```
-## 8) Overall Tip Percentage
+## 8 Overall Tip Percentage
 ```sql
 SELECT ROUND(100.0 * SUM([tip_amount]) / NULLIF(SUM([fare_amount]), 0), 2) AS [tip_percent],
        COUNT(*) AS [trip_count]
