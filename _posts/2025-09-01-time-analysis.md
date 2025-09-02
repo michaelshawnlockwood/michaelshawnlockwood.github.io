@@ -71,7 +71,8 @@ That’s also why I’ve always admired the title *Data Architect*. It captures 
 
 ![Roles Over Time Area Chart](/assets/images/time-analysis-area-chart.svg)
 
-*Alt text: Dev continuous; DBA ends 2021; ETL intermittent; analysis thin band; dashed Dev 2021–2025.*
+Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev); 
+ETL intermittent; analysis thin band; dashed Dev 2021–2025.
 
 📊 **Clarity note:** The chart uses *independent intensity bands*—each role’s height is its own “how much focus” scale. Bands can overlap and don’t need to add to 1.0. Forcing them to stack to 100% would imply trade-offs that don’t exist (Dev can stay high while DBA spikes).
 
