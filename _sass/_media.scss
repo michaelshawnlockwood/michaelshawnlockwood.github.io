@@ -42,17 +42,17 @@
   @extend .chart-block;
 }
 
+.chart-wrap {                 /* anchor for absolute positioning */
+  position: relative;
+  display: inline-block;      /* shrink-wrap to chart width */
+}
+
 /* Your <object> — keep your working sizing (height:auto is fine for you) */
 .viz-svg{
   display: inline-block; /* you said this is required in your setup */
   width: 100%;
   height: auto;
   border: 0;
-}
-
-.chart-wrap {                 /* anchor for absolute positioning */
-  position: relative;
-  display: inline-block;      /* shrink-wrap to chart width */
 }
 
 .chart-img { display:block; max-width:100%; height:auto; }
