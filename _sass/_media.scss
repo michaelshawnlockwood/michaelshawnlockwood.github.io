@@ -5,10 +5,13 @@
   svg{ filter:none !important; } /* in case you use background effects */
 }
 
-.roadmap-figure { margin: 0; }
-.caption-xs { 
-  display:block; margin-top:.4rem; text-align:center;
-  font-size:.72rem; line-height:1.25; opacity:.75;
+.roadmap-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200/420;   /* keeps shape */
+  position: relative;
+  z-index: 1;
 }
 
 /* Shared chart styling */
