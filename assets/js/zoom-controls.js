@@ -1,5 +1,5 @@
 (function(){
-    const obj = document.getElementById('roles-chart');
+    const obj = document.getElementById('rolesChart');
     if(!obj) return;
 
     obj.addEventListener('load', function(){
@@ -74,7 +74,7 @@
     });
 
     // Buttons
-    const by = id => document.getElementById('roles-chart');
+    const by = id => document.getElementById(id);
     by('zoomIn')  .onclick = () => zoom(+1);
     by('zoomOut') .onclick = () => zoom(-1);
     by('panLeft') .onclick = () => pan(-0.10, 0);

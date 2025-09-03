@@ -12,13 +12,13 @@ sidebar: false
 toc: true
 toc_label: "SECTIONS"
 toc_icon: "list"
+scripts:
+  - "assets/js/zoom-controls.js"
 header:
   overlay_color: "#000"
   overlay_filter: "0.85"
   overlay_image: /assets/images/time-analysis-area-chart.svg
   caption: "Time and Focus Tell the Truth"
-scripts:
-  - /assets/js/zoom-controls.js
 ---
 
 <a id="toc" class="visually-hidden"></a>
@@ -101,28 +101,32 @@ I built a chart to visualize this journey—Dev continuous, DBA spiking, ETL int
 
 # The Chart & Rules
 
-<!-- ![Roles Over Time Area Chart]({{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=18) -->
-<img id="roles-chart"
-     src="{{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=18"
-     alt="Roles Over Time Area Chart">
-<!-- Roles-by-year matrix → regenerates Dev/DBA/ETL paths -->
-<script src="{{ '/assets/js/time-analysis.js' | relative_url }}"></script>
-<!-- Show generated path strings -->
-<details class="paths-dump">
-  <summary>Show generated path strings</summary>
-  <pre id="pathsOutput">Generating…</pre>
-</details>
+<p>  
+  <object id="rolesChart" class="viz-svg" type="image/svg+xml"
+    data="{{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=18"
+    style="display:inline-block; width:100%; height:auto; position:relative; z-index:1;"
+    aria-label="Time Analysis Area Chart">
+  </object>
+</p>
+{: .viz-wrap chart-wrap}
 
-<!-- >![bike-icon]({{ '/assets/images/dirt-bike-rider-tiny.png' | relative_url }}?v=1)
-{: .bike-icon}
+Heights show independent role intensity per year; overlaps are expected and totals aren’t forced to 100%. 
+A stacked-percentage view would imply trade-offs that don’t reflect this work.
+Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev);
+ETL intermittent; analysis thin band; dashed Dev 2021–2025.
+Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev); ETL intermittent; analysis thin band; dashed Dev 2021–2025.
+{: .chart-note}
 
-<image 
-  href="/assets/images/dirt-bike-rider-tiny.png" 
-  x="590" 
-  y="120" 
-  width="64" 
-  height="64" 
-  class="bike-icon"/> -->
+<div> 
+  <button id="zoomIn" type="button" aria-label="Zoom in">+</button>
+  <button id="zoomOut" type="button" aria-label="Zoom out">−</button> 
+  <button id="panLeft" type="button" aria-label="Pan left">←</button> 
+  <button id="panRight" type="button" aria-label="Pan right">→</button> 
+  <button id="panUp" type="button" aria-label="Pan up">↑</button> 
+  <button id="panDown" type="button" aria-label="Pan down">↓</button> 
+  <button id="resetView" type="button" aria-label="Reset view">⟳</button> 
+</div> 
+{: .chart-controls}
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -138,10 +142,6 @@ I built a chart to visualize this journey—Dev continuous, DBA spiking, ETL int
     document.getElementById('pathsOutput').textContent = txt;
   });
 </script>
-
-
-Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev); ETL intermittent; analysis thin band; dashed Dev 2021–2025.
-{: .chart-note}
 
 ---
 📊 **Clarity note:** The chart uses *independent intensity bands*—each role’s height is its own “how much focus” scale. Bands can overlap and don’t need to add to 1.0. Forcing them to stack to 100% would imply trade-offs that don’t exist (Dev can stay high while DBA spikes).
