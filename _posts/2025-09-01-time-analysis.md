@@ -17,6 +17,8 @@ header:
   overlay_filter: "0.85"
   overlay_image: /assets/images/time-analysis-area-chart.svg
   caption: "Time and Focus Tell the Truth"
+scripts:
+  - /assets/js/zoom-controls.js
 ---
 
 <a id="toc" class="visually-hidden"></a>
