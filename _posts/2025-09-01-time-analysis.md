@@ -63,7 +63,23 @@ The point: **titles overlap**. DBA work includes development. Developer work inc
 
 > **The best results happen when those walls blur.**
 
-That’s also why I’ve always admired the title *Data Architect*. It captures the reality that careers aren’t narrow lanes—they’re about designing, building, and sustaining solutions end to end.
+And yes, Director has always sounded like a cool title. But in reality, it often functions more as a tier in the salary ladder than a clear description of the work. I once “stepped down” from Director to Data Architect when the opportunity was right—because Data Architect encompassed what I believe it should, and it paid better elsewhere. Titles are sometimes just shiny names. The inconsistency itself proves the point: job titles flatten. What matters is not the label but the lived work—designing, building, automating, and sustaining solutions end to end. And end-to-end doesn’t mean one person is simultaneously the ETL developer, C# .NET back-end developer, database developer, and front-end Angular/React developer.
+
+Tim Rankel and I could be all of those job titles wrapped into two people—but that’s risky for any business. We worked together at OnePoint Patient Care and later at MeMD, and I’ve always admired his depth and judgment. He’s a long-term friend, now leading Enterprise and Solutions Architecture – Software Engineering – DevOps at Grand Canyon University. They’re in good hands.
+
+# The Graphic Is the Story, Not the Titles
+
+This chart isn’t about decoration—it’s the true shape of the story and a way to reclaim narrative. Résumés compress, job titles distort, but time and focus reveal the truth. Visualizing my own career made something clear: the shape of the work matters more than the label attached to it.
+
+The point of this chart isn’t precision, it’s transparency. It draws on signals—incidents, migrations, projects, artifacts, on-call rotations—to show where intensity lived. It’s a framework anyone could apply to their own career. If you’ve ever felt flattened by titles, I’d encourage you to map your own time and focus.
+
+In the end, it isn’t the title on the business card that defines us—it’s the time, focus, and outcomes that shape our careers. Scannable résumés are insufficient in my opinion. The next step is finding better ways to represent the richness of lived work—through timelines, artifacts, and stories that show not just what we did, but how and why it mattered.
+
+# Takeaway
+
+Résumés and job titles flatten. Keywords mislead. The truth lives in time, focus, and outcomes.
+
+I built a chart to visualize this journey—Dev continuous, DBA spiking, ETL intermittent, analysis always present. The picture tells the story better than any list.
 
 ---
 
