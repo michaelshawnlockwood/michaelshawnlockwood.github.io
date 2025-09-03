@@ -80,7 +80,7 @@ This project is about more than publishing a resume. It demonstrates:
 
 ## 📬 Contact
 **Michael Shawn Lockwood**  
-- [LinkedIn](https://www.linkedin.com/in/michaelshawnlockwood/)  
+- [LinkedIn](https://www.linkedin.com/in/mslockwood/)  
 - [GitHub](https://github.com/michaelshawnlockwood)  
 
 
