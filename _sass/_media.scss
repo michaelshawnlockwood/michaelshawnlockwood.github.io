@@ -108,12 +108,6 @@
   box-shadow:0 2px 5px rgba(0,0,0,.35);
 }
 
-.viz-controls{
-  justify-self: center;
-  display: flex;
-  gap: 6px;
-}
-
 /* Controls now live BELOW the chart, aligned to the right */
 .chart-controls{
   justify-self: center;

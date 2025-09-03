@@ -41,8 +41,10 @@ h3 { position: relative; }
 }
 
 .caption {
-  font-size: 0.8rem;
-  opacity: 0.7;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  opacity: 0.85;
   text-align: center;
+  font-style: italic !important;
 }
 
