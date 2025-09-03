@@ -74,7 +74,7 @@
     });
 
     // Buttons
-    const by = id => document.getElementById(id);
+    const by = id => document.getElementById('roles-chart');
     by('zoomIn')  .onclick = () => zoom(+1);
     by('zoomOut') .onclick = () => zoom(-1);
     by('panLeft') .onclick = () => pan(-0.10, 0);
