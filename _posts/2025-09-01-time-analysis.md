@@ -141,7 +141,7 @@ I built a chart to visualize this journey—Dev continuous, DBA spiking, ETL int
 
 
 Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev); ETL intermittent; analysis thin band; dashed Dev 2021–2025.
-{: .chart-note}
+<!-- {: .chart-note}
 <div>
   <button id="zoomIn"   type="button" aria-label="Zoom in">+</button>
   <button id="zoomOut"  type="button" aria-label="Zoom out">−</button>
@@ -151,7 +151,7 @@ Dev continuous; DBA ends 2021 (drops to zero 2014–2015 at Schwab, all Dev); ET
   <button id="panDown"  type="button" aria-label="Pan down">↓</button>
   <button id="resetView" type="button" aria-label="Reset view">⟳</button>
 </div>
-{: .chart-controls}
+{: .chart-controls} -->
 ---
 📊 **Clarity note:** The chart uses *independent intensity bands*—each role’s height is its own “how much focus” scale. Bands can overlap and don’t need to add to 1.0. Forcing them to stack to 100% would imply trade-offs that don’t exist (Dev can stay high while DBA spikes).
 
