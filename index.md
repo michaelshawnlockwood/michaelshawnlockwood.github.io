@@ -39,16 +39,17 @@ This project builds a reproducible SQL Server pipeline for NYC Yellow Taxi data:
 
 ## Quick links
 
-- **Dashboard queries (blog post):**  
-  [/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html](/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html)
+- **Blog / Analysis**  
+  - [Dashboard queries (article with screenshots & commentary)](/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html)
 
-- **Runnable SQL (all 8 queries):**  
-  [/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html](/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html)
+- **Runnable SQL**  
+  - [All 8 queries (copy-ready T-SQL)](/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html#8-overall-tip-percentage)  
+  - [`create_all.sql`](https://github.com/michaelshawnlockwood/nyctaxi-pipeline/blob/main/sql/create_all.sql) — schema from dictionary
 
-- **Generators & loaders:**  
-  - `python/generate_sql_from_dictionary.py` (robust `--help`)  
-  - `Generate-SqlFromDictionary.ps1` (comment-based `Get-Help`)  
-  - `Import-PsvToSql.ps1` (loop *.psv → BULK INSERT)
+- **Python & PowerShell utilities**  
+  - `python/generate_sql_from_dictionary.py` — robust `--help`  
+  - `Generate-SqlFromDictionary.ps1` — comment-based `Get-Help`  
+  - `Import-PsvToSql.ps1` — loop *.psv → BULK INSERT
 
 ---
 
