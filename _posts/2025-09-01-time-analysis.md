@@ -101,7 +101,10 @@ I built a chart to visualize this journey—Dev continuous, DBA spiking, ETL int
 
 # The Chart & Rules
 
-![Roles Over Time Area Chart]({{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=18)
+<!-- ![Roles Over Time Area Chart]({{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=18) -->
+<img id="roles-chart"
+     src="{{ '/assets/images/time-analysis-area-chart.svg' | relative_url }}?v=18"
+     alt="Roles Over Time Area Chart">
 <!-- Roles-by-year matrix → regenerates Dev/DBA/ETL paths -->
 <script src="{{ '/assets/js/time-analysis.js' | relative_url }}"></script>
 <!-- Show generated path strings -->

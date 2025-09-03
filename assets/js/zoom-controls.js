@@ -1,5 +1,5 @@
 (function(){
-    const obj = document.getElementById('rolesChart');
+    const obj = document.getElementById('roles-chart');
     if(!obj) return;
 
     obj.addEventListener('load', function(){
