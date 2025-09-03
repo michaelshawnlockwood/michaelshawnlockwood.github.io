@@ -43,7 +43,7 @@ This project builds a reproducible SQL Server pipeline for NYC Yellow Taxi data:
   [/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html](/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html)
 
 - **Runnable SQL (all 8 queries):**  
-  `sql/yellow_tripdata_dashboard.sql`
+  [/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html](/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html)
 
 - **Generators & loaders:**  
   - `python/generate_sql_from_dictionary.py` (robust `--help`)  
