@@ -73,3 +73,32 @@
   background-image: none;
   border-bottom: 0;
 }
+
+// DEBUG
+
+.copy-button{
+  position:absolute; top:.5rem; right:.5rem; z-index:2;
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.32rem .6rem; border-radius:8px;
+  border:1px solid rgba(255,255,255,.18);
+  background:rgba(0,0,0,.35); color:#eee; cursor:pointer;
+  backdrop-filter:blur(6px);
+}
+.copy-button i{ font-size:.9rem; line-height:0; }
+.copy-button::after{
+  content:""; position:absolute; inset:0; border-radius:8px;
+  border:1.5px solid rgba(245,183,89,.45); opacity:0; transform:scale(.95);
+  transition:opacity .15s ease, transform .15s ease, border-color .15s ease;
+  pointer-events:none;
+}
+.copy-button:hover::after,
+.copy-button:focus-visible::after{ opacity:1; transform:scale(1); }
+
+.btn--copy.is-copied { border-color: $color-accent-alt; }
+.btn--copy.is-copied::after {
+  border-color: $color-accent-alt;
+  opacity: 1;
+  transform: scale(1);
+}
+
+

@@ -132,3 +132,5 @@ FROM [dbo].[yellow_tripdata];
 GO
 ```
 [⬆ Back to Top](#toc){:.back-to-top}
+
+<script defer src="{{ '/assets/js/copy-code.js' | relative_url }}"></script>

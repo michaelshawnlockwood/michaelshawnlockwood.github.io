@@ -157,3 +157,7 @@ html:has(#contact:target)    .greedy-nav a[href="/about/#contact"] { pointer-eve
     display: none;
   }
 }
+
+/* position only; visuals come from .btn/.btn--copy mixins */
+.copy-button { position:absolute; top:.5rem; right:.5rem; z-index:2; }
+figure.highlight, div.highlight, pre { position: relative; } // ensures the anchor exists

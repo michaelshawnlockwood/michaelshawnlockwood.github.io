@@ -29,7 +29,7 @@ Job titles flatten careers. They collapse years of context into a single label a
 
 But that flattening is a real problem for job seekers. Both AI tools and human screeners scan résumés for keywords that hold some truth, yet they often miss the real story.
 
-A résumé is a list. A career is a professional life—upwards of 2,000 hours every year—not including the time invested in keeping up with technology and industry trends. A meaningful career timeline shows not just what we know, but how we apply it to create solutions, solve business problems, and provide the technological foundation that enables companies to grow and thrive.
+  A résumé is a list. A career is a professional life—upwards of 2,000 hours every year—not including the time invested in keeping up with technology and industry trends. A meaningful career timeline shows not just what we know, but how we apply it to create solutions, solve business problems, and provide the technological foundation that enables companies to grow and thrive.
 
 ---
 
