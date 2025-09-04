@@ -40,10 +40,10 @@ This project builds a reproducible SQL Server pipeline for NYC Yellow Taxi data:
 ## Quick links
 
 - **Blog / Analysis**  
-  - [Dashboard queries (article with screenshots & commentary)](/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html)
+  - [Dashboard queries (article with screenshots & commentary)](/2025/08/29/nyc-taxi-dashboard-queries.html)
 
 - **Runnable SQL**  
-  - [All 8 queries (copy-ready T-SQL)](/nyc-taxi/sql-server/analytics/2025/08/29/nyc-taxi-dashboard-queries.html#8-overall-tip-percentage)  
+  - [All 8 queries (copy-ready T-SQL)](/2025/08/29/nyc-taxi-dashboard-queries.html)  
   - [`create_all.sql`](https://github.com/michaelshawnlockwood/nyctaxi-pipeline/blob/main/sql/create_all.sql) — schema from dictionary
 
 - **Python & PowerShell utilities**  
