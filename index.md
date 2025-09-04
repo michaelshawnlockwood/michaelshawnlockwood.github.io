@@ -26,34 +26,39 @@ This is the central hub for my **NYC Yellow Taxi Data Engineering Project** — 
  
 From here you can explore pipelines, analytics, and visualizations that demonstrate how I approach real-world data problems.
 
-## What’s inside
+## 📖 What’s inside
 
 This project builds a reproducible SQL Server pipeline for NYC Yellow Taxi data:
 
-- **Phase 1–2:** profile Parquet/PSV → generate **data dictionaries**
-- **Phase 3:** generate **CREATE TABLE** DDL from dictionaries; **BULK INSERT** monthly PSV
-- **Analytics:** curated **T-SQL queries** for dashboards (daily trends, zones, payments, tips)
-- **Docs:** blog posts that double as your toolbox
+- **Phase 1 — Sampling & profiling:** scan Parquet files to summarize data types, aggregates, and null counts
+- **Phase 2 — Conversion:** transform validated Parquet datasets into PSV (pipe-separated values) for easier parsing and bulk load
+- **Phase 3 — Data dictionaries:** use Python and PowerShell[^1] to generate column definitions, null statistics, and value samples
+- **Phase 4 — Schema generation & load:** create T-SQL `CREATE TABLE` scripts from dictionaries and bulk insert monthly PSV
+- **Phase 5 — Analytics:** run curated T-SQL queries for dashboards (daily trends, zones, payments, tips)
+- **Docs:** blog posts that double as a working toolbox and reference
+
+🔗 For the first step in this journey, see the blog post: [NYC Taxi Data: First Steps in Validation](/2025/08/25/nyctaxi-pipeline.html)
+
+[^1]: We created two versions of the data-dictionary generator — one in Python (`make_data_dictionary.py`) and one in PowerShell (`make_data_dictionary.ps1`) — to demonstrate how the same task can be accomplished in both languages.
 
 ---
 
-## Quick links
+## ⚡ Quick links
 
 - **Blog / Analysis**  
-  - [Dashboard queries (article with screenshots & commentary)](/2025/08/29/nyc-taxi-dashboard-queries.html)
+  - [NYC Taxi Data: Dashboard Queries](/2025/08/29/nyc-taxi-dashboard-queries.html) — article with screenshots, commentary, and all 8 copy-ready T-SQL queries
 
 - **Runnable SQL**  
-  - [All 8 queries (copy-ready T-SQL)](/2025/08/29/nyc-taxi-dashboard-queries.html)  
-  - [`create_all.sql`](https://github.com/michaelshawnlockwood/nyctaxi-pipeline/blob/main/sql/create_all.sql) — schema from dictionary
+  - `_create_all.sql` — schema auto-generated from dictionary
 
 - **Python & PowerShell utilities**  
-  - `python/generate_sql_from_dictionary.py` — robust `--help`  
+  - `python/generate_sql_from_dictionary.py` — robust, with `--help`  
   - `Generate-SqlFromDictionary.ps1` — comment-based `Get-Help`  
-  - `Import-PsvToSql.ps1` — loop *.psv → BULK INSERT
+  - `Import-PsvToSql.ps1` — loop `*.psv` → `BULK INSERT`
 
 ---
 
-## Repo structure
+## 🧩 Repo structure
 
 ```text
 nyctaxi-pipeline/
