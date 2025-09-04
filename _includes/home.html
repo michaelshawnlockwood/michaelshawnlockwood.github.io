@@ -1,7 +1,21 @@
+
   <a id="toc" class="visually-hidden"></a>
 
   <!-- Hero -->
   <main id="top" class="relative">
+    <nav class="toc" aria-label="Table of Contents">
+      <ul class="toc__menu">
+        <li><a href="#core-strengths">Core Strengths</a></li>
+        <li><a href="#about-exec-summary">About</a></li>
+        <li><a href="#roles-over-time">Roles Over Time</a></li>
+        <li><a href="#technical-skillset">Technical Skillset</a></li>
+        <li><a href="#project-roadmap">Project Roadmap</a></li>
+        <li><a href="#impact-highlights">Impact Highlights</a></li>
+        <li><a href="#writing">Writing</a></li>
+        <li><a href="#contact">Contact me</a></li>
+        <li><a href="#resume">Résumés</a></li>
+      </ul>
+    </nav>
     <section class="max-w-6xl mx-auto px-4 pt-16 pb-12">
       <div class="grid md:grid-cols-2 gap-10 items-center">
         <div>
@@ -10,7 +24,7 @@
           </h1>
           <p class="mt-3 text-lg text-zinc-600">
             Senior SQL Server Database Administrator | MCDBA | Data Architect and Developer | Performance and Scalability Specialist | SSIS & T-SQL Expert | Builder of Automated, High-Impact Data Solutions
- | Explorer of PostgreSQL, Airflow, Databricks, and Power BI
+ | Explorer of PostgreSQL, Azure, Airflow, Databricks, and Power BI
           </p>
           <div class="mt-5 flex flex-wrap items-center gap-3 text-sm">
             <nav class="link-chips">
@@ -27,7 +41,7 @@
           <div class="rounded-3xl border border-zinc-200 p-6 bg-white shadow-sm">
             <!-- Core Strengths (Bullets) -->
             <section id="core-strengths" class="max-w-6xl mx-auto px-4 py-10">
-              <h3 class="text-2xl font-bold">Core Strengths</h3>
+              <h3 id="core-strengths" class="text-2xl font-bold">Core Strengths</h3>
               <p class="mt-3 text-base text-zinc-300">
                 I engineer fast, reliable, predictable database solutions. Since 7.0a, I’ve architected the data tier
                 for mission-critical applications—pairing surgical incident response with automation that endures.
@@ -52,7 +66,7 @@
     <section id="about" class="bg-white border-t border-b border-zinc-200">
       <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-10">
         <div class="md:col-span-2">
-          <h3 class="text-2xl font-bold">About</h3>
+          <h3 id="about-exec-summary" class="text-2xl font-bold">About</h3>
           <g class="mt-3 text-zinc-700">
             <p>Microsoft Certified Database Administrator (MCDBA) with 20+ years of hands-on SQL Server experience as both a Senior DBA and Senior Database Developer, specializing in performance tuning, automation, database development, and high-availability solutions. For the past 15 years, I have served as the Senior DBA or sole DBA, while also designing and delivering complex data-tier solutions as a senior-level developer—consistently producing scalable, high-performing systems and resolving critical issues under pressure. I hold a Bachelor’s degree in Business Administration from DeVry University, along with an MCDBA certification, underscoring my academic and professional foundation.</p>
             <p>To stay sharp during my recent career break, I designed my own NYC Taxi Database Project—a real-world data engineering pipeline demonstrating expertise in large-scale data ingestion, validation, and analytics across SQL Server and PostgreSQL. The project involves development work in Python, PowerShell, GitHub, and VS Code, with orchestration options spanning Airflow and Azure Data Factory (ADF), analytics in Databricks, and visualization through Power BI. It showcases my ongoing commitment to modern practices, reproducibility, and automation—while proving I remain fully hands-on at a senior level in both database administration and development.</p>
@@ -121,7 +135,7 @@
 
     <!-- Technical Skillset -->
     <section id="skills" class="max-w-6xl mx-auto px-4 py-12">
-      <h3 class="text-2xl font-bold">Technical Skillset</h3>
+      <h3 id="technical-skillset" class="text-2xl font-bold">Technical Skillset</h3>
       <div class="mt-6 grid md:grid-cols-3 gap-6">
         <!-- Core Database Expertise -->
         <article class="rounded-2xl border border-zinc-200 bg-white/5 p-5">
@@ -181,38 +195,10 @@
 
       </div>
     </section>
-
-
-    <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
-    <!-- Experience Highlights -->
-    <section id="experience" class="bg-white border-y border-zinc-200">
-      <div class="max-w-6xl mx-auto px-4 py-12">
-        <h3 class="text-2xl font-bold">Impact Highlights</h3>
-        <div class="mt-6 grid md:grid-cols-2 gap-6">
-          <article class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-            <h4 class="font-semibold">90‑minute Outage Rescues</h4>
-            <p class="mt-2 text-sm text-zinc-700">At Grand Canyon University, I resolved a severe performance incident in under 90 minutes that had originally been allotted two weeks for triage. I quickly isolated the bottleneck, applied corrective measures, and stabilized the system. With the crisis resolved, I used the remaining time to design and implement a data-growth forecasting utility that gave the university greater visibility into long-term capacity planning.</p>
-            <p class="mt-2 text-sm text-zinc-700">During a production outage at FlipSwitch, application performance collapsed after a key index was accidentally dropped. Because I had proactive monitoring in place—tracking disk queue length—I was alerted immediately before the full collapse began. I quickly diagnosed the missing index, scripted its recreation, and restored stability in under 90 minutes. The incident reinforced the value of proactive monitoring of performance metrics and resources, which enable rapid response and safeguard business continuity.</p>
-          </article>
-          <article class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-            <h4 class="font-semibold">Director who still ships</h4>
-            <p class="mt-2 text-sm text-zinc-700">Led at OnePoint Patient Care for 5+ years while staying hands‑on: HL7 integration, performance work, and reliable delivery under pressure.</p>
-          </article>
-          <article class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-            <h4 class="font-semibold">Automation mindset</h4>
-            <p class="mt-2 text-sm text-zinc-700">Created utilities for intelligent index maintenance and surveillance; current project <span class="font-semibold">SQLAgent007</span> expands tuning across SQL Server, Azure SQL, and PostgreSQL.</p>
-          </article>
-          <article class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
-            <h4 class="font-semibold">Production pragmatist</h4>
-            <p class="mt-2 text-sm text-zinc-700">Bias for observability, repeatability, and low‑drama ops. Comfortable saying “no” to risky shortcuts.</p>
-          </article>
-        </div>
-      </div>
-    </section>
     <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
     <!-- Projects -->
     <section id="projects" class="max-w-6xl mx-auto px-4 py-12">
-      <h3>Project Roadmap</h3>
+      <h3 id="project-roadmap">Project Roadmap</h3>
       <section id="projects" class="roadmap chart-container" >
           <object
             type="image/svg+xml"
@@ -244,13 +230,39 @@
       </div>
     </section>
     <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
+    <!-- Experience Highlights -->
+    <section id="experience" class="bg-white border-y border-zinc-200">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <h3 id="impact-highlights" class="text-2xl font-bold">Impact Highlights</h3>
+        <div class="mt-6 grid md:grid-cols-2 gap-6">
+          <article class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+            <h4 class="font-semibold">90‑minute Outage Rescues</h4>
+            <p class="mt-2 text-sm text-zinc-700">At Grand Canyon University, I resolved a severe performance incident in under 90 minutes that had originally been allotted two weeks for triage. I quickly isolated the bottleneck, applied corrective measures, and stabilized the system. With the crisis resolved, I used the remaining time to design and implement a data-growth forecasting utility that gave the university greater visibility into long-term capacity planning.</p>
+            <p class="mt-2 text-sm text-zinc-700">During a production outage at FlipSwitch, application performance collapsed after a key index was accidentally dropped. Because I had proactive monitoring in place—tracking disk queue length—I was alerted immediately before the full collapse began. I quickly diagnosed the missing index, scripted its recreation, and restored stability in under 90 minutes. The incident reinforced the value of proactive monitoring of performance metrics and resources, which enable rapid response and safeguard business continuity.</p>
+          </article>
+          <article class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+            <h4 class="font-semibold">Director who still ships</h4>
+            <p class="mt-2 text-sm text-zinc-700">Led at OnePoint Patient Care for 5+ years while staying hands-on: built and maintained HL7 integrations end-to-end, tuned high-volume OLTP workloads, and delivered reliable releases under real-world pressure. I owned the data tier while running a small, high-performing team—prioritizing a tight backlog, code reviews, and on-call readiness. When incidents surfaced, I led the response and then hardened the system (monitoring, automated tests, and runbooks) to prevent recurrence. Leadership meant clearing roadblocks and setting standards, not stepping away from the keyboard.</p>
+          </article>
+          <article class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+            <h4 class="font-semibold">Automation mindset</h4>
+            <p class="mt-2 text-sm text-zinc-700">I build tools that take noisy, fragile routines and make them quiet and predictable. My utilities handle adaptive index maintenance, statistics refresh, CHECKDB scheduling with alerts, deadlock/blocked-session capture, job-health monitoring, and restore verification—idempotent by design with clear logs and guardrails. My current project, SQLAgent007, extends this approach across SQL Server, Azure SQL, and PostgreSQL with pluggable collectors, JSON-based configs, dry-run/safe modes, and opinionated defaults for production safety.</p>
+          </article>
+          <article class="rounded-2xl border border-zinc-200 bg-zinc-50 p-5">
+            <h4 class="font-semibold">Production pragmatist</h4>
+            <p class="mt-2 text-sm text-zinc-700">Bias for observability, repeatability, and low-drama ops: baseline before changes, deploy with rollback plans, and prefer small, reversible steps over risky “big bang” moves. I instrument with Query Store/DMVs/Extended Events, track waits and key counters, and keep runbooks current so on-call is calm, not chaotic. I’ll say “no” to shortcuts that jeopardize uptime—think cavalier NOLOCK usage, unbounded long-running scripts, or schema changes without a cutover plan—and I pair every DR claim with routine test restores and periodic failover drills.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
     <!-- Writing -->
     <section id="writing" class="bg-white border-y border-zinc-200">
       <div class="max-w-6xl mx-auto px-4 py-12">
-        <h3 class="text-2xl font-bold">Writing & Talks</h3>
+        <h3 id="writing" class="text-2xl font-bold">Writing</h3>
         <ul class="mt-4 space-y-3 text-sm text-zinc-700">
           <li><span class="font-semibold">Azure: Operator vs. Mechanic</span> — reflections on automation limits and performance truth‑seeking. <em>(draft)</em></li>
-          <li><span class="font-semibold">The Buffet of Buzzwords</span> — calling out bloated job descriptions for Senior DBAs. <em>(draft)</em></li>
+          <li><span class="font-semibold"></span><a href="https://www.linkedin.com/posts/mslockwood_keyword-bingo-job-titles-flatten-careers-activity-7368815062611865603-6AUb?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAGx7WkB7X185IgI_xrocylP3DS0w7b_ovQ" target="_blank">Keyword Bingo <em>(Published on LinkedIn)</em></a></li>
           <li><span class="font-semibold">Output Params vs. Result Sets</span> — stored procedure design trade‑offs. <em>(draft)</em></li>
         </ul>
       </div>
@@ -260,7 +272,7 @@
     <section id="contact" class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid md:grid-cols-3 gap-8">
         <div class="md:col-span-2">
-          <h3 class="text-2xl font-bold">Contact</h3>
+          <h3 id="contact" class="text-2xl font-bold">Contact</h3>
           <p class="mt-2 text-zinc-700">Best way to reach me: email or LinkedIn DM.</p>
           <div class="mt-4 flex flex-wrap items-center gap-3 text-sm">
             <button id="copyEmail" class="btn btn--subtle">COPY EMAIL</button>&nbsp;
@@ -273,7 +285,7 @@
           </div>
         </div>
         <aside class="rounded-2xl border border-zinc-200 bg-white p-5">
-          <h4 class="font-semibold">Résumés</h4>
+          <h3 id="resume" class="font-semibold">Résumés</h3>
           <p class="mt-2 text-sm text-zinc-700">Condensed Résumé:&nbsp;<a id="resume" class="mt-3 inline-block text-sm font-semibold underline" href="https://github.com/michaelshawnlockwood/MyResume/raw/main/MichaelLockwood_CondensedResume.pdf"><i>Click to download</i></a></p>
           <p class="mt-2 text-sm text-zinc-700">Full Résumé:&nbsp;<a id="resume" class="mt-3 inline-block text-sm font-semibold underline" href="https://github.com/michaelshawnlockwood/MyResume/raw/main/MichaelLockwood_FullResume.pdf"><i>Click to download</i></a></p>
         </aside>

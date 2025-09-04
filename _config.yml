@@ -1,5 +1,5 @@
 title: "Michael Shawn Lockwood"
-description: "SQL Server MCDBA | Performance | Automation"
+description: "SQL Server MCDBA | Performance Specialist | Automation Expert"
 logo: "/assets/images/profile.jpeg"
 url: "https://michaelshawnlockwood.github.io"
 baseurl: ""
@@ -41,6 +41,9 @@ header:
   image: /assets/images/headers/blog-hero.jpg
   image_description: "Abstract tech grid"
   teaser: /assets/images/headers/blog-hero.jpg
+
+permalink: /:year/:month/:day/:slug.html
+
 
 
 

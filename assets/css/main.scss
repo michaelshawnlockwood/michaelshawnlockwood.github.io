@@ -53,16 +53,31 @@
   line-height: 1.6;
 }
 
+.page--about .page__title { 
+  display: none; 
+}
+.page--about .page__hero--overlay { 
+  min-height: 300px;
+  background-color: transparent;
+} 
+
 /* ===== Back-to-Top button ===== */
 .back-to-top {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
   font-size: 0.85rem;
-  padding: .25rem .6rem;
+  padding: 0.25rem 0.5rem;
   border-radius: 999px;
   border: 1.5px solid $color-black;
   background: $color-surface;
   text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto; 
   float: right;
 }
+
 
 .back-to-top:hover {
   border-color: $color-accent-alt;
