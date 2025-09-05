@@ -27,7 +27,7 @@ header:
 # Why write SPs that write SPs?
 
 - **Consistency & speed:** Hundreds of tables? Generate consistent procs in seconds.
-- **Standards matter:** abcdefg
+- **Standards matter:** abcdefgUsing stored procedures as consistent access methods avoids the ad-hoc query variations of Code-First approaches, reducing procedure cache bloat and keeping performance predictable and execution plans stable.
 - **Safety:** All names are QUOTENAME’d; all values are parameterized via `sp_executesql`—no string‑concatenation injections.
 - **Correctness from metadata:** Nullability, identities, defaults, computed columns, rowversion, and primary keys are handled from `sys.*` metadata.
 - **Observability:** Each generated proc includes an error block, return codes, and optional rowcount output.
