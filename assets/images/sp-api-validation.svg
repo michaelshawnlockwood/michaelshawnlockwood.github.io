@@ -1,0 +1,47 @@
+---
+layout: null
+---
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 1200 420"
+     style="max-width:100%; height:auto; background:transparent"
+     role="img" aria-label="Subway-style roadmap (vibrant)">
+  <rect x="0" y="0" width="980" height="300" rx="8" fill="#0f172a"/>
+
+  <defs>
+    <marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L9,3 L0,6 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- SQL Server -->
+  <rect x="30" y="60" width="250" height="120" rx="14" fill="#1f2937" stroke="#94a3b8" stroke-width="2"/>
+  <text x="155" y="88" text-anchor="middle" fill="#e2e8f0" font-size="16" font-weight="600">SQL Server</text>
+  <text x="155" y="112" text-anchor="middle" fill="#cbd5e1" font-size="14" font-weight="500">Stored Procedures</text>
+  <text x="155" y="136" text-anchor="middle" fill="#a5b4fc" font-size="13" font-weight="600">SELECT ... FOR JSON</text>
+  <text x="155" y="160" text-anchor="middle" fill="#cbd5e1" font-size="14" font-weight="500">@json OUT</text>
+
+  <!-- API -->
+  <rect x="365" y="60" width="250" height="120" rx="14" fill="#1f2937" stroke="#94a3b8" stroke-width="2"/>
+  <text x="490" y="88" text-anchor="middle" fill="#e2e8f0" font-size="16" font-weight="600">TaxiApi (.NET 8)</text>
+  <text x="490" y="112" text-anchor="middle" fill="#cbd5e1" font-size="14" font-weight="500">Minimal API + Dapper</text>
+  <text x="490" y="136" text-anchor="middle" fill="#a5b4fc" font-size="13" font-weight="600">/api/daily · /api/zones …</text>
+  <text x="490" y="160" text-anchor="middle" fill="#cbd5e1" font-size="14" font-weight="500">returns JSON from @out</text>
+
+  <!-- Validation -->
+  <rect x="700" y="60" width="250" height="120" rx="14" fill="#1f2937" stroke="#94a3b8" stroke-width="2"/>
+  <text x="825" y="88" text-anchor="middle" fill="#e2e8f0" font-size="16" font-weight="600">Validation</text>
+  <text x="825" y="112" text-anchor="middle" fill="#cbd5e1" font-size="14" font-weight="500">curl · Postman</text>
+  <text x="825" y="136" text-anchor="middle" fill="#a5b4fc" font-size="13" font-weight="600">GET /api/daily</text>
+  <text x="825" y="160" text-anchor="middle" fill="#cbd5e1" font-size="14" font-weight="500">inspect payloads</text>
+
+  <!-- Arrows -->
+  <line x1="280" y1="120" x2="365" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#a)"/>
+  <line x1="615" y1="120" x2="700" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#a)"/>
+
+  <!-- Caption -->
+  <text x="490" y="220" text-anchor="middle" fill="#9ca3af" font-size="12" font-weight="500">
+    Pipeline for verification: stored procedures emit JSON → TaxiApi exposes endpoints → curl/Postman validate shape &amp; content
+  </text>
+</svg>
