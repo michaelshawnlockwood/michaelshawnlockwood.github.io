@@ -74,4 +74,4 @@ This blog series will follow each step. The next entry will cover the conversion
 ---
 
 *Michael Shawn Lockwood*  
-Senior DBA • Performance Optimization • Automation Advocate
+Senior DBA • MCDBA • Performance Optimization and Scalability Specialist • SSIS & T-SQL Expert

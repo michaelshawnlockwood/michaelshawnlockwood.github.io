@@ -7,11 +7,13 @@ main:
     url: /about/#skills
   - title: "Experience"
     url: /about/#experience
-  - title: "Projects"
-    url: /about/#projects
+  - title: "Project Roadmap"
+    url: /about/#project-roadmap
   - title: "Writing"
     url: /about/#writing
   - title: "Contact"
     url: /about/#contact
+  - title: "Résumés"
+    url: /about/#resume
   - title: "Blog"
     url: /blog/

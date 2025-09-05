@@ -3,3 +3,8 @@
     <script defer src="{{ s | relative_url }}"></script>
   {% endfor %}
 {% endif %}
+
+{% if page.collection == 'posts' %}
+  <script defer src="{{ '/assets/js/copy-code.js' | relative_url }}"></script>
+{% endif %}
+
