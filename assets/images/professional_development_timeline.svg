@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     version="1.1"
+     width="1200" height="420"
+     viewBox="0 0 1200 420"
+     color="#dddddd" role="img" aria-labelledby="title desc">
+  <title>Professional Development Roadmap</title>
+  <desc>Timeline of skills depth: long-running mastery in SQL Server, T-SQL, SSIS, HA/DR; targeted expansion into Azure and PostgreSQL; emerging tools. MCDBA earned in 2006.</desc>
+
+
+  <style type="text/css"><![CDATA[
+    .axis { stroke: rgba(255,255,255,.25); stroke-width: 1; }
+    .tick { font-size: 14px; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; fill: #bbbbbb; }
+    .legend { font-size: 14px; font-weight: 500; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; fill: #dddddd; }
+    .band-core { stroke: currentColor; stroke-width: 7; fill: none; }
+    .band-strong { stroke: currentColor; stroke-width: 5; fill: none; }
+    .band-extended { stroke: currentColor; stroke-width: 3; stroke-dasharray: 10 6; fill: none; }
+    .band-emerging { stroke: currentColor; stroke-width: 2; stroke-dasharray: 2 6; fill: none; }
+    .milestone { font-size: 12px !Important; opacity: 0.9; font-style: italic; }
+  ]]></style>
+
+  <!-- Frame & X-axis -->
+  <rect x="0.5" y="0.5" width="1199" height="419" fill="none" stroke="rgba(255,255,255,.15)"/>
+
+  <g transform="translate(-30,10)">
+    <line x1="120" y1="360" x2="1140" y2="360" class="axis"/>
+
+    <!-- Era ticks & labels (x: 120=1997, 420=2005, 780=2015, 1140=2025) -->
+    <g class="tick" opacity="0.9">
+      <text x="120" y="385">1997</text>
+      <text x="420" y="385">2005</text>
+      <text x="780" y="385">2015</text>
+      <text x="1140" y="385" text-anchor="end">2025</text>
+    </g>
+
+    <!-- Vertical guides -->
+    <g stroke="currentColor" stroke-width="1" opacity="0.12">
+      <line x1="120" y1="70"  x2="120"  y2="360"/>
+      <line x1="420" y1="70"  x2="420"  y2="360"/>
+      <line x1="780" y1="70"  x2="780"  y2="360"/>
+      <line x1="1140" y1="70" x2="1140" y2="360"/>
+    </g>
+
+    <!-- Legend -->
+    <g class="legend" transform="translate(195,26)">
+      <g transform="translate(0,0)">
+        <line x1="0" y1="0" x2="28" y2="0" class="band-core"/>
+        <text x="36" y="4">Mastered/Core</text>
+      </g>
+      <g transform="translate(180,0)">
+        <line x1="0" y1="0" x2="28" y2="0" class="band-strong"/>
+        <text x="36" y="4">Strong/Applied</text>
+      </g>
+      <g transform="translate(380,0)">
+        <line x1="0" y1="0" x2="28" y2="0" class="band-extended"/>
+        <text x="36" y="4">Extended/Development</text>
+      </g>
+      <g transform="translate(590,0)">
+        <line x1="0" y1="0" x2="28" y2="0" class="band-emerging"/>
+        <text x="36" y="4">Exploring/Emerging</text>
+      </g>
+    </g>
+
+    <!-- Y-axis band labels -->
+    <g class="tick" opacity="0.95">
+      <text x="120" y="80">SQL Server (Core)</text>
+      <text x="120" y="120">T-SQL</text>
+      <text x="120" y="160">SSIS / ETL</text>
+      <text x="120" y="200">HA / DR</text>
+      <text x="120" y="240">Azure (Azure SQL, DACPACs)</text>
+      <text x="120" y="280">PostgreSQL</text>
+      <text x="120" y="320">Airflow / Databricks / Power BI</text>
+    </g>
+
+    <g class="yearMarks" stroke="rgba(255,255,255,.4)" stroke-width="1">
+      <line x1="120"  y1="360" x2="120"  y2="365"/>
+      <line x1="155"  y1="360" x2="155"  y2="365"/>
+      <line x1="190"  y1="360" x2="190"  y2="365"/>
+      <line x1="225"  y1="360" x2="225"  y2="365"/>
+      <line x1="260"  y1="360" x2="260"  y2="365"/>
+      <line x1="295"  y1="360" x2="295"  y2="365"/>
+      <line x1="330"  y1="360" x2="330"  y2="365"/>
+      <line x1="365"  y1="360" x2="365"  y2="365"/>
+      <line x1="400"  y1="360" x2="400"  y2="365"/>
+      <line x1="435"  y1="360" x2="435"  y2="365"/>
+      <line x1="470"  y1="360" x2="470"  y2="365"/>
+      <line x1="505"  y1="360" x2="505"  y2="365"/>
+      <line x1="540"  y1="360" x2="540"  y2="365"/>
+      <line x1="575"  y1="360" x2="575"  y2="365"/>
+      <line x1="610"  y1="360" x2="610"  y2="365"/>
+      <line x1="645"  y1="360" x2="645"  y2="365"/>
+      <line x1="680"  y1="360" x2="680"  y2="365"/>
+      <line x1="715"  y1="360" x2="715"  y2="365"/>
+      <line x1="750"  y1="360" x2="750"  y2="365"/>
+      <line x1="785"  y1="360" x2="785"  y2="365"/>
+      <line x1="820"  y1="360" x2="820"  y2="365"/>
+      <line x1="855"  y1="360" x2="855"  y2="365"/>
+      <line x1="890"  y1="360" x2="890"  y2="365"/>
+      <line x1="925"  y1="360" x2="925"  y2="365"/>
+      <line x1="960"  y1="360" x2="960"  y2="365"/>
+      <line x1="995"  y1="360" x2="995"  y2="365"/>
+      <line x1="1030" y1="360" x2="1030" y2="365"/>
+      <line x1="1065" y1="360" x2="1065" y2="365"/>
+      <line x1="1100" y1="360" x2="1100" y2="365"/>
+      <line x1="1135" y1="360" x2="1135" y2="365"/>
+    </g>
+
+
+    <text x="450" y="102" class="tick milestone" text-anchor="middle">
+      MCDBA • 2006
+    </text>
+
+    <!-- Bands -->
+    <!-- SQL Server (Core): continuous mastery -->
+    <path d="M120,86 L1140,86" class="band-core"/>
+
+    <!-- T-SQL: mastery throughout -->
+    <path d="M120,126 L1140,126" class="band-core" stroke-width="5"/>
+
+    <!-- SSIS / ETL: ramps up ~2005; then tapers to extended -->
+    <path d="M420,166 L1000,166" class="band-strong"/>
+    <path d="M780,166 L1140,166" class="band-extended"/>
+
+    <!-- HA / DR: strong mid-career onward -->
+    <path d="M300,206 L1140,206" class="band-strong"/>
+
+    <!-- Azure (Azure SQL, DACPACs): extended with applied stint -->
+    <path d="M720,246 L840,246" class="band-extended"/>
+    <path d="M840,246 L960,246" class="band-strong"/>
+    <path d="M960,246 L1140,246" class="band-extended"/>
+
+    <!-- PostgreSQL: extended → applied in recent years -->
+    <path d="M900,286 L1020,286" class="band-extended"/>
+    <path d="M1020,286 L1140,286" class="band-strong"/>
+
+    <!-- Airflow / Databricks / Power BI: emerging exploration -->
+    <path d="M920,326 L1140,326" class="band-emerging"/>
+
+    <!-- Era captions -->
+    <g class="tick" opacity="0.75" font-size="12">
+      <text x="270" y="52" text-anchor="middle">1997–2005 • Foundations</text>
+      <text x="600" y="52" text-anchor="middle">2006–2015 • Scale &amp; Ops</text>
+      <text x="960" y="52" text-anchor="middle">2016–2025 • Cloud &amp; Expansion</text>
+    </g>
+  </g>
+</svg>

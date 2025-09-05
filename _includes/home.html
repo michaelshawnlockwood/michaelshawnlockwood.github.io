@@ -110,13 +110,13 @@
                 <button id="resetView" type="button" aria-label="Reset view">⟳</button>
               </div>
           </div>
-        <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
-          <h3>📊 20+ Years of Applied Data Analysis Experience</h3>
-          <p>Spanning healthcare, financial, and education industries, my work in database architecture, reporting, and performance optimization has consistently required advanced SQL-driven analysis of large and complex datasets.</p>
+          <a class="back-to-top" href="#toc">&uarr;&nbsp;BACK TO TOP</a>
+          <h3>📊 Professional Development Roadmap</h3>
+          <p>Timeline of skills depth: long-running mastery in SQL Server, T-SQL, SSIS, HA/DR; targeted expansion into PostgreSQL, Azure, Airflow, and Databricks.</p>
           
           <div class="viz-wrap chart-wrap">
             <object id="timelineSVG" class="viz-svg" type="image/svg+xml"
-                data="{{ '/assets/images/lockwood_data_analysis_timeline.svg' | relative_url }}"
+                data="{{ '/assets/images/professional_development_timeline.svg' | relative_url }}"
                 style="display:inline-block; width:100%; height:auto; position:relative; z-index:1;"
                 aria-label="Years of Applied Data Analysis Experience">
               </object>
@@ -141,19 +141,49 @@
           I’m seeking not only the right role but also the right environment—one where leadership provides 
           clear guardrails without suffocating innovation, where policies are practical rather than bureaucratic, 
           and where ideas from any level can make their way to the table. In that kind of culture, I contribute 
-          best: combining 20+ years of SQL Server expertise with a bias for performance, automation, and delivering 
-          reliable results under pressure.
-        </p>
+          best: combining 20+ years of SQL Server expertise with a bias for performance, automation, and verifiable, reliable results.</p>
         <p>
-          This section, like my cover letters, is written deliberately for the purpose of aligning my strengths 
-          with the needs of the role or organization—not as a generic pitch, but as a focused statement of where 
-          my experience in performance engineering, automation, and SQL Server reliability directly matches the 
-          requirements at hand. I believe the best professional matches come not from keyword bingo but from 
-          clarity: a team that values deep expertise, pragmatic design, and respect for balance will get my best work.
-        </p>
+          I’m targeting Senior DBA / Database Engineer roles that require deep SQL Server strength—query tuning, indexing 
+          strategy, performance and wait analysis, and HA/DR (Always On availability groups, FCIs, replication, log shipping)—with 
+          standardized change control and real observability (tested backups, rehearsed restores, explicit RPO/RTO). SSIS is a core 
+          tool; I’ve built enterprise-class ETL pipelines with it. I support DACPAC-based deployments 
+          via Visual Studio (SSDT). T-SQL is my second language. I design application-ready result sets—procedures, 
+          functions, views, window functions—and, when appropriate, **automate and instrument** the platform.</p>
+        <p>I’m evolving with the industry—engaging Azure SQL and SQL Server on Azure VMs, AWS, Airflow, and 
+          Databricks—and I’ve added PostgreSQL to my toolkit. My working sandbox is practical and current: VS Code; GitHub; Docker for disposable labs; 
+          VirtualBox Linux VMs (Debian/Ubuntu) for PostgreSQL and tooling; PowerShell and Bash for scripting and automation; plus selective 
+          .NET/IdentityServer, and REST APIs (Postman). I’ll use front-end tooling (Angular/React/Sass/SVG) when it helps instrument, diagnose, 
+          or deliver—and to present, test, and, most importantly, understand. The through-line is straightforward: ship fast, safe, measurable 
+          changes to production databases. Ultimately, the broader toolchain is how I deliver; my core work lives in the data tier.</p>
+        <section class="instrument">
+          <h3>By &ldquo;instrument,&rdquo; I mean:</h3>
+          <ul>
+            <li><strong>Procedure-level telemetry:</strong> log start/end, duration, row counts, error codes, and a correlation ID (via <code>SESSION_CONTEXT</code>) into a lean telemetry table.</li>
+            <li><strong>Extended Events &amp; Query Store:</strong> capture deadlocks, timeouts, and plan regressions; baseline known-good plans; surface p95 durations.</li>
+            <li><strong>Wait/IO trending:</strong> scheduled DMV snapshots (wait stats, query stats, file/IO stalls) to trend and compare pre/post change.</li>
+            <li><strong>Backup/DR probes:</strong> record backup/restore durations and last verified restore; alert on RPO/RTO breaches.</li>
+            <li><strong>ETL/job observability:</strong> per-step durations, retries, and data-quality checks (rowcount reconciliations, hash totals) for SSIS and SQL Server Agent jobs.</li>
+            <li><strong>Alerts &amp; dashboards:</strong> route severity errors, long-running queries, and blocking chains into monitoring for paging/visuals.</li>
+          </ul>
+        </section>
       </div>
     </section>
-
+    <section class="ten-things">
+      <h3>Ten Things I Own</h3>
+      <ul>
+        <li><strong>Backups & verified restores:</strong> RPO/RTO proven, drills scheduled.</li>
+        <li><strong>HA/DR posture:</strong> AG/FCI health, failover tests, runbooks.</li>
+        <li><strong>Observability:</strong> XE + Query Store baselines, p95 dashboards, alerts.</li>
+        <li><strong>Performance:</strong> query tuning, indexing strategy, regression watch.</li>
+        <li><strong>Release pipeline:</strong> DACPAC diffs, schema-drift detection, pre-prod gates.</li>
+        <li><strong>ETL reliability:</strong> SSIS orchestration, DQ checks (rowcounts/hashes), retries.</li>
+        <li><strong>Security:</strong> least privilege, secrets rotation, auditing.</li>
+        <li><strong>Capacity & cost:</strong> storage/IO growth, right-sizing on-prem/cloud.</li>
+        <li><strong>Incidents:</strong> on-call triage, postmortems, preventive fixes.</li>
+        <li><strong>Standards & coaching:</strong> patterns, code reviews, “what good looks like.”</li>
+      </ul>
+      <p class="note">Automation reduces toil so I can widen scope and raise quality—same workload, fewer surprises.</p>
+    </section>
 
     <!-- Technical Skillset -->
     <section id="skills" class="max-w-6xl mx-auto px-4 py-12">
