@@ -22,7 +22,9 @@ My approach aligns with common practice: **generate JSON inside SQL** (determini
 
 ### 1) Stored procedure pattern (JSON OUT)
 ```sql
-CREATE OR ALTER PROC dbo.GetDailySummaryJson
+/* Stored procedure pattern (JSON OUT) */
+
+CREATE OR ALTER PROC [dbo].[pr_GetDailySummaryJson]
   @dailySummary nvarchar(max) OUTPUT
 AS
 BEGIN
