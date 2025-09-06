@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "🏠 Welcome to the NYC Taxi Project Hub"
-excerpt: "Central hub for my NYC Yellow Taxi Data Engineering Project — pipelines, analytics, and documentation."
+excerpt: "Central hub for my NYC Yellow Taxi Data Engineering Project — ingestion, validation, pipelines, dashboards, and analytics."
 date: 2025-08-29
 classes: center-page
 categories: nyc-taxi sql-server analytics
