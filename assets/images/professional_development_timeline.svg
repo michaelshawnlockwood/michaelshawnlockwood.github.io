@@ -121,7 +121,7 @@
     <path d="M120,126 L1140,126" class="band-core" stroke-width="5"/>
 
     <!-- SSIS / ETL: ramps up ~2005; then tapers to extended -->
-    <path d="M420,166 L1000,166" class="band-strong"/>
+    <path d="M420,166 L1000,166" class="band-core"/>
     <path d="M780,166 L1140,166" class="band-extended"/>
 
     <!-- HA / DR: strong mid-career onward -->
