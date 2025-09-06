@@ -56,7 +56,7 @@
       </g>
       <g transform="translate(380,0)">
         <line x1="0" y1="0" x2="28" y2="0" class="band-extended"/>
-        <text x="36" y="4">Extended/Development</text>
+        <text x="36" y="4">Development/Sandbox</text>
       </g>
       <g transform="translate(590,0)">
         <line x1="0" y1="0" x2="28" y2="0" class="band-emerging"/>
@@ -125,7 +125,8 @@
     <path d="M780,166 L1140,166" class="band-extended"/>
 
     <!-- HA / DR: strong mid-career onward -->
-    <path d="M300,206 L1140,206" class="band-strong"/>
+    <path d="M300,206 L1000,206" class="band-strong"/>
+    <path d="M780,206 L1140,206" class="band-extended"/>
 
     <!-- Azure (Azure SQL, DACPACs): extended with applied stint -->
     <path d="M720,246 L840,246" class="band-extended"/>
