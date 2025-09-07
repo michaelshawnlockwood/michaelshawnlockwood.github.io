@@ -71,14 +71,11 @@ It is designed as a practical, execution-ready guide with attention to testing, 
   - **Log Shipping / Always On to Azure VM** (minimal downtime option)  
   - **Azure Database Migration Service (DMS)** (online or offline)  
 
-- **Perform schema migration**  
-  - Use SQLPackage / DACPAC for schema deployment  
-  - Validate users, roles, permissions
-
-- **Data migration**  
-  - Run full load  
-  - Apply differential/log backups (if applicable)  
-  - Validate row counts and checksums
+- **Schema and Data Migration**  
+  - Initialize Azure replica using **full + log backup/restore**, **automatic seeding**, or **Database Migration Service (for MI Link)**.  
+  - Confirm **users, roles, and permissions** are consistent across replicas.  
+  - Validate **jobs, linked servers, and dependencies** for compatibility.  
+  - Run validation checks (**row counts, checksums**) to ensure data integrity.  
 
 - **Migration cut-over**  
   - Quiesce application connections  
