@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Azure Migration Plan: SQL Server On-Prem to Azure"
+title: "Azure Migration Playbook: SQL Server On-Prem to Azure"
 excerpt: "A practical playbook for planning, executing, and validating SQL Server migrations from on-premises to Azure, including HA/DR, rollback, and documentation."
 date: 2025-09-05
 classes: center-page
