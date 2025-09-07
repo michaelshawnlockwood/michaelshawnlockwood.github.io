@@ -39,13 +39,12 @@ It is designed as a practical, execution-ready guide with attention to testing, 
   - Future scalability and performance needs
 
 - **Select target Azure service**  
-  - **Azure SQL Database (PaaS)** – single DB or elastic pool  
-  - **Azure SQL Managed Instance** – closer to full SQL Server feature set  
-  - **SQL Server on Azure VM (IaaS)** – full control, matches on-premises environment  
+  - **Azure SQL Managed Instance** – supports near full SQL Server feature set and integrates via MI Link (distributed AG).  
+  - **SQL Server on Azure VM (IaaS)** – full control, closest to on-premises environment; supports traditional AG replicas.  
 
 - **Gap analysis**  
   - Feature compatibility using DMA (Data Migration Assistant)  
-  - Identify unsupported or partially supported features in PaaS targets  
+  - Identify unsupported or partially supported features in Azure SQL Managed Instance  
   - Plan for alternatives (e.g., replace SQL Agent jobs with Elastic Jobs or ADF pipelines)
 
 ---
@@ -71,7 +70,6 @@ It is designed as a practical, execution-ready guide with attention to testing, 
   - **Backup/Restore to Azure Blob** (IaaS targets)  
   - **Log Shipping / Always On to Azure VM** (minimal downtime option)  
   - **Azure Database Migration Service (DMS)** (online or offline)  
-  - **Export/Import (BACPAC/DACPAC)** (for schema + data in smaller DBs)
 
 - **Perform schema migration**  
   - Use SQLPackage / DACPAC for schema deployment  
@@ -94,7 +92,7 @@ It is designed as a practical, execution-ready guide with attention to testing, 
 - **Configure HA/DR in Azure**  
   - Availability Zones or Sets (for VMs)  
   - Always On Availability Groups (VMs/MI)  
-  - Geo-replication (SQL DB)  
+  - Geo-replication or Distributed AG (Managed Instance or VM-to-VM across regions)  
   - Backup policies (Azure Backup / Blob / Managed Backups)
 
 - **Listener and routing configuration**  
