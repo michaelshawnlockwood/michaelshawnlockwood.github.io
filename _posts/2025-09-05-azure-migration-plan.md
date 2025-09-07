@@ -38,7 +38,7 @@ It is designed as a practical, execution-ready guide with attention to testing, 
   - Cost constraints (licensing, compute/storage tiers)  
   - Future scalability and performance needs
 
-- **Select target Azure service**  
+- **Select target Azure service**
   - **Azure SQL Managed Instance** – supports near full SQL Server feature set and integrates via MI Link (distributed AG).  
   - **SQL Server on Azure VM (IaaS)** – full control, closest to on-premises environment; supports traditional AG replicas.  
 
