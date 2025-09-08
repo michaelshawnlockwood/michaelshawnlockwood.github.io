@@ -1,7 +1,7 @@
 ---
 layout: single
 title: Phase 3 — First Data Landed in PostgreSQL
-exerpt: "Phase 3 of the project reached a milestone: I’ve loaded a large public dataset into PostgreSQL through a clean, repeatable workflow. The process included acquiring the raw data in Parquet format, converting it to PSV with Python, generating a data dictionary for validation, configuring cross-platform file sharing between host and Debian VM, and bulk-loading into a newly built PostgreSQL table. Each step was designed for reproducibility and scalability — not a one-off test, but a full pipeline that establishes a solid foundation for future phases."
+exerpt: "I’ve loaded a large public dataset into PostgreSQL through a clean, repeatable workflow. The process included acquiring the raw data in Parquet format, converting it to PSV with Python, generating a data dictionary for validation, configuring cross-platform file sharing between host and Debian VM, and bulk-loading into a newly built PostgreSQL table. Each step was designed for reproducibility and scalability — not a one-off test, but a full pipeline that establishes a solid foundation for future phases."
 description: Parquet → PSV → PostgreSQL with DuckDB DDL, VirtualBox share permissions, and COPY/\copy paths.
 categories: [PostgreSQL, NYC Taxi]
 tags: [DuckDB, Parquet, PSV, DBeaver, COPY, VirtualBox]
@@ -18,9 +18,6 @@ header:
   overlay_image: /assets/images/time-analysis-area-chart.svg
   caption: "From T-SQL to API payloads"
 ---
-
-**Phase 3: First Data Landed in PostgreSQL**
-{: .md-h1}
 
 ## Converting Parquet to PSV
 This story begins with a dataset of **North Carolina municipal population and density** (`municipal-population-counts-certified-population-estimates-population-density.parquet` → now `mpccpepd.parquet`).  
