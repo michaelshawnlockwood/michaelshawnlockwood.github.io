@@ -129,12 +129,14 @@
     <path d="M780,206 L1140,206" class="band-extended"/>
 
     <!-- Azure (Azure SQL, DACPACs): extended with applied stint -->
-    <path d="M720,246 L840,246" class="band-extended"/>
+    <path d="M720,246 L840,246" class="band-emerging"/>
     <path d="M840,246 L960,246" class="band-strong"/>
     <path d="M960,246 L1140,246" class="band-extended"/>
 
     <!-- PostgreSQL: extended → applied in recent years -->
-    <path d="M900,286 L1140,286" class="band-extended"/>
+    <path d="M900,286 L1040,286" class="band-emerging"/>
+    <path d="M1040,286 L1140,286" class="band-extended"/>
+
 
     <!-- Airflow / Databricks / Power BI: emerging exploration -->
     <path d="M920,326 L1140,326" class="band-emerging"/>
