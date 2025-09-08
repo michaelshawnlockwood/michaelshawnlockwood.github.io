@@ -23,7 +23,7 @@ header:
 Phase 3 of the project reached a milestone: I’ve loaded a large public dataset into PostgreSQL through a clean, repeatable workflow. The process included acquiring the raw data in Parquet format, converting it to PSV with Python, generating a data dictionary for validation, configuring cross-platform file sharing between host and Debian VM, and bulk-loading into a newly built PostgreSQL table. Each step was designed for reproducibility and scalability — not a one-off test, but a full pipeline that establishes a solid foundation for future phases.
 
 ## Converting Parquet to PSV
-Everything started with a dataset of **North Carolina municipal population and density** (`municipal-population-counts-certified-population-estimates-population-density.parquet` → now `mpccpepd.parquet`).  
+This story begins with a dataset of **North Carolina municipal population and density** (`municipal-population-counts-certified-population-estimates-population-density.parquet` → now `mpccpepd.parquet`).  
 
 Using the conversion script I already built for the NYC Taxi project, I ran:
 

@@ -27,6 +27,7 @@ This is the central hub for my **NYC Yellow Taxi Data Engineering Project** — 
 From here you can explore pipelines, analytics, and visualizations that demonstrate how I approach real-world data problems.
 
 ## 📖 What’s inside
+{: .heading-ico}
 
 This project builds a reproducible SQL Server pipeline for NYC Yellow Taxi data:
 
@@ -39,12 +40,12 @@ This project builds a reproducible SQL Server pipeline for NYC Yellow Taxi data:
 
 🔗 For the first step in this journey, see the blog post: [NYC Taxi Data: First Steps in Validation](/2025/08/25/nyctaxi-pipeline.html)
 
-[^1]: We created two versions of the data-dictionary generator — one in Python (`make_data_dictionary.py`) and one in PowerShell (`make_data_dictionary.ps1`) — to demonstrate how the same task can be accomplished in both languages.
+[^1]: There are two versions of the data-dictionary generator — one in Python (`make_data_dictionary.py`) and one in PowerShell (`make_data_dictionary.ps1`) — to demonstrate how the same task can be accomplished in both languages.
 
 ---
 
 ## ⚡ Quick links
-
+{: .heading-ico}
 - **Blog / Analysis**  
   - [NYC Taxi Data: Dashboard Queries](/2025/08/29/nyc-taxi-dashboard-queries.html) — article with screenshots, commentary, and all 8 copy-ready T-SQL queries
 
@@ -68,7 +69,7 @@ This project builds a reproducible SQL Server pipeline for NYC Yellow Taxi data:
 ---
 
 ## 🧩 Repo structure
-
+{: .heading-ico}
 ```text
 nyctaxi-pipeline/
 ├── data_in/                # raw parquet/psv (ignored)
