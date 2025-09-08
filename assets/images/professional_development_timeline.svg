@@ -134,8 +134,7 @@
     <path d="M960,246 L1140,246" class="band-extended"/>
 
     <!-- PostgreSQL: extended → applied in recent years -->
-    <path d="M900,286 L1020,286" class="band-extended"/>
-    <path d="M1020,286 L1140,286" class="band-strong"/>
+    <path d="M900,286 L1140,286" class="band-extended"/>
 
     <!-- Airflow / Databricks / Power BI: emerging exploration -->
     <path d="M920,326 L1140,326" class="band-emerging"/>

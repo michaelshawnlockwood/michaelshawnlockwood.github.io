@@ -1,7 +1,9 @@
 ---
 layout: single
-title: "PostgreSQL:  Taxi: Advanced SQL — Analytics to JSON for APIs"
-excerpt: "Turn dashboard metrics into clean, nested JSON payloads using FOR JSON PATH, without leaving SQL Server."
+title: Phase 3 — First Data Landed in PostgreSQL
+description: Parquet → PSV → PostgreSQL with DuckDB DDL, VirtualBox share permissions, and COPY/\copy paths.
+categories: [PostgreSQL, NYC Taxi]
+tags: [DuckDB, Parquet, PSV, DBeaver, COPY, VirtualBox]
 date: 2025-09-04
 classes: center-page
 author_profile: false
