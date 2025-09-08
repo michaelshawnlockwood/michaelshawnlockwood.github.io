@@ -23,7 +23,7 @@ header:
 Phase 3 of the project reached a milestone: I created my very first PostgreSQL table and loaded real data into it. This wasn’t just a one-off test — it was a full workflow, from acquiring a public dataset in Parquet format, converting it to PSV, setting up cross-platform sharing between host and VM, and finally bulk-inserting it into PostgreSQL. Here’s the path.
 
 ## Converting Parquet to PSV
-Everything started with a dataset of **North Carolina municipal population and density** (`municipal-population-counts-certified-population-estimates-population-density.parquet` Now: `mpccpepd.parquet`).  
+Everything started with a dataset of **North Carolina municipal population and density** (`municipal-population-counts-certified-population-estimates-population-density.parquet` → now `mpccpepd.parquet`).  
 
 Using the conversion script I already built for the NYC Taxi project, I ran:
 
@@ -123,11 +123,28 @@ sudo -u postgres id
 
 **B) Give your DB user permission to read server files.**
 
-Postgres protects COPY FROM by default. Grant the builtin role:
+Postgres protects COPY FROM by default. Grant the built-in role:
 ```bash
 # run as superuser (postgres)
-sudo -u postgres psql -c "GRANT pg_read_server_files TO sqlagent007;"
+# Grant: lets a non-superuser run COPY ... FROM 'server/path/file'
+sudo -u postgres psql -X -v ON_ERROR_STOP=1 -c "GRANT pg_read_server_files TO sqlagent007;"
+
+# ...run your COPY...
+# (absolute path; file readable by the postgres OS user)
+psql -X -v ON_ERROR_STOP=1 -U sqlagent007 -d mydb \
+  -c "COPY public.nc_population FROM '/srv/imports/data.psv'
+      WITH (FORMAT csv, DELIMITER '|', HEADER true);"
+
+# Revoke immediately after the load
+sudo -u postgres psql -X -v ON_ERROR_STOP=1 -c "REVOKE pg_read_server_files FROM sqlagent007;"
 ```
+
+Optional (no server role needed): client-side copy instead of server-side:
+```bash
+psql -X -v ON_ERROR_STOP=1 -U sqlagent007 -d mydb \
+  -c "\copy public.my_table FROM '/path/on/your/client/data.psv' WITH (FORMAT csv, DELIMITER '|', HEADER true)"
+```
+
 Confirm the postgres process can read the file directly:
 ```bash
 sudo -u postgres head -n 2 /media/sf_nyctaxi/data_out/mpccpepd.psv
