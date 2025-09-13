@@ -147,7 +147,7 @@ This document will be updated once lab and Azure resources are provisioned.
 
 ---
 
-## Lab Checklist: Extending SQL Server AGs to Azure
+# Lab Checklist: Extending SQL Server AGs to Azure
 
 This lab simulates a hybrid environment with **two on-prem VMs** hosting a SQL Server Always On Availability Group (AG), and an **Azure VM** joined as a remote replica.
 

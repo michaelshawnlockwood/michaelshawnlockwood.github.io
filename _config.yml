@@ -13,6 +13,8 @@ sass:
 
 remote_theme: mmistakes/minimal-mistakes
 
+incremental: true
+
 # Pick a built-in skin: default, air, aqua, contrast, dark, dirt, neon, plum
 minimal_mistakes_skin: "dark"
 
