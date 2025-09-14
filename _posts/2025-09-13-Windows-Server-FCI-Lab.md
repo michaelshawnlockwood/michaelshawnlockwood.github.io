@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Windows Server FCI Lab"
-excerpt: "Building a step-by-step Windows Server 2022 Failover Cluster Instance (FCI) lab: from VM setup, patching, networking, and PowerShell automatio edits and verificationn, to creating a reusable playbook for future on-prem and Azure migrations."
+excerpt: "Building a step-by-step Windows Server 2022 Failover Cluster Instance (FCI) lab: from VM setup, patching, networking, and PowerShell automation, edits and verificationn, to creating a reusable playbook for future on-prem and Azure migrations."
 date: 2025-09-13
 classes: center-page
 author_profile: false
