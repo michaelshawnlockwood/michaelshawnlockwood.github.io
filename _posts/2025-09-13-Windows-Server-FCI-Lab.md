@@ -101,11 +101,13 @@ Each script uses consistent boxing and output, ready for inclusion in a Dashboar
 - [x] Script library now reusable across all nodes and future labs.
 
 ## Next Steps
-- [ ] Build and validate the Domain Controller.
-- [ ] Configure Failover Cluster for SQL Server FCI.
-- [ ] Extend setup to Always On AGs.
-- [ ] Document and compare with Azure equivalents (IaaS VMs, Azure SQL Managed Instance, etc.).
-- [ ] Add a Dashboard “PowerShell Script Library” box linking directly to scripts.
+- [ ] Confirm Domain Controller functionality on **NODE1** (AD DS + DNS running, lab.local zone healthy).  
+- [ ] Validate **DNS resolution** across nodes (`lab.local`, `SQLNODE1.lab.local`).  
+- [ ] Confirm **NODE2 domain membership** in `lab.local`.  
+- [ ] Ensure **SMB shares** (PowerShellScripts, ISOs, nyctaxi data) are consistently accessible to both nodes.  
+- [ ] Proceed with **SQL Server 2022 installation** on NODE1 and NODE2 using the mounted ISO.  
+- [ ] Prepare for **Failover Cluster configuration** after SQL installation.  
+
 
 ## Closing Thoughts
 - The lab revealed real-world pitfalls: networking quirks, misleading update statuses, DNS oversights.
