@@ -101,10 +101,10 @@ Each script uses consistent boxing and output, ready for inclusion in a Dashboar
 - [x] Script library now reusable across all nodes and future labs.
 
 ## Next Steps
-- [ ] Confirm Domain Controller functionality on **NODE1** (AD DS + DNS running, lab.local zone healthy).  
+- [ ] Promote **NODE1** to Domain Controller and confirm functionality (AD DS + DNS running, lab.local zone healthy).
 - [ ] Validate **DNS resolution** across nodes (`lab.local`, `SQLNODE1.lab.local`).  
-- [ ] Confirm **NODE2 domain membership** in `lab.local`.  
-- [ ] Ensure **SMB shares** (PowerShellScripts, ISOs, nyctaxi data) are consistently accessible to both nodes.  
+- [ ] Join **NODE2** to `lab.local` domain and confirm membership.
+- [ ] Ensure **SMB shares** (PowerShellScripts, ISOs, nyctaxi data) are consistently accessible from the Host and visible to both nodes.  
 - [ ] Proceed with **SQL Server 2022 installation** on NODE1 and NODE2 using the mounted ISO.  
 - [ ] Prepare for **Failover Cluster configuration** after SQL installation.  
 
