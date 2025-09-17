@@ -44,7 +44,7 @@ header:
 - **Drive letters and labels must be consistent.** Misalignment creates headaches when mapping disks during SQL setup.  
 - **Shares break quietly.** Always confirm access via UNC paths from every node.  
 
-## Objectives (coming into Sept 16)
+## Objectives
 - Confirm domain/DNS health across all nodes.  
 - Ensure cluster disks are online and visible.  
 - Run WSFC validation.  
