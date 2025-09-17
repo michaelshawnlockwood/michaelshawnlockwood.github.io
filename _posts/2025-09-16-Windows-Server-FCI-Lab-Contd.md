@@ -126,6 +126,17 @@ Wrapper to run `Test-Cluster` with logging, ensuring readiness validation before
 ---
 
 # Sources
+- [Failover Clustering Hardware Requirements and Storage Options – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/failover-clustering/clustering-requirements?utm_source=chatgpt.com)  
+  Notes that WSFC requires **basic disks** (not dynamic), and outlines supported storage configurations.  
+
+- [Cluster Shared Volumes Overview – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-cluster-csvs?utm_source=chatgpt.com)  
+  Describes CSV architecture, GPT/NTFS requirements, and how multiple nodes use the same storage.  
+
+- [Using a Shared Disk as Drives on Two VMs – Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/1606499/using-a-shared-disk-as-drives-on-two-vms?utm_source=chatgpt.com)  
+  Confirms shared disks are typically required for cluster workloads like SQL Server FCI, with WSFC managing disk ownership.  
+
+- [Windows Hyper-V Storage Architectures – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/storage-architecture?utm_source=chatgpt.com)  
+  Explains Hyper-V storage architectures (local, shared, SAN/NAS) and how they apply in clustering scenarios.  
 
 - [Create Hyper-V Guest Clusters with Shared VHDX and VHD Sets – BDRShield](https://www.bdrshield.com/blog/create-hyper-v-guest-clusters-with-shared-vhdx-and-vhd-sets/?utm_source=chatgpt.com)  
   Overview of Shared VHDX and VHDS (VHD Set) in Hyper-V, including limitations and newer alternatives.  
