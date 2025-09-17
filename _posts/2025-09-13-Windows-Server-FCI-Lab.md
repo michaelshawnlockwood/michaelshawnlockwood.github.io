@@ -32,6 +32,21 @@ This lab was built to explore **Windows Server Failover Cluster Instances (FCI)*
 
 ---
 
+## Lab Host Environment
+
+| Component        | Microsoft Recommended (Hyper-V Lab)                  | My Setup (Dell Inspiron 7791 2n1)               |
+|------------------|------------------------------------------------------|------------------------------------------------|
+| **CPU**          | Modern multi-core, SLAT support, 4–8+ cores          | Intel i7-10510U (4 cores / 8 threads, SLAT OK) |
+| **RAM**          | 16 GB minimum, 32 GB+ preferred for SQL clustering   | 32 GB (≈17 GB free during lab use)             |
+| **Storage**      | SSD strongly recommended (NVMe best)                 | 2x physical drives: C: SSD (OS), D: SSD (data/VMs) |
+| **OS**           | Windows 10/11 Pro, Enterprise, or Education          | Windows 10 Pro (Build 19045)                   |
+| **Networking**   | Virtual switches (External, NAT, Host-only)          | Configured: External + Host-only               |
+| **Workload Size**| 3–4 VMs typical (1 DC + 2 SQL nodes + optional quorum)| Running 3 planned (DC + SQLNODE1 + SQLNODE2)   |
+
+> With 32 GB RAM and SSD storage across two drives, this system comfortably supports a SQL Server FCI + AG test lab.
+
+---
+
 ## Base VM Environment
 - **Hyper-V host setup** on a Windows laptop.
 - Created multiple VMs:  
@@ -101,13 +116,23 @@ Each script uses consistent boxing and output, ready for inclusion in a Dashboar
 - [x] Script library now reusable across all nodes and future labs.
 
 ## Next Steps
-- [ ] Validate **DNS resolution** across nodes (`lab.local`, `SQLNODE1.lab.local`).
-- [ ] Promote **NODE1** to Domain Controller and confirm functionality (AD DS + DNS running, lab.local zone healthy).  
-- [ ] Join **NODE2** to `lab.local` domain and confirm membership.
-- [ ] Ensure **SMB shares** (PowerShellScripts, ISOs, nyctaxi data) are consistently accessible from the Host and visible to both nodes.    
-- [ ] Proceed with **SQL Server 2022 installation** on NODE1 and NODE2 using the mounted ISO.  
-- [ ] Prepare for **Failover Cluster configuration** after SQL installation.  
-
+- [ ] Validate **DNS resolution** across all nodes (`lab.local`, `SQLNODE1.lab.local`, etc.) after NODE1 promotion to DC.  
+- [ ] Confirm **Active Directory & DNS health** (AD DS service, lab.local zone replication).  
+- [ ] Join **NODE2** (and later NODE3) to the `lab.local` domain, verifying secure channel trust.  
+- [ ] Establish consistent **SMB share mappings** from the host:
+  - `\\MSL-Laptop\PowerShellScripts` → T:
+  - `\\MSL-Laptop\nyctaxi` → N:
+  - `\\MSL-Laptop\ISOs` → I:
+- [ ] Create and present **cluster-capable virtual drives** outside Hyper-V for SQL:
+  - SQLData (E:)  
+  - SQLLog (F:)  
+  - SQLBackup (G:)  
+- [ ] Validate **cluster disk visibility** across nodes (online/offline state, ownership, drive letters).  
+- [ ] Run **WSFC validation tests** to confirm readiness for clustering.  
+- [ ] Prepare for **SQL Server 2022 Failover Cluster Instance (FCI) installation**:
+  - Mount SQL Server ISO.  
+  - Confirm service accounts.  
+  - Grant **Perform Volume Maintenance Tasks** (instant file init).  
 
 ## Closing Thoughts
 - The lab revealed real-world pitfalls: networking quirks, misleading update statuses, DNS oversights.
