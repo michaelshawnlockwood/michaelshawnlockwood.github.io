@@ -38,11 +38,11 @@ header:
 - Ran and passed **WSFC validation tests**.  
 - Built the **Windows Server Failover Cluster** with NODE2 and NODE3 as initial members.  
 
-## Gotchas & What to Look For
-- **Don’t pause nodes during cluster operations.** A paused node can’t participate in SQL FCI setup, even if another node owns the resources.  
-- **Test-Cluster is your friend.** Rerun it after adding nodes or storage; skipping this step leads to mid-install surprises.  
-- **Drive letters and labels must be consistent.** Misalignment creates headaches when mapping disks during SQL setup.  
-- **Shares break quietly.** Always confirm access via UNC paths from every node.  
+## Notes
+- **Nodes must remain online during cluster operations.** Even if another node owns the resources, paused nodes cannot participate in SQL FCI setup.  
+- **Always rerun Test-Cluster after changes.** Adding nodes or disks without revalidating can surface issues later during SQL installation.  
+- **Consistent drive letters and labels are critical.** SQL setup depends on predictable disk mapping; mismatches complicate placement of data, log, and backup files.  
+- **Validate SMB share access via UNC paths.** Shares may appear mapped but silently break under DNS or domain hiccups; confirm visibility from every node.
 
 ## Objectives (coming into Sept 16)
 - Confirm domain/DNS health across all nodes.  
