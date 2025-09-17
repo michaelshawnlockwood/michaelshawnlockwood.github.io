@@ -48,7 +48,28 @@ header:
 - Confirm domain/DNS health across all nodes.  
 - Ensure cluster disks are online and visible.  
 - Run WSFC validation.  
-- Create a healthy Failover Cluster as the foundation for SQL Server.  
+- Create a healthy Failover Cluster as the foundation for SQL Server.
+
+## Scripts Referenced
+- **20250914021500 – ensure-share-winvm.ps1**  
+  Ensures the host exposes a named share and reports UNC path. Used for confirming `PowerShellScripts`, `nyctaxi`, and `ISOs` shares.  
+
+- **20250915160000 – check-disk-eligibility.ps1**  
+  Validates candidate disks for WSFC clustering (online state, reserved status).  
+
+- **20250916182000 – list-cluster-disks.ps1**  
+  Enumerates all cluster disks with status and eligibility.  
+
+- **20250916194500 – correlate-cluster-disks.ps1**  
+  Correlates WSFC Physical Disk resources with OS volumes (labels, drive letters, size).  
+
+- **20250916212000 – validate-wsfc.ps1**  
+  Wrapper to run `Test-Cluster` with logging, ensuring no steps skipped before FCI setup. 
+
+- **test-cluster.ps1**  
+Wrapper to run `Test-Cluster` with logging, ensuring readiness validation before SQL Server FCI installation.   
+
+*(Script IDs follow the `YYYYMMDDHHMMSS` pattern for traceability across posts.)*  
 
 ## Achievements
 - Domain and DNS confirmed healthy.  
