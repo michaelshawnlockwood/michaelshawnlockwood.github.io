@@ -26,7 +26,7 @@ header:
   caption: "From T-SQL OUT params to API endpoints"
 ---
 
-## Key Milestones Achieved
+# Milestones 
 - Promoted **NODE1** to Domain Controller and confirmed DNS/AD DS health (`lab.local` zone).  
 - Joined **NODE2** and **NODE3** to the domain with secure channel verification.  
 - Established consistent **SMB shares** from the host:  
@@ -38,19 +38,63 @@ header:
 - Ran and passed **WSFC validation tests**.  
 - Built the **Windows Server Failover Cluster** with NODE2 and NODE3 as initial members.  
 
-## Notes
-- **Nodes must remain online during cluster operations.** Even if another node owns the resources, paused nodes cannot participate in SQL FCI setup.  
-- **Always rerun Test-Cluster after changes.** Adding nodes or disks without revalidating can surface issues later during SQL installation.  
-- **Consistent drive letters and labels are critical.** SQL setup depends on predictable disk mapping; mismatches complicate placement of data, log, and backup files.  
-- **Validate SMB share access via UNC paths.** Shares may appear mapped but silently break under DNS or domain hiccups; confirm visibility from every node.
-
-## Objectives
+# Objectives
 - Confirm domain/DNS health across all nodes.  
 - Ensure cluster disks are online and visible.  
 - Run WSFC validation.  
 - Create a healthy Failover Cluster as the foundation for SQL Server.
 
-## Scripts Referenced
+# Notes
+- **Nodes must remain online during cluster operations.** Even if another node owns the resources, paused nodes cannot participate in SQL FCI setup.  
+- **Always rerun Test-Cluster after changes.** Adding nodes or disks without revalidating can surface issues later during SQL installation.  
+- **Consistent drive letters and labels are critical.** SQL setup depends on predictable disk mapping; mismatches complicate placement of data, log, and backup files.  
+- **Validate SMB share access via UNC paths.** Shares may appear mapped but silently break under DNS or domain hiccups; confirm visibility from every node.
+
+---
+
+# Steps
+1. **Promote NODE1 to Domain Controller**  
+   Installed AD DS + DNS, established `lab.local`, and confirmed zone health.  
+
+2. **Validate DNS resolution**  
+   Ensured `lab.local`, `SQLNODE1.lab.local`, and hostnames resolved cleanly across nodes.  
+
+3. **Join NODE2 and NODE3 to domain**  
+   Verified secure channel trust; corrected any DNS/GW issues blocking domain membership.  
+
+4. **Map SMB shares from host**  
+   Consistent drive letters across all nodes:  
+   - T: → `\\MSL-Laptop\PowerShellScripts`  
+   - N: → `\\MSL-Laptop\nyctaxi`  
+   - I: → `\\MSL-Laptop\ISOs`  
+
+5. **Prepare cluster-capable storage**  
+   Created virtual drives outside Hyper-V for SQLData, SQLLog, and SQLBackup.  
+
+6. **Initialize and label shared disks**  
+   Brought disks online, formatted, and assigned consistent letters (E:, F:, G:).  
+
+7. **Audit and correlate disk mapping**  
+   Ran scripts to validate ownership, drive letters, size, and eligibility across nodes.  
+
+8. **Create WSFC cluster**  
+   Established Windows Server Failover Cluster with NODE2 and NODE3 as members.  
+
+9. **Run Test-Cluster validation**  
+   Confirmed readiness of nodes, network, and storage prior to SQL installation.  
+
+10. **Confirm disk/resource failover**  
+    Moved clustered disks between NODE2 and NODE3 to validate online/offline behavior.  
+
+11. **Checkpoint the environment**  
+    Captured stable state (`LKGC-PreSQLServer`) as baseline before SQL install.  
+
+12. **Prepare for SQL Server 2022 FCI**  
+    Verified service accounts, privileges (e.g., Perform Volume Maintenance Tasks), and feature selection in readiness for installation.  
+
+---
+
+# Scripts
 - **20250914021500 – ensure-share-winvm.ps1**  
   Ensures the host exposes a named share and reports UNC path. Used for confirming `PowerShellScripts`, `nyctaxi`, and `ISOs` shares.  
 
@@ -69,22 +113,44 @@ header:
 - **test-cluster.ps1**  
 Wrapper to run `Test-Cluster` with logging, ensuring readiness validation before SQL Server FCI installation.   
 
-*(Script IDs follow the `YYYYMMDDHHMMSS` pattern for traceability across posts.)*  
+*(Script IDs follow the `YYYYMMDDHHMMSS` pattern for traceability across posts.)*
 
-## Achievements
+---
+
+# Achievements
 - Domain and DNS confirmed healthy.  
 - SMB shares accessible and mapped.  
 - Cluster disks created and validated across NODE2 and NODE3.  
-- WSFC successfully created and stable.  
+- WSFC successfully created and stable.
 
-## Next Steps
+---
+
+# Sources
+
+- [Create Hyper-V Guest Clusters with Shared VHDX and VHD Sets – BDRShield](https://www.bdrshield.com/blog/create-hyper-v-guest-clusters-with-shared-vhdx-and-vhd-sets/?utm_source=chatgpt.com)  
+  Overview of Shared VHDX and VHDS (VHD Set) in Hyper-V, including limitations and newer alternatives.  
+
+- [Hyper-V Shared VHDX Explained – Vinchin Tech Tips](https://www.vinchin.com/tech-tips/hyper-v-shared-vhdx.html?utm_source=chatgpt.com)  
+  Explains how Shared VHDX works, performance considerations, and when it is appropriate to use.  
+
+- [Configuring a Shared VHD in Hyper-V – Redmond Magazine](https://redmondmag.com/articles/2019/10/30/configuring-a-shared-vhd-in-hyperv.aspx?utm_source=chatgpt.com)  
+  Walkthrough of setting up shared VHDX, including dependencies on CSV and SMB storage.  
+
+- [Shared VHDX in Hyper-V CSV not keeping data synced between VMs – Stack Overflow](https://stackoverflow.com/questions/66157935/shared-vhdx-in-hyper-v-csv-not-keeping-data-synced-between-vms?utm_source=chatgpt.com)  
+  Community thread describing data synchronization issues when using Shared VHDX.
+
+---
+
+# Next Steps
 - Install **SQL Server 2022 FCI binaries** on NODE2.  
 - Verify SQL services come online in cluster.  
 - Apply latest **SQL Server Cumulative Updates**.  
 - Add **NODE3** into the SQL FCI.  
 - Document and test failover scenarios across nodes.
 
-## Script Index (as of Sept 17, 2025)
+---
+
+# Script Index
 
 ### PowerShell – Cluster & Storage
 - **audit-drive-letter-conflicts.ps1**  
@@ -225,7 +291,7 @@ Wrapper to run `Test-Cluster` with logging, ensuring readiness validation before
 - **winvm-assign-to-template.ps1**  
   Assigns VM roles from template.  
 
-### LinuxScripts
+**LinuxScripts**
 - **ensure-smb-mount-linux.sh**  
   Ensures Linux VMs mount SMB shares correctly.  
 
