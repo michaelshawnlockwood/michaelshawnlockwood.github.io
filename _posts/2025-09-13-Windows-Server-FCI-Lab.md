@@ -49,9 +49,9 @@ This lab was built to explore **Windows Server Failover Cluster Instances (FCI)*
 ## Base VM Environment
 - **Hyper-V host setup** on a Windows laptop.
 - Created multiple VMs:  
-  - SQLNODE1  
-  - SQLNODE2  
-  - Domain Controller (planned later).  
+  - SQLNODE1 (Domain Controller)
+  - SQLNODE2 
+  - SQLNODE3  
 - Checkpoints at every milestone (`LastKnownGoodConfig`, `prepatch`, `postshare`, etc.) to ensure safe rollback.
 
 ---
