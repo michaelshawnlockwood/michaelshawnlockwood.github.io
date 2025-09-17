@@ -25,7 +25,6 @@ header:
   overlay_image: /assets/images/default-overlay.svg
   caption: "From T-SQL OUT params to API endpoints"
 ---
----
 
 ## Origin
 This lab was built to explore **Windows Server Failover Cluster Instances (FCI)** in a safe, reproducible environment. The goal was to document every step and script for repeatability and later use in migration scenarios, both on-prem and Azure.
