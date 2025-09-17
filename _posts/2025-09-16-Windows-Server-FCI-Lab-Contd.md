@@ -45,7 +45,10 @@ header:
 - Create a healthy Failover Cluster as the foundation for SQL Server.
 
 # Notes
-- **Nodes must remain online during cluster operations.** Even if another node owns the resources, paused nodes cannot participate in SQL FCI setup.  
+- **Nodes must remain online during cluster operations.** Even if another node owns the resources, paused nodes cannot participate in SQL FCI setup.
+
+Nuance: A paused node is still a cluster member but won’t host roles; pausing is commonly used for maintenance with “drain roles.” For an Add Node FCI step, the target node should be online and able to access required resources; pausing can interfere with owning/bringing resources online during parts of setup. Safer wording: “Keep nodes online and not paused during FCI add/maintenance unless you’re deliberately draining roles for maintenance.” 🟨 
+
 - **Always rerun Test-Cluster after changes.** Adding nodes or disks without revalidating can surface issues later during SQL installation.  
 - **Consistent drive letters and labels are critical.** SQL setup depends on predictable disk mapping; mismatches complicate placement of data, log, and backup files.  
 - **Validate SMB share access via UNC paths.** Shares may appear mapped but silently break under DNS or domain hiccups; confirm visibility from every node.
@@ -94,6 +97,45 @@ header:
 
 ---
 
+## Step Sources
+
+- [Failover clustering hardware requirements and storage options – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/clustering-requirements)  
+  Confirms WSFC native disk support expects **basic disks** (not dynamic) and recommends **NTFS**; a disk witness can be NTFS or ReFS.
+
+- [Cluster Shared Volumes overview – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-cluster-csvs)  
+  Explains that **CSV lets multiple nodes read/write the same LUN** and exposes a **consistent path under `C:\ClusterStorage`**; also notes **SQL Server FCI support begins with SQL Server 2014 (not 2012)**.
+
+- [Always On failover cluster instances (SQL Server) – Microsoft Learn](https://learn.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)  
+  States an **FCI uses shared storage** (WSFC-managed) and that **only one node owns the resource group at a time**; FCIs **support CSV** and require **uniquely assigned disk drive letters**.
+
+- [Create a failover cluster – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/create-failover-cluster)  
+  **Run validation before creating a cluster**; Microsoft support requires the complete configuration to pass validation.
+
+- [Validate hardware for a failover cluster – Microsoft Learn](https://learn.microsoft.com/en-us/troubleshoot/windows-server/high-availability/validate-hardware-failover-cluster)  
+  Use **Validate a Configuration** or **Test-Cluster**; **rerun validation after changes** (adding nodes/storage). A **validation report is required** for Microsoft support; **two nodes** are needed to run all storage tests.
+
+- [Test-Cluster (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/test-cluster?view=windowsserver2025-ps)  
+  Runs hardware/network/storage validation; **storage tests won’t run on disks in use**—stop the clustered role or take disks offline first.
+
+- [Move-ClusterGroup (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/move-clustergroup?view=windowsserver2025-ps)  
+  **Moves a clustered role to another node** (common way to **simulate failover** and for maintenance preparation).
+
+- [Suspend-ClusterNode (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/suspend-clusternode?view=windowsserver2025-ps)  
+  **Pauses a node**; with **-Drain** it **gracefully moves workloads off** the node before maintenance (optionally to a specific **-TargetNode**).
+
+- **Storage: Performance best practices for SQL Server on Azure VMs – Microsoft Learn**  
+  [https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage?view=azuresql](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage?view=azuresql)  
+  Recommends **formatting data disks with 64-KB allocation unit size**; marketplace SQL Server VMs default to 64-KB AU for data disks.
+
+- **Database instant file initialization – Microsoft Learn**  
+  [https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver17](https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver17)  
+  Enable IFI by granting **Perform volume maintenance tasks**; historically for **data files**, and **from SQL Server 2022** transaction **log autogrowth up to 64 MB** can benefit from IFI (TDE blocks data-file IFI but **not** the log-autogrowth behavior).
+
+- [Manage Cluster Shared Volumes – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-cluster-manage-cluster-shared-volumes)  
+  Management guidance for CSVs, including that you can **rename CSV volumes in `%SystemDrive%\ClusterStorage`** for clarity across nodes.
+
+---
+
 # Scripts
 - **20250914021500 – ensure-share-winvm.ps1**  
   Ensures the host exposes a named share and reports UNC path. Used for confirming `PowerShellScripts`, `nyctaxi`, and `ISOs` shares.  
@@ -125,7 +167,7 @@ Wrapper to run `Test-Cluster` with logging, ensuring readiness validation before
 
 ---
 
-# Sources
+## Sources
 - [Failover Clustering Hardware Requirements and Storage Options – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/failover-clustering/clustering-requirements?utm_source=chatgpt.com)  
   Notes that WSFC requires **basic disks** (not dynamic), and outlines supported storage configurations.  
 
@@ -314,3 +356,4 @@ Wrapper to run `Test-Cluster` with logging, ensuring readiness validation before
 
 - **recreate-scripts-share-linux.ps1**  
   Rebuilds script share mount on Linux systems.  
+
