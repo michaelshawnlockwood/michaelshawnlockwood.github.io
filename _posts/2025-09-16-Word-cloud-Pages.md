@@ -63,7 +63,6 @@ $ring: rgba(255,255,255,.08);
 
 -->
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
