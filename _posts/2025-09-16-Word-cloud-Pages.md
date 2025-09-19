@@ -1,67 +1,14 @@
-<!--
-SCSS SOURCE (compile to CSS if you prefer)
-
-$bg: #0b1220;
-$card-bg: #0f172a;
-$ink: #e5e7eb;
-$muted: #94a3b8;
-$ring: rgba(255,255,255,.08);
-
-.grid-clouds {
-  --gap: 1rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); // 3 x 2 = 6 cards
-  gap: var(--gap);
-  padding: 1rem;
-  background: $bg;
-  min-height: 100vh;
-
-  // responsive: pack across then down
-  @media (max-width: 1100px) { grid-template-columns: repeat(2, 1fr); }
-  @media (max-width: 700px)  { grid-template-columns: 1fr; }
-}
-
-.card {
-  background: $card-bg;
-  border-radius: 1rem;
-  box-shadow: 0 0 0 1px $ring, 0 10px 30px rgba(0,0,0,.25);
-  padding: 1rem 1rem 1.25rem;
-  display: flex;
-  flex-direction: column;
-}
-
-.card-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: .5rem;
-  .title { color: $ink; font-weight: 600; }
-  .meta  { color: $muted; font-size: .8rem; }
-}
-
-.cloud {
-  // words flow left-to-right, wrap to next line naturally
-  display: flex; flex-wrap: wrap; align-content: flex-start;
-  gap: .25rem .5rem; // row x column gaps
-  line-height: 1;
-}
-
-.word {
-  color: $ink;
-  // soft outline to boost contrast
-  text-shadow: 0 1px 0 rgba(0,0,0,.35), 0 0 2px rgba(0,0,0,.2);
-  // subtle hover to make scanning fun
-  transition: transform .12s ease; will-change: transform;
-  &:hover { transform: translateY(-2px); }
-}
-
-// utility: clamp font sizes to viewport to stay readable
-:root {
-  --min-fs: clamp(10px, 1.0vw, 14px); // baseline min
-  --max-fs: clamp(18px, 2.6vw, 32px); // baseline max
-}
-
--->
+---
+layout: single
+title: "Wordclouds - randomized"
+date: 2025-09-18
+classes: wide
+sidebar: false
+toc: false
+author_profile: false
+description: ""
+tags: [wordcloud, svg, scss, javascript]
+---
 
 <html lang="en">
 <head>
