@@ -1,6 +1,3 @@
-<!--
-SCSS SOURCE (compile to CSS if you prefer)
-
 $bg: #0b1220;
 $card-bg: #0f172a;
 $ink: #e5e7eb;
