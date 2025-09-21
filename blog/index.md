@@ -2,7 +2,8 @@
 layout: single
 title: "Blog"
 permalink: /blog/
-author_profile: false
+author: michael_lockwood
+author_profile: true
 ---
 
 <ul class="post-list">
