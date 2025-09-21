@@ -1,10 +1,12 @@
 ---
 layout: single
 title: "Windows Server FCI Lab – WSFC Achieved"
-excerpt: "Documenting the pivotal step of bringing Windows Server Failover Clustering (WSFC) online: from domain health, SMB shares, and virtual disks to cluster validation and creation. This post stops just before installing SQL Server, highlighting that WSFC is the real heavy lift."
+excerpt: "Documenting the pivotal step of bringing Windows Server Failover Clustering (WSFC) online: from domain health, SMB shares, and virtual disks to cluster validation and creation. This post stops just before installing SQL Server, highlighting that WSFC is the heavy lift."
 date: 2025-09-16
-classes: center-page
-author_profile: false
+classes: 
+  - center-page
+author: michael_lockwood
+author_profile: true
 sidebar: false
 toc: true
 toc_label: "SECTIONS"
@@ -14,16 +16,18 @@ categories:
   - Windows Server
   - SQL Server
 tags:
+  - Windows Server Failover Cluster
+  - WSFC
   - FCI
   - Failover Cluster
-  - SQL Server 2022
   - PowerShell 7
   - Hyper-V
+  - SQL Server 2022
 header:
   overlay_color: "#000"
   overlay_filter: "0.85"
-  overlay_image: /assets/images/default-overlay.svg
-  caption: "From T-SQL OUT params to API endpoints"
+  overlay_image: /assets/images/headers/default-overlay.jpg
+  caption: "Windows Server 2022 Failover Cluster Lab"
 ---
 
 # Milestones 
@@ -44,10 +48,11 @@ header:
 - Run WSFC validation.  
 - Create a healthy Failover Cluster as the foundation for SQL Server.
 
-# Notes
+Notes
+{: .md-h2}
 - **Nodes must remain online during cluster operations.** Even if another node owns the resources, paused nodes cannot participate in SQL FCI setup.
 
-Nuance: A paused node is still a cluster member but won’t host roles; pausing is commonly used for maintenance with “drain roles.” For an Add Node FCI step, the target node should be online and able to access required resources; pausing can interfere with owning/bringing resources online during parts of setup. Safer wording: “Keep nodes online and not paused during FCI add/maintenance unless you’re deliberately draining roles for maintenance.” 🟨 
+<span class="nuance">**Nuance**: A paused node is still a cluster member but won’t host or accept clustered roles while paused; pausing is commonly used for maintenance with ***drain roles.*** For an Add Node FCI step, the target node should be online and able to access required resources; pausing can interfere with owning/bringing resources online during parts of setup. Keep nodes online and not paused during FCI add/maintenance unless you’re deliberately draining roles for maintenance.</span>
 
 - **Always rerun Test-Cluster after changes.** Adding nodes or disks without revalidating can surface issues later during SQL installation.  
 - **Consistent drive letters and labels are critical.** SQL setup depends on predictable disk mapping; mismatches complicate placement of data, log, and backup files.  
@@ -97,45 +102,6 @@ Nuance: A paused node is still a cluster member but won’t host roles; pausing 
 
 ---
 
-## Step Sources
-
-- [Failover clustering hardware requirements and storage options – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/clustering-requirements)  
-  Confirms WSFC native disk support expects **basic disks** (not dynamic) and recommends **NTFS**; a disk witness can be NTFS or ReFS.
-
-- [Cluster Shared Volumes overview – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-cluster-csvs)  
-  Explains that **CSV lets multiple nodes read/write the same LUN** and exposes a **consistent path under `C:\ClusterStorage`**; also notes **SQL Server FCI support begins with SQL Server 2014 (not 2012)**.
-
-- [Always On failover cluster instances (SQL Server) – Microsoft Learn](https://learn.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)  
-  States an **FCI uses shared storage** (WSFC-managed) and that **only one node owns the resource group at a time**; FCIs **support CSV** and require **uniquely assigned disk drive letters**.
-
-- [Create a failover cluster – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/create-failover-cluster)  
-  **Run validation before creating a cluster**; Microsoft support requires the complete configuration to pass validation.
-
-- [Validate hardware for a failover cluster – Microsoft Learn](https://learn.microsoft.com/en-us/troubleshoot/windows-server/high-availability/validate-hardware-failover-cluster)  
-  Use **Validate a Configuration** or **Test-Cluster**; **rerun validation after changes** (adding nodes/storage). A **validation report is required** for Microsoft support; **two nodes** are needed to run all storage tests.
-
-- [Test-Cluster (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/test-cluster?view=windowsserver2025-ps)  
-  Runs hardware/network/storage validation; **storage tests won’t run on disks in use**—stop the clustered role or take disks offline first.
-
-- [Move-ClusterGroup (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/move-clustergroup?view=windowsserver2025-ps)  
-  **Moves a clustered role to another node** (common way to **simulate failover** and for maintenance preparation).
-
-- [Suspend-ClusterNode (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/suspend-clusternode?view=windowsserver2025-ps)  
-  **Pauses a node**; with **-Drain** it **gracefully moves workloads off** the node before maintenance (optionally to a specific **-TargetNode**).
-
-- **Storage: Performance best practices for SQL Server on Azure VMs – Microsoft Learn**  
-  [https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage?view=azuresql](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage?view=azuresql)  
-  Recommends **formatting data disks with 64-KB allocation unit size**; marketplace SQL Server VMs default to 64-KB AU for data disks.
-
-- **Database instant file initialization – Microsoft Learn**  
-  [https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver17](https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver17)  
-  Enable IFI by granting **Perform volume maintenance tasks**; historically for **data files**, and **from SQL Server 2022** transaction **log autogrowth up to 64 MB** can benefit from IFI (TDE blocks data-file IFI but **not** the log-autogrowth behavior).
-
-- [Manage Cluster Shared Volumes – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-cluster-manage-cluster-shared-volumes)  
-  Management guidance for CSVs, including that you can **rename CSV volumes in `%SystemDrive%\ClusterStorage`** for clarity across nodes.
-
----
-
 # Scripts
 - **20250914021500 – ensure-share-winvm.ps1**  
   Ensures the host exposes a named share and reports UNC path. Used for confirming `PowerShellScripts`, `nyctaxi`, and `ISOs` shares.  
@@ -160,46 +126,75 @@ Wrapper to run `Test-Cluster` with logging, ensuring readiness validation before
 ---
 
 # Achievements
-- Domain and DNS confirmed healthy.  
-- SMB shares accessible and mapped.  
-- Cluster disks created and validated across NODE2 and NODE3.  
-- WSFC successfully created and stable.
+- [x] Domain and DNS confirmed healthy.  
+- [x] SMB shares accessible and mapped.  
+- [x] Cluster disks created and validated across NODE2 and NODE3.  
+- [x] WSFC successfully created and stable.
 
 ---
 
-## Sources
-- [Failover Clustering Hardware Requirements and Storage Options – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/failover-clustering/clustering-requirements?utm_source=chatgpt.com)  
-  Notes that WSFC requires **basic disks** (not dynamic), and outlines supported storage configurations.  
-
-- [Cluster Shared Volumes Overview – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-cluster-csvs?utm_source=chatgpt.com)  
-  Describes CSV architecture, GPT/NTFS requirements, and how multiple nodes use the same storage.  
-
-- [Using a Shared Disk as Drives on Two VMs – Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/1606499/using-a-shared-disk-as-drives-on-two-vms?utm_source=chatgpt.com)  
+# Sources
+- [Failover clustering hardware requirements and storage options – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/clustering-requirements)  
+  Confirms WSFC native disk support expects **basic disks** (not dynamic) and recommends **NTFS**; a disk witness can be NTFS or ReFS. 
+{: .source}
+- [Cluster Shared Volumes Overview – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-cluster-csvs)  
+  Describes CSV architecture, GPT/NTFS requirements, and how multiple nodes use the same storage. Also explains that **CSV lets multiple nodes read/write the same LUN** and exposes a **consistent path under `C:\ClusterStorage`**; also notes **SQL Server FCI support begins with SQL Server 2014 (not 2012)**.
+{: .source}
+- [Create a failover cluster – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/create-failover-cluster)  
+  **Run validation before creating a cluster**; Microsoft support requires the complete configuration to pass validation.
+{: .source}
+- [Validate hardware for a failover cluster – Microsoft Learn](https://learn.microsoft.com/en-us/troubleshoot/windows-server/high-availability/validate-hardware-failover-cluster)  
+  Use **Validate a Configuration** or **Test-Cluster**; **rerun validation after changes** (adding nodes/storage). A **validation report is required** for Microsoft support; **two nodes** are needed to run all storage tests.
+{: .source}
+- [Test-Cluster (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/test-cluster?view=windowsserver2025-ps)  
+  Runs hardware/network/storage validation; **storage tests won’t run on disks in use**—stop the clustered role or take disks offline first.
+{: .source}
+- [Move-ClusterGroup (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/move-clustergroup?view=windowsserver2025-ps)  
+  **Moves a clustered role to another node** (common way to **simulate failover** and for maintenance preparation).
+{: .source}
+- [Suspend-ClusterNode (FailoverClusters) – Microsoft Learn](https://learn.microsoft.com/en-us/powershell/module/failoverclusters/suspend-clusternode?view=windowsserver2025-ps)  
+  **Pauses a node**; with **-Drain** it **gracefully moves workloads off** the node before maintenance (optionally to a specific **-TargetNode**).
+{: .source}
+- [Manage Cluster Shared Volumes – Microsoft Learn](https://learn.microsoft.com/en-us/windows-server/failover-clustering/failover-cluster-manage-cluster-shared-volumes)  
+  Management guidance for CSVs, including that you can **rename CSV volumes in `%SystemDrive%\ClusterStorage`** for clarity across nodes. 
+{: .source}
+- [Using a Shared Disk as Drives on Two VMs – Microsoft Q&A](https://learn.microsoft.com/en-us/answers/questions/1606499/using-a-shared-disk-as-drives-on-two-vms)  
   Confirms shared disks are typically required for cluster workloads like SQL Server FCI, with WSFC managing disk ownership.  
-
-- [Windows Hyper-V Storage Architectures – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/storage-architecture?utm_source=chatgpt.com)  
+{: .source}
+- [Windows Hyper-V Storage Architectures – Microsoft Docs](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/storage-architecture)  
   Explains Hyper-V storage architectures (local, shared, SAN/NAS) and how they apply in clustering scenarios.  
-
-- [Create Hyper-V Guest Clusters with Shared VHDX and VHD Sets – BDRShield](https://www.bdrshield.com/blog/create-hyper-v-guest-clusters-with-shared-vhdx-and-vhd-sets/?utm_source=chatgpt.com)  
+{: .source}
+- [Create Hyper-V Guest Clusters with Shared VHDX and VHD Sets – BDRShield](https://www.bdrshield.com/blog/create-hyper-v-guest-clusters-with-shared-vhdx-and-vhd-sets/)  
   Overview of Shared VHDX and VHDS (VHD Set) in Hyper-V, including limitations and newer alternatives.  
-
-- [Hyper-V Shared VHDX Explained – Vinchin Tech Tips](https://www.vinchin.com/tech-tips/hyper-v-shared-vhdx.html?utm_source=chatgpt.com)  
+{: .source}
+- [Hyper-V Shared VHDX Explained – Vinchin Tech Tips](https://www.vinchin.com/tech-tips/hyper-v-shared-vhdx.html)  
   Explains how Shared VHDX works, performance considerations, and when it is appropriate to use.  
-
-- [Configuring a Shared VHD in Hyper-V – Redmond Magazine](https://redmondmag.com/articles/2019/10/30/configuring-a-shared-vhd-in-hyperv.aspx?utm_source=chatgpt.com)  
+{: .source}
+- [Configuring a Shared VHD in Hyper-V – Redmond Magazine](https://redmondmag.com/articles/2019/10/30/configuring-a-shared-vhd-in-hyperv.aspx)
   Walkthrough of setting up shared VHDX, including dependencies on CSV and SMB storage.  
-
-- [Shared VHDX in Hyper-V CSV not keeping data synced between VMs – Stack Overflow](https://stackoverflow.com/questions/66157935/shared-vhdx-in-hyper-v-csv-not-keeping-data-synced-between-vms?utm_source=chatgpt.com)  
+{: .source}
+- [Shared VHDX in Hyper-V CSV not keeping data synced between VMs – Stack Overflow](https://stackoverflow.com/questions/66157935/shared-vhdx-in-hyper-v-csv-not-keeping-data-synced-between-vms)  
   Community thread describing data synchronization issues when using Shared VHDX.
-
+{: .source}
+- [Always On failover cluster instances (SQL Server) – Microsoft Learn](https://learn.microsoft.com/en-us/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)  
+  States an **FCI uses shared storage** (WSFC-managed) and that **only one node owns the resource group at a time**; FCIs **support CSV** and require **uniquely assigned disk drive letters**.
+{: .source}
+- **Storage: Performance best practices for SQL Server on Azure VMs – Microsoft Learn**  
+  [https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage?view=azuresql](https://learn.microsoft.com/en-us/azure/azure-sql/virtual-machines/windows/performance-guidelines-best-practices-storage?view=azuresql)  
+  Recommends **formatting data disks with 64-KB allocation unit size**; marketplace SQL Server VMs default to 64-KB AU for data disks.
+{: .source}
+- **Database instant file initialization – Microsoft Learn**  
+  [https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver17](https://learn.microsoft.com/en-us/sql/relational-databases/databases/database-instant-file-initialization?view=sql-server-ver17)  
+  Enable IFI by granting **Perform volume maintenance tasks**; historically for **data files**, and **from SQL Server 2022** transaction **log autogrowth up to 64 MB** can benefit from IFI (TDE blocks data-file IFI but **not** the log-autogrowth behavior).
+{: .source}
 ---
 
 # Next Steps
-- Install **SQL Server 2022 FCI binaries** on NODE2.  
-- Verify SQL services come online in cluster.  
-- Apply latest **SQL Server Cumulative Updates**.  
-- Add **NODE3** into the SQL FCI.  
-- Document and test failover scenarios across nodes.
+- [ ] Install **SQL Server 2022 FCI binaries** on NODE2.  
+- [ ] Verify SQL services come online in cluster.  
+- [ ] Apply latest **SQL Server Cumulative Updates**.  
+- [ ] Add **NODE3** into the SQL FCI.  
+- [ ] Document and test failover scenarios across nodes.
 
 ---
 
@@ -357,3 +352,4 @@ Wrapper to run `Test-Cluster` with logging, ensuring readiness validation before
 - **recreate-scripts-share-linux.ps1**  
   Rebuilds script share mount on Linux systems.  
 
+[⬆ Back to Top](#toc){:.back-to-top}
