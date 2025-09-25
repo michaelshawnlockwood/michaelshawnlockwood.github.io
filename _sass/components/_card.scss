@@ -1,0 +1,396 @@
+.card {
+    position: relative;
+    -moz-perspective: 150em;
+    perspective: 150em;
+    height: 52em;
+    margin-bottom: 10vh;
+    min-width: 10em;
+    color: $color-primary;
+
+    @include respond(wide-screen) {
+        font-size: 90%; //1 rem = 12px, 12/16 = 75%
+        margin: 0 auto;
+        padding: 2px;
+    }
+    @include respond(desktop) {
+        font-size: 75%; //1 rem = 12px, 12/16 = 75%
+        margin: 0 auto;
+        padding: 1px;
+    }
+    @include respond(tab-land) { // < 900
+        font-size: 45%; //1 rem = 9px, 9/16 = 56.25%
+        margin: 0 auto;
+        padding: 1px;
+    }
+    @include respond(tab-port) {
+        width: 35%;
+        margin: auto;
+    }
+    @include respond(phone) {
+        width: 30%;
+        margin: 0 auto;
+        padding: 0.5px;
+        margin-bottom: 5vh;
+    }
+}
+
+.card__side {
+  height: 52em;
+  transition: all .7s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  font-size: 1.5em;
+
+  backface-visibility: hidden;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+}
+
+.card__side--front { 
+  background-color: transparent; 
+}
+
+.card__side--back { transform: rotateY(180deg); }
+.card__side--back-1 {
+  background-image: linear-gradient(to right bottom, $color-secondary, $color-secondary-dark);
+}
+.card__side--back-2 {
+  background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+}
+.card__side--back-3 {
+  background-image: linear-gradient(to right bottom, $color-tertiary, $color-tertiary-dark);
+}
+
+.card:hover .card__side--front { transform: rotateY(-180deg); }
+.card:hover .card__side--back  { transform: rotateY(0); }
+
+/* Front side */
+.card__picture {
+  background-size: cover;
+  height: 23rem;
+  background-blend-mode: screen;
+
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 95% 90%, 50% 90%, 0 100%);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+.card__picture--1 {
+  background-image:
+    linear-gradient(to right bottom, $color-secondary-dark, $color-secondary),
+    url(../images/nat-5.jpg);
+}
+.card__picture--2 {
+  background-image:
+    linear-gradient(to right bottom, $color-primary-dark, $color-primary),
+    url(../images/nat-6.jpg);
+}
+.card__picture--3 {
+  background-image:
+    linear-gradient(to right bottom, $color-tertiary-dark, $color-tertiary),
+    url(../images/nat-7.jpg);
+}
+
+.card__heading {
+  font-size: 2rem;
+  text-transform: uppercase;
+  text-align: right;
+  color: $color-white;
+  position: absolute;
+  top: 12rem;
+  right: 2rem;
+  width: 65%;
+}
+
+.card__heading-span {
+  padding: 1rem 1.5rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.card__heading-span--1 {
+  background-image: linear-gradient(to right bottom, rgba($color-secondary, .85), rgba($color-secondary-dark, .85));
+}
+.card__heading-span--2 {
+  background-image: linear-gradient(to right bottom, rgba($color-primary, .85), rgba($color-primary-dark, .85));
+}
+.card__heading-span--3 {
+  background-image: linear-gradient(to right bottom, rgba($color-tertiary, .85), rgba($color-tertiary-dark, .85));
+}
+
+.card__details { padding: 3rem; }
+.card__details ul {
+  list-style: none;
+  width: 80%;
+  margin: 0 auto;
+}
+.card__details li {
+  text-align: center;
+  font-size: 2rem;
+  padding: 1rem;
+}
+.card__details li:not(:last-child) { border-bottom: 1px solid $color-gray-medium; }
+
+/* Back side */
+.card__cta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  text-align: center;
+}
+.card__price-box { color: $color-white; margin-bottom: 8rem; text-transform: uppercase; }
+.card__price-value { font-size: 6rem; font-weight: 300; }
+
+
+.card {
+    height: 50rem;
+    position: relative;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    opacity: .8;
+
+    &__side {
+        height: 50rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        @include default-box-shadow;
+
+        &--front {
+            &-0 {
+                height: 38rem;
+                border-radius: 5rem 1rem 5rem 1rem;
+                background-image: linear-gradient(to right bottom, transparent, $color-gunmetal-dark);
+            }
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-gunmetal-light, $color-gunmetal-dark);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-candyapple, $color-gunmetal-dark);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-blue, $color-gunmetal-dark);
+            }
+
+            &-4 {
+                background-image: linear-gradient(to right bottom, $color-blue, $color-gunmetal-dark);
+            }
+
+            &-5 {
+                background-image: linear-gradient(to right bottom, $color-gunmetal, $color-gunmetal-dark);
+            }
+
+            &-6 {
+                background-image: linear-gradient(to right bottom, $color-candyapple, $color-purple);
+            }
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &-0 {
+                height: 70rem;
+                border-radius: 1rem 10rem 1rem 10rem;
+                background-image: linear-gradient(to right bottom, $color-blue-dark, $color-gunmetal-dark);
+            }
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-gunmetal-light, $color-gunmetal-dark);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-gunmetal-dark, $color-candyapple);
+            }
+                
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-gunmetal-light, $color-gunmetal-dark);
+            }
+
+            &-4 {
+                background-image: linear-gradient(to right bottom, $color-gunmetal-light, $color-gunmetal-dark);
+            }
+
+            &-5 {
+                background-image: linear-gradient(to right bottom, $color-gunmetal-dark, $color-blue);
+            }
+
+            &-6 {
+                background-image: linear-gradient(to right bottom, $color-gunmetal-dark, $color-candyapple);
+            }
+
+
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: hue;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 99%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 99%, 0 100%);
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, $color-candyapple, $color-gunmetal),
+            url(../img/comp2-3-front.jpg);
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, $color-gunmetal-dark, $color-candyapple),
+            url(../img/comp2-3-back.jpg);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, $color-blue, $color-candyapple),
+            url(../img/comp2-2-front.jpg);
+        }
+
+        &--4 {
+            background-image: linear-gradient(to right bottom, $color-blue, $color-candyapple),
+            url(../img/comp2-2-back.jpg);
+        }
+
+        &--5 {
+            background-image: linear-gradient(to right bottom, $color-candyapple, $color-purple),
+            url(../img/comp2-1-front.jpg);
+        }
+
+        &--6 {
+            background-image: linear-gradient(to right bottom, $color-blue, $color-purple),
+            url(../img/comp2-1-back.jpg);
+        }
+    }
+
+    &__header {
+        font-size: 2.5rem;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: right;
+        position: absolute;
+        top: 15rem;
+        right: 2rem;
+        width: 50%;
+    }
+
+    &__header-span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        border-radius: .25rem .75rem .25rem .75rem;
+
+        &--0 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-gunmetal-dark, .85),
+            rgba($color-blue-dark, .85));
+        }
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-gunmetal-light, .85),
+            rgba($color-gunmetal-dark, .85));
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-blue-dark, .85),
+            rgba($color-candyapple, .85));
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-blue, .85),
+            rgba($color-gunmetal-dark, .85));
+        }
+
+        &--4 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-blue, .85),
+            rgba($color-candyapple, .85));
+        }
+
+        &--5 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-gunmetal-light, .85),
+            rgba($color-black, .85));
+        }
+
+        &--6 {
+            background-image: linear-gradient(to right bottom, 
+            rgba($color-blue, .85),
+            rgba($color-purple, .85));
+        }
+    }
+
+    &__body {
+        padding: 3rem;
+
+        &--front {
+            ul {
+                list-style: none;
+                width: 80%;
+                margin: 0 auto;
+    
+                li {
+                    text-align: center;
+                    font-size: 1.5rem;
+                    padding: 1rem;
+    
+                    &:not(:last-child) {
+                        border-bottom: 1px solid rgba($color-gunmetal-dark, .85);
+                    }
+                }
+            }
+        }
+
+        &--back {
+            ul {
+                list-style: none;
+                width: 80%;
+                margin: 0 auto;
+    
+                li {
+                    text-align: center;
+                    font-size: 1.5rem;
+                    padding: 1rem;
+    
+                    &:not(:last-child) {
+                        border-bottom: 1px solid rgba($color-gunmetal-dark, .85);
+                    }
+                }
+            }
+
+            &-3 {
+                background-image: linear-gradient(to left bottom, 
+                rgba($color-blue, .85),
+                rgba($color-gunmetal-dark, .85));
+            }
+        }
+
+        
+    }
+}
+
+.manifesto-card {
+  @extend .card;
+  font-size: 1.15em;
+  color: $color-white;
+}
