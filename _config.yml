@@ -7,6 +7,8 @@ baseurl: ""
 plugins:
   - jekyll-remote-theme
   - jekyll-include-cache
+  - jekyll-paginate
+
 sass:
   style: compressed
 
@@ -30,17 +32,17 @@ defaults:
       share: false
       related: true
       header: 
-        overlay_image: /assets/images/headers/default-header.png
+        overlay_image: /assets/images/default-overlay.jpg
         overlay_filter: 0.20
 
 show_excerpts: true
 
 header:
-  image: /assets/images/headers/blog-hero.jpg
+  image: /assets/images/default-overlay.jpg
   image_description: "Abstract tech grid"
-  teaser: /assets/images/headers/blog-hero.jpg
+  teaser: /assets/images/default-overlay.jpg
 
-permalink: /:year/:month/:day/:slug.html
+permalink: /:year/:month/:day/:slug.
 
 pagination:
   enabled: true
