@@ -2,11 +2,9 @@
 layout: single
 title: "About"
 permalink: /about/
-<<<<<<< Updated upstream
 classes: page--about
 author: michael_lockwood
 author_profile: true
-=======
 classes: 
   - page--about
   - center-page
@@ -27,7 +25,6 @@ header:
     - label: "Résumé (PDF)"
       url: /assets/docs/MichaelLockwood-Resume.pdf
       class: "btn"
->>>>>>> Stashed changes
 ---
 
 {% include home.html %}
