@@ -4,6 +4,17 @@
 @import "minimal-mistakes/skins/dark";  /* must come first */
 @import "minimal-mistakes";             /* then the core theme */
 @import "palette";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "base/base";
+@import "base/animations";
+@import "base/typography";
+@import "base/utilities";
+@import "layout/grid";
+@import "components/card";
+@import "abstracts/splash";
+
 @import "media";
 @import "mixins";
 @import "menus";
@@ -67,6 +78,8 @@
   position: relative;
   align-items: center;
   justify-content: center;
+  z-index: 1;
+  gap: .35em;
   font-size: 0.85rem;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
@@ -78,6 +91,11 @@
   float: right;
 }
 
+/* ensure decoration can’t intercept clicks */
+.back-to-top::before,
+.back-to-top::after{
+  pointer-events: none;
+}
 
 .back-to-top:hover {
   border-color: $color-accent-alt;
