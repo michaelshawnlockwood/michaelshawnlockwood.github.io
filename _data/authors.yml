@@ -10,3 +10,6 @@ michael_lockwood:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/mslockwood"
+    - label: "Home"
+      icon: "fab fa-home"
+      url: "/"
