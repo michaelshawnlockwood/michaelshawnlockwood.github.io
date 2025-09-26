@@ -1,0 +1,87 @@
+.popup {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-gray-dark-1, .8);
+    z-index: 500;
+    opacity: 0;
+    visibility: hidden;
+    transition: $default-transition;
+
+    &__content {
+        @include absoluteCenter;
+        width: 75%;
+        height: 50rem;
+        background-color: $color-white;
+        box-shadow: $default-box-shadow;
+        border-radius: 3px;
+        display: table;
+        overflow: hidden;
+        opacity: 0;
+        transform: $scale-25;
+        transition: $default-transition-4;
+    }
+
+    &__left {
+        width: 33.3333333%;
+        display: table-cell;
+    }
+
+    &__right {
+        width: 66.6666667%;
+        display: table-cell;
+        vertical-align: middle;
+        padding: 3rem 5rem;
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+    }
+
+    &__text {
+        font-size: 1.4rem;
+        margin-bottom: 4rem;
+
+        // See Auto-prefixer ??
+        -moz-column-count: 2;
+        -moz-column-gap: 4rem;
+        -moz-column-rule: 1px solid $color-gray-medium-light;
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: 1px solid $color-gray-medium-light;
+
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto; // In order for this to work, you have to define the language in the html tag as, i.e. lang="en".
+    }
+
+    &:target {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &:target &__content { // Style the child element (content) at the time the target has focus
+        opacity: 1;
+        transform: $scale-100;
+    }
+
+    &__close {
+        font-size: 3rem;
+        text-decoration: none;
+        color: $color-gray-dark;
+        position: absolute;
+        top: 2.5rem;
+        right: 2.5rem;
+        display: inline-block;
+        transition: $default-transition-2;
+        line-height: 1;
+
+        &:hover {
+            color: $color-primary;
+        }
+    }
+}

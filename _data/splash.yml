@@ -1,0 +1,25 @@
+# _data/splash.yml
+feature_row:
+  - image_path: /assets/images/tiles/nyc-taxi.png
+    alt: NYC Taxi
+    title: NYC Taxi Database Project
+    excerpt: GeoJSON + D3 choropleths, pipeline, and analysis.
+    url: /nyc-taxi/
+    btn_label: Explore
+    btn_class: btn--small btn--primary
+
+  - image_path: /assets/images/tiles/replication.png
+    alt: Replication Deep Dive
+    title: Replication Deep Dive
+    excerpt: Bidirectional transactional replication, loopback, and more.
+    url: /blog/replication-deep-dive/
+    btn_label: Read
+    btn_class: btn--small
+
+  - image_path: /assets/images/tiles/sqlagent007.png
+    alt: SQLAgent007
+    title: SQLAgent007 Automation
+    excerpt: Index tuning + performance surveillance across SQL Server & Postgres.
+    url: /projects/sqlagent007/
+    btn_label: View
+    btn_class: btn--small

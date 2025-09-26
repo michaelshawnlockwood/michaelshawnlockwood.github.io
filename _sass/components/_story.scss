@@ -1,0 +1,71 @@
+.story {
+    width: 75%;
+    margin: 0 auto; // Block element inside of a block element
+    margin-bottom: 10vh;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem; // To accommodate the transform and translate -3rem of the shape
+    // font-size: $default-font-size; // This seems unnecessary; it may be inherited ... ?
+
+    transform: skewX(-12deg);
+
+    // Direct-child does not work becuase you cannot have multiple transforms at this time.
+    // & > * {
+    //     transform: skewX(12deg);
+    // }
+
+    &__shape {
+        position: relative
+        width: 15rem;
+        height: 15rem;
+        background-color: orangered;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+
+        -webkit-clip-path: circle(50% at 50% 50%);
+        clip-path: circle(50% at 50% 50%);
+
+        // Instead of usign margin on the right of the circle shape, use transform and translate
+        transform: translateX(-3rem) skewX(12deg);
+
+
+    }
+
+    &__img {
+        height: 100%;
+        transform: translateX(-4rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all .5s;
+    }
+
+    &__text {
+        transform: skewX(12deg);
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        opacity: 0;
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+
+    &:hover &__img {
+        transform: translateX(-4rem) scale(1);
+        filter: blur(3px) brightness(80%);
+    }
+}
