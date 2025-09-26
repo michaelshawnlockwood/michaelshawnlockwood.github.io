@@ -43,9 +43,6 @@ Content includes:
 ---
 
 ## 📊 Featured Work
-- **Roles Over Time Chart**  
-  An SVG visualization that translates 25+ years of resume history into measurable signals for Dev, DBA, ETL, and Analysis. Bands rise and fall as responsibilities shift — a data model of a career.
-
 - **NYC Taxi Pipeline Project**  
   A real-world data engineering flow: Parquet validation → PSV conversion → schema generation → SQL Server/PostgreSQL bulk insert. Downstream: orchestration with Airflow and Databricks, visualization with Power BI.
 
