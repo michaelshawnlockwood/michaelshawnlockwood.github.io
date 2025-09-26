@@ -1,7 +1,7 @@
 michael_lockwood:
   name: "Michael Shawn Lockwood"
   avatar: "/assets/images/profile.jpeg"   # put the image here (see step 3)
-  bio: "Senior SQL Server Database Administrator \\| MCDBA \\| Data Architect and Developer \\| Performance and Scalability Specialist \\| SSIS &amp; T-SQL Expert \\| Builder of Automated, High-Impact Data Solutions \\| Explorer of PostgreSQL, Azure, Airflow, Databricks, and Power BI"
+  bio: "Database Architect, Developer & Administrator \\| MCDBA \\| SQL Server & T-SQL Practitioner \\| Performance, Scalability & Automation \\| PostgreSQL ​➝ Azure ➝ Airflow ​➝ Databricks • Explorer"
   location: "North Carolina, USA"
   links:
     - label: "GitHub"
@@ -10,6 +10,3 @@ michael_lockwood:
     - label: "LinkedIn"
       icon: "fab fa-linkedin"
       url: "https://www.linkedin.com/in/mslockwood"
-    - label: "Home"
-      icon: "fab fa-home"
-      url: "/"
