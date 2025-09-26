@@ -1,6 +1,7 @@
 ---
 layout: single
 title: "🏠 Welcome to the NYC Taxi Project Hub"
+permalink: /nyc-taxi/
 excerpt: "Central hub for my NYC Yellow Taxi Data Engineering Project — ingestion, validation, pipelines, dashboards, and analytics."
 date: 2025-08-29
 classes: center-page
