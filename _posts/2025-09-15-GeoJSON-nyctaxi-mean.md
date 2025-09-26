@@ -1,11 +1,9 @@
 ---
 layout: single
 title: "NYC Taxi Pick-ups Choropleth in D3.js using GeoJSON MultiPolygon"
-excerpt: "Interactive NYC Taxi choropleth built from the official Taxi Zone GeoJSON (MultiPolygon). This post renders one of four quadrants, coloring zones by trip counts with a sequential ramp. Legend uses ˜x (median) with Q1 and Q3 markers; tooltips show zone + value. A 4-up NE/NW/SW/SE grid is coming next."
-date: 2025-09-18
-classes: 
-  - wide
-  - -no-padding
+excerpt: "Interactive NYC Taxi choropleth built from the official Taxi Zone GeoJSON (MultiPolygon). This post renders one of four quadrants, coloring zones by trip counts with a sequential ramp. Legend uses μ and ±2σ bins; tooltips show zone + value. A 4-up NE/NW/SW/SE grid is coming next."
+date: 2025-09-15
+classes: center-page
 sidebar: false
 toc: false
 author: michael_lockwood
@@ -140,36 +138,32 @@ const color = d3.scaleLinear()
 addTripsLegend(svg, color, maxTrips, raw.features);
 
 function addTripsLegend(svg, color, maxTrips, features) {
-  // Clear any existing legend (helps with live-reload)
+  // wipe any prior legend (for live-reload)
   svg.select("#legendTrips").remove();
 
   const w = 200, h = 15, pad = 20;
   const fmt = d3.format(",");
 
-  // --- 1) Gather & sort counts
-  const trips = features.map(f => Number((f.properties || {}).TripCount ?? 0));
-  const sorted = trips.slice().sort(d3.ascending);
+  // stats from TripCount
+  const trips  = features.map(f => Number((f.properties || {}).TripCount ?? 0));
+  const minT   = d3.min(trips) ?? 0;
+  const maxT   = maxTrips ?? (d3.max(trips) || 1);
+  const meanT  = d3.mean(trips) ?? 0;
 
-  // Robust guards for empty/NaN
-  const minT = sorted[0] ?? 0;
-  const maxT = Number.isFinite(maxTrips) && maxTrips > 0 ? maxTrips : (sorted.at(-1) ?? 1);
+  // const sdT    = d3.deviation(trips) ?? 0;        // sample stdev
+  const sdT = Math.sqrt(d3.mean(trips.map(v => (v - meanT) ** 2))) || 0;    // population
 
-  // --- 2) Quantiles (use sorted version for d3@7)
-  const q1     = d3.quantileSorted(sorted, 0.25) ?? 0;
-  const median = d3.quantileSorted(sorted, 0.50) ?? 0;
-  const q3     = d3.quantileSorted(sorted, 0.75) ?? 0;
+  const lo2    = Math.max(minT,  meanT - 2 * sdT);
+  const hi2    = Math.min(maxT,  meanT + 2 * sdT);
 
-  // --- 3) Position scale (√ to match your color mapping)
+  // √-domain position scale so ticks line up with the color scale
   const x = d3.scaleSqrt().domain([0, maxT]).range([0, w]);
 
-  // --- 4) Gradient matching your color scale
+  // defs + gradient
   const defs = svg.select("defs").empty() ? svg.append("defs") : svg.select("defs");
-  const gradId = "legendGradTrips";
-  defs.select(`#${gradId}`).remove();
-
+  const gradId = "legendGradTrips"; defs.select(`#${gradId}`).remove();
   const grad = defs.append("linearGradient")
-    .attr("id", gradId).attr("x1", "0%").attr("x2", "100%")
-    .attr("y1", "0%").attr("y2", "0%");
+    .attr("id", gradId).attr("x1", "0%").attr("x2", "100%").attr("y1", "0%").attr("y2", "0%");
   const N = 8;
   for (let i = 0; i <= N; i++) {
     const t = i / N; // 0..1
@@ -178,44 +172,34 @@ function addTripsLegend(svg, color, maxTrips, features) {
       .attr("stop-color", color(t * Math.sqrt(maxT)));
   }
 
-  // --- 5) Container
-  const g = svg.append("g")
-    .attr("id", "legendTrips")
-    .attr("transform", `translate(${pad},${pad})`);
+  // container
+  const g = svg.append("g").attr("id", "legendTrips")
+               .attr("transform", `translate(${pad},${pad})`);
 
-  // Color bar
-  g.append("rect")
-    .attr("width", w)
-    .attr("height", h)
-    .attr("rx", 2)
+  // color bar
+  g.append("rect").attr("width", w).attr("height", h).attr("rx", 2)
     .attr("fill", `url(#${gradId})`);
 
-  // End labels: MIN and MAX
-  g.append("text")
-    .attr("x", 0).attr("y", h + 12)
-    .attr("font-size", 10).attr("fill", "#fff")
-    .text(fmt(minT));
-
-  g.append("text")
-    .attr("x", w).attr("y", h + 12)
-    .attr("font-size", 10).attr("text-anchor", "end").attr("fill", "#fff")
+  // end labels: MIN and MAX
+  g.append("text").attr("x", 0).attr("y", h + 12).attr("font-size", 10)
+    .attr("fill", "#fff").text(fmt(minT));
+  g.append("text").attr("x", w).attr("y", h + 12).attr("font-size", 10)
+    .attr("text-anchor", "end").attr("fill", "#fff")
     .text(fmt(Math.round(maxT)));
 
-  // --- 6) Ticks: Q1, Median, Q3 (clamped for safety)
-  const clamp = v => Math.max(0, Math.min(maxT, v));
+  // ticks: μ−2σ, μ, μ+2σ (clamped into [min,max])
   const ticks = [
-    { v: q1,     label: `Q1 ${fmt(Math.round(q1))}` },
-    { v: median, label: `Median ${fmt(Math.round(median))}` },
-    { v: q3,     label: `Q3 ${fmt(Math.round(q3))}` }
+    { v: lo2,   label: `μ−2σ ${fmt(Math.round(lo2))}` },
+    { v: meanT, label: `μ ${fmt(Math.round(meanT))}` },
+    { v: hi2,   label: `μ+2σ ${fmt(Math.round(hi2))}` }
   ];
 
   ticks.forEach(t => {
-    const xx = x(clamp(t.v));
+    const xx = x(t.v);
     g.append("line")
       .attr("x1", xx).attr("x2", xx)
       .attr("y1", -6).attr("y2", h)
       .attr("stroke", "#fff").attr("stroke-width", 1).attr("opacity", 0.9);
-
     g.append("text")
       .attr("x", xx).attr("y", -8)
       .attr("font-size", 9).attr("text-anchor", "middle")
@@ -271,4 +255,3 @@ g.selectAll("path.zone")
   console.log("Bounds:", b, "Size:", [b[1][0]-b[0][0], b[1][1]-b[0][1]]);
 })();
 </script>
-
