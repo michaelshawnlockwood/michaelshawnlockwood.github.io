@@ -12,7 +12,7 @@ header:
   overlay_image: /assets/images/default-overlay.jpg
   actions:
     - label: "Project Roadmap"
-      url: /about/#project-roadmap/
+      url: /about/#project-roadmap
       class: "btn"
     - label: "NYC Taxi Project"
       url: /nyc-taxi/
@@ -43,13 +43,12 @@ sidebar: false
 ✅ Move and transform data with SSIS, Python, and PowerShell—leveraging SSIS for deep ETL and workflow control in the Microsoft stack, while Python and PowerShell provide flexible scripting, integration, and automation.  
 ⏳ Orchestrate end-to-end pipelines with Apache Airflow.  
 🔍 Deliver analysis and visuals through Power BI and D3.js.  
-✅ Expose data as JSON through APIs (.NET/C#) and deliver it to modern front-ends (Angular, React).  
+✅ Expose data as JSON via .NET APIs (REST/GraphQL) to the consumption layer—web clients (Angular, React), Analytics & BI (Power BI), and custom visualizations (D3.js).      
 ☁️ Migrate workloads to cloud targets—Azure and AWS S3—staying aligned with evolving technology shifts.  
 ⚡ Prioritize performance, transparency, and reproducibility, and always ensure outcomes are explainable and verifiable—almost never quick-and-dirty.[^1]  
-📚 Publish lessons learned to accelerate future builds and strengthen organizational knowledge.
+📚 Document and publish everything from steps to reconstruct to lessons learned in order to accelerate future builds and strengthen architecural knowledge.  
 
 [^1]: In DevOps and production work, urgent business needs sometimes require quick fixes. The key is to recognize these as exceptions, document them, and follow up with proper regression and stress testing so long-term quality isn’t compromised.  
 </div>
 
 ---
-
