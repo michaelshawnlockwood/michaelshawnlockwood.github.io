@@ -44,18 +44,18 @@ show_excerpts: true
 
 permalink: /:year/:month/:day/:slug.
 
-# pagination:
-#   enabled: true
-#   collection: 'posts'
-#   per_page: 5
-#   permalink: '/page/:num/'  # Pages are index.html inside this folder (default)
-#   title: ':title - page :num'
-#   limit: 0
-#   sort_field: 'date'
-#   sort_reverse: true
-#   trail:
-#     before: 2
-#     after: 2
+pagination:
+  enabled: true
+  collection: 'posts'
+  per_page: 5
+  permalink: '/page/:num/'  # Pages are index.html inside this folder (default)
+  title: ':title - page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  trail:
+    before: 2
+    after: 2
 
 
 
