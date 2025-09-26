@@ -43,6 +43,7 @@ Content includes:
 ---
 
 ## 📊 Featured Work
+- **WSFC**
 - **NYC Taxi Pipeline Project**  
   A real-world data engineering flow: Parquet validation → PSV conversion → schema generation → SQL Server/PostgreSQL bulk insert. Downstream: orchestration with Airflow and Databricks, visualization with Power BI.
 
