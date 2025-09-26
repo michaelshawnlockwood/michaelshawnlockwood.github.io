@@ -152,7 +152,7 @@ Get-ChildItem -Path $paths -ErrorAction SilentlyContinue |
 ---
 
 ## SANE Block
-**S**ummary of **A**chievements. **N**ext Steps. **E**valuation.
+**S**ummary of **A**chievements. **N**ext Steps. **E**valuation.  
 **N**ext Steps — tracked.  
 **E**valuation — The run was **clean**: Planned failover and failback, no role/resource flapping, and healthy post-patch validation on both nodes. The environment is ready for build-stamp capture, antivirus and Defender exclusions, and workload-under-failover testing.
 
