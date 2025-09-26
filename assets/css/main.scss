@@ -3,6 +3,11 @@
 
 @import "minimal-mistakes/skins/dark";  /* must come first */
 @import "minimal-mistakes";             /* then the core theme */
+@import "media";
+@import "mixins";
+@import "menus";
+@import "images";
+@import "typography";
 @import "palette";
 @import "abstracts/mixins";
 @import "abstracts/variables";
@@ -13,13 +18,7 @@
 @import "base/utilities";
 @import "layout/grid";
 @import "components/card";
-// @import "abstracts/splash";
-
-// @import "media";
-// @import "mixins";
-// @import "menus";
-// @import "images";
-// @import "typography";
+@import "abstracts/splash";
 
 /* Let the header show the SVG behind it */
 .masthead,
