@@ -1,0 +1,81 @@
+.composition {
+    position: relative;
+    display: inline-block;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    @include respond(phone) {
+        margin: auto;
+        width: 100%;
+    }
+
+    @include respond(tab-port) {
+        margin: auto;
+        width: 95%;
+    }
+
+    @include respond(tab-land) {
+        margin: auto;
+        width: 90%;
+        margin-bottom: 10rem;
+    }
+
+    &__photo {
+        width: 55%;
+        box-shadow: 0 0.5rem 1rem rgba($color-black, .4);
+        border-radius: 2px;
+        position: absolute;
+        z-index: 5;
+        transition: $default-transition;
+        outline-offset: 0.5rem;
+
+        &.inline {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding-top: 0;
+            padding-bottom: 0;
+
+            // Start small by default
+            transform: scale(0.5);
+
+            &--p0 {
+                left: -20;
+                top: -20;
+            }
+        }
+
+        &--p1 {
+            left: 0;
+            top: -2;
+        }
+
+        &--p2 {
+            right: 0;
+            top: 5rem;
+        }
+
+        &--p3 {
+            left: 20%;
+            top: 13rem;
+        }
+
+        &:hover {
+            outline: 0.5rem solid rgba($color-primary, .6);
+            transform: scale(1.05) translateY(-.5rem);
+            box-shadow: 0 1.5rem 4rem rgba($color-black, .5);
+            z-index: 10;
+        }
+    }
+
+    // This reads as: composition:hover composition__photo:not(:hover)
+    &:hover &__photo:not(:hover) {
+        transform: scale(0.5);
+        box-shadow: 0 1.5rem 2rem rgba($color-black, .5);
+    }
+    
+}

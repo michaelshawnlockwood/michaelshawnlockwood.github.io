@@ -1,0 +1,37 @@
+.feature-box {
+    height: 30rem;
+    background-color: rgba($color-white, .4);
+    font-size: 1.5rem;
+    margin: auto;
+    padding: 2.5rem;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .25);
+    transition: $default-transition; // What is the difference between "transform" and "all"?
+
+    @include respond(tab-port) {
+        margin: auto;
+        width: 65%;
+    }
+    
+    @include respond(phone) {
+        margin: auto;
+        width: 65%;
+    }
+
+    &__icon {
+        font-size: 6rem;
+        margin-bottom: .5rem;
+        display: inline-block;
+        background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    &:hover {
+        transform: translateY(-1.5rem) scale(1.03);
+        /* offset-x | offset-y | blur-radius | spread-radius | color */
+        box-shadow: 0 2rem 4.5rem rgba($color-black, .2);
+    }
+}

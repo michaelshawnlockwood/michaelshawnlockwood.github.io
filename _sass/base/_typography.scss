@@ -1,0 +1,90 @@
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: $color-basefont;
+    // padding: 2rem; I moved this to base because it affects layout
+}
+
+.heading {
+    color: $color-basefont;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    &--main {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 1.1rem;
+    
+        animation-name: moveInLeft;
+        animation-duration: 1.25s;
+        animation-timing-function: ease-out;
+        /*
+        animation-delay: 0.5s; 
+        animation-iteration-count: 3;
+        */
+
+        @include respond(phone) {
+            letter-spacing: .5rem;
+            font-size: 4rem;
+        }
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 2.125rem;
+        animation: moveInRight 1.25s ease-out;
+
+        @include respond(phone) {
+            letter-spacing: 1rem;
+            font-size: 1rem;
+        }
+    }
+}
+
+.heading-secondary {
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    /* This 5-line block of code colors the text gradient. Could this be a mixin? */
+    display: inline-block;
+    background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    letter-spacing: .2rem;
+    transition: all .2s;
+
+    @include respond(tab-port) {
+        font-size: 2rem;
+    }
+
+    @include respond(phone) {
+        font-size: 1.5rem;
+    }
+
+    &:hover {
+        transform: skewY(1deg) skewX(1deg) scale(1.1);
+        text-shadow: .5rem 1rem 1rem rgba($color-black, .4);
+    }
+}
+
+.heading-tertiary {
+    font-size: $default-font-size;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: $default-font-size;
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+}

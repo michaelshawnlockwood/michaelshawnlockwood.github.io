@@ -1,0 +1,158 @@
+.navigation {
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        background-color: $color-white;
+        height: 6rem;
+        width: 6rem;
+        top: 6rem;
+        right: 6rem;
+        position: fixed;
+        @include respond(wide-screen) {
+            right: 6rem;
+        }
+        border-radius: 50%;
+        z-index: 200;
+        box-shadow: -.5rem 1rem 3rem rgba($color-black, .2);
+        transition: transform .5s ease-in-out;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    &__background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed; // Maintains position while scrolling
+        top: 6rem;
+        right: 6rem;
+        @include respond(wide-screen) {
+            right: 6rem;
+        }
+        background-image: radial-gradient($color-primary-light, $color-primary-dark);
+        z-index: 100;
+        transition: transform .5s cubic-bezier(0.86, 0, 0.07, 1);
+
+        // transform: scale(100);
+    }
+
+    &__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 150;
+
+        opacity: 0; // These two apply before clicking the checkbox, making the menu non-existent
+        width: 0;
+        // transition: opacity .8s; // Try all or opacity
+        transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    &__list {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); // Create a mixin for this
+        list-style: none;
+        text-align: center;
+        z-index: 300;
+    }
+
+    &__item {
+        margin: 1rem;
+    }
+
+    &__link {
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 220%;
+            transition: $default-transition;
+        }
+
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: $color-primary-dark;
+            transform: translateX(1rem) translateY(-1rem);
+            text-shadow: $default-text-shadow-rev;
+            box-shadow: $default-box-shadow-left;
+        }
+    }
+
+    &__checkbox:checked ~ &__background {
+        transform: scale(65); // This is the size of the background/circle
+    }
+
+    &__checkbox:checked ~ &__nav {
+        opacity: 1; // These two apply when clicking the checkbox, making the menu existent
+        width: 100%;
+    }
+
+    &__checkbox:not(:checked) ~ &__nav {
+        opacity: 0;
+        width: 0;
+        z-index: -10;
+        // visibility: hidden;
+        // transition: $default-transition-5;
+    }
+    &__icon {
+        position: relative;
+        margin-top: 3rem;
+
+        &, // This represents the icon element itself
+        &::before,
+        &::after {
+            width: 2.5rem;
+            height: 2px;
+            background-color: $color-primary-dark;
+            display: inline-block;
+            
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            transition: $default-transition-5;
+        }
+
+        &::before { top: -.8rem; transform-origin: center } // The transform-origin: center is the default
+        &::after { top: .8rem; transform-origin: center } 
+    }
+
+    &__button:hover &__icon::before { // The icon is a child element of button
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after { // The icon is a child element of button
+        top: 1rem;
+    }
+
+    &__checkbox:checked + &__button &__icon { // button is an adjacent sibling (+), and icon is a child element of button
+        // Hover over the text "checkbox" in the line above to see its reference
+        background-color: transparent !important;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
+    }
+}
