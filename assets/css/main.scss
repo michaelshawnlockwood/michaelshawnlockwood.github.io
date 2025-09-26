@@ -3,12 +3,12 @@
 
 @import "minimal-mistakes/skins/dark";  /* must come first */
 @import "minimal-mistakes";             /* then the core theme */
+@import "palette";
 @import "media";
 @import "mixins";
 @import "menus";
 @import "images";
 @import "typography";
-@import "palette";
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
