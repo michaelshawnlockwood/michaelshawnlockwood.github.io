@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "github-pages", group: :jekyll_plugins
 gem "webrick" # needed on newer Ruby when serving locally
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 group :jekyll_plugins do
   # Only plugins supported by GitHub Pages (e.g., these are OK)
