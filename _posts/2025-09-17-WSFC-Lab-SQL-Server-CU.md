@@ -152,9 +152,9 @@ Get-ChildItem -Path $paths -ErrorAction SilentlyContinue |
 ---
 
 ## SANE Block
-**Summary of Achievements** — see **Achievements & Milestones ✅** above.  
-**Next steps** — tracked in **Status Checklist → Next steps**.  
-**Evaluation** — The run was **clean**: single planned failover, no role/resource flapping, and healthy post-patch validation on both nodes. The environment is ready for build-stamp capture, AV exclusions, and workload-under-failover testing.
+**S**ummary of **A**chievements. **N**ext Steps. **E**valuation.
+**N**ext Steps — tracked.  
+**E**valuation — The run was **clean**: Planned failover and failback, no role/resource flapping, and healthy post-patch validation on both nodes. The environment is ready for build-stamp capture, antivirus and Defender exclusions, and workload-under-failover testing.
 
 ---
 
