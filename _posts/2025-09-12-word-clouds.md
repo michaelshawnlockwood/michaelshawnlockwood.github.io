@@ -43,7 +43,7 @@ header:
 <script>
   // --- Data -----------------------------------------------------------------
   const topics = [
-    "SQL Server","PostgreSQL","Always On AG","FCI","SSIS","DMVs","Indexing","Query Store","HL7","Automation","Power BI","DACPAC","Replication","Azure SQL","Linux","Python","Performance","Backups","Log Shipping","FileGroups","TempDB","Availability","Mirroring","Cluster","WSFC","Kerberos","Networking","Security","XEvents","TPC","Partitioning","Compression","RowMode","BatchMode"
+    "SQL Server","PostgreSQL","Always On AG","FCI","SSIS","DMVs","Indexing","Query Store","Apache Airflow","Automation","Power BI","DACPAC","Replication","Azure SQL","Linux","Python","openSuSE Leap","Azure Databricks","Log Shipping","FileGroups","TempDB","High Availability","Airflow","Cluster","WSFC","Kubernetes","Networking","Security","Partitioning","K8s","Databricks","PowerShell"
   ];
 
   // pick N distinct words for a card

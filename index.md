@@ -13,10 +13,10 @@ header:
   actions:
     - label: "Project Roadmap"
       url: /about/#project-roadmap
-      class: "btn"
+      class: "masthead__menu-item"
     - label: "NYC Taxi Project"
       url: /nyc-taxi/
-      class: "btn btn--primary"
+      class: "btn"
     - label: "About me"
       url: /about/#about
       class: "btn"

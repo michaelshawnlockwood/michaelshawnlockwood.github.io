@@ -60,9 +60,20 @@
   @include hover-outline($outline-w, $outline-color, $radius);
 }
 
-.btn { @include button(); }                // default button
+.btn { @include button(); 
+  &--light-outline {
+    // baseline outline style (already there in the theme)
+    border-color: $color-border; 
+
+    // extend with your custom hover
+    &:hover,
+    &:focus {
+      border-color: rgba($color-accent-alt, .85); // gold
+    }
+  }
+}                // default button
 .btn--subtle {                             // softer outline variant
-  @include button($outline-w: 1.25px, $outline-color: rgba($color-accent-alt,.45));
+  @include button($outline-w: 1.25px, $outline-color: rgba($color-accent-alt,.85));
 }
 .btn--copy { @include button($py: 0.5rem, $px: 1rem, $radius: 12px); } 
 
