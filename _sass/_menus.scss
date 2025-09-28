@@ -22,7 +22,7 @@
 
 html:has(#skills:target)     .greedy-nav a[href="/about/#skills"] { pointer-events: none; opacity: .6; }
 html:has(#experience:target) .greedy-nav a[href="/about/#experience"] { pointer-events: none; opacity: .6; }
-html:has(#projects:target)   .greedy-nav a[href="/about/#projects"] { pointer-events: none; opacity: .6; }
+html:has(#project-roadmap:target)   .greedy-nav a[href="/about/#project-roadmap"] { pointer-events: none; opacity: .6; }
 html:has(#writing:target)    .greedy-nav a[href="/about/#writing"] { pointer-events: none; opacity: .6; }
 html:has(#contact:target)    .greedy-nav a[href="/about/#contact"] { pointer-events: none; opacity: .6; }
 
