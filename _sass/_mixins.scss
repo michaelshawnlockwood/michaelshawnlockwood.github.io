@@ -63,12 +63,12 @@
 .btn { @include button(); 
   &--light-outline {
     // baseline outline style (already there in the theme)
-    border-color: $color-border; 
+    border-color: $color-border !important; 
 
     // extend with your custom hover
     &:hover,
     &:focus {
-      border-color: rgba($color-accent-alt, .85); // gold
+      border-color: rgba($color-accent-alt, .85) !important; // gold
     }
   }
 }                // default button
