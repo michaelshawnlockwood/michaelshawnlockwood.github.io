@@ -154,6 +154,7 @@ html:has(#contact:target)    .greedy-nav a[href="/about/#contact"] { pointer-eve
   /* if it sits in the masthead nav */
   .masthead .masthead__menu-item--follow,
   .masthead .nav__list .masthead__menu-item > a[aria-label="Follow"] {
+    color: #fff;
     display: none;
   }
 }
