@@ -20,6 +20,8 @@
 @import "components/card";
 @import "abstracts/splash";
 
+@import "custom";
+
 /* Let the header show the SVG behind it */
 .masthead,
 .masthead__inner-wrap,
@@ -38,19 +40,41 @@
   border: 0;
 }
 
-.masthead {
-  background: url('{{ "/assets/images/header-bg.svg" | relative_url }}') center / cover no-repeat;
+// .masthead {
+//   background: url('{{ "/assets/images/header-bg.jpg" | relative_url }}') center / cover no-repeat;
+//   height: 50px;
+//   position: relative;
+//   opacity: 0.20;
+//   z-index: 0;
+// }
+
+.masthead::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('{{ "/assets/images/header-bg.jpg" | relative_url }}') center / cover no-repeat;
+  opacity: 0.20;
+  z-index: 0;
 }
+
 /* Optional: tweak colors site-wide */
 .masthead svg { --accent:#f5b759; --accent-2:#1e88e5; --bg-1:#0b0e14; --bg-2:#111827; }
 
 .page__hero {
-  height: 300px;        /* set the max banner height */
+  color: #000;
   display: flex;
   justify-content: center;
   align-items: center;
   background: $color-bg;
+
+  /* Typography helpers for overlay text */
+  .page__title,
+  .page__lead {
+    text-shadow: 0 2px 6px rgba(0,0,0,.85);  }
 }
+
+body .page__hero--overlay .page__title,
+body .page__hero--overlay .page__lead { text-shadow: 0 2px 6px rgba(0,0,0,.9) !important; }
 
 .page__hero-image {
   width: 100%;
@@ -67,7 +91,7 @@
   display: none; 
 }
 .page--about .page__hero--overlay { 
-  min-height: 300px;
+  min-height: 200px;
   background-color: transparent;
 } 
 

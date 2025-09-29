@@ -7,9 +7,15 @@ classes:
   - center-page
   - no-padding
 header:
-  overlay_color: "#000"
-  overlay_filter: "0.55"
-  overlay_image: /assets/images/default-overlay.jpg
+  overlay_color: "#000" 
+  overlay_filter: "linear-gradient(
+  rgba(0,0,0,0.75),
+  rgba(139,69,19,0.6), 
+  rgba(169,169,169,0.6),
+  rgba(184,134,11,0.6),
+  rgba(0,0,0,0.75)
+)"
+  overlay_image: /assets/images/default-overlay-wide.jpg 
   actions:
     - label: "Project Roadmap"
       url: /about/#project-roadmap

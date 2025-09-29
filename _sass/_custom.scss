@@ -4,14 +4,85 @@
 }
 
 .masthead__inner-wrap {
-  min-height: 40px;       /* lower the default height */
+  height: 50px;
+  min-height: 50px;       /* lower the default height */
 }
 
 .masthead__menu-item a {
   font-weight: bold;
-  font-size: 0.95rem;
+  font-size: 1rem;
   padding: 0.2rem 0.4rem; /* tighter link hit area */
 }
+
+
+
+/* Base */
+.layout--splash .page__hero--overlay {
+  min-height: 240px;
+  padding: 2rem 0;
+}
+
+/* Phone */
+@media (max-width: 640px) {
+  .layout--splash .page__hero--overlay {
+    min-height: 180px;
+    padding: 1.25rem 0;
+  }
+}
+
+/* Desktop+ */
+@media (min-width: 1024px) {
+  .layout--splash .page__hero--overlay {
+    min-height: 255px !important; 
+  }
+
+  .layout--splash .masthead__inner-wrap {
+    height: 60px;
+    min-height: 60px;
+  }
+
+  .layout--splash .masthead__menu .site-title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 0.2rem 0.4rem 1rem 1rem; 
+  }
+
+  .layout--splash .masthead__menu-item a {
+    font-weight: bold;
+    font-size: 1.25rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .layout--single .page--about .masthead__menu .greedy-nav {
+    height: 30px !important;
+  }
+}
+
+.layout--splash .page__hero--overlay {
+  /* height control */
+  height: 250px !important;
+  min-height: 250px !important;       /* set your floor */
+  padding-top: 2rem !important;        /* adjust to taste */
+  padding-bottom: 2rem !important;
+
+  /* optional: ensure the image fills the band cleanly */
+  .page__hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;                 /* use 'contain' or 'cover' if you hate crop */
+    object-position: center;
+  }
+
+  .page__title,
+  .page__lead,
+  .page__meta,
+  .comment__date,
+  .btn {
+    text-shadow: 0 2px 6px rgba(0,0,0,.88) !important;
+    color: #fff; 
+  }
+}
+
 
 
 
