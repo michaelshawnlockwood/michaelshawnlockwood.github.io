@@ -393,4 +393,12 @@
   @extend .card;
   font-size: 1.15em;
   color: $color-white;
+  margin-top: 6px !important;
+  padding-top: 6px !important;
+}
+
+.manifesto-intro {
+    font-size: 1.25em;
+    margin-bottom: 2px !important;
+    padding-bottom: 2px !important;
 }
