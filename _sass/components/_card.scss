@@ -398,12 +398,16 @@
 }
 
 .manifesto-intro {
+    display: inline-block;
+    position: relative;
     font-size: 1.25em;
     margin-bottom: 2px !important;
     padding-bottom: 2px !important;
 }
 
 .manifesto-content {
+    display: inline-block;
+    position: relative;
     font-size: 1.15em;
     margin-bottom: 2px !important;
     padding-bottom: 2px !important;
