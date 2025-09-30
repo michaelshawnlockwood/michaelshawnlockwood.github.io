@@ -157,9 +157,29 @@
   50% { transform: translateY(-4px); }
 }
 
+@media (max-width: 768px) {
+  .manifesto-intro {
+    display: inline-block;
+    position: relative;
+    font-size: 1.25em;
+    margin-top: 2px !important;
+    padding-top: 2px !important;
+}
+}
+
+@media (max-width: 768px) {
+  .h-card {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout--splash a {
+    display: none !important;   /* hides the link text/icon completely */
+  }
+}
+
 /*** Debug ***/
-
-
 
 .viz-slider .range{
   display:flex; align-items:center; gap:.5rem; color:#cfcfcf; font-size:12px;

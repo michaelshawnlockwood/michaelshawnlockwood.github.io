@@ -413,18 +413,3 @@
     padding-bottom: 2px !important;
 }
 
-@media (max-width: 768px) {
-  .manifesto-intro {
-    display: inline-block;
-    position: relative;
-    font-size: 1.25em;
-    margin-top: 36px !important;
-    padding-top: 36px !important;
-}
-}
-
-@media (max-width: 768px) {
-  .h-card {
-    display: none !important;
-  }
-}
