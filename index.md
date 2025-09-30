@@ -23,16 +23,16 @@ header:
     - label: "NYC Taxi Project"
       url: /nyc-taxi/
       class: "btn"
-    - label: "About me"
+    - label: "About"
       url: /about/#about
       class: "btn"
-    - label: "Résumé"
+    - label: "Résumés"
       url: /about/#resume
       class: "btn"
     - label: "Blog"
       url: /blog/
       class: "btn"
-    - label: "Contact me"
+    - label: "Contact"
       url: /about/#contact
       class: "btn"
 author: michael_lockwood
@@ -40,6 +40,7 @@ sidebar: false
 # css: "/assets/css/splash.css"
 ---
 
+<html><body>
 <div class="manifesto-card" markdown="1">
 # Professional Manifesto  
 &mdash; _inspired by the book, "The Checklist Manifesto"_  
@@ -56,5 +57,6 @@ sidebar: false
 
 [^1]: In DevOps and production work, urgent business needs sometimes require quick fixes. The key is to recognize these as exceptions, document them, and follow up with proper regression and stress testing so long-term quality isn’t compromised.  
 </div>
+</body></html>
 
 ---
