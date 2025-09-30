@@ -174,7 +174,7 @@
 }
 
 @media (max-width: 768px) {
-  .layout--splash .initial_content .page__hero--overlay a:not(.masthead__menu-item a) {
+  .layout--splash .initial_content .page__hero--overlay a:not(.masthead__menu .site-nav .masthead__menu-item a) {
     display: none !important;
   }
 }
