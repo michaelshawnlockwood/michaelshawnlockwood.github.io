@@ -45,7 +45,7 @@ sidebar: false
 Every quarter I rebuild my environments&mdash;Hyper-V and Oracle VirtualBox VMs&mdash;Windows Server Failover Cluster (WSFC), SQL Server Failover Cluster Instances (FCIs) and Always On Availability Groups (AGs), openSuSE-Leap, Debian, and PostgreSQL&mdash;and retest the boundaries I reached in the prior quarter&mdash;full technology stacks, data lineage, and development cycles&mdash;ensuring that my skills and knowledge evolve, solutions stay articulable, reproducible, and fully prepared to meet the challenges of today's business needs. _GitHub Pages is where I document everything._
 </div>
 
-<div class="manifesto-card" markdown="1">
+<div class="manifesto-content" markdown="1">
 # Professional Manifesto  
 &mdash; _inspired by the book, "The Checklist Manifesto"_  
 🎯 Thesis: Through continuous repetition, my core strengths, skills and knowdledge evolve, turning multiple platforms, cloud technologies, and programming languages into lasting elements of my Professional Répertoire.  
