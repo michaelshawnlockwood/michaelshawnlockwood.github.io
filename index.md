@@ -40,7 +40,7 @@ sidebar: false
 # css: "/assets/css/splash.css"
 ---
 
-<html><body>
+<html><body class="wide-center-page">
 <div class="manifesto-card" markdown="1">
 # Professional Manifesto  
 &mdash; _inspired by the book, "The Checklist Manifesto"_  
