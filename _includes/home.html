@@ -3,10 +3,11 @@
       <ul class="toc__menu">
         <li><a href="#core-strengths"><span class="toc-ico" aria-hidden="true">⚡</span>Core Strengths</a></li>
         <li><a href="#about"><span class="toc-ico" aria-hidden="true">👤</span>About</a></li>
+        <li><a href="#top-dozen"><span class="toc-ico" aria-hidden="true">📋</span>Top Dozen Things I own</a></li>
         <li><a href="#roles-over-time"><span class="toc-ico" aria-hidden="true">🧢</span>Roles Over Time</a></li>
-        <li><a href="#technical-skillset"><span class="toc-ico" aria-hidden="true">🧰</span>Technical Skillset</a></li>
+        <li><a href="#technical-skillset"><span class="toc-ico" aria-hidden="true">🛠️</span>Technical Skillset</a></li>
         <li><a href="#project-roadmap"><span class="toc-ico" aria-hidden="true">🗺️</span>Project Roadmap</a></li>
-        <li><a href="#impact-highlights"><span class="toc-ico" aria-hidden="true">🛠️</span>Impact Highlights</a></li>
+        <li><a href="#outage-rescues"><span class="toc-ico" aria-hidden="true">🛡️</span>Outage Rescues</a></li>
         <li><a href="#writing"><span class="toc-ico" aria-hidden="true">✒️</span>Writing</a></li>
         <li><a href="#resume"><span class="toc-ico" aria-hidden="true">📄</span>Résumés</a></li>
         <li><a href="#contact"><span class="toc-ico" aria-hidden="true">🔗</span>Contact Me</a></li>
@@ -140,7 +141,6 @@
       </div>
     </section>
 
-    <!-- What I'm Looking For -->
     <section id="what-im-looking-for" class="row">
       <h3 class="section-subtitle">What I’m Looking For</h3>
       <div>
@@ -150,18 +150,18 @@
           and where ideas from any level can make their way to the table. In that kind of culture, I contribute 
           best: combining 20+ years of SQL Server expertise with a bias for performance, automation, and verifiable, reliable results.</p>
         <p>
-          I’m targeting Senior DBA / Database Engineer roles that require deep SQL Server strength—query tuning, indexing 
-          strategy, performance and wait analysis, and HA/DR (Always On availability groups, FCIs, replication, log shipping)—with 
+          I’m targeting Senior Database Developer / DBA / Database Engineer roles that require extensive SQL Server experience—query tuning, indexing 
+          strategy, performance analysis, and HA/DR (FCIs, Always On availability Groups, replication, log shipping)—with 
           standardized change control and real observability (tested backups, rehearsed restores, explicit RPO/RTO). SSIS is a core 
           tool; I’ve built enterprise-class ETL pipelines with it. I support DACPAC-based deployments 
-          via Visual Studio (SSDT). T-SQL is my second language. I design application-ready result sets—procedures, 
+          via Visual Studio (SSDT). T-SQL is my second language. I design and develop application-ready result sets—procedures, 
           functions, views, window functions—and, when appropriate, **automate and instrument** the platform.</p>
-        <p>I’m evolving with the industry—engaging Azure SQL and SQL Server on Azure VMs, AWS, Airflow, and 
-          Databricks—and I’ve added PostgreSQL to my toolkit. My working sandbox is practical and current: VS Code; GitHub; Docker for disposable labs; 
-          VirtualBox Linux VMs (Debian/Ubuntu) for PostgreSQL and tooling; PowerShell and Bash for scripting and automation; plus selective 
-          .NET/Identity Server, and REST APIs (Postman). I’ll use front-end tooling (Angular/React/Sass/SVG) when it helps instrument, diagnose, 
-          or deliver—and to present, test, and, most importantly, understand. The through-line is straightforward: ship fast, safe, measurable 
-          changes to production databases. Ultimately, the broader toolchain is how I deliver; my core work lives in the data tier.</p>
+        <p>I’m evolving with the industry—engaging with Azure SQL and SQL Server on Azure VMs, Airflow, Databricks, and AWS—and I’ve added PostgreSQL 
+          to my list of platforms. I am also closing in on Airflow &amp; Databricks. My working sandbox is practical and current: VS Code; GitHub; Hyper-V, 
+          VirtualBox, and Docker for disposable labs; WSFC &amp; SQL Server FCI; Linux VMs (openSuSE Leap/Debian) for PostgreSQL and tooling; Python, PowerShell 
+          and Bash for scripting and automation; plus selective .NET/Identity Server, and REST APIs (Postman). I use front-end tooling (Angular/React/Sass/SVG) 
+          for architecting full stacks plus instrument, diagnose, and box — and to present, test, and, most importantly, understand. The through-line is straightforward: 
+          ship fast, safe, measurable changes to production databases. Ultimately, the broader toolchain is how I deliver; my core work lives in the data tier.</p>
         <section class="instrument">
           <h3>By &ldquo;instrument,&rdquo; I mean:</h3>
           <ul>
@@ -175,30 +175,50 @@
         </section>
       </div>
     </section>
-    <section class="row">
-      <h3>Ten Things I Own</h3>
-      <ul>
-        <li><strong>Backups & verified restores:</strong> RPO/RTO proven, drills scheduled.</li>
-        <li><strong>HA/DR posture:</strong> AG/FCI health, failover tests, runbooks.</li>
-        <li><strong>Observability:</strong> XE + Query Store baselines, p95 dashboards, alerts.</li>
-        <li><strong>Performance:</strong> query tuning, indexing strategy, regression watch.</li>
-        <li><strong>Release pipeline:</strong> DACPAC diffs, schema-drift detection, pre-prod gates.</li>
-        <li><strong>ETL reliability:</strong> SSIS orchestration, DQ checks (rowcounts/hashes), retries.</li>
-        <li><strong>Security:</strong> least privilege, secrets rotation, auditing.</li>
-        <li><strong>Capacity & cost:</strong> storage/IO growth, right-sizing on-prem/cloud.</li>
-        <li><strong>Incidents:</strong> on-call triage, postmortems, preventive fixes.</li>
-        <li><strong>Standards & coaching:</strong> patterns, code reviews, “what good looks like.”</li>
-      </ul>
+
+    <a class="back-to-top" href="#top">&uarr;&nbsp;BACK TO TOP</a>
+    <section id="top-dozen" class="row">
+      <h3>Top Dozen Things I Own</h3>
+      <ol>
+        <li><strong>Backups & verified restores</strong> — Full, differential, and transaction log backups aligned to recovery objectives; timed and monitored 
+          for completion; followed by automated restore tests to validate integrity and prove RPO/RTO.</li>
+        <li><strong>HA/DR posture</strong> — FCI first for instance-level HA, then AGs for database-level HA/DR; regular failover tests and documented runbooks.</li>
+        <li><strong>Observability</strong> — Extended Events + Query Store baselines; DMVs and wait statistics for runtime insight; p95 latency dashboards; alerting on 
+          blocking, deadlocks, and resource pressure; proactive detection of drift from baseline. p95 dashboard.</li>
+        <li><strong>Performance</strong> — Query tuning and plan analysis; intelligent indexing (usage, fragmentation, missing/overlapping detection); workload characterization 
+        via XE/DMVs; regression monitoring after deployments; capturing top resource consumers and isolating bottlenecks across CPU, I/O, memory, and concurrency.</li>
+        <li><strong>Security</strong> — Least-privilege by default (AD/AAD groups, RBAC), break-glass account isolated; Azure AD-only auth where possible, minimize SQL logins; 
+          secrets in a vault (Key Vault/DPAPI), scheduled rotation; encryption in transit (TLS 1.2+) and at rest (TDE, encrypted backups); row-level security / dynamic masking 
+          where needed; endpoint hardening (firewall, private endpoints/VNet rules); auditing to central SIEM (Sentinel/Splunk); regular access reviews and vulnerability assessments.</li>
+        <li><strong>Release pipeline</strong> — SSDT/DACPAC with versioned artifacts; schema-drift detection and fail gates; pre/post-deploy scripts idempotent and reversible; CI build 
+          validates compile + drift; CD requires pre-prod gates (smoke, data-safe migration checks, plan/regression checks vs Query Store baseline); controlled change windows + rollback plan; 
+          permissions and jobs (Agent/ADF) deployed as code alongside schema.</li>
+        <li><strong>ETL reliability</strong> — Orchestrated, restartable jobs (SSIS checkpoints, idempotent loads); source-to-target DQ checks (rowcounts, hashes, null/PK/FK conformance); 
+          watermarks/incrementals for large sets; late-arriving dimension handling and SCD policy; error quarantine with retries/backoff; resource governance (max concurrency, I/O windows) and 
+          clear SLAs/SLIs for timeliness and freshness.</li>
+        <li><strong>Capacity &amp; cost</strong> — Forecast storage/IO growth from baselines; right-size compute/memory (core counts, MAXDOP/CTFP, tempdb layout); tiering/retention (hot/warm/cold, 
+          compression/columnstore, archive); backup/restore performance tested (throughput targets); cloud levers (vCore/DTU, reserved instances/auto-pause), cost dashboards with monthly variance 
+          and tags/owners.</li>
+        <li><strong>Incidents</strong> — Clear sev levels and on-call rota; first-five-minutes triage playbook (Is it down? scope, blast radius, rollback?); comms cadence templates; MTTA/MTTR tracked; 
+          blameless postmortems with action items + owners + due dates; known-error DB and preventive fixes fed back into standards.</li>
+        <li><strong>Standards &amp; practices</strong> — T-SQL style guide, naming and index conventions, approved patterns (retry, pagination, error handling); PR checklist (perf, concurrency, security, 
+          deployability); “what good looks like” examples; lunch-and-learns, pair tuning, and lightweight guilds to propagate patterns.</li>
+        <li><strong>Compliance &amp; governance</strong> — Data classification/labeling (PII/PHI/PCI), least-privilege + SoD; encryption at rest/in transit, key lifecycle management; audit trails 
+          immutable/centralized with retention; periodic access recertification; change control (SOX) and HIPAA/PCI controls mapped to concrete checks; vendor/BAA where applicable.</li>
+        <li><strong>Documentation & knowledge transfer</strong> — Living runbooks (start/stop, failover, restore, release), topology/DR diagrams, env inventory; “Day-1/Day-2” ops checklists; build stamps 
+          and script IDs; onboarding guides and handoffs; self-serve dashboards (p95, errors, capacity) linked from the docs to reduce tribal knowledge.</li>
+      </ol>
       <p class="note">Automation reduces toil so I can widen scope and raise quality—same workload, fewer surprises.</p>
     </section>
 
     <!-- Technical Skillset -->
+    <a class="back-to-top" href="#top">&uarr;&nbsp;BACK TO TOP</a>
     <section id="skills" class="section-subtitle">
       <h3 id="technical-skillset">Technical Skillset</h3>
-      <div class="row">
+
         <!-- Core Database Experience -->
         <article class="row">
-          <h4 class="font-semibold">Core Database Expertise</h4>
+          <h4 class="font-semibold">Core Database</h4>
           <ul>
             <li><strong>Transact-SQL (T-SQL)</strong> — advanced development, performance optimization, automation</li>
             <li><strong>SQL Server Integration Services (SSIS)</strong> — ETL, data migration, process automation</li>
@@ -209,7 +229,7 @@
 
         <!-- High Availability & Disaster Recovery -->
         <article class="section-subtitle">
-          <h4 class="font-semibold">High Availability &amp; Disaster Recovery (HADR)</h4>
+          <h4>High Availability &amp; Disaster Recovery (HADR)</h4>
           <ul>
             <li>Installed, configured, and managed <strong>Always On AGs</strong>, <strong>WSFC</strong>, and <strong>Log Shipping</strong> in production</li>
           </ul>
@@ -217,7 +237,7 @@
 
         <!-- Performance & Security -->
         <article class="section-subtitle">
-          <h4 class="font-semibold">Performance &amp; Security</h4>
+          <h4>Performance &amp; Security</h4>
           <ul>
             <li>Expertise in <strong>query tuning</strong>, <strong>indexing strategies</strong>, and <strong>partitioning</strong></li>
             <li>Implemented <strong>Extended Events</strong>, <strong>Resource Governor</strong>, <strong>SQL Trace</strong>, and <strong>SQL Audit</strong> for performance &amp; compliance</li>
@@ -226,7 +246,7 @@
 
         <!-- Automation & Orchestration -->
         <article class="section-subtitle">
-          <h4 class="font-semibold">Automation &amp; Orchestration</h4>
+          <h4>Automation &amp; Orchestration</h4>
           <ul>
             <li>Designed automated solutions using <strong>T-SQL</strong> and <strong>SSIS</strong>; experience with <strong>PowerShell</strong> and <strong>Python</strong></li>
             <li>Built pipelines &amp; workflow orchestration with <strong>Airflow</strong>; analytics with <strong>Databricks</strong>; visualization in <strong>Power BI</strong></li>
@@ -235,11 +255,11 @@
 
         <!-- Platforms -->
         <article class="section-subtitle">
-          <h4 class="font-semibold">Platforms &amp; Utilities</h4>
+          <h4>Platforms &amp; Utilities</h4>
           <ul>
             <li><strong>SQL Server</strong> (7.0a–2019; 2022 FCI lab)</li>
-            <li><strong>Windows Server</strong> 2022 FCI lab</li>
-            <li><strong>Hyper-V &amp; VirtualBox</strong> 2022 FCI lab</li>
+            <li><strong>Windows Server</strong> 2022 WSFC lab</li>
+            <li><strong>Hyper-V &amp; VirtualBox</strong> cluster labs</li>
             <li><strong>PostgreSQL</strong>, <strong>Azure SQL</strong>, <strong>SQL Server on Azure VMs</strong></li>
             <li><strong>GitHub</strong>, <strong>Docker/Dev Containers</strong>, <strong>Linux</strong> openSuSE-Leap &amp; Debian</li>
           </ul>
@@ -247,15 +267,14 @@
 
         <!-- Application & API Collaboration -->
         <article class="section-subtitle">
-          <h4 class="font-semibold">Application &amp; API Collaboration</h4>
+          <h4>Application &amp; API Collaboration</h4>
           <ul>
             <li>Partnered with dev teams on <strong>C#</strong> and <strong>ASP.NET Core</strong> solutions</li>
             <li>Hands-on with API design &amp; testing (<strong>REST</strong>, <strong>OData</strong>, <strong>Postman</strong>, <strong>Identity Server</strong>) to improve app↔DB integration</li>
           </ul>
         </article>
-
-      </div>
     </section>
+
     <a class="back-to-top" href="#top">&uarr;&nbsp;BACK TO TOP</a>
     <!-- Project Roadmap -->
     <section id="project-roadmap" class="section-subtitle">
@@ -296,7 +315,7 @@
     <!-- Experience Highlights -->
     <section id="experience">
       <div>
-        <h3 id="impact-highlights" class="text-2xl font-bold">Impact Highlights</h3>
+        <h3 id="outage-rescues" class="text-2xl font-bold">Impact Highlights</h3>
         <div>
           <article>
             <h4 class="font-semibold">90‑minute Outage Rescues</h4>
@@ -338,7 +357,13 @@
           <h3 id="contact">Contact</h3>
           <p>Best way to reach me: email or LinkedIn DM.</p>
           <div>
-            <button id="copyEmail" class="btn">COPY EMAIL</button>&nbsp;
+            <button id="copyEmail" class="btn">
+              <svg viewBox="0 0 24 24" width="2em" height="2em"
+                  fill="none" stroke="#fff" stroke-width="1"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="9" y="9" width="15" height="15" rx="2"></rect>
+                <rect x="5" y="5" width="15" height="15" rx="2"></rect>
+              </svg></button>&nbsp;
             <a href="mailto:michaelshawnlockwood@gmail.com">michaelshawnlockwood@gmail.com</a>
             <nav class="link-chips">
               <a href="https://www.linkedin.com/in/yourname" target="_blank" rel="me noopener">

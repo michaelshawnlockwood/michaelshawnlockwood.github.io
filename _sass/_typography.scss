@@ -23,7 +23,7 @@ h3 {
 .section-title{ position:relative; display:inline-block; }
 
 .section-title .fa-clock { vertical-align:-2px; }
-.section-subtitle { margin:.25rem 0 1rem; font-style:italic; opacity:.9; }
+.section-subtitle { margin:.25rem 0 1rem; color: $color-softwhite }
 .section-title:hover .anchor{ opacity:1; }
 
 /* Remove the theme's right-side heading permalink */
