@@ -174,7 +174,7 @@
 }
 
 @media (max-width: 768px) {
-  .layout--splash a {
+  .layout--splash .page__hero--overlay a {
     display: none !important;   /* hides the link text/icon completely */
   }
 }

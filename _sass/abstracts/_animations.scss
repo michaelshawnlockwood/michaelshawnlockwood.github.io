@@ -475,7 +475,7 @@ html {
     position: relative; }
   .btn:hover {
     transform: translateY(-0.33rem);
-    box-shadow: 0 1.5rem 4rem black; }
+    box-shadow: 0 1rem 2rem black; }
     .btn:hover::after {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
