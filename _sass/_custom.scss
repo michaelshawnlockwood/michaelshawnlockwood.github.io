@@ -14,12 +14,14 @@
   padding: 0.2rem 0.4rem; /* tighter link hit area */
 }
 
-
-
 /* Base */
 .layout--splash .page__hero--overlay {
   min-height: 240px;
   padding: 2rem 0;
+}
+
+.layout--splash .btn {
+  margin-right: 2rem;
 }
 
 /* Phone */
