@@ -1,7 +1,7 @@
 main:
   - title: "Home"
     url: /
-  - title: "Technical Skills"
+  - title: "Technical Skillset"
     url: /about/#skills
   - title: "Project Roadmap"
     url: /about/#project-roadmap
