@@ -174,7 +174,7 @@
 }
 
 @media (max-width: 768px) {
-  .layout--splash .page__hero--overlay a:not(.greedy-nav) {
+  .layout--splash a:not(.greedy-nav) {
     display: none !important;
   }
 }
