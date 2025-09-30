@@ -354,7 +354,7 @@ html {
 .heading-main {
   backface-visibility: hidden;
   margin-bottom: 6rem;
-  color: #E5E4E2; }
+  color: $color-softwhite; }
   .heading-main--title {
     display: block;
     font-size: 4rem;
@@ -411,7 +411,7 @@ html {
 
 .subheading {
   backface-visibility: hidden;
-  color: #E5E4E2;
+  color: $color-softwhite;
   font-size: 4rem;
   font-weight: 300; }
   .subheading-section--title {
@@ -419,7 +419,7 @@ html {
     font-style: italic; }
 
 .url {
-  color: #E5E4E2; }
+  color: $color-softwhite; }
 
 .paragraph {
   font-size: 1.8rem; }
@@ -463,7 +463,7 @@ html {
     transform: translateY(-1.5rem) scale(1.05); }
 
 .btn {
-  color: black; }
+  color: $color-softwhite; }
   .btn:link, .btn:visited {
     font-size: 1rem;
     text-transform: uppercase;
@@ -475,7 +475,7 @@ html {
     position: relative; }
   .btn:hover {
     transform: translateY(-0.33rem);
-    box-shadow: 0 1rem 2rem black; }
+    box-shadow: 0 1rem 1rem black; }
     .btn:hover::after {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
@@ -483,23 +483,23 @@ html {
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem black; }
   .btn--white {
-    background-color: #E5E4E2;
+    background-color: $color-softwhite;
     color: #313537; }
     .btn--white::after {
-      background-color: #E5E4E2; }
+      background-color: $color-softwhite; }
   .btn--black {
     background-color: #313537;
-    color: #E5E4E2; }
+    color: $color-softwhite; }
     .btn--black::after {
       background-color: #313537; }
   .btn--blue {
     background-color: #003d76;
-    color: #E5E4E2; }
+    color: $color-softwhite; }
     .btn--blue::after {
       background-color: #003d76; }
   .btn--red {
     background-color: #4d0200;
-    color: #E5E4E2; }
+    color: $color-softwhite; }
     .btn--red::after {
       background-color: #4d0200; }
   .btn--gunmetal {
@@ -902,7 +902,7 @@ html {
 
 .row {
   max-width: 142.5rem;
-  color: #E5E4E2;
+  color: $color-softwhite;
   margin: 0 auto; }
   .row:not(:last-child) {
     margin-bottom: 2rem; }
