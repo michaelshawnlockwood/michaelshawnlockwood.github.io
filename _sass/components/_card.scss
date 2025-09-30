@@ -414,8 +414,14 @@
 }
 
 @media (max-width: 768px) {
-  .manifesto-intro {
-    padding-top: 2rem;   /* adjust as needed */
-    margin-top: 1rem;    /* optional if you prefer margin */
+  .page__hero--overlay .manifesto-intro {
+    padding-top: 6rem !important;
+    margin-top: 5rem !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .page__hero--overlay .page__hero-buttons {
+    margin-top: 4rem !important; 
   }
 }
