@@ -18,9 +18,10 @@
 @import "base/utilities";
 @import "layout/grid";
 @import "components/card";
-@import "abstracts/splash";
+@import "abstracts/animations";
 
 @import "custom";
+@import "pages/splash";
 
 /* Let the header show the SVG behind it */
 .masthead,
