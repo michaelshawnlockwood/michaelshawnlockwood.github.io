@@ -1,15 +1,15 @@
 main:
   - title: "Home"
     url: /
-  - title: "About"
-    url: /about/
-  - title: "Skills"
+  - title: "Technical Skills"
     url: /about/#skills
   - title: "Project Roadmap"
     url: /about/#project-roadmap
-  - title: "Contact"
-    url: /about/#contact
+  - title: "About"
+    url: /about/
   - title: "Résumés"
     url: /about/#resume
   - title: "Blog"
     url: /blog/
+  - title: "Contact"
+    url: /about/#contact
