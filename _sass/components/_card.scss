@@ -414,14 +414,17 @@
 }
 
 @media (max-width: 768px) {
-  .page__hero--overlay .manifesto-intro {
-    padding-top: 10rem !important;
-    margin-top: 10rem !important;
-  }
+  .manifesto-intro {
+    display: inline-block;
+    position: relative;
+    font-size: 1.25em;
+    margin-top: 36px !important;
+    padding-top: 36px !important;
+}
 }
 
 @media (max-width: 768px) {
-  .page__hero--overlay .page__hero-buttons {
-    margin-top: 4rem !important; 
+  .h-card {
+    display: none !important;
   }
 }
