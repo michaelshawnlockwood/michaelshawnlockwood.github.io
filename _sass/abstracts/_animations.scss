@@ -412,11 +412,14 @@ html {
 .subheading {
   backface-visibility: hidden;
   color: $color-softwhite;
-  font-size: 4rem;
-  font-weight: 300; }
-  .subheading-section--title {
-    font-family: 'GreatVibes', Regular;
-    font-style: italic; }
+  font-size: 1.2rem;
+  font-weight: 200; 
+  font-style: italic;
+}
+
+.subheading-section--title {
+  font-style: italic; 
+}
 
 .url {
   color: $color-softwhite; }

@@ -146,23 +146,24 @@
       <div>
         <p>
           I’m seeking not only the right role but also the right environment—one where leadership provides 
-          clear guardrails without suffocating innovation, where policies are practical rather than bureaucratic, 
+          clear guardrails while encouraging innovation, where policies are practical and supportive, 
           and where ideas from any level can make their way to the table. In that kind of culture, I contribute 
-          best: combining 20+ years of SQL Server expertise with a bias for performance, automation, and verifiable, reliable results.</p>
+          best: combining 20+ years of SQL Server experience with a bias for performance, automation, and verifiable, reliable results.</p>
         <p>
-          I’m targeting Senior Database Developer / DBA / Database Engineer roles that require extensive SQL Server experience—query tuning, indexing 
-          strategy, performance analysis, and HA/DR (FCIs, Always On availability Groups, replication, log shipping)—with 
-          standardized change control and real observability (tested backups, rehearsed restores, explicit RPO/RTO). SSIS is a core 
-          tool; I’ve built enterprise-class ETL pipelines with it. I support DACPAC-based deployments 
-          via Visual Studio (SSDT). T-SQL is my second language. I design and develop application-ready result sets—procedures, 
-          functions, views, window functions—and, when appropriate, **automate and instrument** the platform.</p>
-        <p>I’m evolving with the industry—engaging with Azure SQL and SQL Server on Azure VMs, Airflow, Databricks, and AWS—and I’ve added PostgreSQL 
-          to my list of platforms. I am also closing in on Airflow &amp; Databricks. My working sandbox is practical and current: VS Code; GitHub; Hyper-V, 
-          VirtualBox, and Docker for disposable labs; WSFC &amp; SQL Server FCI; Linux VMs (openSuSE Leap/Debian) for PostgreSQL and tooling; Python, PowerShell 
-          and Bash for scripting and automation; plus selective .NET/Identity Server, and REST APIs (Postman). I use front-end tooling (Angular/React/Sass/SVG) 
-          for architecting full stacks plus instrument, diagnose, and box — and to present, test, and, most importantly, understand. The through-line is straightforward: 
-          ship fast, safe, measurable changes to production databases. Ultimately, the broader toolchain is how I deliver; my core work lives in the data tier.</p>
-        <section class="instrument">
+          I’m targeting Senior Database Developer, DBA, or Database Engineer roles that require many years of SQL Server 
+          experience and exposure to a wide variety of data and workloads. My background includes query tuning, indexing strategy, 
+          performance analysis, and HA/DR (FCIs, Always On Availability Groups, replication, and log shipping). T-SQL is my second language.
+          I favor standardized change control and observability&mdash;tested backups, rehearsed restores, explicit RPO/RTO. SSIS is a core 
+          tool; I’ve built enterprise-class ETL pipelines with it. I support DACPAC-based deployments using Visual Studio (SSDT). 
+          I design and develop application-ready result sets&mdash;procedures, functions, views, window functions, etc.&mdash;with proper error 
+          handing (TRY...CATCH). When appropriate, I steer towards automating and instrumenting the platform.</p>
+        <p>I’m evolving with the industry&mdash;engaging with Azure SQL, SQL Server on Azure VMs, Airflow, Databricks, and AWS; plus Power BI for analytics and visualization. I’ve added PostgreSQL to my list 
+          of platforms and am expanding my skill set to include Airflow and Databricks. My working sandbox is practical and current: VS Code; GitHub; Hyper-V, Oracle VirtualBox, and Docker for disposable 
+          labs; WSFC and SQL Server FCI; Linux VMs (openSUSE Leap/Debian) for PostgreSQL and related tooling; Python, PowerShell, and Bash for scripting and automation; plus selective .NET/Identity Server 
+          and REST APIs (Postman). I also use front-end tooling (C#, .NET, Angular, React, D3.js, Sass, SVG) for architecting full stacks, as well as to instrument, diagnose, test, and present&mdash;and, 
+          most importantly, to understand. The <em>critical path</em> is straightforward: ship fast, safe, effective, and measurable changes to production databases. Ultimately, the broader 
+          toolbelt is how I deliver, but my core work lives in the data tier.</p>
+        <section id="instrument">
           <h3>By &ldquo;instrument,&rdquo; I mean:</h3>
           <ul>
             <li><strong>Procedure-level telemetry:</strong> log start/end, duration, row counts, error codes, and a correlation ID (via <code>SESSION_CONTEXT</code>) into a lean telemetry table.</li>
@@ -178,7 +179,7 @@
 
     <a class="back-to-top" href="#top">&uarr;&nbsp;BACK TO TOP</a>
     <section id="top-dozen" class="row">
-      <h3>Top Dozen Things I Own</h3>
+      <h3>Top Dozen Things I Own<span class="subheading"> — Ranked by criticality to business continuity</span></h3>
       <ol>
         <li><strong>Backups & verified restores</strong> — Full, differential, and transaction log backups aligned to recovery objectives; timed and monitored 
           for completion; followed by automated restore tests to validate integrity and prove RPO/RTO.</li>
@@ -187,26 +188,20 @@
           blocking, deadlocks, and resource pressure; proactive detection of drift from baseline. p95 dashboard.</li>
         <li><strong>Performance</strong> — Query tuning and plan analysis; intelligent indexing (usage, fragmentation, missing/overlapping detection); workload characterization 
         via XE/DMVs; regression monitoring after deployments; capturing top resource consumers and isolating bottlenecks across CPU, I/O, memory, and concurrency.</li>
-        <li><strong>Security</strong> — Least-privilege by default (AD/AAD groups, RBAC), break-glass account isolated; Azure AD-only auth where possible, minimize SQL logins; 
-          secrets in a vault (Key Vault/DPAPI), scheduled rotation; encryption in transit (TLS 1.2+) and at rest (TDE, encrypted backups); row-level security / dynamic masking 
-          where needed; endpoint hardening (firewall, private endpoints/VNet rules); auditing to central SIEM (Sentinel/Splunk); regular access reviews and vulnerability assessments.</li>
-        <li><strong>Release pipeline</strong> — SSDT/DACPAC with versioned artifacts; schema-drift detection and fail gates; pre/post-deploy scripts idempotent and reversible; CI build 
-          validates compile + drift; CD requires pre-prod gates (smoke, data-safe migration checks, plan/regression checks vs Query Store baseline); controlled change windows + rollback plan; 
-          permissions and jobs (Agent/ADF) deployed as code alongside schema.</li>
-        <li><strong>ETL reliability</strong> — Orchestrated, restartable jobs (SSIS checkpoints, idempotent loads); source-to-target DQ checks (rowcounts, hashes, null/PK/FK conformance); 
-          watermarks/incrementals for large sets; late-arriving dimension handling and SCD policy; error quarantine with retries/backoff; resource governance (max concurrency, I/O windows) and 
-          clear SLAs/SLIs for timeliness and freshness.</li>
-        <li><strong>Capacity &amp; cost</strong> — Forecast storage/IO growth from baselines; right-size compute/memory (core counts, MAXDOP/CTFP, tempdb layout); tiering/retention (hot/warm/cold, 
-          compression/columnstore, archive); backup/restore performance tested (throughput targets); cloud levers (vCore/DTU, reserved instances/auto-pause), cost dashboards with monthly variance 
-          and tags/owners.</li>
-        <li><strong>Incidents</strong> — Clear sev levels and on-call rota; first-five-minutes triage playbook (Is it down? scope, blast radius, rollback?); comms cadence templates; MTTA/MTTR tracked; 
-          blameless postmortems with action items + owners + due dates; known-error DB and preventive fixes fed back into standards.</li>
-        <li><strong>Standards &amp; practices</strong> — T-SQL style guide, naming and index conventions, approved patterns (retry, pagination, error handling); PR checklist (perf, concurrency, security, 
-          deployability); “what good looks like” examples; lunch-and-learns, pair tuning, and lightweight guilds to propagate patterns.</li>
-        <li><strong>Compliance &amp; governance</strong> — Data classification/labeling (PII/PHI/PCI), least-privilege + SoD; encryption at rest/in transit, key lifecycle management; audit trails 
-          immutable/centralized with retention; periodic access recertification; change control (SOX) and HIPAA/PCI controls mapped to concrete checks; vendor/BAA where applicable.</li>
-        <li><strong>Documentation & knowledge transfer</strong> — Living runbooks (start/stop, failover, restore, release), topology/DR diagrams, env inventory; “Day-1/Day-2” ops checklists; build stamps 
-          and script IDs; onboarding guides and handoffs; self-serve dashboards (p95, errors, capacity) linked from the docs to reduce tribal knowledge.</li>
+        <li><strong>Security</strong> — Safeguard data through least-privilege access, encrypted transport/storage, vault-managed secrets, hardened endpoints, and centralized auditing, 
+          with periodic access reviews and vulnerability checks.</li>
+        <li><strong>Release pipeline</strong> — Enforce database code quality with SSDT/DACPAC artifacts, schema-drift detection, pre/post deploy checks, CI/CD gates, controlled change 
+          windows, and rollback procedures.</li>
+        <li><strong>ETL reliability</strong> — Guarantee reliable data movement with restartable, idempotent loads; source-to-target data quality checks; late-arriving dimension handling; error 
+          quarantine/retries; and clear freshness SLAs.</li>
+        <li><strong>Capacity &amp; cost</strong> — Forecast growth, right-size resources, validate backup/restore throughput, tier data to control cost, and track cloud consumption with variance 
+          dashboards and ownership tags.</li>
+        <li><strong>Incident response readiness</strong> — Prepare for outages with clear severity levels, on-call rotation, triage/runbooks, comms cadence, MTTA/MTTR tracking, and postmortems feeding preventive standards.</li>
+        <li><strong>Standards &amp; practices</strong> — Promote consistency with a T-SQL style guide, naming/indexing conventions, approved design patterns, and knowledge sharing via checklists, 
+          guilds, and examples of “what good looks like.</li>
+        <li><strong>Compliance &amp; governance</strong> — Align database controls with regulatory mandates (PII/PHI/PCI, HIPAA, SOX), ensuring encryption, immutability, access recertification, 
+          and auditable change management.</li>
+        <li><strong>Documentation & knowledge transfer</strong> — Reduce tribal knowledge with living runbooks, DR diagrams, environment inventory, onboarding guides, and self-serve dashboards linked from documentation.</li>
       </ol>
       <p class="note">Automation reduces toil so I can widen scope and raise quality—same workload, fewer surprises.</p>
     </section>
