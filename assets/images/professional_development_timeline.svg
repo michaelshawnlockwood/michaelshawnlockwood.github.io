@@ -125,7 +125,7 @@
     <path d="M780,166 L1140,166" class="band-extended"/>
 
     <!-- HA / DR: strong mid-career onward -->
-    <path d="M300,206 L1000,206" class="band-strong"/>
+    <path d="M300,206 L1140,206" class="band-core"/>
     <path d="M780,206 L1140,206" class="band-extended"/>
 
     <!-- Azure (Azure SQL, DACPACs): extended with applied stint -->
