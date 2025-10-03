@@ -2,7 +2,7 @@
 layout: splash
 permalink: /
 title: "***Michael Shawn Lockwood — Data Engineering & DBA Portfolio***"
-excerpt: "Every quarter I rebuild my lab environments and retest boundaries I reached in the prior quarter&mdash;full technology stacks, data lineage, and development cycles. _GitHub Pages is where I articulate, document, and publish everything._"
+excerpt: "Every quarter I rebuild my lab environments and retest boundaries I reached in the prior quarter — full technology stacks, data lineage, and development cycles. At the same time, I expand into modern tech, including cloud infrastructure: Airflow, Databricks, and Azure. _GitHub Pages is where I articulate, document, and publish achievements, guides and runbooks._"
 classes:
   - center-page
   - no-padding
@@ -42,7 +42,7 @@ sidebar: false
 
 <html><body class="wide-center-page">
 <div class="manifesto-intro" markdown="1">
-Every quarter I rebuild my lab environments&mdash;Hyper-V and Oracle VirtualBox VMs&mdash;Windows Server Failover Cluster (WSFC), SQL Server Failover Cluster Instances (FCIs) and Always On Availability Groups (AGs), openSuSE-Leap, Debian, PostgreSQL&mdash;and retest boundaries I reached in the prior quarter&mdash;full technology stacks, data lineage, and development cycles&mdash;ensuring that my skills and knowledge evolve, solutions stay articulable, reproducible, and fully prepared to ensure business continuity and meet the challenges of today's business needs. _GitHub Pages is where I document and publish everything._
+Every quarter I rebuild my lab environments&mdash;Hyper-V and Oracle VirtualBox VMs&mdash;Windows Server Failover Cluster (WSFC), SQL Server Failover Cluster Instances (FCIs) and Always On Availability Groups (AGs), openSuSE-Leap, Debian, PostgreSQL&mdash;and retest boundaries I reached in the prior quarter&mdash;full technology stacks, data lineage, and development cycles&mdash;ensuring that my skills and knowledge evolve, solutions stay articulable, reproducible, and fully prepared to ensure business continuity and meet the challenges of today's business needs. At the same time, I expand into modern tech, including cloud infrastructure: Airflow, Databricks, and Azure. _GitHub Pages is where I articulate, document and publish achievements, guides, and runbooks._
 </div>
 
 <div class="manifesto-content" markdown="1">
