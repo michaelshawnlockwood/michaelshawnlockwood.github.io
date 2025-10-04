@@ -5,7 +5,6 @@ title: "***Michael Shawn Lockwood — Data Engineering & DBA Portfolio***"
 excerpt: "Every quarter I rebuild my lab environments and retest boundaries I reached in the prior quarter — full technology stacks, data lineage, and development cycles. At the same time, I expand into modern tech, including cloud infrastructure: Airflow, Databricks, and Azure. _GitHub Pages is where I articulate, document, and publish achievements, guides and runbooks._"
 classes:
   - center-page
-  - no-padding
 header:
   overlay_color: "#000" 
   overlay_filter: "linear-gradient(
