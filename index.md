@@ -15,25 +15,6 @@ header:
   rgba(0,0,0,0.75)
 )"
   overlay_image: /assets/images/default-overlay-wide.jpg 
-  # actions:
-  #   - label: "About"
-  #     url: /about/#about
-  #     class: "btn"
-  #   - label: "Project Roadmap"
-  #     url: /about/#project-roadmap
-  #     class: "masthead__menu-item"
-  #   - label: "NYC Taxi Project"
-  #     url: /nyc-taxi/
-  #     class: "btn"
-  #   - label: "Résumés"
-  #     url: /about/#resume
-  #     class: "btn"
-  #   - label: "Blog"
-  #     url: /blog/
-  #     class: "btn"
-  #   - label: "Contact"
-  #     url: /about/#contact
-  #     class: "btn"
 author: michael_lockwood
 sidebar: false
 # css: "/assets/css/splash.css"
