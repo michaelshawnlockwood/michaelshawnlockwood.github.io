@@ -6,6 +6,23 @@
 }
 
 // Base styling for screenshots
+.screenshot-xsm {
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 8px;
+  opacity: 0.8;
+  box-shadow: 0 0 12px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 30%; 
+  cursor: zoom-in;
+
+  &:hover {
+    opacity: 1;
+    transform: scale(1.5);
+    box-shadow: 0 0 20px rgba(0,0,0,0.35);
+    z-index: 20;
+  }
+}
 .screenshot-sm {
   display: block;
   margin: 1.5rem auto;
