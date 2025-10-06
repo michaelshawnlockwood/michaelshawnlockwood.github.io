@@ -1,10 +1,9 @@
 ---
-layout: single
+layout: splash
 permalink: /
 title: "***Michael Shawn Lockwood — Data Engineering & DBA Portfolio***"
 excerpt: "Every quarter I rebuild my lab environments and retest boundaries I reached in the prior quarter — full technology stacks, data lineage, and development cycles. _GitHub Pages is where I articulate, document, and publish achievements, guides and runbooks._"
-classes:
-  - center-page
+classes: wide-center-page
 header:
   overlay_color: "#000" 
   overlay_filter: "linear-gradient(
@@ -12,8 +11,7 @@ header:
   rgba(139,69,19,0.6), 
   rgba(169,169,169,0.6),
   rgba(184,134,11,0.6),
-  rgba(0,0,0,0.75)
-)"
+  rgba(0,0,0,0.75))"
   overlay_image: /assets/images/default-overlay-wide.jpg 
 author: michael_lockwood
 sidebar: false
