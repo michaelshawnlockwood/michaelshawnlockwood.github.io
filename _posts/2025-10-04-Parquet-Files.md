@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Parquet: _The Everywhere File Format_&mdash;What It Is, Why, When and How (Draft)"
+title: "Parquet: _The Everywhere File Format_&mdash;What It Is, Why, When and How? (_Draft_)"
 excerpt: "In this post, I unpack what Parquet actually is&mdash;why it’s everywhere across Azure, Databricks, AWS, GCP, Snowflake, Power BI, and SQL Server&mdash;and how tools like DuckDB, Python, and even SQL Server 2022 make it possible to read, convert, transform, and reconstruct Parquet data with precision."
 date: 2025-10-04
 classes:
@@ -17,7 +17,7 @@ header:
   overlay_color: "#000"
   overlay_filter: "0.75"
   overlay_image: /assets/images/default-overlay-wide.jpg 
-  caption: "Caption"
+  caption: "Parquet file history and usage."
 ---
 
 <a id="toc" class="visually-hidden"></a>
@@ -27,6 +27,8 @@ To begin working with large public datasets, I first downloaded the NYC Taxi Yel
 Furthermore, when working in Databricks Community Edition, the workspace storage cap (100 files, 5 GB each) makes file management strategy important. Even though Parquet is already a highly compressed, columnar format, the NYC Taxi Yellow Trip data monthly Parquet files are tiny by comparison—around 49 KB per month for 2024 versus 293 KB for the same data as PSV (pipe-separated values). That difference illustrates Parquet’s efficiency in both compression and column encoding.  
   
 Each monthly Parquet file is small; it’s entirely reasonable-and sometimes desirable—to merge them into a single Parquet file per year, or even one consolidated file spanning multiple years (e.g., 2000–2024). Doing so reduces the number of files Databricks must manage and can improve query performance by minimizing metadata overhead. Plus, I can experiement with larger datasets. The trade-off is that extremely large single files can limit parallelism, so there’s a balance: one file per year sounds ideal.  
+
+---
 
 # What Is a Parquet File?  
 
@@ -66,15 +68,15 @@ Each monthly Parquet file is small; it’s entirely reasonable-and sometimes des
  - Synapse serverless, Fabric, and Databricks SQL treat Parquet (and Delta, which builds on it) as native citizens.  
  - The format is now a core part of open table formats (Delta, Iceberg, Hudi).  
 
-Parquet started as a Hadoop optimization but evolved into the universal language of data lakes — the one format everyone reads, writes, and trusts across on-prem, Azure, AWS, and open-source engines.
-{: .highlighter .image-bg}
+_Parquet started as a Hadoop optimization but evolved into the universal language of data lakes — the one format everyone reads, writes, and trusts across on-prem, Azure, AWS, and open-source engines._
+{: .highlighter}
 
 # Why Parquet File Format?  
 Parquet is a columnar, compressed, and self-describing file format designed for _efficient_ analytics at scale. Storing data by column rather than row dramatically reduces storage size and speeds up queries that only touch selected fields. In practice, this means faster reads, smaller footprints, and seamless compatibility across platforms like Azure, Databricks, SQL Server, Power BI, and DuckDB—all while preserving full schema fidelity.
 
-# Convert &amp; Validate Parquet Files
+# Convert &amp; Validate Parquet Files:
   
-### Step 1 — Convert Parquet to PSV using Python  
+### Step 1 — Convert Parquet to PSV (and back) using Python  
 
 ```python
 # parquet_to_psv.py
@@ -332,7 +334,7 @@ Profile
 ---
 
 [⬆ Back to Top](#toc){:.back-to-top}
-### Step 4 — Merge Parquet files into a new file
+### Step 4 — Merge Parquet files into one large file
 ```bash
 python ../python/merge_parquet.py . --pattern "yellow_tripdata_2024-*.parquet" --out ../data_out/_temp/yellow_tripdata_2024.parquet
 ```

@@ -14,6 +14,11 @@
   padding: 0.2rem 0.4rem; /* tighter link hit area */
 }
 
+.image-bg {
+  background: $image-bg;
+  background-position: center;
+}
+
 /* Base */
 .layout--splash .page__hero--overlay {
   min-height: 240px;
