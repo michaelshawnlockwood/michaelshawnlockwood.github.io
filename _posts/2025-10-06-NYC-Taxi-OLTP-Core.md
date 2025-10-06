@@ -42,13 +42,16 @@ Sketch the minimal normalized OLTP core so that future analytics (facts/dims) dr
 | **Passenger** | Person entity (synthetic IDs; no PII) |
 | **RidePassenger** | Bridge table supporting `passenger_count ≥ 1` |
 | **Driver** | Licensed driver entity |
-| **Vehicle** | Cab/medallion or TLC vehicle ID |
+| **Vehicle** | Cab/medallion[^1] or Taxi and Limousine Commission (TLC) vehicle ID |
 | **Vendor** | Trip provider (per data dictionary) |
 | **RateCode** | Reference domain |
 | **PaymentType** | Reference domain |
 | **Location** | TLC TaxiZone (pickup/dropoff) |
 | **FareDetail** | Per-ride monetary breakdown (base, tolls, surcharges, tips, tax, total) |
 | *later* | `Shift`, `CalendarDate` (for analytics layer) |
+
+[^1]:“Cab” = the taxi vehicle. 
+“Medallion” = the city-issued license (historically a literal metal medallion on the hood) that grants the right to operate a yellow taxi in NYC. Each medallion has a unique number, is regulated by the TLC, and can be owned/leased/sold. So a “medallion cab” is a yellow taxi operating under a specific medallion license—different from other TLC-licensed vehicles (e.g., green boro cabs or for-hire vehicles).
 
 ---
 
