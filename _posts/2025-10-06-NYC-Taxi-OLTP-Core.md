@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Defining the NYC Taxi OLTP Core — A Modern ER Skeleton for Analytics-Ready Data _(Draft)_"
+title: "Defining the NYC Taxi OLTP Core — A Modern ER Skeleton for Analytics-Ready Data"
 excerpt: "A blueprint for transforming the raw NYC Taxi dataset into a clean, normalized OLTP schema—built for integrity, extensibility, and analytical evolution. This is where transactional truth meets analytical clarity."
 date: 2025-10-06
 classes:
@@ -48,10 +48,10 @@ Sketch the minimal normalized OLTP core so that future analytics (facts/dims) dr
 | **PaymentType** | Reference domain |
 | **Location** | TLC TaxiZone (pickup/dropoff) |
 | **FareDetail** | Per-ride monetary breakdown (base, tolls, surcharges, tips, tax, total) |
-| *later* | `Shift`, `CalendarDate` (for analytics layer) |
+| ***Later*** | `Shift`, `CalendarDate` (for analytics layer) |
 
-[^1]:“Cab” = the taxi vehicle. 
-“Medallion” = the city-issued license (historically a literal metal medallion on the hood) that grants the right to operate a yellow taxi in NYC. Each medallion has a unique number, is regulated by the TLC, and can be owned/leased/sold. So a “medallion cab” is a yellow taxi operating under a specific medallion license—different from other TLC-licensed vehicles (e.g., green boro cabs or for-hire vehicles).
+[^1]:
+“Cab” = the taxi vehicle. “Medallion” = the city-issued license (historically a literal metal medallion on the hood) that grants the right to operate a yellow taxi in NYC. Each medallion has a unique number, is regulated by the TLC, and can be owned/leased/sold. So a “medallion cab” is a yellow taxi operating under a specific medallion license—different from other TLC-licensed vehicles (e.g., green boro cabs or for-hire vehicles).
 
 ---
 
