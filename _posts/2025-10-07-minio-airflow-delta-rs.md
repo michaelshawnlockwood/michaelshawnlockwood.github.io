@@ -32,7 +32,7 @@ Together, this trio allows you to **prototype end-to-end data pipelines at zero 
 
 ---
 
-## *Part 1: MinIO&mdash;Local S3 Storage*
+# *Part 1: MinIO&mdash;Local S3 Storage*
 
 [Data Sources]  
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
