@@ -85,10 +85,10 @@ Invoke-WebRequest -Uri "https://dl.min.io/server/minio/release/windows-amd64/min
 
  - **Enable HTTPS on MinIO (local, trusted)**
 ```bash
-# Install mkcert (creates a local CA and trusts it)
 choco install mkcert -y
 mkcert -install
 
+# Install mkcert (creates a local CA and trusts it)
 # Make a cert for 127.0.0.1 and localhost
 cd $env:USERPROFILE
 mkdir -Force .minio\certs | Out-Null
