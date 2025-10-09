@@ -79,12 +79,12 @@ Together, this trio allows you to **prototype end-to-end data pipelines at zero 
 # MinIO Setup
 {: .md-h1}
  - **Download the Community Edition**  
-```powershell
+```bash
 Invoke-WebRequest -Uri "https://dl.min.io/server/minio/release/windows-amd64/minio.exe" -OutFile "D:\AppDev\MinIO\minio.exe"
 ```
 
  - **Enable HTTPS on MinIO (local, trusted)**
-```powershell
+```bash
 # Install mkcert (creates a local CA and trusts it)
 choco install mkcert -y
 mkcert -install
@@ -104,17 +104,17 @@ Get-ChildItem *.pem | ForEach-Object {
 ```
 
  - **Verify certs present**  
-```powershell
+```bash
 dir $env:USERPROFILE\.minio\certs  
 ```
 
  - Step 1. Download the CLI (MinIO Client “mc”)    
-```powershell
+```bash
 Invoke-WebRequest -Uri "https://dl.min.io/client/mc/release/windows-amd64/mc.exe" -OutFile "D:\AppDev\MinIO\mc.exe"
 ```
 
  - Verify it runs
-```powershell
+```bash
 D:\AppDev\MinIO\mc.exe --version
 ```
 
@@ -137,12 +137,12 @@ D:\AppDev\MinIO\mc.exe --version
 From PS D:\AppDev\MinIO>
 
  - Step 2. Create a dedicated user (access key/secret) for SQL[^1]
-```powershell  
+```bash  
 ./mc.exe admin user add local sqlreader "SecretKey321"  
 ```
 
  - Step 3. Point mc at your running MinIO (add alias). 
-```powershell
+```bash
 ./mc.exe alias set local https://127.0.0.1:9010 sqlreader SecretKey321
 ```
 
@@ -154,7 +154,7 @@ SQL Server’s S3 connector only accepts alphanumeric access/secret keys[^1]. Sy
 [^1]:https://learn.microsoft.com/en-us/sql/relational-databases/polybase/polybase-configure-s3-compatible?view=sql-server-ver17  
 
  - Step 4. Grant that user permission to the bucket
-```powershell
+```bash
 ./mc.exe admin policy attach local readwrite --user sqlreader
 ```
 
@@ -162,7 +162,7 @@ SQL Server’s S3 connector only accepts alphanumeric access/secret keys[^1]. Sy
 {: .screenshot-med }
 
  - Step 5. Confirm sqlreader can connect
-```powershell
+```bash
 D:\AppDev\MinIO\mc.exe alias set sql http://127.0.0.1:9010 sqlreader "SecretKey321"
 D:\AppDev\MinIO\mc.exe ls sql
 ```
@@ -171,7 +171,7 @@ D:\AppDev\MinIO\mc.exe ls sql
 {: .screenshot-med }
 
  - Step 6 — Mirror your Parquet folder into the bucket
-```powershell
+```bash
 ./mc.exe mirror D:\AppDev\nyctaxi\nyctaxi-pipeline\data_out sql/nyctaxi-pipeline/data_out
 ```
 
@@ -194,7 +194,7 @@ What the MinIO Console shows
 {: .screenshot-med }
 
  - Step 7. verify the Parquet file path exists
-```powershell
+```bash
 ./mc.exe ls local/nyctaxi-pipeline/data_in
 ```
 
@@ -245,7 +245,7 @@ Finish the import (you should now see mkcert development CA listed).
 Restart the SQL Server service so it picks up the new trust.
 
  - 🚀 **Launch MinIO**  
-```powershell
+```bash
 cd D:\AppDev\MinIO
 .\minio.exe server D:\AppDev\MinIO\data --console-address ":9011" --address ":9010"
 ```
