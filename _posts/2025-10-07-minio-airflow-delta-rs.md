@@ -218,8 +218,11 @@ nyctaxi-pipeline/data_in/yellow_tripdata_2024-01.parquet
 ```
  ... and SQL Server (via S3 API) will treat it as a single Parquet file.
 
-![MinIO Parquet folder structure](/assets/images/screenshots/minio-parquet-path.png)
-{: .screenshot-lg }
+![MinIO Parquet folder structure](/assets/images/screenshots/minio-parquet-folder00.png)
+{: .screenshot-med }
+
+![MinIO Parquet folder structure contd](/assets/images/screenshots/minio-parquet-folder01.png)
+{: .screenshot-med }
 
  - Step 8. Trust the mkcert root CA for the SQL Server service
 1. Press ⊞ Win, type mmc.exe, run as Admin.
