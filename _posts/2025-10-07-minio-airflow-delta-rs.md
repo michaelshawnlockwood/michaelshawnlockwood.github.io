@@ -188,7 +188,7 @@ What the MinIO Console shows
  ├── CAs\         ← mkcert’s root CA folder
  ├── public.crt
  ├── private.key
- ```
+```
 
  ![MinIO certs](/assets/images/screenshots/minio-cert-placement.png)
 {: .screenshot-med }
