@@ -59,7 +59,7 @@ Together, this trio allows you to **prototype end-to-end data pipelines at zero 
 
 ---
 
-# *Part 1: MinIO &mdash; Local S3 Storage*
+## *Part 1: MinIO &mdash; Local S3 Storage*
 
 [Data Sources]  
  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
@@ -76,7 +76,7 @@ Together, this trio allows you to **prototype end-to-end data pipelines at zero 
 
 ---
 
-# MinIO Setup
+## MinIO Setup
 {: .md-h1}
  - **Download the Community Edition**  
 ```bash
@@ -244,7 +244,7 @@ Finish the import (you should now see mkcert development CA listed).
 
 Restart the SQL Server service so it picks up the new trust.
 
- - 🚀 **Launch MinIO**  
+### 🚀**Launch MinIO**  
 ```bash
 cd D:\AppDev\MinIO
 .\minio.exe server D:\AppDev\MinIO\data --console-address ":9011" --address ":9010"
@@ -253,7 +253,7 @@ cd D:\AppDev\MinIO
 ![MinIO Console Login](/assets/images/screenshots/minio-console-login.JPG)
 {: .screenshot-lg }
 
-# SQL Server Configuration Steps
+## SQL Server Configuration Steps
  - **Install PolyBase on Windows**  
 
 https://learn.microsoft.com/en-us/sql/relational-databases/polybase/polybase-installation?view=sql-server-ver17
