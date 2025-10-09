@@ -72,7 +72,8 @@ Together, this trio allows you to **prototype end-to-end data pipelines at zero 
 - **Hybrid pipelines** mixing warehouse and lake data
 - **High-speed analytics** when paired with engines like Polars or DuckDB
 
-# Setup MinIO  
+# MinIO Setup
+{: .md-h1}
  - **Download the Community Edition**  
 ```powershell
 Invoke-WebRequest -Uri "https://dl.min.io/server/minio/release/windows-amd64/minio.exe" -OutFile "D:\AppDev\MinIO\minio.exe"
