@@ -32,21 +32,6 @@ Together, this trio allows you to **prototype end-to-end data pipelines at zero 
 
 ---
 
-# *Part 1: MinIO&mdash;Local S3 Storage*
-
-[Data Sources]  
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
- MinIO  →  (Raw object storage: CSV, Parquet, JSON, etc.)  
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
- delta-rs  →  (ACID layer, schema management, versioned Delta tables)  
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
- Polars / DuckDB  →  (Query, transform, aggregate — analytical layer)  
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
- SQL Server / Power BI  →  (Consumption, dashboards, reporting)  
- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
- Airflow  →  (Orchestration spanning all stages)  
-{: .code-frame}
-
 ## What Makes Delta-RS Different
 
 **Delta-RS** is a Rust implementation of the Delta Lake protocol that brings **ACID guarantees to data lakes** without needing a JVM or a Spark cluster. With Python bindings, you can work with Delta tables from lightweight tools like **pandas, DuckDB, or Polars**, which makes it perfect for local labs and cost-controlled environments.
@@ -71,6 +56,25 @@ Together, this trio allows you to **prototype end-to-end data pipelines at zero 
 - **Low-cost ingestion** into Delta format
 - **Hybrid pipelines** mixing warehouse and lake data
 - **High-speed analytics** when paired with engines like Polars or DuckDB
+
+---
+
+# *Part 1: MinIO &mdash; Local S3 Storage*
+
+[Data Sources]  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+ MinIO  →  (Raw object storage: CSV, Parquet, JSON, etc.)  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+ delta-rs  →  (ACID layer, schema management, versioned Delta tables)  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+ Polars / DuckDB  →  (Query, transform, aggregate — analytical layer)  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+ SQL Server / Power BI  →  (Consumption, dashboards, reporting)  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓  
+ Airflow  →  (Orchestration spanning all stages)  
+{: .code-frame}
+
+---
 
 # MinIO Setup
 {: .md-h1}
@@ -120,12 +124,15 @@ D:\AppDev\MinIO\mc.exe --version
 | **`minio.exe`** | The **server** — hosts the local S3-compatible object store and web Console.                                     |
 | **`mc.exe`**    | The **client** — a command-line companion that talks to MinIO (or AWS S3) for administration and file operations. |
 ```
+{: .code-frame}
 
  - Use mc (MinIO Client) to:  
    - Create users    
    - Apply bucket policies  
    - Mirror local folders to buckets (mc mirror)  
    - List, copy, or remove objects  
+
+---
 
 From PS D:\AppDev\MinIO>
 
@@ -142,11 +149,9 @@ From PS D:\AppDev\MinIO>
 ![MinIO Add alias](/assets/images/screenshots/minio-add-alias.png)
 {: .screenshot-med }
 
-SQL Server’s S3 connector only accepts alphanumeric access/secret keys. Symbols like # and ! are not supported, and this can surface as “file does not exist.” Microsoft’s doc states: “Access Key ID and Secret Key ID must only contain alphanumeric values.”[^1]
-{: .note}
+SQL Server’s S3 connector only accepts alphanumeric access/secret keys[^1]. Symbols like # and ! are not supported, and this can surface as “file does not exist.” Microsoft’s doc states: “Access Key ID and Secret Key ID must only contain alphanumeric values.”
 
-[^1]
-https://learn.microsoft.com/en-us/sql/relational-databases/polybase/polybase-configure-s3-compatible?view=sql-server-ver17  
+[^1]:https://learn.microsoft.com/en-us/sql/relational-databases/polybase/polybase-configure-s3-compatible?view=sql-server-ver17  
 
  - Step 4. Grant that user permission to the bucket
 ```powershell
