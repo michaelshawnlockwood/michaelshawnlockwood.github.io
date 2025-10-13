@@ -32,7 +32,7 @@ But in a well-designed architecture, that’s not the end of the story — it’
 How many times has someone asked, “Is this accurate?”
 If the number changes — even slightly, especially when that change is statistically significant — the entire process comes into question.
 
-The architecture is proven, and the data pipeline is solid. Early validation checks already confirmed structure and completeness through row counts and sampling.
+🧱 The architecture is proven, and the data pipeline is solid. Early validation checks already confirmed structure and completeness through row counts and sampling.
 The challenge now is managing what happens after ingestion — detecting late arrivals, reconciling anomalies, and documenting every corrective decision transparently.
 
 That’s the data engineer’s responsibility. No excuses.
@@ -80,7 +80,14 @@ In other words, the data *looks right today*, but it’s not *trustworthy tomorr
 Enter **Delta-RS**, an open-source, Rust-based implementation of the Delta Lake format.  
 It brings ACID transactions, schema enforcement, and time travel to our **S3-compatible MinIO bucket** — without adding external dependencies or complexity.
 
-Here’s how I’ll prove it.
+🧩 The stack:  
+ - A microcosm of a cloud lakehouse:  
+ - MinIO = your S3/ADLS  
+ - Delta-RS = Delta/Iceberg metadata engine  
+ - PolyBase = SQL-to-lake connector
+ - Power BI = semantic/BI layer
+
+Here’s how I intend to prove it.
 
 ---
 
@@ -118,4 +125,4 @@ Delta-RS gives us the foundation for both:
 In the next post, we’ll begin **Demo #1: Creating the Tiny Delta Table (v1)**  
 We’ll write just 10 rows, capture the first `_delta_log` JSON file, and explain why that single transaction file is the key to making business data trustworthy — even when reality arrives late.
 
-Stay tuned.
+🧭 _Working_ . . .  
