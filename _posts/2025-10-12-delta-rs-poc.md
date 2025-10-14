@@ -137,4 +137,113 @@ How this looks from the MinIO Console
 ![Delta-RS Snapshot.JSON in MinIO Console](/assets/images/screenshots/delta-rs-minio-path.JPG)  
 {: .screenshot-med }
 
+## Query the Snapshot  
+ - Create External Tables for each month of the Quarter (Q1)
+
+```sql
+USE [NYCTaxi]
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE EXTERNAL TABLE [ext].[YellowTrips_Snapshot_2025_01]
+(
+	[VendorID] [int] NULL,
+	[tpep_pickup_datetime] [bigint] NULL,
+	[tpep_dropoff_datetime] [bigint] NULL,
+	[passenger_count] [int] NULL,
+	[trip_distance] [float] NULL,
+	[RatecodeID] [int] NULL,
+	[store_and_fwd_flag] [nvarchar](1) NULL,
+	[PULocationID] [int] NULL,
+	[DOLocationID] [int] NULL,
+	[payment_type] [int] NULL,
+	[fare_amount] [float] NULL,
+	[extra] [float] NULL,
+	[mta_tax] [float] NULL,
+	[tip_amount] [float] NULL,
+	[tolls_amount] [float] NULL,
+	[improvement_surcharge] [float] NULL,
+	[total_amount] [float] NULL,
+	[congestion_surcharge] [float] NULL,
+	[airport_fee] [float] NULL
+)
+WITH (
+	DATA_SOURCE = [LocalS3],
+	LOCATION = N'snapshots/yellowtrips/2025/q1/v1/year=2025/month=1',
+	FILE_FORMAT = [ParquetFF],
+	REJECT_TYPE = VALUE,
+	REJECT_VALUE = 0)
+GO
+```
+
+### Is It Customary to Create Monthly External Tables?
+
+Yes — this is a **standard, professional pattern** for working with Parquet files through PolyBase (or external tables in general).  
+Here’s how _seasoned engineers_ think about it.
+
+---
+
+#### ✅ Why “One External Table per Partition” Is Common
+
+- **Predictable pruning:**  
+  PolyBase doesn’t automatically detect folder partitions (like `year=2025/month=1/`), so targeting each partition directly ensures 
+  SQL Server scans only the files you intend.
+
+- **Stable semantics:**  
+  Each external table represents a fixed data slice. Quarterly or annual views (`UNION ALL`) are simple, transparent, and fast.  
+  Power BI sees a consistent schema every time.
+
+- **Versioning support:**  
+  Snapshot-based paths (e.g., `/q1/v1/`) map cleanly to independent external tables.  
+  Compare `v1` vs `v2` without conflicts or accidental overwrites.
+
+---
+
+#### ⚙️ Common Variations in the Wild
+
+| Pattern | LOCATION Example | Pros | Cons |
+|----------|------------------|------|------|
+| **Per-Month Table** | `.../year=2025/month=1/` | Fine-grained control; best pruning; easy to replace individual months | More objects to manage |
+| **Per-Quarter Table** | `.../q1/v1/` | Fewer objects; still partitioned | Slightly larger scans |
+| **Per-Version Table** | `.../2025/q1/v1/` | Easy snapshot management | No per-month control |
+| **Ad-hoc OPENROWSET** | Direct S3/HTTPS path | Great for testing | Not stable or reusable |
+
+---
+
+#### 💡 When to Keep Your Current Approach
+
+- You want **exact control** over each month’s snapshot.  
+- You’re implementing **immutable Delta-RS versions** (Q1 v1, Q1 v2, etc.).  
+- You value **transparent lineage** — table name ↔ folder path.
+
+The pattern makes sense in data-governed or reproducibility-focused environments (finance, healthcare, regulated analytics).  
+It’s also ideal for your **Power BI dual-view** model — “Current” vs “Snapshot.”
+
+---
+
+#### 🔧 Best Practices
+
+- Keep naming consistent:  
+  `ext.YellowTrips_Snap_2025_01` … `_12`, `vw_YellowTrips_Snapshot_2025_Q1`.
+- Reuse shared resources:  
+  One `[LocalS3]` data source and one `[ParquetFF]` file format.
+- Lock schemas in your views:  
+  `WITH SCHEMABINDING` for stable Power BI relationships.
+- Optionally, automate:  
+  Generate the 12 external tables and 4 quarterly views from a simple script template (e.g., looping through months).
+
+---
+
+**In short:** this approach is not only valid — it’s what *seasoned professionals* use when precision, immutability, 
+and verifiable lineage matter more than convenience.
+
+Power BI Dashboard Q1 plus Q2
+{: .md-h2}
+
+![Power BI Dashboard Q1 plus Q2](/assets/images/screenshots/powerbi-dashboard.JPG)  
+{: .screenshot-lg }
+
 🧭 _Working_ . . .  
