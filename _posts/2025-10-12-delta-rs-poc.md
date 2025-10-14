@@ -82,7 +82,7 @@ It brings ACID transactions, schema enforcement, and time travel to our **S3-com
 
 🧩 The stack:  
  - A microcosm of a cloud lakehouse:  
- - MinIO = your S3/ADLS  
+ - MinIO = S3/ADLS  
  - Delta-RS = Delta/Iceberg metadata engine  
  - PolyBase = SQL-to-lake connector
  - Power BI = semantic/BI layer
@@ -179,6 +179,7 @@ WITH (
 GO
 ```
 
+[⬆ Back to Top](#toc){:.back-to-top}
 ### Is It Customary to Create Monthly External Tables?
 
 Yes — this is a **standard, professional pattern** for working with Parquet files through PolyBase (or external tables in general).  
@@ -202,6 +203,7 @@ Here’s how _seasoned engineers_ think about it.
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 #### ⚙️ Common Variations in the Wild
 
 | Pattern | LOCATION Example | Pros | Cons |
@@ -220,17 +222,18 @@ Here’s how _seasoned engineers_ think about it.
 - You value **transparent lineage** — table name ↔ folder path.
 
 The pattern makes sense in data-governed or reproducibility-focused environments (finance, healthcare, regulated analytics).  
-It’s also ideal for your **Power BI dual-view** model — “Current” vs “Snapshot.”
+It’s also ideal for a **Power BI dual-view** model — “Current” vs “Snapshot.”
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 #### 🔧 Best Practices
 
 - Keep naming consistent:  
   `ext.YellowTrips_Snap_2025_01` … `_12`, `vw_YellowTrips_Snapshot_2025_Q1`.
 - Reuse shared resources:  
   One `[LocalS3]` data source and one `[ParquetFF]` file format.
-- Lock schemas in your views:  
+- Lock schemas in views:  
   `WITH SCHEMABINDING` for stable Power BI relationships.
 - Optionally, automate:  
   Generate the 12 external tables and 4 quarterly views from a simple script template (e.g., looping through months).
@@ -246,4 +249,7 @@ Power BI Dashboard Q1 plus Q2
 ![Power BI Dashboard Q1 plus Q2](/assets/images/screenshots/powerbi-dashboard.JPG)  
 {: .screenshot-lg }
 
+---
+
+[⬆ Back to Top](#toc){:.back-to-top}
 🧭 _Working_ . . .  
