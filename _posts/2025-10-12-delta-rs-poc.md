@@ -243,10 +243,16 @@ It’s also ideal for a **Power BI dual-view** model — “Current” vs “Sna
 **In short:** this approach is not only valid — it’s what *seasoned professionals* use when precision, immutability, 
 and verifiable lineage matter more than convenience.
 
-Power BI Dashboard Q1 plus Q2
+Power BI Dashboard@mdash;Q1 plus Q2
 {: .md-h2}
 
 ![Power BI Dashboard Q1 plus Q2](/assets/images/screenshots/powerbi-dashboard.JPG)  
+{: .screenshot-lg }
+
+Power BI Dashboard%mdash;Snapshot  
+{: .md-h2}
+
+![Power BI Dashboard Q1 plus Q2](/assets/images/screenshots/powerbi-dashboard-Q1-snapshot.JPG)  
 {: .screenshot-lg }
 
 ---
