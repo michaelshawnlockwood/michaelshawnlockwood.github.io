@@ -123,6 +123,18 @@ Delta-RS gives us the foundation for both:
 ## What’s Next
 
 In the next post, we’ll begin **Demo #1: Creating the Tiny Delta Table (v1)**  
-We’ll write just 10 rows, capture the first `_delta_log` JSON file, and explain why that single transaction file is the key to making business data trustworthy — even when reality arrives late.
+We’ll write just 10 rows, capture the first `_delta_log` JSON file, and explain why that single transaction file is the key to making business data trustworthy — even when reality arrives late.  
+
+Export Delta Snapshot Output
+{: .md-h2}
+
+![Delta-RS Snapshot.JSON in MinIO Console](/assets/images/screenshots/delta-rs-write-snapshot-output.JPG)  
+{: .screenshot-med }
+
+How this looks from the MinIO Console
+{: .md-h2}
+
+![Delta-RS Snapshot.JSON in MinIO Console](/assets/images/screenshots/delta-rs-minio-path.JPG)  
+{: .screenshot-med }
 
 🧭 _Working_ . . .  
