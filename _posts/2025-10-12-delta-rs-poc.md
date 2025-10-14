@@ -252,7 +252,7 @@ Power BI Dashboard&mdash;Q1 plus Q2
 Power BI Dashboard&mdash;Snapshot  
 {: .md-h2}
 
-![Power BI Dashboard Q1 plus Q2](/assets/images/screenshots/powerbi-dashboard-Q1-snapshot.JPG)  
+![Power BI Dashboard Q1 Snapshot](/assets/images/screenshots/powerbi-dashboard-Q1-snapshot.JPG)  
 {: .screenshot-lg }
 
 ---
