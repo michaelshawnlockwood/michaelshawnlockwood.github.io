@@ -65,7 +65,7 @@ Contrast with traditional database recovery or restore scenarios in SQL Server.
   - Databricks SQL (DBX) for validation of versioned reads  
 - Mention the dataset (NYC Taxi, reduced Parquet samples) and Delta folder structure (`data_in`, `data_out`, `delta`, `snapshots`).
 
-> ![For Blog: MinIO Object Browser](/assets/images/minio-nyctaxi-pipeline.png)
+> ![For Blog: MinIO Object Browser](/assets/images/minio-nyctaxi-pipeline00.png)
 > *MinIO Object Browser showing the `nyctaxi-pipeline` bucket structure.*
 
 ## Delta-RS and Local Connectivity
