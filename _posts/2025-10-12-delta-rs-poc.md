@@ -27,7 +27,7 @@ _DRAFT. DRAFT. DRAFT. DRAFT. DRAFT._
 # Delta-RS Proof: Why Late Data Matters More Than You Think
 
 When the dashboards look good, that’s usually where most projects stop.
-But in a well-designed architecture, that’s not the end of the story — it’s where scrutiny by the business at the consumption layer begins.
+In a well-designed architecture, that’s not the end of the story — it’s where scrutiny by the business at the consumption layer begins.
 
 How many times has someone asked, “Is this accurate?”
 If the number changes — even slightly, especially when that change is statistically significant — the entire process comes into question.
@@ -116,13 +116,13 @@ This is the difference between *reporting numbers* and *trusting numbers*.
 Delta-RS gives us the foundation for both:
 - **Data consistency** for engineering  
 - **Version transparency** for governance  
-- **Historical clarity** for finance  
+- **Historical clarity** for auditing and finance  
 
 ---
 
 ## What’s Next
 
-In the next post, we’ll begin **Demo #1: Creating the Tiny Delta Table (v1)**  
+In the next post, we’ll begin **Demo #1: Creating the Delta Table (v1)**  
 We’ll write just 10 rows, capture the first `_delta_log` JSON file, and explain why that single transaction file is the key to making business data trustworthy — even when reality arrives late.  
 
 Export Delta Snapshot Output
