@@ -61,11 +61,11 @@ Contrast with traditional database recovery or restore scenarios in SQL Server.
 ## Setting the Stage
 - Describe my lab environment:  
   - MinIO bucket (`nyctaxi-pipeline`) over HTTPS  
-  - Azurite over HTTP for Azure Blob emulation  
+  - Azurite over HTTPS for Azure Blob emulation  
   - Databricks SQL (DBX) for validation of versioned reads  
 - Mention the dataset (NYC Taxi, reduced Parquet samples) and Delta folder structure (`data_in`, `data_out`, `delta`, `snapshots`).
 
-> ![For Blog: MinIO Object Browser](/assets/images/minio-nyctaxi-pipeline00.png)
+> ![For Blog: MinIO Object Browser](/assets/images/screenshots/minio-nyctaxi-pipeline-container00.png)
 > *MinIO Object Browser showing the `nyctaxi-pipeline` bucket structure.*
 
 ## Delta-RS and Local Connectivity
@@ -163,7 +163,6 @@ This Parquet file is the one-click data source for Power BI:
 
 ---
 
-
 From here, I can connect Power BI Desktop to MinIO using an S3-compatible endpoint or stage it temporarily in Databricks for shared analytics.
 
 ---
@@ -239,8 +238,9 @@ Organizations typically enforce isolation at this stage — dedicated storage ac
 - **Expert Determination:** A qualified expert certifies that re-identification risk is very small given context and controls.
 
 ### Common techniques (choose per use case)
-| Technique           | What it does                                  | Reversible? | Notes |
-|---------------------|-----------------------------------------------|-------------|------|
+
+| Technique | What it does | Reversible? | Notes |
+|:--|:--|:--|:--|
 | **Masking**         | Obscure parts (e.g., `555-***-****`)          | No          | Quick, lightweight; still sensitive if many fields remain. |
 | **Tokenization**    | Replace with random tokens (`PAT_9F3A…`)      | Yes*        | Requires secure vault/map; analytics on joins via tokens. |
 | **Hashing (+salt)** | Deterministic pseudonyms from identifiers     | Yes*        | Use strong hash + per-env salt; vulnerable without salt. |
@@ -342,6 +342,77 @@ Time Travel is the connective tissue between Medallion layers —
 it preserves **lineage, reproducibility, and trust**, ensuring that every refinement step from Bronze → Silver → Gold can be explained, audited, and, if necessary, *rolled back in time.*
 
 ---
+
+## ⏱️ Time Travel by Timestamp (DBX CE)
+
+**How:** Copy a timestamp from `DESCRIBE HISTORY` and query the table *as of that moment*.
+
+First, I'll create a small table and populate it with a few rows.
+
+```sql
+CREATE TABLE tt_demo (id INT, note STRING)
+USING DELTA;
+
+-- Insert an initial version
+INSERT INTO tt_demo VALUES (1, 'v1 insert'), (2, 'v1 insert'), (3, 'v1 update'), (4, 'v1 delete');
+
+-- Verify data
+SELECT * FROM tt_demo;
+```
+
+![Databricks tt_demo table](/assets/images/screenshots/databricks-tt-demo-step-1.JPG)
+{: .screenshot-sm }
+
+Execute `DESCRIBE HISTORY tt_demo`. 
+
+```sql
+DESCRIBE HISTORY tt_demo;
+```
+
+## 🧾 Understanding `DESCRIBE HISTORY` in Delta Lake
+
+The `DESCRIBE HISTORY` command is Delta Lake’s built-in window into your table’s **transaction log**.  
+When executed, it reads the metadata stored in the hidden `_delta_log` folder and returns a complete **audit trail** of all commits — one row per table version.
+
+This audit view is both a **technical ledger** (used by Time Travel) and a **compliance record** (used for governance and traceability).
+
+![Databricks tt_demo DESCRIBE HISTORY](/assets/images/screenshots/databricks-tt-demo-step-1-describe.JPG)
+{: .screenshot-lg }
+
+---
+
+### 🧩 What Each Column Means
+
+| Column | Description |
+|---------|-------------|
+| **version** | Sequential number identifying the commit (starting at 0). Each write, update, or delete increments this version. |
+| **timestamp** | UTC timestamp when the operation was committed to the transaction log. |
+| **userId / userName** | The identity of the user who performed the operation (automatically captured in Databricks). |
+| **operation** | The action performed — e.g., `CREATE TABLE`, `WRITE`, `UPDATE`, `DELETE`, `MERGE`. |
+| **operationParameters** | JSON-formatted details describing the operation, such as filters, partition columns, or write mode. |
+| **readVersion** | The table version that the writer read before making this commit. |
+| **isolationLevel** | Confirms transactional integrity (commonly `WriteSerializable` for Delta ACID compliance). |
+| **operationMetrics** | Counts of files or rows affected (inserted, updated, deleted). |
+| **engineInfo** | Identifies the Databricks Runtime or Delta engine version that executed the operation. |
+
+---
+
+### 🧭 Why It Matters
+
+- **Time Travel Reference** — It provides the version numbers and timestamps you use in `VERSION AS OF` and `TIMESTAMP AS OF` queries.  
+- **Lineage & Auditing** — Acts as a detailed change log showing who did what, when, and how.  
+- **Compliance Evidence** — Vital for regulated pipelines (e.g., those handling PII or PHI) where reproducibility and traceability are required.  
+- **Operational Debugging** — Quickly spot unexpected writes, failed jobs, or schema changes.
+
+---
+
+💡 **In short:**  
+`DESCRIBE HISTORY` is the **table of contents for Delta’s transaction log** — the foundation of **Time Travel**, **data lineage**, and **auditability** in every Delta table.
+
+
+
+
+
 
 <!--
 ### Step 1 — TextGoesHere

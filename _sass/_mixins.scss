@@ -71,11 +71,11 @@
       border-color: rgba($color-accent-alt, .85) !important; // gold
     }
   }
-}                // default button
+}
 .btn--subtle {                             // softer outline variant
   @include button($outline-w: 1.25px, $outline-color: rgba($color-accent-alt,.85));
 }
-.btn--copy { @include button($py: 0.5rem, $px: 1rem, $radius: 12px); } 
+.btn--copy { @include button($py: 0.25rem, $px: 0.25rem, $radius: 12px); } 
 
 /* (optional) utility: strip link underlines the MM way */
 @mixin link-no-underline {
@@ -90,7 +90,7 @@
 .copy-button{
   position:absolute; top:.5rem; right:.5rem; z-index:2;
   display:inline-flex; align-items:center; gap:.4rem;
-  padding:.32rem .6rem; border-radius:8px;
+  padding: 1rem 1rem; border-radius:8px;
   border:1px solid rgba(255,255,255,.18);
   background:rgba(0,0,0,.35); color:#eee; cursor:pointer;
   backdrop-filter:blur(6px);
@@ -100,7 +100,7 @@
   content:""; position:absolute; inset:0; border-radius:8px;
   border:1.5px solid rgba(245,183,89,.45); opacity:0; transform:scale(.95);
   transition:opacity .15s ease, transform .15s ease, border-color .15s ease;
-  pointer-events:none;
+  pointer-events:auto;
 }
 .copy-button:hover::after,
 .copy-button:focus-visible::after{ opacity:1; transform:scale(1); }
