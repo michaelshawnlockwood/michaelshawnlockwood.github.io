@@ -1,3 +1,24 @@
+// Google Fonts (Playball)
+@import url('https://fonts.googleapis.com/css2?family=Playball&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=family=Bangers&family=Great+Vibes&family=Imperial+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
+// Local font (Fairyfiesta)
+// @font-face {
+//   font-family: 'Fairyfiesta';
+//   src: url('{{ "/assets/fonts/Fairyfiesta.woff2" | relative_url }}') format('woff2'),
+//        url('{{ "/assets/fonts/Fairyfiesta.woff"  | relative_url }}') format('woff');
+//   font-weight: normal;
+//   font-style: normal;
+//   font-display: swap;
+// }
+
+
+
 /* ===== Typography scale tweaks ===== */
 html { font-size: 15px; } 
 
@@ -110,8 +131,20 @@ h3 {
   margin: 1em 0 1em 2em;
 }
 
+.md-h1-intro {
+  font-family: 'Imperial Script';
+  font-size: 4rem !important;
+  margin: 0.5em 0 0.5em !important;
+  text-align: center;
+  text-shadow: #000;
+}
+
+// .page__content p + .md-h1-intro{
+//   margin: 0 0 0.5em !important;
+// }
+
 .md-h1 {
-  padding-top: 1rem;
+  margin: 0.5em 0 0.1em !important;
   font-size: 1.75rem !important;
   font-weight: bold;
 }
@@ -142,7 +175,21 @@ h3 {
   font-weight: bold;
 }
 
-// Static SQL frame (block style, no copy button)
+.indent-md {
+  margin-left: 2rem;   /* or 32px */
+}
+
+.indent-lg {
+  margin-left: 3rem;   /* or 32px */
+}
+
+// When there are leading icons
+.indent-md1 {
+  margin-left: 1rem !important;
+}
+
+
+// Static code frame (block style, no copy button)
 .code-frame {
   display: block;
   font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;

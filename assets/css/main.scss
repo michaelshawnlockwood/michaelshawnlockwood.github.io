@@ -1,6 +1,14 @@
 ---
 ---
 
+@font-face {
+  font-family: 'Imperial Script';
+  src: url('{{ "/assets/fonts/ImperialScript-Regular.ttf" | relative_url }}') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import "minimal-mistakes/skins/dark";  /* must come first */
 @import "minimal-mistakes";             /* then the core theme */
 @import "palette";

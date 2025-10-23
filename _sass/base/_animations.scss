@@ -50,3 +50,30 @@
         transform: translate(0);
     }
 }
+
+@keyframes fly-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fly-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  pointer-events: auto;
+}
+
+.fly-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fly-in-delay-1 { animation-delay: 0.2s; }
+.fly-in-delay-2 { animation-delay: 0.4s; }
+.fly-in-delay-3 { animation-delay: 0.6s; }
