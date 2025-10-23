@@ -1,4 +1,4 @@
-@keyframes moveInLeft {
+@keyframes fly-in-left {
     0% {
         opacity: 0;
         transform: translateX(-10rem);
@@ -19,7 +19,7 @@
     }
 }
 
-@keyframes moveInRight {
+@keyframes fly-in-right {
     0% {
         opacity: 0;
         transform: translateX(10rem);
@@ -35,7 +35,7 @@
     }
 }
 
-@keyframes moveInBottom {
+@keyframes fly-in-bottom {
     0% {
         opacity: 0;
         transform: translateY(5rem);
@@ -60,6 +60,58 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Animate-on-Scroll base */
+.aos.aos-ready {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+
+  &[data-aos="fade-right"] {
+    transition: all 0.8s ease-out;
+  }
+}
+
+/* default (bottom → up) */
+.aos.aos-ready {
+  transform: translateY(40px);
+}
+
+/* left → right */
+.aos-left.aos-ready {
+  transform: translateX(-40px);
+}
+
+/* right → left */
+.aos-right.aos-ready {
+  transform: translateX(40px);
+}
+
+/* zoom in */
+.aos-zoom.aos-ready {
+  transform: scale(0.9);
+}
+
+/* visible state (animation complete) */
+.aos.aos-visible {
+  opacity: 1;
+  transform: none;
+
+    /* enable hover effects only once visible */
+  &:hover {
+    opacity: 1;
+    transform: scale(1.25);
+    box-shadow: 0 0 20px rgba(0,0,0,0.35);
+    z-index: 5;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+}
+
+/* Respect prefers-reduced-motion (JS also handles this, but CSS too) */
+@media (prefers-reduced-motion: reduce) {
+  .aos { transition: none !important; transform: none !important; opacity: 1 !important; }
 }
 
 .fly-in {

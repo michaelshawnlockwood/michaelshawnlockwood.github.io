@@ -69,7 +69,7 @@ Each monthly Parquet file is small; it’s entirely reasonable-and sometimes des
  - The format is now a core part of open table formats (Delta, Iceberg, Hudi).  
 
 _Parquet started as a Hadoop optimization but evolved into the universal language of data lakes — the one format everyone reads, writes, and trusts across on-prem, Azure, AWS, and open-source engines._
-{: .highlighter}
+{: .bg-tiles}
 
 # Why Parquet File Format?  
 Parquet is a columnar, compressed, and self-describing file format designed for _efficient_ analytics at scale. Storing data by column rather than row dramatically reduces storage size and speeds up queries that only touch selected fields. In practice, this means faster reads, smaller footprints, and seamless compatibility across platforms like Azure, Databricks, SQL Server, Power BI, and DuckDB—all while preserving full schema fidelity.

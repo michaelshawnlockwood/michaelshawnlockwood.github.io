@@ -102,7 +102,7 @@ h3 {
   font-style: italic;
 }
 
-.highlighter {
+.bg-tiles {
   position: relative;
   display: inline-block;
   padding: 0.7em 0.9em;
@@ -115,7 +115,23 @@ h3 {
     $image-bg; 
 }
 
-.highlighter::before {
+.bg-photo-tt {
+  position: relative;
+
+  padding: 0.7em 0.9em;
+  margin: 1.75rem 0rem 2rem .5rem !important;
+  color: $color-softwhite;
+  border: 1px solid $color-softwhite;
+  border-radius: 6px;
+  width: 100%;
+  min-height: 60vh;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    $image-tt; 
+    background-size: cover;
+}
+
+.bg-tiles::before {
   content: "";
   position: absolute;
   inset: -4px;
@@ -132,16 +148,20 @@ h3 {
 }
 
 .md-h1-intro {
+  display: grid; 
+  justify-items: center;
   font-family: 'Imperial Script';
   font-size: 4rem !important;
-  margin: 0.5em 0 0.5em !important;
+  margin: 0em 0 0 0em !important;
+  padding-right: 0.5em;
   text-align: center;
-  text-shadow: #000;
-}
+  color: $color-softwhite;
 
-// .page__content p + .md-h1-intro{
-//   margin: 0 0 0.5em !important;
-// }
+  .intro-content {
+    font-size: 2rem !important;
+    color: $color-softwhite;
+  }
+}
 
 .md-h1 {
   margin: 0.5em 0 0.1em !important;

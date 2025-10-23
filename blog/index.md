@@ -18,4 +18,7 @@ header:
     {% if post.excerpt %}<p>{{ post.excerpt | strip_html | truncate: 200 }}</p>{% endif %}
   </li>
 {% endfor %}
+{% if page.collection == 'posts' or page.layout == 'single' or page.layout == 'splash' %}
+  <script defer src="{{ '/assets/js/animate-on-scroll.js' | relative_url }}"></script>
+{% endif %}
 </ul>

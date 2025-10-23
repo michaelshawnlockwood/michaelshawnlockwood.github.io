@@ -20,27 +20,36 @@ header:
   caption: "Local Time Travel experiments using Delta-RS with MinIO, Azurite, and Databricks SQL."
 ---
 
-
 <a id="toc" class="visually-hidden"></a>
 
+{% capture intro_md %}
 Introduction
 {: .md-h1-intro}
 
-# Time Travel with Delta-RS: Local Experiments with MinIO, Azurite, and Databricks
+# 🕓 The Concept of Time Travel
+{: .intro .intro-content .fly-in .fly-in-delay-3}
+
+In Delta Lake, Time Travel means you can read a table as it existed at any earlier point, without restoring backups or duplicating datasets. It’s enabled by Delta’s ACID transaction log (the _delta_log folder next to my Parquet files), which records every commit as an immutable, ordered sequence.
+{: .intro .intro-content .fly-in .fly-in-delay-3}
+
+# Time Travel with Delta-RS: Local Experiments with MinIO, Azurite, and Databricks  
+{: .intro .intro-content .fly-in .fly-in-delay-3}
 
 - Context on Delta Lake and why “Time Travel” matters.  
 - Mention my focus on local experimentation using **MinIO (HTTPS)** and **Azurite (HTTPS)** — avoiding reliance on cloud-hosted services&mdash;_to avoid unnecessary costs associated with cloud compute for most developement and experimentation work._  
 - Note that this work complements my earlier projects on Parquet ingestion, Delta-RS integration, and Azure emulation.  
-{: .indent-md}
+{: .indent-md .fly-in .fly-in-delay-3}
+{% endcapture %}
 
-## 🕓 The Concept of Time Travel
-In Delta Lake, Time Travel means you can read a table as it existed at any earlier point, without restoring backups or duplicating datasets. It’s enabled by Delta’s ACID transaction log (the _delta_log folder next to my Parquet files), which records every commit as an immutable, ordered sequence.  
+{% include section.html class="bg-photo-tt" content=intro_md %}
 
 __Versioned Parquet snapshots__  
 Each commit produces a new table version (v0, v1, v2, …). A version is just a logical snapshot composed of the Parquet files that were added or removed in that commit. Delta uses small JSON (and periodic checkpoint) files to describe which data files are active for each version.  
+{: .fly-in .fly-in-delay-3}
 
 __ACID guarantees__  
 The transaction log enforces atomicity, consistency, isolation, and durability. Readers see a consistent snapshot (no partial writes), writers don’t corrupt the table if they fail midway, and concurrent operations serialize into clean versions.  
+{: .fly-in .fly-in-delay-3}
 
 __Schema enforcement & evolution__  
 The log also captures schema information. Delta can enforce the expected schema and, when configured, evolve it (e.g., add a column) in a controlled, versioned way. Time Travel lets you query before or after such changes.  
@@ -80,7 +89,7 @@ _Setting the Stage_
 
 ![For Blog: MinIO Object Browser](/assets/images/screenshots/minio-nyctaxi-pipeline-container00.png)
 *MinIO Object Browser showing the `nyctaxi-pipeline` bucket structure.*
-{: .fly-in .fly-in-delay-3}
+{: .aos .screenshot-lg}
 
 Delta-RS and Local Connectivity  
 {: .md-h2 .fly-in .fly-in-delay-3}
@@ -267,6 +276,7 @@ Databricks will join later in the workflow — it’s still a “thin” layer n
 
 ---
 
+## 🧱 Time Travel in Databricks (DBX)  
 ⚙️ What Works in Databricks Community Edition (DBX CE)  
 {: .md-h2 .fly-in .fly-in-delay-3}
 
@@ -280,6 +290,136 @@ Databricks will join later in the workflow — it’s still a “thin” layer n
 
 💡 **Everything happens locally** inside the user workspace; still perfect for demonstrating Delta’s ACID log and snapshot isolation behavior.
 {: .indent-md1 .fly-in .fly-in-delay-3}
+
+---
+
+⏱️ Time Travel by Timestamp (DBX CE)
+{: ,md-h2 .fly-in .fly-in-delay-3}
+
+**How:** Copy a timestamp from `DESCRIBE HISTORY` and query the table *as of that moment*.
+{: .fly-in .fly-in-delay-3}
+
+First, I'll create a small table and populate it with a few rows.
+{: .fly-in .fly-in-delay-3}
+
+```sql
+CREATE TABLE tt_demo (id INT, note STRING)
+USING DELTA;
+
+-- Insert an initial version
+INSERT INTO tt_demo VALUES (1, 'v1 insert'), (2, 'v1 insert'), (3, 'v1 update'), (4, 'v1 delete');
+
+-- Verify data
+SELECT * FROM tt_demo;
+```
+{: .fly-in .fly-in-delay-3}
+
+![Databricks tt_demo table](/assets/images/screenshots/databricks-tt-demo-step-1.JPG)
+{: .aos .aos-right .screenshot-xsm}
+
+Now, execute `DESCRIBE HISTORY tt_demo;`
+{: .fly-in .fly-in-delay-3}
+
+```sql
+DESCRIBE HISTORY tt_demo;
+```
+{: .fly-in .fly-in-delay-3}
+
+🧾 Understanding `DESCRIBE HISTORY` in Delta Lake
+{: .md-h2 .fly-in .fly-in-delay-3}
+
+The `DESCRIBE HISTORY` command is Delta Lake’s built-in window into your table’s **transaction log**.  
+When executed, it reads the metadata stored in the hidden `_delta_log` folder and returns a complete **audit trail** of all commits — one row per table version.
+{: .fly-in .fly-in-delay-3}
+
+This audit view is both a **technical ledger** (used by Time Travel) and a **compliance record** (used for governance and traceability).
+{: .fly-in .fly-in-delay-3}
+
+![Databricks tt_demo DESCRIBE HISTORY](/assets/images/screenshots/databricks-tt-demo-step-1-describe.JPG)
+{: .aos .aos-right .screenshot-lg }
+
+---
+
+🧩 What Each Column Means  
+{: .md-h3 .fly-in .fly-in-delay-3}
+
+| Column | Description |
+|---------|-------------|
+| **version** | Sequential number identifying the commit (starting at 0). Each write, update, or delete increments this version. |
+| **timestamp** | UTC timestamp when the operation was committed to the transaction log. |
+| **userId / userName** | The identity of the user who performed the operation (automatically captured in Databricks). |
+| **operation** | The action performed — e.g., `CREATE TABLE`, `WRITE`, `UPDATE`, `DELETE`, `MERGE`. |
+| **operationParameters** | JSON-formatted details describing the operation, such as filters, partition columns, or write mode. |
+| **readVersion** | The table version that the writer read before making this commit. |
+| **isolationLevel** | Confirms transactional integrity (commonly `WriteSerializable` for Delta ACID compliance). |
+| **operationMetrics** | Counts of files or rows affected (inserted, updated, deleted). |
+| **engineInfo** | Identifies the Databricks Runtime or Delta engine version that executed the operation. |
+{: .fly-in .fly-in-delay-3}
+
+❗ Why It Matters
+{: .md-h3 .fly-in .fly-in-delay-3}
+
+- **Time Travel Reference** — It provides the version numbers and timestamps you use in `VERSION AS OF` and `TIMESTAMP AS OF` queries.  
+- **Lineage & Auditing** — Acts as a detailed change log showing who did what, when, and how.  
+- **Compliance Evidence** — Vital for regulated pipelines (e.g., those handling PII or PHI) where reproducibility and traceability are required.  
+- **Operational Debugging** — Quickly spot unexpected writes, failed jobs, or schema changes.
+{: .indent-md .fly-in .fly-in-delay-3}
+
+---
+
+✨ **Summary**  
+`DESCRIBE HISTORY` is the **table of contents for Delta’s transaction log** — the foundation of **Time Travel**, **data lineage**, and **auditability** in every Delta table.
+{: .fly-in .fly-in-delay-3}
+
+Next, Update one row to create version 2
+```sql
+UPDATE tt_demo SET note = 'v2 update' WHERE id = 3;
+```
+
+And, Delete one row to create version 3
+```sql
+DELETE FROM tt_demo WHERE id = 4;
+```
+
+Now, rerun `DESCRIBE HISTORY`
+```sql
+DESCRIBE HISTORY tt_demo;
+```
+
+![Databricks tt_demo DESCRIBE HISTORY Python](/assets/images/screenshots/databricks-tt-demo-step-4-describe.JPG)
+{: .aos .aos-right .screenshot-lg }
+
+In a Notebook, we can view the same history using Python.
+
+![Databricks tt_demo DESCRIBE HISTORY Python](/assets/images/screenshots/databricks-tt-demo-step-5-history-in-python.JPG)
+{: .aos .aos-right .screenshot-lg }
+
+---
+
+📜 Results — Time Travel in Action
+{: .md-h2}
+
+| Version | Operation | Expected State | Verified |
+|:--|:--|:--|:--|
+| **0** | `CREATE TABLE` | Table created, empty | ✅ |
+| **1** | `WRITE` (INSERT) | Rows (1–4) inserted | ✅ |
+| **2** | `UPDATE` | Row `id=3` → `v2 update` | ✅ |
+| **3** | `DELETE` | Row `id=4` removed | ✅ |
+
+Snapshot Verification
+{: .md-h3}
+
+- **Current State (v3)** → rows 1–3 (`v2 update` present, id 4 gone)  
+- **As of Version 1** → original four rows intact  
+- **As of Version 2** → same four rows, but `id 3` shows `v2 update`  
+- **@ Syntax** → identical results (`SELECT * FROM tt_demo@v1`)
+
+✅ **Conclusion:** Each Delta write produces an immutable versioned snapshot.  
+`VERSION AS OF` and `TIMESTAMP AS OF` allow point-in-time reads without restores or backups — proving Delta’s ACID transaction log guarantees.
+
+---
+
+💡 *I've now built the Bronze-level demo that underpins every higher-layer TT concept.*
 
 ---
 
@@ -415,8 +555,8 @@ That’s where organizations enforce de-identification, apply data-access contro
 
 ---
 
-## 🧭 Terminology — Layer vs. Zone vs. Domain
-{: .fly-in .fly-in-delay-3}
+Terminology — Layer vs. Zone vs. Domain
+{: .md-h2 .fly-in .fly-in-delay-3}
 
 | Term | Connotation | Common Usage |
 |------|--------------|---------------|
@@ -433,8 +573,8 @@ That’s where organizations enforce de-identification, apply data-access contro
 
 ---
 
-## 🕰️ Time Travel Across the Medallion Layers
-{: .fly-in .fly-in-delay-3}
+🕰️ Time Travel Across the Medallion Layers
+{: .md-h2 .fly-in .fly-in-delay-3}
 
 Delta’s **Time Travel** feature is layer-agnostic — it functions anywhere Delta tables exist —  
 but its *intent and value* vary by stage of refinement:
@@ -466,95 +606,10 @@ but its *intent and value* vary by stage of refinement:
 
 ---
 
-💡 **Summary:**  
+💡 **Summary**  
 Time Travel is the connective tissue between Medallion layers —  
 it preserves **lineage, reproducibility, and trust**, ensuring that every refinement step from Bronze → Silver → Gold can be explained, audited, and, if necessary, *rolled back in time.*
 {: .fly-in .fly-in-delay-3}
-
----
-
-## ⏱️ Time Travel by Timestamp (DBX CE)
-{: .fly-in .fly-in-delay-3}
-
-**How:** Copy a timestamp from `DESCRIBE HISTORY` and query the table *as of that moment*.
-{: .fly-in .fly-in-delay-3}
-
-First, I'll create a small table and populate it with a few rows.
-{: .fly-in .fly-in-delay-3}
-
-```sql
-CREATE TABLE tt_demo (id INT, note STRING)
-USING DELTA;
-
--- Insert an initial version
-INSERT INTO tt_demo VALUES (1, 'v1 insert'), (2, 'v1 insert'), (3, 'v1 update'), (4, 'v1 delete');
-
--- Verify data
-SELECT * FROM tt_demo;
-```
-{: .fly-in .fly-in-delay-3}
-
-![Databricks tt_demo table](/assets/images/screenshots/databricks-tt-demo-step-1.JPG)
-{: .screenshot-sm .fly-in .fly-in-delay-3}
-
-Now, execute `DESCRIBE HISTORY tt_demo;`
-{: .fly-in .fly-in-delay-3}
-
-```sql
-DESCRIBE HISTORY tt_demo;
-```
-{: .fly-in .fly-in-delay-3}
-
-## 🧾 Understanding `DESCRIBE HISTORY` in Delta Lake
-{: .fly-in .fly-in-delay-3}
-
-The `DESCRIBE HISTORY` command is Delta Lake’s built-in window into your table’s **transaction log**.  
-When executed, it reads the metadata stored in the hidden `_delta_log` folder and returns a complete **audit trail** of all commits — one row per table version.
-{: .fly-in .fly-in-delay-3}
-
-This audit view is both a **technical ledger** (used by Time Travel) and a **compliance record** (used for governance and traceability).
-{: .fly-in .fly-in-delay-3}
-
-![Databricks tt_demo DESCRIBE HISTORY](/assets/images/screenshots/databricks-tt-demo-step-1-describe.JPG)
-{: .screenshot-lg .fly-in .fly-in-delay-3}
-
----
-
-🧩 What Each Column Means  
-{: .md-h3 .fly-in .fly-in-delay-3}
-
-| Column | Description |
-|---------|-------------|
-| **version** | Sequential number identifying the commit (starting at 0). Each write, update, or delete increments this version. |
-| **timestamp** | UTC timestamp when the operation was committed to the transaction log. |
-| **userId / userName** | The identity of the user who performed the operation (automatically captured in Databricks). |
-| **operation** | The action performed — e.g., `CREATE TABLE`, `WRITE`, `UPDATE`, `DELETE`, `MERGE`. |
-| **operationParameters** | JSON-formatted details describing the operation, such as filters, partition columns, or write mode. |
-| **readVersion** | The table version that the writer read before making this commit. |
-| **isolationLevel** | Confirms transactional integrity (commonly `WriteSerializable` for Delta ACID compliance). |
-| **operationMetrics** | Counts of files or rows affected (inserted, updated, deleted). |
-| **engineInfo** | Identifies the Databricks Runtime or Delta engine version that executed the operation. |
-{: .fly-in .fly-in-delay-3}
-
----
-
-❗ Why It Matters
-{: .md-h3 .fly-in .fly-in-delay-3}
-
-- **Time Travel Reference** — It provides the version numbers and timestamps you use in `VERSION AS OF` and `TIMESTAMP AS OF` queries.  
-- **Lineage & Auditing** — Acts as a detailed change log showing who did what, when, and how.  
-- **Compliance Evidence** — Vital for regulated pipelines (e.g., those handling PII or PHI) where reproducibility and traceability are required.  
-- **Operational Debugging** — Quickly spot unexpected writes, failed jobs, or schema changes.
-{: .indent-md .fly-in .fly-in-delay-3}
-
----
-
-✨ **In short:**  
-`DESCRIBE HISTORY` is the **table of contents for Delta’s transaction log** — the foundation of **Time Travel**, **data lineage**, and **auditability** in every Delta table.
-{: .fly-in .fly-in-delay-3}
-
-
-
 
 
 <!--
