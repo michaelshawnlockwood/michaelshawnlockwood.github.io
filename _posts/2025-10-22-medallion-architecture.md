@@ -212,3 +212,18 @@ it preserves **lineage, reproducibility, and trust**, ensuring that every refine
 
 ---
 [⬆ Back to Top](#toc){:.back-to-top}
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // only trigger once
+      }
+    });
+  }, { threshold: 0.2 }); // fire when 20% visible
+
+  document.querySelectorAll(".fly-in").forEach(el => observer.observe(el));
+});
+</script>
