@@ -26,7 +26,7 @@ header:
 Introduction
 {: .md-h1-intro}
 
-# 🕓 The Concept of Time Travel
+# 🕰️ The Concept of Time Travel
 {: .intro .intro-content .fly-in .fly-in-delay-3}
 
 In Delta Lake, Time Travel means you can read a table as it existed at any earlier point, without restoring backups or duplicating datasets. It’s enabled by Delta’s ACID transaction log (the _delta_log folder next to my Parquet files), which records every commit as an immutable, ordered sequence.
@@ -371,25 +371,29 @@ This audit view is both a **technical ledger** (used by Time Travel) and a **com
 `DESCRIBE HISTORY` is the **table of contents for Delta’s transaction log** — the foundation of **Time Travel**, **data lineage**, and **auditability** in every Delta table.
 {: .fly-in .fly-in-delay-3}
 
-Next, Update one row to create version 2
+Next, UPDATE one row to create version 2
 ```sql
 UPDATE tt_demo SET note = 'v2 update' WHERE id = 3;
 ```
+{: .fly-in .fly-in-delay-3}
 
-And, Delete one row to create version 3
+And, DELETE one row to create version 3
 ```sql
 DELETE FROM tt_demo WHERE id = 4;
 ```
+{: .fly-in .fly-in-delay-3}
 
 Now, rerun `DESCRIBE HISTORY`
 ```sql
 DESCRIBE HISTORY tt_demo;
 ```
+{: .fly-in .fly-in-delay-3}
 
 ![Databricks tt_demo DESCRIBE HISTORY Python](/assets/images/screenshots/databricks-tt-demo-step-4-describe.JPG)
 {: .aos .aos-right .screenshot-lg }
 
-In a Notebook, we can view the same history using Python.
+💡 In a Notebook, we can view the same history using Python.
+{: .md-h2 .fly-in .fly-in-delay-3}
 
 ![Databricks tt_demo DESCRIBE HISTORY Python](/assets/images/screenshots/databricks-tt-demo-step-5-history-in-python.JPG)
 {: .aos .aos-right .screenshot-lg }
@@ -413,13 +417,16 @@ Snapshot Verification
 - **As of Version 1** → original four rows intact  
 - **As of Version 2** → same four rows, but `id 3` shows `v2 update`  
 - **@ Syntax** → identical results (`SELECT * FROM tt_demo@v1`)
+{: .indent-md .fly-in .fly-in-delay-3}
 
 ✅ **Conclusion:** Each Delta write produces an immutable versioned snapshot.  
 `VERSION AS OF` and `TIMESTAMP AS OF` allow point-in-time reads without restores or backups — proving Delta’s ACID transaction log guarantees.
+{: .fly-in .fly-in-delay-3}
 
 ---
 
 💡 *I've now built the Bronze-level demo that underpins every higher-layer TT concept.*
+{: .fly-in .fly-in-delay-3}
 
 ---
 
@@ -573,7 +580,7 @@ Terminology — Layer vs. Zone vs. Domain
 
 ---
 
-🕰️ Time Travel Across the Medallion Layers
+🕓 Time Travel Across the Medallion Layers
 {: .md-h2 .fly-in .fly-in-delay-3}
 
 Delta’s **Time Travel** feature is layer-agnostic — it functions anywhere Delta tables exist —  
