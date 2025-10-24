@@ -165,6 +165,166 @@ Appendix (Optional)
 
 ---
 
+## 🕓 Delta Lake Time Travel — Direct from Azurite over HTTPS
+{: .fly-in .fly-in-delay-3}
+
+🔐 **Fully encrypted, direct Delta Lake Time Travel operation**
+{: .fly-in .fly-in-delay-3}
+
+---
+
+🏡 Environment Setup  
+{: .md-h2 .fly-in .fly-in-delay-3}
+
+Verified Azurite’s HTTPS trust chain using the mkcert-generated CA:
+{: .fly-in .fly-in-delay-3}
+
+💡 Azurite doesn’t have a runtime CLI command to “create” accounts the way MinIO or Azure do — instead, accounts are declared when Azurite starts, using the AZURITE_ACCOUNTS environment variable or --oauth basic mode.  
+{: .fly-in .fly-in-delay-3}
+
+🔹 Generate a 64-byte Base64 account key 🗝️
+{: .fly-in .fly-in-delay-3}
+
+```powershell
+# PowerShell
+[Convert]::ToBase64String((1..64 | ForEach-Object {Get-Random -Max 256}))
+```
+{: .fly-in .fly-in-delay-3}
+
+Output:
+![Generate Key Output](/assets/images/screenshots/generate-account-key.JPG)
+{: .aos .aos-right .screenshot-md}
+
+🧩 Set a couple of environment variables then start Azurite  
+{: .fly-in .fly-in-delay-3}
+
+![Set Environment Variables and Start Azurite](/assets/images/screenshots/azurite-set-env-and-start.JPG)
+{: .aos .aos-right .screenshot-md}
+
+🆚 Summary (side-by-side comparison)  
+{: .fly-in .fly-in-delay-3}
+
+| Purpose | MinIO | Azurite |
+|:--|:--|:--|
+|Root CA | $env:AWS_CA_BUNDLE | $env:AZURE_CLI_CA_PATH |
+|Endpoint | $env:AWS_ENDPOINT_URL | $env:AZURE_STORAGE_BLOB_ENDPOINT |
+|Region (optional) | $env:AWS_REGION | (not used) |
+|Access Key | $env:AWS_ACCESS_KEY_ID | $env:AZURE_STORAGE_ACCOUNT |
+|Secret Key | $env:AWS_SECRET_ACCESS_KEY | $env:AZURE_STORAGE_KEY |
+|Force Path-Style | $env:AWS_S3_FORCE_PATH_STYLE | (n/a — handled internally by emulator) |  
+{: .aos .aos-left}
+
+---
+
+⚡ Using Azure CLI  
+{: .md-h2 .fly-in .fly-in-delay-3}
+
+> Although Azurite is a local emulator, its strength lies in **behaving like real Azure Storage**.  
+> By using the **Azure CLI**, we can interact with the emulator through the same commands used against production Azure Blob > services.  
+> This parity makes every operation — from container creation to blob enumeration — feel authentic and transferable.  
+> Azure CLI isn’t just convenient; it reinforces confidence that our local workflows will behave identically in the cloud.
+{: .fly-in .fly-in-delay-3}
+
+Next, create the root container. I'm using NYC Taxi data. Therefore, "nyctaxi".  "tt_demo" comes later.  
+📦 nyctaxi  
+└── 🗂️ tt_demo  
+{: .fly-in .fly-in-delay-3}
+
+```powershell  
+# PowerShell
+az storage container create `
+  --name nyctaxi `
+  --account-name mxlockwood `
+  --account-key 9youQrybaCxlzjc3XeXmwM14eNZptLawyOpWxEj26m8= `
+  --blob-endpoint https://127.0.0.1:10000/mxlockwood
+```
+{: .fly-in .fly-in-delay-3}
+
+---
+
+✂️ Note on Brevity  
+{: .md-h2 .fly-in .fly-in-delay-3}
+
+For clarity and focus, this section omits the detailed steps for file preparation, sampling, and upload.  
+Those processes have been validated previously and are assumed complete here.  
+{: .fly-in .fly-in-delay-3}
+
+🗺️ Discovery
+{: .md-h2 .fly-in .fly-in-delay-3}
+
+Exploring the local Azurite environment to verify connectivity, enumerate containers, and confirm HTTPS access before writing any Delta tables.
+{: .fly-in .fly-in-delay-3}
+
+
+📃 List available containers 
+Using either `az storage container list` or `BlobServiceClient.list_containers()` to ensure the emulator is reachable and our workspace (`nyctaxi`, `tt_demo`, etc.) exists and is ready for data operations.  Obviously, create your account and key
+{: .fly-in .fly-in-delay-3}
+
+```python
+# Python
+...
+from azure.storage.blob import BlobServiceClient
+import os
+
+account   = "mxlockwood"
+key       = "9youQrybaCxlzjc3XeXmwM14eNZptLawyOpWxEj26m8="
+endpoint  = "https://127.0.0.1:10000/mxlockwood"
+ca_bundle = os.getenv("SSL_CERT_FILE")  
+
+conn_str = (
+    f"DefaultEndpointsProtocol=https;"
+    f"AccountName={account};"
+    f"AccountKey={key};"
+    f"BlobEndpoint={endpoint};"
+)
+client = BlobServiceClient.from_connection_string(conn_str, connection_verify=ca_bundle)
+
+print("Available containers:")
+for c in client.list_containers():
+    print(" -", c["name"])
+```
+{: .fly-in .fly-in-delay-3}
+
+Output:
+![Delta-RS List Containers Output](/assets/images/screenshots/azurite-list-all-containers.JPG)
+{: .aos .aos-right .screenshot-md}
+
+🎁 What's inside?
+{: .fly-in .fly-in-delay-3}
+
+```python
+# Python
+...
+client = BlobServiceClient.from_connection_string(conn_str, connection_verify=ca_bundle)
+
+# ---- LIST CONTAINERS ----
+print("Containers:")
+for container in client.list_containers():
+    print(" -", container["name"])
+
+# ---- LIST BLOBS IN A KNOWN CONTAINER ----
+container_name = "nyctaxi"
+container_client = client.get_container_client(container_name)
+
+print(f"\nBlobs in '{container_name}':")
+for blob in container_client.list_blobs():
+    print(" -", blob.name)
+```
+{: .fly-in .fly-in-delay-3}
+
+Output 1 of 2:
+![container_client.list_blobs](/assets/images/screenshots/azurite-tt-demo-view-path-contents00.JPG)
+{: .aos .aos-right .screenshot-md}
+
+Output 2 of 2:
+![container_client.list_blobs](/assets/images/screenshots/azurite-tt-demo-view-path-contents01.JPG)
+{: .aos .aos-right .screenshot-md}
+
+
+<!-- THIS IS THE BEGINNING OF MinIO CONTENT -->
+---
+
+
 ## 🕓 Delta Lake Time Travel — Direct from MinIO over HTTPS
 {: .fly-in .fly-in-delay-3}
 
@@ -173,8 +333,8 @@ Appendix (Optional)
 
 ---
 
-### 🔐 Environment Setup  
-{: .fly-in .fly-in-delay-3}
+🏡 Environment Setup  
+{: .md-h2 .fly-in .fly-in-delay-3}
 
 Verified MinIO’s HTTPS trust chain using the mkcert-generated CA:
 {: .fly-in .fly-in-delay-3}
@@ -192,8 +352,8 @@ $env:AWS_SECRET_ACCESS_KEY = "minioadmin"
 
 ---
 
-## 💼 The Business Ask — Presenting Revenue from a Specific Period
-{: .fly-in .fly-in-delay-3}
+💼 The Business Ask — Presenting Revenue from a Specific Period
+{: .md-h2 .fly-in .fly-in-delay-3}
 
 > “I have a presentation to make showing **Taxi Trip revenues from March 12 through May 15**.  
 > I need to see metrics A, B, C, D, and E.”
