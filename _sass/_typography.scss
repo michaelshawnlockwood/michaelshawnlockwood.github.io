@@ -115,6 +115,12 @@ h3 {
     $image-bg; 
 }
 
+.fa-keycdn {
+  color: goldenrod;
+  transform: rotate(-15deg);
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
 .bg-photo-tt {
   position: relative;
 
@@ -176,8 +182,7 @@ h3 {
 }
 
 .md-h2 {
-  padding-top: 1em;
-  margin-bottom: 0.05rem !important;
+  margin: 0.5em 0 0.1em !important;
   font-size: 1.5rem !important;
   font-weight: bold;
 }
@@ -189,8 +194,7 @@ h3 {
 }
 
 .md-h3 {
-  padding-top: 0.25rem;
-  margin-bottom: 0.05rem !important;
+  margin: 0.5em 0 0.1em !important;
   font-size: 1.25rem !important;
   font-weight: bold;
 }

@@ -26,14 +26,14 @@ header:
 Introduction
 {: .md-h1-intro}
 
-# 🕰️ The Concept of Time Travel
-{: .intro .intro-content .fly-in .fly-in-delay-3}
+<i class="fa-solid fa-clock-rotate-left"></i> The Concept of Time Travel
+{: .md-h1 .intro .intro-content .fly-in .fly-in-delay-3}
 
 In Delta Lake, Time Travel means you can read a table as it existed at any earlier point, without restoring backups or duplicating datasets. It’s enabled by Delta’s ACID transaction log (the _delta_log folder next to my Parquet files), which records every commit as an immutable, ordered sequence.
 {: .intro .intro-content .fly-in .fly-in-delay-3}
 
-# Time Travel with Delta-RS: Local Experiments with MinIO, Azurite, and Databricks  
-{: .intro .intro-content .fly-in .fly-in-delay-3}
+Time Travel with Delta-RS: Local Experiments with MinIO, Azurite, and Databricks  
+{: .md-h2 .intro .intro-content .fly-in .fly-in-delay-3}
 
 - Context on Delta Lake and why “Time Travel” matters.  
 - Mention my focus on local experimentation using **MinIO (HTTPS)** and **Azurite (HTTPS)** — avoiding reliance on cloud-hosted services&mdash;_to avoid unnecessary costs associated with cloud compute for most developement and experimentation work._  
@@ -80,7 +80,7 @@ _Setting the Stage_
 {: .md-h2 .fly-in .fly-in-delay-3}
 
   - MinIO bucket (`nyctaxi-pipeline`) over HTTPS for AWS S3 Blob Storage emulation
-  - Azurite over HTTPS for Azure Blob Storage emulation  
+  - Azurite bucket (`nyctaxi`) over HTTPS for Azure Blob Storage emulation  
   - Databricks SQL (DBX SQL) for validation of versioned reads  
 {: .indent-lg .fly-in .fly-in-delay-3}
 
@@ -165,16 +165,18 @@ Appendix (Optional)
 
 ---
 
-## 🕓 Delta Lake Time Travel — Direct from Azurite over HTTPS
-{: .fly-in .fly-in-delay-3}
+<!-- # [Time Travel in Azurite](.\#azure) -->
 
-🔐 **Fully encrypted, direct Delta Lake Time Travel operation**
-{: .fly-in .fly-in-delay-3}
+# <img id="azure" src="/assets/images/tiles/AZR.png" alt="Azure" class="tile-sm" /> ⏱ Delta Lake Time Travel in Azurite
+{: .md-h2 .fly-in .fly-in-delay-3}
+
+🔐 **Encrypted over HTTPS &mdash; Delta Lake Time Travel step-by-step**
+{: .indent-lg .fly-in .fly-in-delay-3}
 
 ---
 
 🏡 Environment Setup  
-{: .md-h2 .fly-in .fly-in-delay-3}
+{: .md-h3 .fly-in .fly-in-delay-3}
 
 Verified Azurite’s HTTPS trust chain using the mkcert-generated CA:
 {: .fly-in .fly-in-delay-3}
@@ -320,15 +322,13 @@ Output 2 of 2:
 ![container_client.list_blobs](/assets/images/screenshots/azurite-tt-demo-view-path-contents01.JPG)
 {: .aos .aos-right .screenshot-md}
 
-
 <!-- THIS IS THE BEGINNING OF MinIO CONTENT -->
 ---
 
+# <img src="/assets/images/tiles/MIO.png" alt="MinIO" class="tile-sm" /> ⏱ Delta Lake Time Travel in MinIO
+{: .md-h2 .fly-in .fly-in-delay-3}
 
-## 🕓 Delta Lake Time Travel — Direct from MinIO over HTTPS
-{: .fly-in .fly-in-delay-3}
-
-**Fully encrypted, direct Delta Lake Time Travel operation**
+🔐 **Encrypted over HTTPS &mdash; Delta Lake Time Travel step-by-step**
 {: .fly-in .fly-in-delay-3}
 
 ---
@@ -377,8 +377,8 @@ Rather than running new ETL jobs or risking stale copies, the **Delta Time Trave
 
 ---
 
-### 🧱 Data Foundation
-{: .fly-in .fly-in-delay-3}
+🧱 Data Foundation
+{: .md-h3 .fly-in .fly-in-delay-3}
 
 - Source: `s3://nyctaxi-pipeline/delta/yellowtrips` (Delta version 4)  
 - Time window: **2025-03-12 → 2025-05-15**  
@@ -396,8 +396,8 @@ From here, I can connect Power BI Desktop to MinIO using an S3-compatible endpoi
 
 ---
 
-### 🧭 What Comes Next
-{: .fly-in .fly-in-delay-3}
+🧭 What Comes Next
+{: .md-h3 .fly-in .fly-in-delay-3}
 
 Power BI will surface the visuals the business needs:
 {: .fly-in .fly-in-delay-3}
@@ -411,14 +411,14 @@ Power BI will surface the visuals the business needs:
 Databricks will join later in the workflow — it’s still a “thin” layer now, but will soon host the same Delta tables for shared compute and reproducible dashboards.
 {: .fly-in .fly-in-delay-3}
 
-> ### 🔑 Key Takeaways
+> 🔑 **Key Takeaways**
 > A key takeaway: one Delta Time Travel query, one Parquet file, and the entire presentation dataset is reproducible, auditable, and securely sourced from MinIO over HTTPS.
 > Secure HTTPS connection across all platforms
 > Delta-RS Time Travel enabling historical accuracy
 > Zero local dependencies — all cloud-style operations
 {: .fly-in .fly-in-delay-3}
 
-> 🔑 **Key Insight:** The same mkcert CA unified MinIO, SQL Server, and Python.
+> <i class="fa-brands fa-keycdn"></i> **Key Insight:** The same mkcert CA unified MinIO, <i class="fa-solid fa-database"></i>SQL Server, and Python.
 {: .fly-in .fly-in-delay-3}
 
 ---
@@ -436,9 +436,11 @@ Databricks will join later in the workflow — it’s still a “thin” layer n
 
 ---
 
-## 🧱 Time Travel in Databricks (DBX)  
-⚙️ What Works in Databricks Community Edition (DBX CE)  
+<img src="/assets/images/tiles/DBX.png" alt="Databricks" class="tile-sm" /> Time Travel in Databricks (DBX)  
 {: .md-h2 .fly-in .fly-in-delay-3}
+
+⚙️ What Works in Databricks Community Edition (DBX CE)  
+{: .md-h3 .fly-in .fly-in-delay-3}
 
 ✅ **Delta Time Travel** by **version** and **timestamp** works natively in CE using both SQL and Spark APIs.  
 ✅ **`DESCRIBE HISTORY`** lists operations, timestamps, and version numbers for any Delta table.  
@@ -585,11 +587,12 @@ Snapshot Verification
 
 ---
 
-💡 *I've now built the Bronze-level demo that underpins every higher-layer TT concept.*
+💡 *I've now built the Bronze-layer demo that underpins every higher-layer TT concept.*
 {: .fly-in .fly-in-delay-3}
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 ## 🏗️ Medallion Architecture — Three Domains Simplified
 {: .fly-in .fly-in-delay-3}
 
@@ -740,7 +743,7 @@ Terminology — Layer vs. Zone vs. Domain
 
 ---
 
-🕓 Time Travel Across the Medallion Layers
+🕓 Time Travel Across the Medallion Layers 
 {: .md-h2 .fly-in .fly-in-delay-3}
 
 Delta’s **Time Travel** feature is layer-agnostic — it functions anywhere Delta tables exist —  
