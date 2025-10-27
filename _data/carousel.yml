@@ -1,6 +1,6 @@
 # _data/carousel.yml
 carousel:
-  - img: /assets/images/carousel/DLT-sm.png
+  - img: /assets/images/carousel/DLT-sm.PNG
     alt: "Delta Lake"
     href: "/blog/"
     points:
@@ -10,7 +10,7 @@ carousel:
       - "Supports upserts, deletes, and vacuum retention"
       - "Backbone of reliable Lakehouse architecture"
 
-  - img: /assets/images/carousel/SQL-sm.png
+  - img: /assets/images/carousel/SQL-sm.PNG
     alt: "SQL Server"
     href: "/blog/"
     points:
@@ -20,7 +20,7 @@ carousel:
       - "Executes analytic queries on Delta snapshots"
       - "Automates ETL refresh via SQL Agent or SSIS"
 
-  - img: /assets/images/carousel/AIR-sm.png
+  - img: /assets/images/carousel/AIR-sm.PNG
     alt: "Apache Airflow"
     href: "/blog/"
     points:
@@ -30,7 +30,7 @@ carousel:
       - "Triggers Delta-RS scripts for Time Travel validation"
       - "Integrates with Databricks, MinIO, and Azurite for local orchestration"
 
-  - img: /assets/images/carousel/DBX-sm.png
+  - img: /assets/images/carousel/DBX-sm.PNG
     alt: "Databricks"
     href: "/blog/"
     points:
@@ -40,7 +40,7 @@ carousel:
       - "Photon engine accelerates vectorized queries"
       - "Bridges notebook POCs to governed production layers"
 
-  - img: /assets/images/carousel/PQT-sm.png
+  - img: /assets/images/carousel/PQT-sm.PNG
     alt: "Parquet"
     href: "/blog/"
     points:
@@ -50,7 +50,7 @@ carousel:
       - "Supports predicate pushdown for efficient filtering"
       - "Compact footprints keep Time Travel snapshots lightweight"
 
-  - img: /assets/images/carousel/PYT-sm.png
+  - img: /assets/images/carousel/PYT-sm.PNG
     alt: "Python"
     href: "/blog/"
     points:
@@ -60,7 +60,7 @@ carousel:
       - "Transforms Parquet partitions before snapshot writes"
       - "Integrates with Jupyter and Databricks notebooks"
 
-  - img: /assets/images/carousel/MIN-sm.png
+  - img: /assets/images/carousel/MIN-sm.PNG
     alt: "MinIO"
     href: "/blog/"
     points:
@@ -70,7 +70,7 @@ carousel:
       - "Enables versioned object retention and audit"
       - "Mimics enterprise S3 deployments for zero-cloud cost"
 
-  - img: /assets/images/carousel/AZU-sm.png
+  - img: /assets/images/carousel/AZU-sm.PNG
     alt: "Azurite"
     href: "/blog/"
     points:
@@ -80,7 +80,7 @@ carousel:
       - "Ensures parity with production Azure pipelines"
       - "HTTPS + signed URLs for reproducible Time Travel; same URIs [you]’d use in cloud"
 
-  - img: /assets/images/carousel/SCA-sm.png
+  - img: /assets/images/carousel/SCA-sm.PNG
     alt: "Scala"
     href: "/blog/"
     points:
@@ -90,7 +90,7 @@ carousel:
       - "Integrates with Delta-RS and Spark connectors"
       - "Future path for strongly typed data pipelines"
 
-  - img: /assets/images/carousel/SNO-sm.png
+  - img: /assets/images/carousel/SNO-sm.PNG
     alt: "Snowflake"
     href: "/blog/"
     points:
@@ -100,7 +100,7 @@ carousel:
       - "Time Travel feature parallels Delta Lake versioning"
       - "Integrates with Power BI, Databricks, and Airflow pipelines"
 
-  - img: /assets/images/carousel/PHO-sm.png
+  - img: /assets/images/carousel/PHO-sm.PNG
     alt: "Photon"
     href: "/blog/"
     points:
@@ -110,7 +110,7 @@ carousel:
       - "Handles scans, joins, and aggregations near “bare-metal” speed"
       - "Key enabler of near-real-time Time Travel analytics"
 
-  - img: /assets/images/carousel/UNI-sm.png
+  - img: /assets/images/carousel/UNI-sm.PNG
     alt: "Unity Catalog"
     href: "/blog/"
     points:
