@@ -1,0 +1,48 @@
+.manifesto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+  margin: 1.5em auto;
+  padding: 0 0.5rem 2rem;
+  text-align: left;
+
+  .manifesto-block {
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease-out;
+    &:hover { transform: translateY(-4px); }
+
+    .inner {
+      border-top: none !important;
+        &:hover {
+          background-color: rgba(0,0,0,0.35);
+          transform: scale(1.15);
+          box-shadow: 0 0 20px rgba(0,0,0,0.35);
+          z-index: 5;
+      }
+    }
+  }
+
+  /* 🎨 color accents */
+  .lab   { border-top: 4px solid #3fa9f5; }   /* Azure blue */
+  .cloud { border-top: 4px solid #ff7b00; }   /* Databricks orange */
+  .data  { border-top: 4px solid #32cd32; }   /* PostgreSQL green */
+  .docs  { border-top: 4px solid #FF0800; }   /* Signature pink/purple */
+
+  
+}
+
+@media (max-width: 900px) {
+  .manifesto-grid { grid-template-columns: 1fr; }
+  .c1, .c2, .c3, .c4 { grid-column: auto; }
+}
+
+svg.icon-inline {
+  width: 1em;
+  display: inline;
+  margin-right: 6px;
+  position: relative;
+  top: 0.15em;
+}

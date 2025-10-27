@@ -1,0 +1,220 @@
+/* FRAME */
+.hc { 
+  position: relative; 
+}
+.hc-viewport { 
+    overflow: hidden; 
+    width: 100%;
+}
+
+.hc-card { 
+    background-color: #fff;
+}
+
+.hero-carousel { 
+    --hc-height: 240px; 
+    width: 81%;
+    margin-left: 9%;
+    --hc-pad: 3rem; 
+    --hc-border: #fff; 
+    padding-top: 2rem;
+    padding-bottom: 3rem;
+}
+
+.hc-track {
+  display:flex !important;
+  flex-wrap: nowrap!important;
+  transition: transform 3s ease;
+  will-change: transform;
+}
+
+.hc-track > .hc-frame {
+    /* flex: 0 0 50% !important;  /* two frames side-by-side */
+    /* max-width: 50%; */
+    height: var(--hc-height);
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.hc-frame { 
+    display: flex;
+    align-items: stretch;
+    height: var(--hc-height); 
+    border: 1px solid #666;
+    border-radius: 12px; 
+    overflow: hidden;
+    background: #0b0d10;
+    margin: 0 auto;
+}
+
+.hc-slide { 
+    flex: 0 0 100% !important; 
+    max-width: 100%;
+}
+
+.hc-left {
+    max-height: 240px;
+    flex: 0 0 auto;
+    display: flex;
+    align-items :center;
+    justify-content: center;
+    padding: 0;
+    background: #0e1116;
+}
+.hc-left img {
+    height: 100%; 
+    max-height: 240px;
+    width: auto;
+    display: block;
+    object-fit: cover;
+}
+.hc-right {
+    flex: 1;
+    min-width: 240px;
+    padding: var(--hc-pad) calc(var(--hc-pad)*1.5) var(--hc-pad) calc(var(--hc-pad)*1.5);
+    color: #ffffffcd;
+    border-style:var(--hc-border);
+    border-color: #666;
+    border-radius: 12px;
+}
+
+/* Font scales with viewport, but stays between 0.975rem and 1.15rem */
+.hc-right .hc-points {
+  font-size: clamp(0.975rem, 1.2vw, 1.25rem);
+  transform: translateX(-240px, 0);
+  transition: opacity .8s ease-out, transform .8s ease-out;
+}
+
+/* Gutter that grows a bit on larger screens */
+.hc-right { padding: var(--hc-pad) clamp(1rem, 2vw, 2rem); }
+
+.hc-h {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.hc-points {
+    margin: 0;
+    padding-left: 1.1rem;
+    font-size: .92rem;
+    line-height: 1.35;
+}
+
+/* --- Tablet-friendly nudge --- */
+@media (max-width: 980px) {
+  .hc-track {
+    gap: 0;
+  }
+  .hero-carousel {
+    padding-top: 1rem;
+    width: 91%;
+    margin-left: 5%;
+  }
+
+  .hc-track > .hc-frame {
+    height: auto;
+    flex: 0 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  /* 📱 Stack image over text */
+  .hc-track > .hc-frame {
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  .hc-left,
+  .hc-right {
+    flex: none;
+    width: 100%;
+  }
+
+  /* 🖼️ Scalable image that fits nicely on narrow viewports */
+  .hc-left {
+    width: auto;
+  }
+  .hc-left img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ✍️ Text readability */
+  .hc-right {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    height: auto;
+  }
+  .hc-right .hc-points {
+    column-count: 1;
+  }
+  .hc-right .hc-points,
+  .hc-right .hc-h {
+    font-size: clamp(1rem, 3.2vw, 1.15rem);
+  }
+}
+
+/* --- Phone layout: stack (image first, text below) --- */
+@media (max-width: 720px) {
+  .hc-viewport { padding-left: 0%; }
+  /* 🧱 Structural fixes for one-frame-per-view on mobile */
+  .hc-track {
+    gap: 0;
+  }
+  .hero-carousel {
+    padding-top: 5rem;
+    width: 91%;
+    margin-left: 5%;
+  }
+
+  .hc-track > .hc-frame {
+    height: auto;
+    flex: 0 0 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  /* 📱 Stack image over text */
+  .hc-track > .hc-frame {
+    flex-direction: column;
+    gap: .75rem;
+  }
+
+  .hc-left,
+  .hc-right {
+    flex: none;
+    width: 100%;
+  }
+
+  /* 🖼️ Scalable image that fits nicely on narrow viewports */
+  .hc-left {
+    width: auto;
+  }
+  .hc-left img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* ✍️ Text readability */
+  .hc-right {
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    height: auto;
+  }
+  .hc-right .hc-points {
+    column-count: 1;
+  }
+  .hc-right .hc-points,
+  .hc-right .hc-h {
+    font-size: clamp(1rem, 3.2vw, 1.15rem);
+  }
+}
+

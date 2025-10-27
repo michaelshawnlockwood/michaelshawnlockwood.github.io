@@ -1,0 +1,21 @@
+<div class="manifesto-grid">
+  <div class="manifesto-block lab c1">
+    {% capture lab %}{% include manifesto-lab.md %}{% endcapture %}
+    {{ lab | markdownify }}
+  </div>
+
+  <div class="manifesto-block cloud c2">
+    {% capture cloud %}{% include manifesto-cloud.md %}{% endcapture %}
+    {{ cloud | markdownify }}
+  </div>
+
+  <div class="manifesto-block data c3">
+    {% capture data %}{% include manifesto-data.md %}{% endcapture %}
+    {{ data | markdownify }}
+  </div>
+
+  <div class="manifesto-block docs c4">
+    {% capture docs %}{% include manifesto-docs.md %}{% endcapture %}
+    {{ docs | markdownify }}
+  </div>
+</div>

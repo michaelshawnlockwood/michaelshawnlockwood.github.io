@@ -1,0 +1,124 @@
+# _data/carousel.yml
+carousel:
+  - img: /assets/images/carousel/DLT-sm.png
+    alt: "Delta Lake"
+    href: "/blog/"
+    points:
+      - "ACID transaction log for Parquet"
+      - "Schema enforcement and evolution"
+      - "Time Travel between table versions"
+      - "Supports upserts, deletes, and vacuum retention"
+      - "Backbone of reliable Lakehouse architecture"
+
+  - img: /assets/images/carousel/SQL-sm.png
+    alt: "SQL Server"
+    href: "/blog/"
+    points:
+      - "External Tables mapped to MinIO (S3 emulator)"
+      - "Parquet reads via PolyBase / OPENROWSET"
+      - "Warehouse ↔ Lakehouse bridge for Time Travel"
+      - "Executes analytic queries on Delta snapshots"
+      - "Automates ETL refresh via SQL Agent or SSIS"
+
+  - img: /assets/images/carousel/AIR-sm.png
+    alt: "Apache Airflow"
+    href: "/blog/"
+    points:
+      - "Orchestrates ingestion and Delta snapshot creation"
+      - "Automates daily pipeline DAGs for repeatability"
+      - "Handles retries, dependencies, and scheduling logic"
+      - "Triggers Delta-RS scripts for Time Travel validation"
+      - "Integrates with Databricks, MinIO, and Azurite for local orchestration"
+
+  - img: /assets/images/carousel/DBX-sm.png
+    alt: "Databricks"
+    href: "/blog/"
+    points:
+      - "Primary compute engine for Delta-RS Time Travel"
+      - "Executes MERGE, UPDATE, and snapshot reads"
+      - "Integrates with Unity Catalog for PHI control"
+      - "Photon engine accelerates vectorized queries"
+      - "Bridges notebook POCs to governed production layers"
+
+  - img: /assets/images/carousel/PQT-sm.png
+    alt: "Parquet"
+    href: "/blog/"
+    points:
+      - "Columnar storage backing for all lakehouse layers"
+      - "Optimized for compression and fast analytical scans"
+      - "Foundation for Delta Lake transaction files"
+      - "Supports predicate pushdown for efficient filtering"
+      - "Compact footprints keep Time Travel snapshots lightweight"
+
+  - img: /assets/images/carousel/PYT-sm.png
+    alt: "Python"
+    href: "/blog/"
+    points:
+      - "Drives local Delta-RS scripts via PyArrow"
+      - "Implements Time Travel query filters"
+      - "Bridges CLI automation and VS Code workflows"
+      - "Transforms Parquet partitions before snapshot writes"
+      - "Integrates with Jupyter and Databricks notebooks"
+
+  - img: /assets/images/carousel/MIN-sm.png
+    alt: "MinIO"
+    href: "/blog/"
+    points:
+      - "S3-compatible storage for local Delta tables"
+      - "Backs External Tables from SQL Server"
+      - "HTTPS + signed URLs for reproducible Time Travel"
+      - "Enables versioned object retention and audit"
+      - "Mimics enterprise S3 deployments for zero-cloud cost"
+
+  - img: /assets/images/carousel/AZU-sm.png
+    alt: "Azurite"
+    href: "/blog/"
+    points:
+      - "Azure Blob emulator for ADLS-style URIs"
+      - "Delta-RS snapshots stored & versioned locally"
+      - "Tests connectivity for Azure SQL MI Link workflows"
+      - "Ensures parity with production Azure pipelines"
+      - "HTTPS + signed URLs for reproducible Time Travel; same URIs [you]’d use in cloud"
+
+  - img: /assets/images/carousel/SCA-sm.png
+    alt: "Scala"
+    href: "/blog/"
+    points:
+      - "Foundation for Spark and Delta APIs"
+      - "Type-safe batch and ETL patterns"
+      - "Bridges notebook POCs to production jobs"
+      - "Integrates with Delta-RS and Spark connectors"
+      - "Future path for strongly typed data pipelines"
+
+  - img: /assets/images/carousel/SNO-sm.png
+    alt: "Snowflake"
+    href: "/blog/"
+    points:
+      - "Cloud data warehouse known for elastic compute and secure sharing"
+      - "External tables query Parquet or Delta data in object storage"
+      - "Complements Delta-RS for cross-platform benchmarking"
+      - "Time Travel feature parallels Delta Lake versioning"
+      - "Integrates with Power BI, Databricks, and Airflow pipelines"
+
+  - img: /assets/images/carousel/PHO-sm.png
+    alt: "Photon"
+    href: "/blog/"
+    points:
+      - "C++ vectorized query engine inside Databricks Runtime"
+      - "Accelerates Delta Lake SQL and DataFrame workloads"
+      - "Reduces compute cost with SIMD-optimized execution"
+      - "Handles scans, joins, and aggregations near “bare-metal” speed"
+      - "Key enabler of near-real-time Time Travel analytics"
+
+  - img: /assets/images/carousel/UNI-sm.png
+    alt: "Unity Catalog"
+    href: "/blog/"
+    points:
+      - "Central governance layer across all Databricks workspaces"
+      - "RBAC — manage access, masking, and lineage for PHI and PII data."
+      - "Provides fine-grained RBAC down to column and row level"
+      - "Tracks lineage for Delta-RS Time Travel datasets"
+      - "Foundation for compliant healthcare and finance pipelines"
+
+
+styles: /assets/css/hero-carousel.css

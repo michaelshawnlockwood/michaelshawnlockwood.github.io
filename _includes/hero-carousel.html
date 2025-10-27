@@ -1,0 +1,14 @@
+{%- assign slides = site.data.carousel.carousel | default: empty -%}
+{%- if slides and slides.size > 0 -%}
+<div class="hero-carousel" role="region" aria-label="Carousel">
+  <div class="hc-viewport">
+    <div class="hc-track">
+      {%- for s in slides -%}
+        {% include hc-slide.html s=s %}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{%- else -%}
+<div class="hero-carousel-empty">No slides found (site.data.carousel.carousel.size = {{ slides.size | default: 0 }})</div>
+{%- endif -%}

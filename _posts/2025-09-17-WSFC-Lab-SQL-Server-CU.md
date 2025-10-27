@@ -31,6 +31,8 @@ header:
   caption: "Rolling CU on SQL Server FCI — WSFC Lab"
 ---
 
+<a id="toc" class="visually-hidden"></a>
+
 > Lab Context  
 > **Cluster VIP/Port:** `10.10.20.25 : 51433`  
 > **FCI Network Name:** `SQLCLUSTER`  

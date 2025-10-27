@@ -31,6 +31,8 @@ header:
   caption: "Apache Airflow Setup Lab — Pages 1–6"
 ---
 
+<a id="toc" class="visually-hidden"></a>
+
 # <img src="/assets/images/airflow-ico.png" alt="Airflow" width="24" height="24"> Airflow Setup Journey: Pages 1–6
 
 I’ve been working through a multi-step Airflow lab setup. Each session I’ve documented as a “page,” keeping a steady rhythm with _SANE_ blocks (Summary, Achievements, Next Steps, &amp; Evaluation). Here’s the recap of what’s been accomplished so far and where things stand today.

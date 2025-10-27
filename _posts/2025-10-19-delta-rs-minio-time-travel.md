@@ -24,7 +24,7 @@ header:
 
 {% capture intro_md %}
 Introduction
-{: .md-h1-intro}
+{: .md-h1-tt-intro}
 
 <i class="fa-solid fa-clock-rotate-left"></i> The Concept of Time Travel
 {: .md-h1 .intro .intro-content .fly-in .fly-in-delay-3}

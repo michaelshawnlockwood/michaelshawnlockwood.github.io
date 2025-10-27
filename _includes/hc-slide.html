@@ -1,0 +1,24 @@
+{%- comment -%}
+expects: s = {
+  img: "/assets/images/carousel/DLT-sm.png",
+  alt: "Delta Lake",
+  title: "Delta Lake",
+  points: ["ACID on Parquet","Schema evolution","Time Travel"],
+  href: "/delta-lake/"  # optional
+}
+{%- endcomment -%}
+
+<div class="hc-frame">
+  <div class="hc-left">
+    <img src="{{ s.img | relative_url }}" alt="{{ s.alt | escape }}">
+  </div>
+  <div class="hc-right">
+    {%- if s.title -%}<h3 class="hc-h">{{ s.title }}</h3>{%- endif -%}
+    {%- if s.points and s.points.size > 0 -%}
+      <ul class="hc-points">
+        {%- for p in s.points -%}<li>{{ p }}</li>{%- endfor -%}
+      </ul>
+    {%- endif -%}
+    {%- if s.href -%}<a class="hc-cta" href="{{ s.href | relative_url }}">Learn more</a>{%- endif -%}
+  </div>
+</div>

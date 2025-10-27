@@ -1,0 +1,46 @@
+<h1 class="md-h1-intro">Professional Manifesto</h1>
+
+<div class="manifesto-intro" markdown="1">
+Almost every day, I dive deeper into modern data engineering technologies through my Data Engineering Project Roadmap, 
+where I carry Parquet files from start to finish — using Azurite and MinIO for local blob storage that emulates both 
+Azure and AWS S3, and extending into Delta Lake emulation to demonstrate Time Travel using Python, Databricks SQL, and 
+Medallion Architecture. I also explore Time Travel through DBX SQL and Python within Databricks notebooks, and design 
+Databricks dashboards as well as Power BI dashboards to compare the two platforms — and frankly, Databricks still has 
+some catching up to do. In parallel, I process Parquet files using SQL Server (via PolyBase) and PostgreSQL to query 
+and analyze data, including spatial functions — publishing interactive NYC Taxi trip maps in my blog posts.  
+
+I’m also launching a hands-on blog series, HIPAA & SOC 2 Compliance for Data Engineers, where I turn my lab work into 
+practical guardrails: how PHI/PII flows through a Medallion Architecture, how to lock it down with Unity Catalog RBAC, 
+and how to encrypt and prove everything with SQL Server TDE/EKM and PostgreSQL equivalents. It’s a builder’s guide, not 
+a policy memo—real configs, real trade-offs, and clear “how we’d pass an audit” checklists.  
+
+Every quarter, I rebuild my lab environments — Hyper-V and Oracle VirtualBox VMs, Windows Server Failover Clusters (WSFC), 
+SQL Server Failover Cluster Instances (FCIs), Always On Availability Groups (AGs), openSUSE Leap, and Debian PostgreSQL 
+nodes — pushing further than the prior quarter across full technology stacks, data lineage, and development cycles. 
+This ensures my skills continue to evolve, my solutions remain articulable, reproducible, and resilient, and that I 
+stay fully prepared to ensure business continuity and meet the challenges of today’s data-driven enterprise landscape.  
+
+My GitHub Pages site serves as the home where I document, articulate, and publish my achievements, guides, and runbooks.  
+</div>
+
+<div class="manifesto-content" markdown="1">
+<i class="fa-solid fa-shapes"></i> Professional Manifesto  
+{: .md-h2}
+
+&mdash; _Inspired by the book, "The Checklist Manifesto"_  
+<i class="fa-solid fa-pen-nib"></i> Thesis: Through continuous repetition, my core strengths, skills and knowdledge evolve, turning multiple platforms, cloud technologies, and programming languages into lasting elements of my Professional Répertoire.  
+<i class="fa-solid fa-arrows-spin"></i> On a recurring quarterly cycle, I push boundaries and stress-test across the full data stack.  
+<i class="fa-solid fa-jedi"></i> Rebuild my environments using Hyper-V and Oracle VirtualBox (WSFC/SQL Server FCI and Linux/PostgreSQL), scripting for repeatability and documenting every step.  
+<i class="fa-solid fa-laptop-file"></i> Move and transform data with SSIS, Python, and PowerShell—leveraging SSIS for deep ETL and workflow control in the Microsoft stack, while Python and PowerShell provide flexible scripting, integration, and automation.  
+<i class="fa-solid fa-signal"></i> Orchestrate end-to-end pipelines with Apache Airflow.  
+<i class="fa-solid fa-magnifying-glass-chart"></i> Deliver analysis and visuals through Power BI and D3.js.  
+<i class="fa-solid fa-file-code"></i> Expose data as JSON via .NET APIs (REST/GraphQL) to the consumption layer—web clients (Angular, React), Analytics & BI (Power BI), and custom visualizations (D3.js).      
+<i class="fa-solid fa-cloud"></i> Migrate workloads to cloud targets—Azure and AWS S3—staying aligned with evolving technology shifts.  
+<i class="fa-solid fa-cloud-bolt"></i> Prioritize performance, transparency, and reproducibility, and always ensure outcomes are explainable and verifiable—almost never quick-and-dirty.[^1]  
+<i class="fa-solid fa-book"></i> Document and publish everything from steps to reconstruct to lessons learned in order to accelerate future builds and strengthen architecural knowledge.  
+
+[^1]: In DevOps and production work, urgent business needs sometimes require quick fixes. The key is to recognize these as exceptions, document them, and follow up with proper regression and stress testing so long-term quality isn’t compromised.  
+</div>
+
+{% include compliance.md %}
+{{ markdownify }}

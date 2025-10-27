@@ -73,11 +73,11 @@ h3 {
 }
 
 .caption {
-  font-size: 0.75rem;
-  line-height: 1.5;
-  opacity: 0.85;
+  font-size: 0.9rem;
+  line-height: 1.25rem;
   text-align: center;
   font-style: italic !important;
+  color: $color-softwhite;
 }
 
 .nuance {
@@ -154,9 +154,21 @@ h3 {
 }
 
 .md-h1-intro {
-  display: grid; 
-  justify-items: center;
-  font-family: 'Imperial Script';
+  text-align: center;
+  font-family: 'Great Vibes', 'Imperial Script', cursive;
+  font-weight: 400; /* or 'normal' */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-size: 4rem !important;
+  margin: 0em 0 0.5em 0em !important;
+  padding-right: 0.5em;
+  text-align: center;
+  color: $color-softwhite;
+}
+
+.md-h1-tt-intro {
+  text-align: center;
+  font-family: 'Imperial Script', cursive;
   font-size: 4rem !important;
   margin: 0em 0 0 0em !important;
   padding-right: 0.5em;
@@ -194,7 +206,8 @@ h3 {
 }
 
 .md-h3 {
-  margin: 0.5em 0 0.1em !important;
+  margin: 0.5em 0 0.2em !important;
+  padding-bottom: 0.75em;
   font-size: 1.25rem !important;
   font-weight: bold;
 }
