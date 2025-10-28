@@ -2,15 +2,12 @@
 layout: single
 title: "About"
 permalink: /about/
-classes: page--about
 author: michael_lockwood
 author_profile: true
 classes: 
   - page--about
   - center-page
   - no-padding
-author: michael_lockwood
-author_profile: true
 header:
   actions:
     - label: "NYC Taxi Project"
