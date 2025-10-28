@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="faxicon.svg"
+   inkscape:export-filename="favicon\favicon.png"
+   inkscape:export-xdpi="12"
+   inkscape:export-ydpi="12"
+   inkscape:version="1.4.2 (ebf0e94, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     inkscape:export-bgcolor="#00000000"
+     inkscape:zoom="1.5292969"
+     inkscape:cx="256"
+     inkscape:cy="256"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg9" />
+  <!-- Page background -->
+  <rect
+     x="64"
+     y="64"
+     width="384"
+     height="384"
+     rx="36"
+     fill="#000000"
+     id="rect1" />
+  <defs
+     id="defs4">
+    <!-- Bright cyan gradient (top measure) -->
+    <linearGradient
+       id="areaBright"
+       x1="86.799078"
+       y1="226.73052"
+       x2="86.799078"
+       y2="467.83907"
+       gradientTransform="scale(1.2442528,0.80369517)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#38bdf8"
+         stop-opacity="0.8"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#0ea5e9"
+         stop-opacity="0.4"
+         id="stop2" />
+    </linearGradient>
+    <!-- Darker indigo gradient (bottom measure) -->
+    <linearGradient
+       id="areaDark"
+       x1="79.309016"
+       y1="291.71967"
+       x2="79.309016"
+       y2="512.02249"
+       gradientTransform="scale(1.3617619,0.73434274)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#1e3a8a"
+         stop-opacity="0.9"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#1e40af"
+         stop-opacity="0.5"
+         id="stop4" />
+    </linearGradient>
+    <!-- Chart clip mask -->
+    <clipPath
+       id="chartClip">
+      <rect
+         x="96"
+         y="120"
+         width="320"
+         height="256"
+         rx="24"
+         ry="24"
+         id="rect4" />
+    </clipPath>
+  </defs>
+  <!-- Chart content, clipped to frame shape -->
+  <g
+     clip-path="url(#chartClip)"
+     id="g9"
+     transform="matrix(1.1309871,0,0,1.4191618,-33.20576,-96.432321)">
+    <!-- Darker baseline area -->
+    <path
+       d="m 108,300 c 48,-28 84,-8 120,-52 36,-44 68,12 104,-20 36,-32 40,4 76,-12 V 376 H 108 Z"
+       fill="url(#areaDark)"
+       opacity="0.9"
+       id="path4"
+       style="fill:url(#areaDark)" />
+    <!-- Bright overlay area -->
+    <path
+       d="m 108,272 c 48,-28 84,-8 120,-56 36,-48 68,12 104,-20 36,-32 40,4 76,-12 V 376 H 108 Z"
+       fill="url(#areaBright)"
+       opacity="0.9"
+       id="path5"
+       style="fill:url(#areaBright)" />
+    <!-- Trend line -->
+    <path
+       d="m 108,272 c 48,-28 84,-8 120,-56 36,-48 68,12 104,-20 36,-32 40,4 76,-12"
+       fill="none"
+       stroke="#7dd3fc"
+       stroke-width="16"
+       id="path6" />
+    <!-- Legend background: bottom-right with 24px equal margin -->
+    <rect
+       x="264"
+       y="292"
+       width="128"
+       height="72"
+       rx="8"
+       fill="#000000"
+       opacity="0.9"
+       id="rect6" />
+    <!-- Legend lines: vertically spaced and centered inside the box -->
+    <!-- Box mid = 292+36=328; lines equally spaced ±12px -->
+    <g
+       stroke-linecap="round"
+       stroke-width="10"
+       id="g8">
+      <line
+         x1="280"
+         y1="308"
+         x2="376"
+         y2="308"
+         stroke="#7dd3fc"
+         id="line6" />
+      <line
+         x1="280"
+         y1="328"
+         x2="376"
+         y2="328"
+         stroke="#38bdf8"
+         id="line7" />
+      <line
+         x1="280"
+         y1="348"
+         x2="376"
+         y2="348"
+         stroke="#1e3a8a"
+         id="line8" />
+    </g>
+  </g>
+  <!-- White chart frame (drawn last, on top) -->
+  <rect
+     x="75.369003"
+     y="73.867096"
+     width="361.91589"
+     height="363.30542"
+     rx="27.14369"
+     ry="34.059883"
+     fill="none"
+     stroke="#ffffff"
+     stroke-width="15.2029"
+     id="rect9" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="Layer 1" />
+</svg>

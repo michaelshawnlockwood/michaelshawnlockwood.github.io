@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Page background -->
+  <rect x="64" y="64" width="384" height="384" rx="36" fill="#000000"/>
+
+  <defs>
+    <!-- Bright cyan gradient (top measure) -->
+    <linearGradient id="areaBright" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0.4"/>
+    </linearGradient>
+
+    <!-- Darker indigo gradient (bottom measure) -->
+    <linearGradient id="areaDark" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e3a8a" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#1e40af" stop-opacity="0.5"/>
+    </linearGradient>
+
+    <!-- Chart clip mask -->
+    <clipPath id="chartClip">
+      <rect x="96" y="120" width="320" height="256" rx="24" ry="24"/>
+    </clipPath>
+  </defs>
+
+  <!-- Chart content, clipped to frame shape -->
+  <g clip-path="url(#chartClip)">
+    <!-- Darker baseline area -->
+    <path d="M108,300 
+             C156,272 192,292 228,248 
+             S296,260 332,228 
+             S372,232 408,216 
+             L408,376 L108,376 Z"
+          fill="url(#areaDark)" opacity="0.9"/>
+
+    <!-- Bright overlay area -->
+    <path d="M108,272 
+             C156,244 192,264 228,216 
+             S296,228 332,196 
+             S372,200 408,184 
+             L408,376 L108,376 Z"
+          fill="url(#areaBright)" opacity="0.9"/>
+
+    <!-- Trend line -->
+    <path d="M108,272 
+             C156,244 192,264 228,216 
+             S296,228 332,196 
+             S372,200 408,184"
+          fill="none" stroke="#7dd3fc" stroke-width="16"/>
+
+    <!-- Legend background: bottom-right with 24px equal margin -->
+    <rect x="264" y="292" width="128" height="72" rx="8" fill="#000000" opacity="0.9"/>
+
+    <!-- Legend lines: vertically spaced and centered inside the box -->
+    <!-- Box mid = 292+36=328; lines equally spaced ±12px -->
+    <g stroke-linecap="round" stroke-width="10">
+      <line x1="280" y1="308" x2="376" y2="308" stroke="#7dd3fc"/>
+      <line x1="280" y1="328" x2="376" y2="328" stroke="#38bdf8"/>
+      <line x1="280" y1="348" x2="376" y2="348" stroke="#1e3a8a"/>
+    </g>
+  </g>
+
+  <!-- White chart frame (drawn last, on top) -->
+  <rect x="96" y="120" width="320" height="256" rx="24" ry="24"
+        fill="none" stroke="#ffffff" stroke-width="12"/>
+</svg>
