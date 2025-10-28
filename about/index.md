@@ -21,6 +21,6 @@ header:
       class: "btn"
 ---
 
-{% include about.html %}
+{% include home.html %}
 
 
