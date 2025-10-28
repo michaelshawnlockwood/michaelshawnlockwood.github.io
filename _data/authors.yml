@@ -1,7 +1,7 @@
 michael_lockwood:
   name: "Michael Shawn Lockwood"
   avatar: "/assets/images/profile.jpeg"   # put the image here (see step 3)
-  bio: "Database Architect, Developer & Administrator \\| MCDBA \\| SQL Server & T-SQL Practitioner \\| Performance, Scalability, Availability & Automation \\| PostgreSQL ➝ Azure ➝ Airflow ➝ Databricks • Explorer"
+  bio: "Data Engineer \\| MCDBA \\| SQL Server & T-SQL Practitioner \\| Performance, Scalability & Automation Engineering \\| Databricks ➝ Delta Lake ➝ Azure ➝ PostgreSQL • Explorer"
   location: "North Carolina, USA"
   links:
     - label: "GitHub"
