@@ -244,6 +244,7 @@ az storage container create `
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 ✂️ Note on Brevity  
 {: .md-h2 .fly-in .fly-in-delay-3}
 
@@ -333,6 +334,7 @@ Output 2 of 2:
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 🏡 Environment Setup  
 {: .md-h2 .fly-in .fly-in-delay-3}
 
@@ -377,6 +379,7 @@ Rather than running new ETL jobs or risking stale copies, the **Delta Time Trave
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 🧱 Data Foundation
 {: .md-h3 .fly-in .fly-in-delay-3}
 
@@ -455,6 +458,7 @@ Databricks will join later in the workflow — it’s still a “thin” layer n
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 ⏱️ Time Travel by Timestamp (DBX CE)
 {: ,md-h2 .fly-in .fly-in-delay-3}
 
@@ -562,6 +566,7 @@ DESCRIBE HISTORY tt_demo;
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 📜 Results — Time Travel in Action
 {: .md-h2}
 
@@ -622,6 +627,7 @@ Organizations typically enforce isolation at this stage — dedicated storage ac
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 ## 🔒 What “De-Identification” Means (PII/PHI)
 {: .fly-in .fly-in-delay-3}
 
@@ -672,6 +678,7 @@ Gotchas (easy to miss)
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 🥈 Silver — Cleaned & Structured  
 {: .md-h3 .fly-in .fly-in-delay-3}
 
@@ -743,6 +750,7 @@ Terminology — Layer vs. Zone vs. Domain
 
 ---
 
+[⬆ Back to Top](#toc){:.back-to-top}
 🕓 Time Travel Across the Medallion Layers 
 {: .md-h2 .fly-in .fly-in-delay-3}
 

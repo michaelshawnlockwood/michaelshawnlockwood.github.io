@@ -8,6 +8,8 @@ Series headlines (working outline)
  - Unity Catalog, Groups & RBAC: Role design, inheritance, service principals, table/row/column controls, masking  
  - Delta Lake Controls: Time Travel for forensics, VACUUM/retention policy, lineage, change data capture notes  
 {: .indent-md}
+
+---
  
  Encryption Everywhere  
  {: .md-h2}
