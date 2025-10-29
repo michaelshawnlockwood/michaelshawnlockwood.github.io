@@ -13,3 +13,11 @@ main:
     url: /blog/
   - title: "Contact"
     url: /about/#contact
+  - title: "Code Snippets"
+    url: /codelib/
+    children:
+      - title: "Git & GitHub"
+        url: /codelib/#git
+      - title: "PowerShell 7"
+        url: /codelib/#powershell
+

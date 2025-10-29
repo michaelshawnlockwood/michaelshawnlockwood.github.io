@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Tile Header – Minimal Diagnostic</title>
+<style>
+  :root{color-scheme:dark}
+  body{margin:0;background:#0c0c0c;font-family:system-ui,Segoe UI,Arial}
+
+  .tile-header{ --x-offset: 110px; 
+    --angle:-30deg; --band-h:280px; --tile:52px; --row-gap:6px; --col-gap:120px; --filler-opacity:.85; --scale:1;
+    position:relative;height:calc(var(--band-h)*var(--scale));background:#111;overflow:hidden;isolation:isolate
+  }
+
+  .tile-col{position:absolute;bottom:0;display:flex;flex-direction:column;gap:calc(var(--row-gap)*var(--scale));
+    transform-origin:bottom center;transform:rotate(var(--angle))}
+
+    .tile-col.primary { 
+        left: calc(var(--x-offset) + var(--i) * var(--col-gap) * var(--scale)); 
+    }
+
+    .tile-col.filler  { 
+        left: calc(var(--x-offset) + (var(--j) + 0.5) * var(--col-gap) * var(--scale)); 
+        opacity: 0.75; 
+        filter: saturate(1.6) brightness(1.2);
+    }
+
+    .tile-col.filler .t { outline: 2px dashed #000000; }
+
+  .t{width:calc(var(--tile)*var(--scale));height:calc(var(--tile)*var(--scale));display:grid;place-items:center;
+    color:#e7e7e7;font-weight:800;font-size:15px;letter-spacing:.5px;border-radius:12px;
+    background:radial-gradient(80% 80% at 50% 40%,#1f1f1f 0%,#121212 70%,#0f0f0f 100%);
+    box-shadow:0 2px 10px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.04)}
+  .t.has-img{background-size:cover;background-position:center;color:transparent;text-indent:-9999px}
+  .tile-header::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.22),transparent 40%),
+                                                linear-gradient(to bottom,rgba(0,0,0,.18),transparent 35%)}
+  .wrap{padding:16px;color:#bbb}
+</style>
+</head>
+<body>
+  <div class="tile-header"></div>
+
+<script>
+const BASE = "../assets/images/tiles/";
+const PRIMARY_COLS = [
+  ["SQL","SNO","PG2","AZU","SYN","DA1"],
+  ["AIR","AWS","GLU","WIN","LIN","LE1"],
+  ["LE2","OPE","PYT","SNO","AB1","AWS"],
+  ["WIN","DA2","PO3","SQL","PG1","AZU"],
+  ["SYN","AIR","AWS","LE2","OPE","WIN"],
+  ["LIN","PYT","SNO","AB1","AB3","GLU"],
+  ["PG2","LE1","LE2","SQL","PG1","AIR"],
+  ["AB3","DA2","PO3","SQL","PG1","AZU"],
+  ["AIR","AWS","GLU","WIN","LIN","LE1"],
+  ["AWS","AB1","SNO","PYT","OPE","LE2"],
+  ["LIN","AZU","PG2","WIN","SQL","LE1"],
+  ["SQL","AIR","LE1","LIN","PO3","PG1"],
+  ["PYT","DA2","AIR","AZU","AWS","PG2"]
+];
+const FILLER_COLS = [
+  ["PG2","LE1","LE2","SQL","PG1","AIR"],
+  ["DA1","DA2","SQL","PO3","AZU","SNO"],
+  ["SYN","AIR","AWS","LIN","WIN","PYT"],
+  ["PYT","SNO","OPE","AB2","SQL","DA1"],
+  ["LE2","SQL","PG2","GLU","DA2","LE2"],
+  ["AWS","AIR","SYN","LIN","WIN","PYT"],
+  ["AIR","AWS","GLU","WIN","LIN","LE1"],
+  ["PYT","SNO","OPE","AB2","SQL","DA1"],
+  ["LE1","LIN","WIN","GLU","AWS","AIR"],
+  ["WIN","OPE","LE2","AWS","AIR","SYN"],
+  ["PYT","SNO","OPE","AB2","GLU","DA1"],
+  ["DA2","SYN","SQL","PYT","WIN","SNO"],
+  ["WIN","GLU","AWS","SQL","SQL","SQL"]
+];
+
+function probeImg(url){
+  return new Promise(res=>{
+    const img=new Image();
+    img.onload=()=>res(true);
+    img.onerror=()=>res(false);
+    img.src=url+"?v="+Date.now();
+  });
+}
+
+async function makeCol(codes,cls,idx){
+  const col=document.createElement("div");
+  col.className="tile-col "+cls;
+  col.style.setProperty(cls==="primary"?"--i":"--j",idx);
+  for(const code of codes){
+    const t=document.createElement("div");
+    t.className="t"; t.textContent=code;
+    const url=`${BASE}${code}.png`;
+    if(await probeImg(url)){ t.classList.add("has-img"); t.style.backgroundImage=`url("${url}")`; }
+    col.appendChild(t);
+  }
+  return col;
+}
+
+(async function init(){
+  const header=document.querySelector(".tile-header");
+  if(!header){ console.error("No .tile-header found"); return; }
+  console.log("Rendering columns…");
+  const cols=await Promise.all([
+    ...PRIMARY_COLS.map((c,i)=>makeCol(c,"primary",i)),
+    ...FILLER_COLS.map((c,j)=>makeCol(c,"filler",j))
+  ]);
+  cols.forEach(c=>header.appendChild(c));
+  console.log("Done. Missing PNGs remain as text tiles.");
+})();
+
+/* Basic error overlay so a JS error isn’t a blank page */
+window.addEventListener("error", e=>{
+  const pre=document.createElement("pre");
+  pre.style.cssText="position:fixed;inset:8px;z-index:9999;background:#1b1b1b;color:#f55;padding:12px;border:1px solid #333";
+  pre.textContent="JS Error: "+e.message+"\n"+(e.filename||"")+(e.lineno?":"+e.lineno:"");
+  document.body.appendChild(pre);
+});
+</script>
+</body>
+</html>

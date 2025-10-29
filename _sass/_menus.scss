@@ -19,6 +19,7 @@
 .layout--home .greedy-nav .visible-links a[href="/"] { pointer-events: none; opacity: .6; }
 .page--about .greedy-nav .visible-links a[href="/about/"] { pointer-events: none; opacity: .6; }
 .page--blog  .greedy-nav .visible-links a[href="/blog/"]  { pointer-events: none; opacity: .6; }
+.page--codelib  .greedy-nav .visible-links a[href="/codelib/"]  { pointer-events: none; opacity: .6; }
 
 html:has(#skills:target)     .greedy-nav a[href="/about/#skills"] { pointer-events: none; opacity: .6; }
 html:has(#experience:target) .greedy-nav a[href="/about/#experience"] { pointer-events: none; opacity: .6; }

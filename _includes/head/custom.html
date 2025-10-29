@@ -1,6 +1,12 @@
-<link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon/favicon.svg' | relative_url }}">
-<link rel="alternate icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon/favicon.png' | relative_url }}">
-<link rel="apple-touch-icon" href="{{ '/assets/images/favicon/apple-touch-icon.png' | relative_url }}">
+{% assign favicon = site.static_files | where: "path", "/assets/images/favicon/favicon.svg" | first %}
+<link rel="icon" type="image/svg+xml" href="{{ favicon.path | relative_url }}?v={{ favicon.modified_time | date: '%s' }}">
+
+{% assign favicon_png = site.static_files | where: "path", "/assets/images/favicon/favicon.png" | first %}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ favicon_png.path | relative_url }}?v={{ favicon_png.modified_time | date: '%s' }}">
+
+{% assign apple_icon = site.static_files | where: "path", "/assets/images/favicon/apple-touch-icon.png" | first %}
+<link rel="apple-touch-icon" href="{{ apple_icon.path | relative_url }}?v={{ apple_icon.modified_time | date: '%s' }}">
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"

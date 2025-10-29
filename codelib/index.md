@@ -17,7 +17,7 @@ header:
       class: "btn"
 ---
 
-{% include code-library.md %}
+{% include snippets.md %}
 {{ mardownify }}
 
 

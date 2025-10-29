@@ -27,3 +27,18 @@ Run Jupyter
 # PowerShell 
 docker run -it --rm -p 8888:8888 -v "${PWD}\Notebooks:/home/jovyan/work" jupyter/minimal-notebook:latest
 ```
+
+---
+
+### GitHub Pages 
+```bash
+# Build
+bundle exec jekyll build --safe --trace
+```
+
+```bash
+# Build and serve
+bundler exec jekyll clean && bundler exec jekyll serve --livereload
+```
+
+---
