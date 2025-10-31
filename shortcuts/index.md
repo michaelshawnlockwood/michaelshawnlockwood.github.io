@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Code Snippets"
-permalink: /codelib/
+title: "Keyboard Shortcust"
+permalink: /shortcuts/
 classes: 
-  - page--codelib
+  - page--keyboard-shortcuts
   - center-page
   - no-padding
 author: michael_lockwood
@@ -12,15 +12,15 @@ author: michael_lockwood
 author_profile: true
 header:
   actions:
-    - label: "PowerShell"
-      url: /codelib/#powershell
+    - label: "Databricks"
+      url: /shortcuts/#databricks
       class: "btn"
-    - label: "Git"
-      url: /codelib/#git
+    - label: "VS Code"
+      url: /shortcuts/#vscode
       class: "btn"
 ---
 
-{% include snippets.md %}
+{% include keyboard-shortcuts.md %}
 {{ mardownify }}
 
 
