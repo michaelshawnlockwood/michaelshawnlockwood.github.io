@@ -1,8 +1,12 @@
 ---
 layout: splash
 permalink: /
-title: "***Michael Shawn Lockwood — Data Engineering & DBA Portfolio***"
-excerpt: "Welcome to my GitHub Pages. Each and every day I dive deeper into modern data engineering tech. _GitHub Pages is where I articulate, document, and publish achievements, guides and runbooks._ This site is my living journal, and I update it almost every day."
+title: "***Michael Shawn Lockwood — Software Engineering, Data Engineering & DBA Portfolio***"
+excerpt: "My mission is to restore and preserve agency for small enterprises by building enterprise-class, data-driven software that adapts to how SMBs choose to operate.
+
+The software provides complete, usable structures without prescribing them, encoding assumptions, or presenting any single business model as a universal truth.
+
+Instead, it affords businesses authority to define and evolve their own structures and workflows, without requiring them to design a system from scratch or conform to embedded assumptions."
 classes: wide-center-page
 header:
   overlay_color: "#000" 
