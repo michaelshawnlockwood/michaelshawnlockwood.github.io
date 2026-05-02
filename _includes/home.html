@@ -18,24 +18,48 @@
           Michael Shawn Lockwood &mdash; Data Engineer &amp; DBA  
         </h1>
         <p>
-          My foundation in SQL Server and T-SQL development spans two decades. I specialize in performance, scalability, and 
-          automation engineering across the full data lifecycle. I design and build complete data pipelines—from raw sources such 
-          as Parquet, CSV, and PSV—through database design, development, and optimization now in Databricks, SQL Server, and 
-          PostgreSQL, all the way to analytics and visualization in Power BI and D3.js. My work spans on-prem. and cloud-aligned 
-          environments, including Azure and Databricks, where I also experiment locally with Azurite and MinIO to emulate real-world 
-          cloud architectures for Delta Lake and object-storage integration. Though I can build APIs and UX layers, my strongest 
-          impact is in the data tier, where design and performance converge.  
+          As an Application Database Developer and Data Platform Engineer, I’ve spent my career operating at the intersection of SQL Server 
+          development and database administration—designing performant T-SQL while ensuring stability, scalability, and operational readiness 
+          in live environments. As a Microsoft Certified Database Administrator, I’ve worked as the sole DBA in multiple organizations, acting 
+          as the guardrail between application changes and production performance. My focus has always been solving issues at the data layer 
+          rather than compensating with infrastructure.  
         </p>
         <p>
-          I’m a highly motivated and naturally curious professional who takes pride in understanding how every layer of data architecture 
-          fits together. Whether examining execution plans, tightening indexes, or refining data flows, I approach every challenge with a 
-          performance-first, automation-second mindset. I value precision, reliability, and transparency—traits that have defined my 
-          success across healthcare, finance, and hospitality systems for more than two decades.  
+          At OnePoint Patient Care, I served as Director of Information Infrastructure for more than 5 years, where I designed and built the 
+          full SQL Server data environment supporting the OnePointRx healthcare application. I also assembled and managed the application 
+          development team responsible for building OnePointRx. This included integrating HL7 clinical data, managing PHI securely, and 
+          ensuring data handling aligned with HIPAA requirements in a production environment. 
         </p>
         <p>
-          I began with Microsoft Access while in college nearly 30 years ago. Naturally, I migrated to SQL Server using Microsoft’s Data 
-          Transformation Services (DTS) and earned my MCDBA certification in 2006. SQL Server, T-SQL, and SSIS form the foundation of 
-          my career. I also hold a Bachelor’s degree in Business Administration from DeVry University.
+          I approach data platforms with a performance-first mindset—grounded in two decades of SQL Server engineering and extended into 
+          modern data architectures. I specialize in performance, scalability, and automation engineering across the full data lifecycle. 
+          My approach to database performance is rooted in pattern recognition, root cause analysis, continuous baselining, bottleneck 
+          identification, early anomaly detection, and workload-aware tuning. 
+        </p>
+        <p>
+          I’m a naturally curious professional who takes pride in understanding how every layer of data and software architecture fits 
+          together. I approach challenges with a performance-first, automation-second mindset. I value precision, reliability, and 
+          transparency—traits that have defined my success across healthcare, finance, and hospitality systems for more than two decades.
+        </p>
+        <p>
+          I began database development using Microsoft Access while in college and transitioned to SQL Server early in my career, 
+          working with Data Transformation Services (DTS). I earned my Microsoft Certified Database Administrator (MCDBA) certification 
+          in 2006. SQL Server, T-SQL, and SSIS form the foundation of my career. I also hold a Bachelor’s degree in Business Administration 
+          from DeVry University in 2003.
+        </p>
+        <p>
+          Most recently, I designed and built a full-stack workflow orchestration, bookkeeping, and data administration platform using 
+          React/TypeScript, ASP.NET/C#, PostgreSQL, Vault, MinIO, and TLS-secured internal services on Debian (Bookworm). I implemented 
+          per-tenant database isolation by securing connection strings as Vault-managed secrets, along with server-side rendering, PDF 
+          generation, and automated workflow execution driven by React Flow and JSON-based models. The platform is a production-grade 
+          business data management solution incorporating agentic AI patterns for workflow orchestration and automation.
+        </p>
+        <p>
+          Additionally, I developed a large-scale data pipeline spanning SQL Server and Databricks, integrating PolyBase, Parquet datasets, 
+          and S3-compatible storage (MinIO/Azurite). This work focused on efficient data ingestion, query performance, and analytical 
+          workflows, with visualization delivered through Power BI and Databricks dashboards. My background continues to be grounded in 
+          database engineering principles, including performance tuning, data modeling, and reliability across both SQL Server and PostgreSQL 
+          environments.
         </p>
       </div>
       <div class="row">
@@ -49,24 +73,64 @@
         </nav>
       </div>
     </section>
-      <!-- Core Strengths (Bullets) -->
-      <section id="core-strengths">
-        <h2 id="core-strengths" class="section-subtitle">Core Strengths</h2>
-        <p>
-          I engineer fast, reliable, predictable database solutions. Since 7.0a, I’ve architected the data tier
-          for mission-critical applications—pairing surgical incident response with automation that endures.
-        </p>
-        <ul>
-          <li><strong>SQL Server (20+ years)</strong> — 7.0a/<strong>DTS</strong> → 2019/<strong>SSIS</strong></li>
-          <li><strong>Certification</strong> — <strong>MCDBA</strong> (2006)</li>
-          <li><strong>Data-integration pipelines (15 years)</strong> — SSIS ETL (parameterized packages, env configs, checkpoint/restart); domains: Healthcare (HL7), Financial (Mellon, APS; legacy batch &amp; paper reporting), Automotive (nationwide parts)</li>
-          <li><strong>HA/DR</strong> — Always On AGs, FCIs, Replication, Mirroring; backup/restore automation</li>
-          <li><strong>Operational automation & observability</strong> — automate, monitor, and audit routine DBA work (backups, CHECKDB, index maintenance, deployments) with idempotent scripts, schedules, telemetry, alerts, and audit trails</li>
-          <li><strong>Fluent T-SQL development</strong> — performance-oriented stored procedures; set-based patterns (TVPs/TVFs, window functions); safe dynamic SQL; tempdb-aware design; pragmatic instrumentation/logging</li>
-          <li><strong>Performance engineering</strong> — SARGable patterns, indexing strategy, execution-plan analysis</li>
-          <li><strong>Database-First pragmatism</strong> — partner with EF/Code-First teams to avoid ORM anti-patterns; profile queries; add hand-tuned procs without slowing delivery</li>
-        </ul>
-      </section>
+      <!-- Technical Skills -->
+    <section id="technical-skills">
+      <h2 id="technical-skills" class="section-subtitle">Technical Skills</h2>
+
+      <h3>SQL Server &amp; Core Database</h3>
+      <ul>
+        <li><strong>T-SQL</strong> — advanced development, performance tuning, automation</li>
+        <li><strong>SQL Server Integration Services (SSIS)</strong> — ETL, data migration, workflow automation</li>
+        <li><strong>SQL Server Reporting Services (SSRS)</strong> — reporting, analytics, dashboards</li>
+        <li><strong>SQL Server Data Tools (SSDT)</strong> — Visual Studio</li>
+        <li><strong>VS Code</strong></li>
+      </ul>
+
+      <h3>Databricks &amp; Lakehouse Engineering</h3>
+      <ul>
+        <li><strong>Databricks</strong> — notebook-based data engineering, repeatable workflows, Python and Spark SQL development</li>
+        <li><strong>Delta Lake</strong> — ACID tables, transaction history, Time Travel concepts, versioned data processing</li>
+        <li><strong>Medallion Architecture</strong> — Bronze, Silver, and Gold data modeling patterns</li>
+        <li><strong>PySpark</strong> — JSON ingestion, nested data shaping, STRUCT and ARRAY transformations</li>
+        <li><strong>Spark SQL</strong> — analytical querying, point-in-time filtering, nested data expansion with explode</li>
+        <li><strong>SCD Type II Modeling</strong> — historical row versioning, effective dating, current and prior-state analysis</li>
+        <li><strong>Healthcare Data Pipelines</strong> — HL7-derived JSON, patient-condition history, diagnosis progression modeling</li>
+      </ul>
+
+      <h3>High Availability &amp; Disaster Recovery</h3>
+      <ul>
+        <li><strong>Always On Availability Groups</strong></li>
+        <li><strong>Windows Server Failover Clustering (WSFC)</strong></li>
+        <li><strong>Log Shipping</strong></li>
+      </ul>
+
+      <h3>Performance &amp; Monitoring</h3>
+      <ul>
+        <li><strong>Query optimization</strong>, indexing strategies, execution plan analysis</li>
+        <li><strong>Extended Events</strong>, Resource Governor, SQL Trace, SQL Audit</li>
+      </ul>
+
+      <h3>Data Engineering &amp; Automation</h3>
+      <ul>
+        <li><strong>ETL/ELT pipelines</strong>, workflow orchestration</li>
+        <li><strong>T-SQL</strong>, SSIS, PowerShell, Python</li>
+        <li><strong>Databricks</strong>, Power BI</li>
+      </ul>
+
+      <h3>Platforms &amp; Tools</h3>
+      <ul>
+        <li><strong>SQL Server</strong> 7.0–2022, PostgreSQL, Azure SQL, SQL Server on Azure VMs</li>
+        <li><strong>GitHub</strong>, Hyper-V, Oracle VirtualBox, Docker/Dev Containers, Linux</li>
+        <li><strong>Linux distributions</strong> — Debian, openSUSE</li>
+      </ul>
+
+      <h3>Full-Stack Development</h3>
+      <ul>
+        <li><strong>React</strong> TypeScript, ASP.NET Core/C#</li>
+        <li><strong>JSON-based data models</strong>, workflow-driven applications</li>
+        <li><strong>MinIO</strong> object storage, HashiCorp Vault secrets management</li>
+      </ul>
+    </section>
     <section id="about">
       <div class="row">
         <div>
