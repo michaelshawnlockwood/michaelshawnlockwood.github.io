@@ -49,6 +49,10 @@ data_out/**/*.psv
 data_out/**/*.tsv
 data_out/**/*.parquet
 
+Gemfile.local
+Gemfile.local.lock
+_config_local.yml
+
 # Common flat files
 *.csv
 *.tsv

@@ -35,8 +35,8 @@ In Delta Lake, Time Travel means you can read a table as it existed at any earli
 Time Travel with Delta-RS: Local Experiments with MinIO, Azurite, and Databricks  
 {: .md-h2 .intro .intro-content .fly-in .fly-in-delay-3}
 
-- Context on Delta Lake and why “Time Travel” matters.  
-- Mention my focus on local experimentation using **MinIO (HTTPS)** and **Azurite (HTTPS)** — avoiding reliance on cloud-hosted services&mdash;_to avoid unnecessary costs associated with cloud compute for most developement and experimentation work._  
+- Delta Lake and why “Time Travel” matters. 
+- Local experimentation is on **MinIO (HTTPS)** and **Azurite (HTTPS)** — avoiding reliance on cloud-hosted services&mdash;_to avoid unnecessary costs associated with cloud compute for most developement and experimentation work._  
 - Note that this work complements my earlier projects on Parquet ingestion, Delta-RS integration, and Azure emulation.  
 {: .indent-md .fly-in .fly-in-delay-3}
 {% endcapture %}
